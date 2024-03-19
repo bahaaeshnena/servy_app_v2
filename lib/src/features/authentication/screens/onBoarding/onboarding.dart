@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets/onboarding_dot_navigation.dart';
+import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets/onboarding_page.dart';
+import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets/onboarding_skip.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/constants/texts.dart';
@@ -31,49 +35,15 @@ class OnBoardingScreen extends StatelessWidget {
               ),
             ],
           ),
+          const OnBoardingSkip(),
+          const OnBoardingDotNavigation(),
           Positioned(
-              top: TDeviceUtils.getAppBArHeight(),
               right: TSizes.defaultSpace,
-              child: TextButton(
+              bottom: TDeviceUtils.getBottomNavigationBarHeight(),
+              child: ElevatedButton(
                 onPressed: () {},
-                child: const Text("Skip"),
+                child: const Icon(Iconsax.arrow_right3),
               ))
-        ],
-      ),
-    );
-  }
-}
-
-class OnBoardingPage extends StatelessWidget {
-  const OnBoardingPage({
-    super.key,
-    required this.image,
-    required this.title,
-    required this.subTitle,
-  });
-  final String image, title, subTitle;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(TSizes.defaultSpace),
-      child: Column(
-        children: [
-          Image(
-            width: 350,
-            height: 550,
-            image: AssetImage(image),
-          ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headlineMedium,
-            textAlign: TextAlign.center,
-          ),
-          const SizedBox(height: TSizes.spaceBtwItems),
-          Text(
-            subTitle,
-            style: Theme.of(context).textTheme.bodyMedium,
-            textAlign: TextAlign.center,
-          ),
         ],
       ),
     );
