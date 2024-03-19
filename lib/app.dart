@@ -9,7 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         home: const OnBoardingScreen(),
-        debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: true,
         themeMode: ThemeMode.system,
         theme: TAppTheme.lightTheme,
         darkTheme: TAppTheme.darkTheme);
