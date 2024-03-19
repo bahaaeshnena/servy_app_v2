@@ -3,7 +3,6 @@ import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:servy_app/src/utils/device/device_utility.dart';
-import 'package:servy_app/src/utils/helpers/helper_function.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
