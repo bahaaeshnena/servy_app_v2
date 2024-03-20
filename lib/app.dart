@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:servy_app/src/features/authentication/screens/onboarding.dart';
+import 'package:get/get.dart';
+import 'package:servy_app/src/features/authentication/screens/onBoarding/onboarding.dart';
 import 'package:servy_app/src/utils/theme/theme.dart';
 
 class App extends StatelessWidget {
@@ -7,7 +8,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
         home: const OnBoardingScreen(),
         debugShowCheckedModeBanner: true,
         themeMode: ThemeMode.system,
