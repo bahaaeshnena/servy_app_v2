@@ -1,22 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:iconsax/iconsax.dart';
+import 'package:get/get.dart';
+import 'package:servy_app/src/features/authentication/controllers/onboarding/onboarding_controller.dart';
 import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets/onboarding_dot_navigation.dart';
+import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets/onboarding_next_button.dart';
 import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets/onboarding_page.dart';
 import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets/onboarding_skip.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
-import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/constants/texts.dart';
-import 'package:servy_app/src/utils/device/device_utility.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put(OnBoardingController());
+
     return Scaffold(
       body: Stack(
         children: [
           PageView(
+            controller: controller.pageController,
+            onPageChanged: controller.updatePageIndicator,
             children: const [
               OnBoardingPage(
                 image: TImages.onBoardingImage1,
@@ -37,13 +41,7 @@ class OnBoardingScreen extends StatelessWidget {
           ),
           const OnBoardingSkip(),
           const OnBoardingDotNavigation(),
-          Positioned(
-              right: TSizes.defaultSpace,
-              bottom: TDeviceUtils.getBottomNavigationBarHeight(),
-              child: ElevatedButton(
-                onPressed: () {},
-                child: const Icon(Iconsax.arrow_right3),
-              ))
+          const OnBoardingNextButton(),
         ],
       ),
     );
