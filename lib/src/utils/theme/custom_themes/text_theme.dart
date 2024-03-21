@@ -33,9 +33,11 @@ class TTextTheme {
     labelLarge: const TextStyle().copyWith(
         fontSize: 12.0, fontWeight: FontWeight.normal, color: Colors.black),
     labelMedium: const TextStyle().copyWith(
-        fontSize: 12.0,
-        fontWeight: FontWeight.normal,
-        color: Colors.white.withOpacity(0.5)),
+      fontSize: 12.0,
+      fontWeight: FontWeight.normal,
+      // color: Colors.grey.withOpacity(0.5),
+      color: Colors.black38,
+    ),
   );
 
   ///--dark theme--
