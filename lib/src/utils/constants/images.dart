@@ -4,7 +4,8 @@ class TImages {
   static const String lightAppLogo = 'assets/logos/Logo-servyApp-light.png';
 
   //--Social logo
-  static const String google = 'assets/images/login_images/Google.png';
+
+  static const String google = 'assets/images/login_images/Icon-google.png';
   static const String facebook = 'assets/images/login_images/facebook.png';
 
   //--OnBoarding Images
