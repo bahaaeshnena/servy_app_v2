@@ -3,8 +3,8 @@ import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
-class SocialButton extends StatelessWidget {
-  const SocialButton({
+class TSocialButton extends StatelessWidget {
+  const TSocialButton({
     super.key,
   });
 

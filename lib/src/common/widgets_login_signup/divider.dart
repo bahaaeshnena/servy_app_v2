@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/helpers/helper_function.dart';
 
-class Logindivider extends StatelessWidget {
-  const Logindivider({
+class TFormDivider extends StatelessWidget {
+  const TFormDivider({
     super.key,
     required this.dividerText,
   });

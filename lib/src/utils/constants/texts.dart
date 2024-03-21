@@ -16,8 +16,10 @@ class TText {
       " Experience an Exciting Platform for Innovation";
 
   //--Authentication Form Text
-  static const String userName = "User Name";
-  static const String email = "Email";
+  static const String firstName = "First Name";
+  static const String lastName = "Last Name";
+  static const String userName = "Username";
+  static const String email = "E-Mail";
   static const String password = "Password";
   static const String newPassword = "New Password";
   static const String phoneNo = "Phone Number";
@@ -27,9 +29,10 @@ class TText {
   static const String createAccount = "Create Account";
   static const String orSignInWith = "or sign in with";
   static const String orSignUpWith = "or sign up with";
-  static const String iAgreeTo = "Create Account";
-  static const String privacyPolicy = "Privacy Policy";
-  static const String termsOfUse = "Terms Of Use";
+  static const String iAgreeTo = "I agree to";
+  static const String privacyPolicy = " Privacy Policy";
+  static const String and = " and";
+  static const String termsOfUse = " Terms Of Use";
   static const String verificationCode = "verificationCode";
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend email in";
