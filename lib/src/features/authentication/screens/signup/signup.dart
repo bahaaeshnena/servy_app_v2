@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:servy_app/src/common/widgets_login_signup/divider.dart';
-import 'package:servy_app/src/common/widgets_login_signup/social_button.dart';
+import 'package:servy_app/src/common/widgets/widgets_login_signup/divider.dart';
+import 'package:servy_app/src/common/widgets/widgets_login_signup/social_button.dart';
 import 'package:servy_app/src/features/authentication/screens/signup/widgets/signup_form.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/constants/texts.dart';
