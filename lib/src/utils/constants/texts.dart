@@ -60,4 +60,9 @@ class TText {
       "Your account Successfully created!";
   static const String yourAccountCreatedSubTitle =
       "Welcome to the ideal service delivery destination, your account has been created, and unleash the joy of providing and browsing seamless services online!";
+
+//Home
+
+  static const String homeAppbarTitle = 'Good day to post services';
+  static const String homeAppbarSubTitle = 'Bahaa Eshnena';
 }
