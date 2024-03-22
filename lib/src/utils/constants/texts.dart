@@ -37,6 +37,8 @@ class TText {
   static const String tContinue = "Continue";
   static const String resendEmail = "Resend Email";
   static const String resendEmailIn = "Resend email in";
+  static const String submit = "Submit";
+  static const String done = "Done";
 
   //--Authentication Headings Text
   static const String loginTitle = "Welcom back";
