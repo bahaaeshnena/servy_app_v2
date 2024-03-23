@@ -14,26 +14,23 @@ class TPrimaryHeaderContainer extends StatelessWidget {
     return TCurvedEdgeWidget(
       child: Container(
         color: TColors.primaryColor,
-        padding: const EdgeInsets.all(8),
-        child: SizedBox(
-          height: 400,
-          child: Stack(
-            children: [
-              Positioned(
-                top: -150,
-                right: -250,
-                child: TCircularContainer(
-                    backgroundColor: TColors.textWhite.withOpacity(0.1)),
-              ),
-              Positioned(
-                top: 0,
-                right: -300,
-                child: TCircularContainer(
-                    backgroundColor: TColors.textWhite.withOpacity(0.1)),
-              ),
-              child,
-            ],
-          ),
+        // padding: const EdgeInsets.all(8),
+        child: Stack(
+          children: [
+            Positioned(
+              top: -150,
+              right: -250,
+              child: TCircularContainer(
+                  backgroundColor: TColors.textWhite.withOpacity(0.1)),
+            ),
+            Positioned(
+              top: 0,
+              right: -300,
+              child: TCircularContainer(
+                  backgroundColor: TColors.textWhite.withOpacity(0.1)),
+            ),
+            child,
+          ],
         ),
       ),
     );

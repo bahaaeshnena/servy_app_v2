@@ -28,4 +28,7 @@ class TImages {
   static const String banner1 = 'assets/images/banners/banner-1.jpg';
   static const String banner2 = 'assets/images/banners/banner-2.jpg';
   static const String banner3 = 'assets/images/banners/banner-3.jpg';
+
+//--User Images
+  static const String user = 'assets/images/user/user.png';
 }

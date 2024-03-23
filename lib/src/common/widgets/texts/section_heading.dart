@@ -18,7 +18,7 @@ class TSectionHeading extends StatelessWidget {
     return Row(
       children: [
         Text(
-          'Popular Categories',
+          title,
           style: Theme.of(context)
               .textTheme
               .headlineSmall!
@@ -26,6 +26,7 @@ class TSectionHeading extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
+        const SizedBox(width: 120),
         if (showActionButton)
           TextButton(
             onPressed: onPressed,
