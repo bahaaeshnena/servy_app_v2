@@ -29,8 +29,8 @@ class ProfileScreen extends StatelessWidget {
                   children: [
                     const TCircularImage(
                       image: TImages.user,
-                      width: 80,
-                      height: 80,
+                      width: 100,
+                      height: 100,
                     ),
                     TextButton(
                       onPressed: () {},
@@ -94,6 +94,35 @@ class ProfileScreen extends StatelessWidget {
               TProfileMenu(
                 title: 'Country',
                 value: "Jordan",
+                onPressed: () {},
+              ),
+              const SizedBox(height: TSizes.spaceBtwItems / 2),
+              const Divider(),
+              const SizedBox(height: TSizes.spaceBtwItems),
+
+              ///Heading Skills Info
+
+              const TSectionHeading(
+                  title: 'Skills Information', showActionButton: false),
+              const SizedBox(height: TSizes.spaceBtwItems),
+              TProfileMenu(
+                title: 'Skills 1',
+                value: "Android Application",
+                onPressed: () {},
+              ),
+              TProfileMenu(
+                title: 'Skills 2',
+                value: "Flutter developer",
+                onPressed: () {},
+              ),
+              TProfileMenu(
+                title: 'Skills 3',
+                value: "Logo design",
+                onPressed: () {},
+              ),
+              TProfileMenu(
+                title: 'Skills 4',
+                value: "Video Editing ",
                 onPressed: () {},
               ),
               const Divider(),

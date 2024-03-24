@@ -69,6 +69,12 @@ class SettingsScreen extends StatelessWidget {
                     onTap: () {},
                   ),
                   TSettingsMenuTile(
+                    icon: Icons.star_border_outlined,
+                    title: 'Ratings and comments',
+                    subTitle: "To see comments and ratings for your account",
+                    onTap: () {},
+                  ),
+                  TSettingsMenuTile(
                     icon: Iconsax.personalcard,
                     title: 'Become our broker',
                     subTitle: "Join us to become a certified broker",
@@ -92,7 +98,8 @@ class SettingsScreen extends StatelessWidget {
                   TSettingsMenuTile(
                     icon: Icons.contact_support_outlined,
                     title: 'Contact Support',
-                    subTitle: "To contact technical support",
+                    subTitle:
+                        "Contact technical support for technical problems and complaints system",
                     onTap: () {},
                   ),
                   TSettingsMenuTile(
@@ -110,7 +117,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.moon,
-                    title: 'Theme',
+                    title: 'Dark Theme',
                     subTitle: "Change the application theme",
                     onTap: () {},
                     trailing: Switch(

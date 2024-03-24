@@ -31,6 +31,7 @@ class TUserProfileTile extends StatelessWidget {
         onPressed: onPressed,
         icon: const Icon(
           Iconsax.edit,
+          size: 28,
           color: TColors.white,
         ),
       ),
