@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:servy_app/src/utils/constants/images.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({super.key});
@@ -29,7 +30,7 @@ class HomeCard extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.0),
                   color: Colors.grey.shade200,
                   image: const DecorationImage(
-                    image: AssetImage('assets/images/test.png'),
+                    image: AssetImage(TImages.card),
                     fit: BoxFit.cover,
                   ),
                 ),

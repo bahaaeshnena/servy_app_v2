@@ -31,4 +31,12 @@ class TImages {
 
 //--User Images
   static const String user = 'assets/images/user/user.png';
+
+//Card images
+  static const String card = 'assets/images/cards_images/test.png';
+
+// Lottie Json Animation
+  static String docrAnimation = 'assets/images/Animation/docrAnimation.json';
+  static String successfullyRegisterAnimation =
+      'assets/images/Animation/successfullyRegisterAnimation.json';
 }
