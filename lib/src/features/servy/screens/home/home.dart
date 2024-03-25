@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:servy_app/src/common/widgets/card/suggesion_list.dart';
 import 'package:servy_app/src/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:servy_app/src/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
@@ -50,11 +51,17 @@ class HomeScreen extends StatelessWidget {
             //Body
             Padding(
               padding: EdgeInsets.all(TSizes.defaultSpace),
-              child: AdsSlider(
-                banners: [
-                  TImages.banner1,
-                  TImages.banner2,
-                  TImages.banner3,
+              child: Column(
+                children: [
+                  AdsSlider(
+                    banners: [
+                      TImages.banner1,
+                      TImages.banner2,
+                      TImages.banner3,
+                    ],
+                  ),
+                  SizedBox(height: TSizes.spaceBtwSections),
+                  SuggestionList()
                 ],
               ),
             ),
