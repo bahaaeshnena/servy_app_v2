@@ -97,6 +97,13 @@ class SettingsScreen extends StatelessWidget {
 
                   TSettingsMenuTile(
                     icon: Icons.contact_support_outlined,
+                    title: 'Discounts page',
+                    subTitle:
+                        "Contact technical support for technical problems and complaints system",
+                    onTap: () {},
+                  ),
+                  TSettingsMenuTile(
+                    icon: Icons.contact_support_outlined,
                     title: 'Contact Support',
                     subTitle:
                         "Contact technical support for technical problems and complaints system",

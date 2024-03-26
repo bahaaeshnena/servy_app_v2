@@ -35,6 +35,22 @@ class TFirebaseAuthExecption implements Exception {
 
       case 'provider-already-linked':
         return 'The account is already linked with another provider.';
+
+      case 'requires-recent-login':
+        return 'This operation is sensitive and requires recent authentication. Please log in again.';
+
+      case 'credential-already-in-use':
+        return 'This credential is already assoviated with a different user account.';
+
+      case 'user-mismatch':
+        return 'The supplied credentials do not correspond to the previously signed in user.';
+
+      case 'account-exists-with-different-credential':
+        return 'An account already exists with the same email but different sign-in credentials.';
+
+      case 'operation-not-allowed':
+        return 'This operation is not allowed. Contact support for assistance.';
+
       default:
         return 'An unexpected Firebase error occurred. PLease try again';
     }
