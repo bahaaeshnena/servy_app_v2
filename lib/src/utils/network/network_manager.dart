@@ -30,13 +30,13 @@ class NetworkManager extends GetxController {
   Future<bool> isConnected() async {
     try {
       final result = await _connectivity.checkConnectivity();
-      // ignore: unrelated_type_equality_checks
       if (result == ConnectivityResult.none) {
         return false;
       } else {
         return true;
       }
-    } on PlatformException catch (_) {
+      // ignore: unused_catch_clause
+    } on PlatformException catch (e) {
       return false;
     }
   }
