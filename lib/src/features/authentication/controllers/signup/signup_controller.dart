@@ -13,7 +13,7 @@ import 'package:servy_app/src/utils/popups/full_screen_loader.dart';
 class SignUpController extends GetxController {
   static SignUpController get instance => Get.find();
 
-//variables
+//!variables
   final hidePassword = true.obs;
   final privacyPolicy = true.obs;
   final email = TextEditingController();
@@ -24,19 +24,19 @@ class SignUpController extends GetxController {
   final phoneNumber = TextEditingController();
   GlobalKey<FormState> signupFormKey = GlobalKey<FormState>();
 
-//--SIGNUP
-  Future<void> signup() async {
+  //!---SIGNUP
+  void signup() async {
     try {
       TFullScreenLoader.openLoading(
           "We are processing your information...", TImages.docrAnimation);
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) return;
 
-      //form validation
+      //!form validation
 
       if (!signupFormKey.currentState!.validate()) return;
 
-      //Privacy Policy Check
+      //!Privacy Policy Check
 
       if (!privacyPolicy.value) {
         TLoaders.warningSnackBar(
@@ -47,16 +47,16 @@ class SignUpController extends GetxController {
         return;
       }
 
-      //Rigester user in the firebase Authentication & Save User data in the firebase
+      //!Rigester user in the firebase Authentication & Save User data in the firebase
       // ignore: non_constant_identifier_names
-      final UserCredential = await AuthenticationRepository.instance
+      final userCredential = await AuthenticationRepository.instance
           .registerWithEmailAndPassword(
               email.text.trim(), password.text.trim());
 
-      //Save Authentication user date in the firebase firestore
+      //!Save Authentication user date in the firebase firestore
 
       final newUser = UserModel(
-        id: UserCredential.user!.uid,
+        id: userCredential.user!.uid,
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
         username: userName.text.trim(),
@@ -69,13 +69,13 @@ class SignUpController extends GetxController {
       //remove Loader
       TFullScreenLoader.stopLoading();
 
-      //show success Message
+      //!show success Message
       TLoaders.successSnackBar(
         title: "Congratulations",
         message: 'Your account has been created! Verify email to continue.',
       );
 
-      //move Success Email Verify Screen
+      //!move Success Email Verify Screen
 
       Get.to(() => VerifyEmailScreen(
             email: email.text.trim(),
@@ -88,6 +88,5 @@ class SignUpController extends GetxController {
     } finally {
       TFullScreenLoader.stopLoading();
     }
-    // final{}
   }
 }

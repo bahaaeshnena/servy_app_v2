@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:servy_app/src/utils/network/network_manager.dart';
+
+import '../utils/network/network_manager.dart';
 
 class GeneralBinding extends Bindings {
   @override

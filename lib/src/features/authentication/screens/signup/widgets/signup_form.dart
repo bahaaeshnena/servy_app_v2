@@ -26,7 +26,6 @@ class TSignupForm extends StatelessWidget {
                   controller: controller.firstName,
                   validator: (value) =>
                       TValidator.volidateEmptyText('First name', value),
-                  expands: false,
                   decoration: const InputDecoration(
                     labelText: TText.firstName,
                     prefixIcon: Icon(Iconsax.user),
@@ -39,7 +38,6 @@ class TSignupForm extends StatelessWidget {
                   validator: (value) =>
                       TValidator.volidateEmptyText('Last name', value),
                   controller: controller.lastName,
-                  expands: false,
                   decoration: const InputDecoration(
                     labelText: TText.lastName,
                     prefixIcon: Icon(Iconsax.user),
@@ -53,7 +51,6 @@ class TSignupForm extends StatelessWidget {
             validator: (value) =>
                 TValidator.volidateEmptyText('Username', value),
             controller: controller.userName,
-            expands: false,
             decoration: const InputDecoration(
               labelText: TText.userName,
               prefixIcon: Icon(Iconsax.user_edit),
@@ -63,7 +60,6 @@ class TSignupForm extends StatelessWidget {
           TextFormField(
             validator: (value) => TValidator.validateEmail(value),
             controller: controller.email,
-            expands: false,
             decoration: const InputDecoration(
               labelText: TText.email,
               prefixIcon: Icon(Iconsax.direct),
@@ -73,7 +69,6 @@ class TSignupForm extends StatelessWidget {
           TextFormField(
             validator: (value) => TValidator.validatPhoneNumber(value),
             controller: controller.phoneNumber,
-            expands: false,
             decoration: const InputDecoration(
               labelText: TText.phoneNo,
               prefixIcon: Icon(Iconsax.call),
@@ -85,7 +80,6 @@ class TSignupForm extends StatelessWidget {
               obscureText: controller.hidePassword.value,
               validator: (value) => TValidator.validatePassword(value),
               controller: controller.password,
-              expands: false,
               decoration: InputDecoration(
                   labelText: TText.password,
                   prefixIcon: const Icon(Iconsax.password_check),

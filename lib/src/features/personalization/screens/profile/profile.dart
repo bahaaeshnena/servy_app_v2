@@ -3,6 +3,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/images/circular_image.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
+import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
@@ -12,6 +13,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // final controller = Get.put(AuthenticationRepository());
     return Scaffold(
       appBar: const TAppBar(
         showBackArrow: true,
@@ -130,7 +132,7 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () => AuthenticationRepository.instance.logout(),
                   child: const Text(
                     'Close Account',
                     style: TextStyle(

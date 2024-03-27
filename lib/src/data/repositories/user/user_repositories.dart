@@ -1,6 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:servy_app/src/features/personalization/models/user_model.dart';
+
+import '../../../features/personalization/models/user_model.dart';
+import '../../../utils/exceptions/firebase_auth_exceptions.dart';
+import '../../../utils/exceptions/format_exception.dart';
+import '../../../utils/exceptions/platform_exception.dart';
 
 class UserRepository extends GetxController {
   static UserRepository get instance => Get.find();
@@ -11,9 +16,13 @@ class UserRepository extends GetxController {
     try {
       await _db.collection("Users").doc(user.id).set(user.toJson());
     } on FirebaseException catch (e) {
-      throw e.code;
+      throw TFirebaseAuthExecption(e.code).message;
+    } on FormatException catch (_) {
+      throw const TFormatException();
+    } on PlatformException catch (e) {
+      throw TPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong. PLease try again';
+      throw 'Something went wrong, PLease try again';
     }
   }
 }

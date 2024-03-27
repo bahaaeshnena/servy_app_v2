@@ -6,6 +6,7 @@ import 'package:servy_app/src/common/widgets/custom_shapes/containers/primary_he
 import 'package:servy_app/src/common/widgets/list_tiles/settings_menu_tile.dart';
 import 'package:servy_app/src/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
+import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/profile.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
@@ -136,7 +137,9 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () {}, child: const Text("Logout")),
+                        onPressed: () =>
+                            AuthenticationRepository.instance.logout(),
+                        child: const Text("Logout")),
                   ),
                   const SizedBox(
                     height: TSizes.spaceBtwSections * 2.0,

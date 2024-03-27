@@ -3,9 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:servy_app/app.dart';
-import 'package:servy_app/firebase_options.dart';
-
+// import 'package:servy_app/app.dart';
+import 'app.dart';
+// import 'package:servy_app/firebase_options.dart';
+import 'firebase_options.dart';
 import 'src/data/repositories/authentication/authentication_repository.dart';
 
 Future<void> main() async {

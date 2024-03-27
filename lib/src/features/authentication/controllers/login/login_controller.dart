@@ -2,6 +2,7 @@ import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
+import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/network/loaders.dart';
 import 'package:servy_app/src/utils/network/network_manager.dart';
@@ -9,12 +10,14 @@ import 'package:servy_app/src/utils/popups/full_screen_loader.dart';
 
 class LoginController extends GetxController {
   //VARIABELS
+
   final rememberMe = false.obs;
   final hidePassword = true.obs;
   final localStorage = GetStorage();
   final email = TextEditingController();
   final password = TextEditingController();
   GlobalKey<FormState> loginFormKey = GlobalKey<FormState>();
+  final userController = Get.put(UserController());
 
 /* 
 ? بتعملي error
@@ -25,6 +28,24 @@ class LoginController extends GetxController {
   !  super.onInit();
  !  }
 */
+
+//** التعديل
+  @override
+  void onInit() {
+    String? rememberMeEmail = localStorage.read('REMEMBER_ME_EMAIL');
+    String? rememberMePassword = localStorage.read('REMEMBER_ME_PASSWORD');
+
+    if (rememberMeEmail != null) {
+      email.text = rememberMeEmail;
+    }
+
+    if (rememberMePassword != null) {
+      password.text = rememberMePassword;
+    }
+
+    super.onInit();
+  }
+
   ///--Email and PAssword SignIn
   Future<void> emailPasswordSignIn() async {
     try {
@@ -62,6 +83,30 @@ class LoginController extends GetxController {
     } catch (e) {
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: "Oh Snap!", message: e.toString());
+    }
+  }
+
+  Future<void> googleSignIn() async {
+    try {
+      TFullScreenLoader.openLoading('Logging you in...', TImages.docrAnimation);
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
+      //google Auth
+
+      final userCredentials =
+          await AuthenticationRepository.instance.signInWithGoogle();
+
+      await userController.saveUserRecord(userCredentials);
+
+      TFullScreenLoader.stopLoading();
+
+      AuthenticationRepository.instance.screenRedirect();
+    } catch (e) {
+      TFullScreenLoader.stopLoading();
+      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }
   }
 }

@@ -39,14 +39,16 @@ class UserModel {
     return usernameWithPrefix;
   }
 
-  static UserModel empty() => UserModel(
-      id: '',
-      firstName: '',
-      lastName: '',
-      username: '',
-      email: '',
-      phoneNumber: '',
-      profilePicture: '');
+  static UserModel empty() {
+    return UserModel(
+        id: '',
+        firstName: '',
+        lastName: '',
+        username: '',
+        email: '',
+        phoneNumber: '',
+        profilePicture: '');
+  }
 
   Map<String, dynamic> toJson() {
     return {
@@ -73,6 +75,6 @@ class UserModel {
         profilePicture: date['ProfilePicture'] ?? '',
       );
     }
-    return UserModel.empty();
+    return UserModel.fromSnapshot(document);
   }
 }
