@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/images/circular_image.dart';
+import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 
@@ -12,18 +13,19 @@ class TUserProfileTile extends StatelessWidget {
   final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return ListTile(
       leading: const TCircularImage(
           image: TImages.user, width: 50, height: 50, padding: 0),
       title: Text(
-        "Bahaa eshnena",
+        controller.user.value.fullName,
         style: Theme.of(context)
             .textTheme
             .headlineSmall!
             .apply(color: TColors.white),
       ),
       subtitle: Text(
-        "Support@gmail.com",
+        controller.user.value.email,
         style:
             Theme.of(context).textTheme.bodyMedium!.apply(color: TColors.white),
       ),

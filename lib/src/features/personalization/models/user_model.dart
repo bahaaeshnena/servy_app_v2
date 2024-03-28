@@ -41,13 +41,14 @@ class UserModel {
 
   static UserModel empty() {
     return UserModel(
-        id: '',
-        firstName: '',
-        lastName: '',
-        username: '',
-        email: '',
-        phoneNumber: '',
-        profilePicture: '');
+      id: '',
+      firstName: '',
+      lastName: '',
+      username: '',
+      email: '',
+      phoneNumber: '',
+      profilePicture: '',
+    );
   }
 
   Map<String, dynamic> toJson() {
@@ -56,7 +57,7 @@ class UserModel {
       'LastName': lastName,
       'Username': username,
       'Email': email,
-      'PhoneNUmber': phoneNumber,
+      'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
     };
   }
@@ -74,7 +75,8 @@ class UserModel {
         phoneNumber: date['PhoneNumber'] ?? '',
         profilePicture: date['ProfilePicture'] ?? '',
       );
+    } else {
+      return UserModel.empty();
     }
-    return UserModel.fromSnapshot(document);
   }
 }

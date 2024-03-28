@@ -11,11 +11,14 @@ import 'package:servy_app/src/features/personalization/screens/profile/profile.d
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
+import '../../controllers/user_controller.dart';
+
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = UserController.instance;
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -50,7 +53,7 @@ class SettingsScreen extends StatelessWidget {
               padding: const EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
-                  ///Account Settings
+                  //?----------------------------- Account Settings--------------------------
                   const TSectionHeading(
                     title: "Account Settings",
                     showActionButton: false,
@@ -87,22 +90,29 @@ class SettingsScreen extends StatelessWidget {
                     color: Colors.red,
                     title: 'Delete Account',
                     subTitle: "Delete the account permanently",
+                    onTap: () => controller.deleteAccountWarningPopup(),
+                  ),
+                  //?-----------------------------App Page--------------------------
+
+                  const SizedBox(height: TSizes.spaceBtwSections),
+                  const TSectionHeading(
+                      title: "App Page", showActionButton: false),
+                  const SizedBox(height: TSizes.spaceBtwItems),
+
+                  TSettingsMenuTile(
+                    // icon: Icons.pages_sharp,
+                    icon: Iconsax.discount_shape,
+                    title: 'Discounts page',
+                    subTitle: "Here you will find discounted services",
                     onTap: () {},
                   ),
+                  //?-------------------------App Settings------------------------------
 
-                  ///App setting
                   const SizedBox(height: TSizes.spaceBtwSections),
                   const TSectionHeading(
                       title: "App Settings", showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
-                  TSettingsMenuTile(
-                    icon: Icons.contact_support_outlined,
-                    title: 'Discounts page',
-                    subTitle:
-                        "Contact technical support for technical problems and complaints system",
-                    onTap: () {},
-                  ),
                   TSettingsMenuTile(
                     icon: Icons.contact_support_outlined,
                     title: 'Contact Support',
@@ -137,13 +147,11 @@ class SettingsScreen extends StatelessWidget {
                   SizedBox(
                     width: double.infinity,
                     child: OutlinedButton(
-                        onPressed: () =>
-                            AuthenticationRepository.instance.logout(),
+                        onPressed: () => AuthenticationRepository.instance
+                            .closeAccountWarningPopup(),
                         child: const Text("Logout")),
                   ),
-                  const SizedBox(
-                    height: TSizes.spaceBtwSections * 2.0,
-                  )
+                  const SizedBox(height: TSizes.spaceBtwSections * 2.0),
                 ],
               ),
             ),

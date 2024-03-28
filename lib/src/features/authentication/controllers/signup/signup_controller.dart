@@ -48,13 +48,11 @@ class SignUpController extends GetxController {
       }
 
       //!Rigester user in the firebase Authentication & Save User data in the firebase
-      // ignore: non_constant_identifier_names
       final userCredential = await AuthenticationRepository.instance
           .registerWithEmailAndPassword(
               email.text.trim(), password.text.trim());
 
       //!Save Authentication user date in the firebase firestore
-
       final newUser = UserModel(
         id: userCredential.user!.uid,
         firstName: firstName.text.trim(),

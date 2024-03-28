@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/images/circular_image.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
+import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
+import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_name.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
@@ -13,7 +16,7 @@ class ProfileScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final controller = Get.put(AuthenticationRepository());
+    final controller = UserController.instance;
     return Scaffold(
       appBar: const TAppBar(
         showBackArrow: true,
@@ -53,12 +56,12 @@ class ProfileScreen extends StatelessWidget {
 
               TProfileMenu(
                 title: 'Name',
-                value: "Bahaa Eshnena",
-                onPressed: () {},
+                value: controller.user.value.fullName,
+                onPressed: () => Get.to(() => const ChangeName()),
               ),
               TProfileMenu(
                 title: 'Username',
-                value: "BAx1",
+                value: controller.user.value.username,
                 onPressed: () {},
               ),
 
@@ -75,17 +78,17 @@ class ProfileScreen extends StatelessWidget {
               TProfileMenu(
                 title: 'User ID',
                 icon: Iconsax.copy,
-                value: "1234",
+                value: controller.user.value.id,
                 onPressed: () {},
               ),
               TProfileMenu(
                 title: 'E-Mail',
-                value: "bahaa@gmail.com",
+                value: controller.user.value.email,
                 onPressed: () {},
               ),
               TProfileMenu(
                 title: 'Phone Number',
-                value: "0792838813",
+                value: controller.user.value.phoneNumber,
                 onPressed: () {},
               ),
               TProfileMenu(
@@ -132,7 +135,8 @@ class ProfileScreen extends StatelessWidget {
 
               Center(
                 child: TextButton(
-                  onPressed: () => AuthenticationRepository.instance.logout(),
+                  onPressed: () => AuthenticationRepository.instance
+                      .closeAccountWarningPopup(),
                   child: const Text(
                     'Close Account',
                     style: TextStyle(
