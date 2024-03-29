@@ -40,11 +40,7 @@ class HomeScreen extends StatelessWidget {
                             showActionButton: false),
                         const SizedBox(height: TSizes.spaceBtwItems),
                         //Categories
-                        THomeCategories(
-                          image: TImages.programming,
-                          title: 'Programming',
-                          onPressed: () {},
-                        )
+                        THomeCategories()
                       ],
                     ),
                   ),

@@ -32,7 +32,7 @@ class TVerticalImageText extends StatelessWidget {
             TCircularImage(
               image: image,
               fit: BoxFit.fitWidth,
-              padding: TSizes.sm * 1.4,
+              padding: TSizes.sm,
               backgroundColor: backgroundColor,
               overlayColor: THelperFunctions.isDarkMode(context)
                   ? TColors.light
@@ -47,7 +47,7 @@ class TVerticalImageText extends StatelessWidget {
                     .textTheme
                     .labelMedium!
                     .apply(color: textColor),
-                maxLines: 1,
+                maxLines: 2,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
