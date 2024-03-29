@@ -23,7 +23,17 @@ class TImages {
       'assets/images/verify-images/sammy-line-man-receives-a-mail.png';
 
 //--Categories Icons
-
+  static const String programming = 'assets/icons/categoty/code.png';
+  static const String digitalMarketing =
+      'assets/icons/categoty/digital-marketing.png';
+  static const String design = 'assets/icons/categoty/drawing.png';
+  static const String video = 'assets/icons/categoty/video-player.png';
+  static const String audios = 'assets/icons/categoty/music-equalizer.png';
+  static const String writing = 'assets/icons/categoty/writing.png';
+  static const String translation =
+      'assets/icons/categoty/language-exchange.png';
+  static const String engineeringAndArchitecture =
+      'assets/icons/categoty/blueprint.png';
 //--Banner Images
   static const String banner1 = 'assets/images/banners/banner-1.jpg';
   static const String banner2 = 'assets/images/banners/banner-2.jpg';

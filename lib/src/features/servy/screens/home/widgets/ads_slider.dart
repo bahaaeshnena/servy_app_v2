@@ -24,7 +24,16 @@ class AdsSlider extends StatelessWidget {
                 controller.updatePageIndicator(index)),
             viewportFraction: 1,
           ),
-          items: banners.map((url) => TRoundedImage(imageUrl: url)).toList(),
+          items: banners
+              .map(
+                (url) => TRoundedImage(
+                  imageUrl: url,
+                  width: 340,
+                  height: 300,
+                  fit: BoxFit.fill,
+                ),
+              )
+              .toList(),
         ),
         const SizedBox(height: TSizes.spaceBtwItems),
         Center(

@@ -4,8 +4,13 @@ import 'package:servy_app/src/common/widgets/image_text_widgets/vertical_image_t
 class THomeCategories extends StatelessWidget {
   const THomeCategories({
     super.key,
+    required this.image,
+    required this.title,
+    required this.onPressed,
   });
-
+  final String image;
+  final String title;
+  final VoidCallback onPressed;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -18,9 +23,9 @@ class THomeCategories extends StatelessWidget {
           return SizedBox(
             height: 80,
             child: TVerticalImageText(
-              image: 'assets/icons/categories/application.png',
-              title: "Application developer android",
-              onTap: () {},
+              image: image,
+              title: title,
+              onTap: onPressed,
             ),
           );
         },

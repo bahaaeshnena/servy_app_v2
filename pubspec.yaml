@@ -83,11 +83,11 @@ flutter:
     - assets/images/on_boarding_images/
     - assets/images/login_images/
     - assets/images/verify-images/
-    - assets/icons/categories/
     - assets/images/banners/
     - assets/images/user/
     - assets/images/cards_images/
     - assets/images/Animation/
+    - assets/icons/categoty/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

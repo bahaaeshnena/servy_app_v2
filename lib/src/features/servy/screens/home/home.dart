@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       // drawer: ,
       body: SingleChildScrollView(
         child: Column(
@@ -24,32 +24,36 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   //AppBar
-                  THomeAppBar(),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  const THomeAppBar(),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                   //Searchbar
-                  TSearchContainer(text: "Search in Servy"),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  const TSearchContainer(text: "Search in Servy"),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                   //Categories
                   Padding(
-                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
+                    padding: const EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(
                       children: [
                         //Heading
-                        TSectionHeading(
+                        const TSectionHeading(
                             title: "Popular Categories",
                             showActionButton: false),
-                        SizedBox(height: TSizes.spaceBtwItems),
+                        const SizedBox(height: TSizes.spaceBtwItems),
                         //Categories
-                        THomeCategories()
+                        THomeCategories(
+                          image: TImages.programming,
+                          title: 'Programming',
+                          onPressed: () {},
+                        )
                       ],
                     ),
                   ),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
             ),
             //Body
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
