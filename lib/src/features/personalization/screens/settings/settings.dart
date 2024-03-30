@@ -8,6 +8,7 @@ import 'package:servy_app/src/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/profile.dart';
+import 'package:servy_app/src/features/servy/screens/favourite/favourite.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
@@ -61,12 +62,6 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   TSettingsMenuTile(
-                    icon: Iconsax.heart,
-                    title: 'My Favorites',
-                    subTitle: "List of favorite items",
-                    onTap: () {},
-                  ),
-                  TSettingsMenuTile(
                     icon: Iconsax.edit_2,
                     title: 'My ads',
                     subTitle: "Edit or delete my ads",
@@ -99,6 +94,12 @@ class SettingsScreen extends StatelessWidget {
                       title: "App Page", showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
+                  TSettingsMenuTile(
+                    icon: Iconsax.heart,
+                    title: 'My Favorites',
+                    subTitle: "List of favorite items",
+                    onTap: () => Get.to(() => const FavouriteScreen()),
+                  ),
                   TSettingsMenuTile(
                     // icon: Icons.pages_sharp,
                     icon: Iconsax.discount_shape,

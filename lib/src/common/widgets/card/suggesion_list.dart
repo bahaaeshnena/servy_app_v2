@@ -6,28 +6,30 @@ class SuggestionList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              "Recommendation for you",
-              style: Theme.of(context).textTheme.headlineSmall,
-            ),
-          ],
-        ),
-        const SizedBox(height: 12),
-        SizedBox(
-          height: 360,
-          width: double.infinity,
-          child: ListView.builder(
-            scrollDirection: Axis.horizontal,
-            itemCount: 7,
-            itemBuilder: (context, index) => const HomeCard(),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                "Recommendation for you",
+                style: Theme.of(context).textTheme.headlineSmall,
+              ),
+            ],
           ),
-        )
-      ],
+          const SizedBox(height: 12),
+          SizedBox(
+            height: 360,
+            width: double.infinity,
+            child: ListView.builder(
+              scrollDirection: Axis.vertical,
+              itemCount: 7,
+              itemBuilder: (context, index) => const HomeCard(),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
