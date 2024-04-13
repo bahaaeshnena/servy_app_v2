@@ -24,27 +24,27 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   //AppBar
-                  const THomeAppBar(),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  THomeAppBar(),
+                  SizedBox(height: TSizes.spaceBtwSections),
                   //Searchbar
-                  const TSearchContainer(text: "Search in Servy"),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  TSearchContainer(text: "Search in Servy"),
+                  SizedBox(height: TSizes.spaceBtwSections),
                   //Categories
                   Padding(
-                    padding: const EdgeInsets.only(left: TSizes.defaultSpace),
+                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
                     child: Column(
                       children: [
                         //Heading
-                        const TSectionHeading(
+                        TSectionHeading(
                             title: "Popular Categories",
                             showActionButton: false),
-                        const SizedBox(height: TSizes.spaceBtwItems),
+                        SizedBox(height: TSizes.spaceBtwItems),
                         //Categories
                         THomeCategories()
                       ],
                     ),
                   ),
-                  const SizedBox(height: TSizes.spaceBtwSections),
+                  SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
             ),

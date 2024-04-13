@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:servy_app/src/features/servy/screens/servy_details/product_detail.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 
 class HomeCard extends StatelessWidget {
@@ -18,7 +20,7 @@ class HomeCard extends StatelessWidget {
           border: Border.all(color: Colors.grey.shade200),
         ),
         child: InkWell(
-          onTap: () {},
+          onTap: () => Get.to(() => const ServyDtailsScreen()),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(

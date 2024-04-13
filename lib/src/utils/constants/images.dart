@@ -49,4 +49,5 @@ class TImages {
   static String docrAnimation = 'assets/images/Animation/docrAnimation.json';
   static String successfullyRegisterAnimation =
       'assets/images/Animation/successfullyRegisterAnimation.json';
+  static String test = 'assets/images/Animation/arrowDown.json';
 }

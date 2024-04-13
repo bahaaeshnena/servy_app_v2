@@ -8,7 +8,9 @@ import 'package:servy_app/src/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/profile.dart';
-import 'package:servy_app/src/features/servy/screens/favourite/favourite.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/become_our_broker/become_our_broker.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/favourite/favourite.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/privacy_policy/privacy_policy.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
@@ -78,7 +80,7 @@ class SettingsScreen extends StatelessWidget {
                     title: 'Become our broker',
                     subTitle: "Join us to become a certified broker",
                     color: const Color.fromARGB(255, 68, 197, 120),
-                    onTap: () {},
+                    onTap: () => Get.to(() => const BecomeourBrokerPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.profile_delete,
@@ -126,7 +128,7 @@ class SettingsScreen extends StatelessWidget {
                     title: 'Privacy Policy',
                     subTitle:
                         "We take the protection of your privacy and personal data seriously",
-                    onTap: () {},
+                    onTap: () => Get.to(() => const PrivacyPolicyPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.language_square,
