@@ -89,7 +89,8 @@ flutter:
     - assets/images/cards_images/
     - assets/images/Animation/
     - assets/icons/categoty/
-    - assets/images/brokers/
+    - assets/images/our_become_brokers/
+    - assets/images/brokers_images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

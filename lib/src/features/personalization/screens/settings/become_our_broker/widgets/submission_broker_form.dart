@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/become_our_broker/widgets/container_form.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SubmissionBrokerForm extends StatelessWidget {
@@ -34,7 +35,7 @@ class SubmissionBrokerForm extends StatelessWidget {
             ),
           ),
         ),
-        Lottie.asset('assets/images/Animation/arrowDown.json',
+        Lottie.asset(TImages.arrowDownst,
             width: MediaQuery.of(context).size.width * 0.4),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,

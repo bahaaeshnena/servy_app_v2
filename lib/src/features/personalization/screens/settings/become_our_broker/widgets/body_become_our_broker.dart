@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/become_our_broker/widgets/submission_broker_form.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/constants/images.dart';
 
 class BodyBecomeourBroker extends StatelessWidget {
   const BodyBecomeourBroker({
@@ -14,7 +15,7 @@ class BodyBecomeourBroker extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          Lottie.asset('assets/images/Animation/Customer_Service.json',
+          Lottie.asset(TImages.customerService,
               width: MediaQuery.of(context).size.width * 0.8),
           Padding(
             padding: const EdgeInsets.all(8.0),

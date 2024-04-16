@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/settings.dart';
+import 'package:servy_app/src/features/servy/screens/brokers/brokers_page.dart';
 import 'package:servy_app/src/features/servy/screens/home/home.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/helpers/helper_function.dart';
@@ -47,7 +48,7 @@ class NavigationController extends GetxController {
     const HomeScreen(),
     Container(color: Colors.blue),
     Container(color: Colors.purple),
-    Container(color: Colors.orange),
+    const BrokersPage(),
     const SettingsScreen(),
   ];
 }

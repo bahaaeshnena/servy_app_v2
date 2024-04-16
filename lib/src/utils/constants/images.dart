@@ -49,5 +49,24 @@ class TImages {
   static String docrAnimation = 'assets/images/Animation/docrAnimation.json';
   static String successfullyRegisterAnimation =
       'assets/images/Animation/successfullyRegisterAnimation.json';
-  static String test = 'assets/images/Animation/arrowDown.json';
+  static String arrowDownst = 'assets/images/Animation/arrowDown.json';
+  static String customerService =
+      'assets/images/Animation/Customer_Service.json';
+
+//Brokers
+  static String brokersBahaa = 'assets/images/brokers_images/brokers_bahaa.jpg';
+  static String brokersFares = 'assets/images/brokers_images/faresBrokers.jpg';
+  static String brokersSaif = 'assets/images/brokers_images/SaifBrokers.jpg';
+  static String brokersHamza = 'assets/images/brokers_images/HamzaBrokers.jpg';
+  static String brokersMohammed =
+      'assets/images/brokers_images/mohammadBrokers.jpg';
+  static String brokersOsama = 'assets/images/brokers_images/osamaBrokers.jpg';
+  static String brokersAli = 'assets/images/brokers_images/aliBrokers.jpg';
+  static String brokersSalah = 'assets/images/brokers_images/salahBrokers.jpg';
+  static String brokersMajed = 'assets/images/brokers_images/majedBrokers.jpg';
+  static String brokersDawood =
+      'assets/images/brokers_images/DawoodBrokers.jpg';
+
+//Our become Brokers
+  static String imageForm = 'assets/images/our_become_brokers/form-image.png';
 }
