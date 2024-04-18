@@ -9,8 +9,10 @@ import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/profile.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/become_our_broker/become_our_broker.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/contact_support/contact_support_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/favourite/favourite.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/privacy_policy/privacy_policy.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/rating_and_comments/rating_and_comments_page.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
@@ -73,7 +75,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Icons.star_border_outlined,
                     title: 'Ratings and comments',
                     subTitle: "To see comments and ratings for your account",
-                    onTap: () {},
+                    onTap: () => Get.to(() => const RatingAndCommentsPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.personalcard,
@@ -121,7 +123,7 @@ class SettingsScreen extends StatelessWidget {
                     title: 'Contact Support',
                     subTitle:
                         "Contact technical support for technical problems and complaints system",
-                    onTap: () {},
+                    onTap: () => Get.to(() => const ContactSupportPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Icons.verified_user_outlined,

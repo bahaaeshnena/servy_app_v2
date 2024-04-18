@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:servy_app/src/features/servy/screens/brokers/widgets/communication_brokers.dart';
-import 'package:servy_app/src/features/servy/screens/brokers/widgets/describtions_Brokers.dart';
+import 'package:servy_app/src/features/servy/screens/brokers/widgets/describtions_brokers.dart';
 import 'package:servy_app/src/features/servy/screens/brokers/widgets/image_and_name_brokers.dart';
 
 class CardBrokers extends StatelessWidget {

@@ -52,6 +52,11 @@ class TImages {
   static String arrowDownst = 'assets/images/Animation/arrowDown.json';
   static String customerService =
       'assets/images/Animation/Customer_Service.json';
+  static String whatsAppAnimation =
+      'assets/images/Animation/whatsappAnimation.json';
+  static String gmailAnimation = 'assets/images/Animation/gmailAnimation.json';
+  static String contactSupport =
+      'assets/images/Animation/contactSupportAnimation.json';
 
 //Brokers
   static String brokersBahaa = 'assets/images/brokers_images/brokers_bahaa.jpg';
