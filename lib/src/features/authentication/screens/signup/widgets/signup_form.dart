@@ -67,6 +67,7 @@ class TSignupForm extends StatelessWidget {
           ),
           const SizedBox(height: TSizes.spaceBtwInputField),
           TextFormField(
+            keyboardType: TextInputType.phone,
             validator: (value) => TValidator.validatPhoneNumber(value),
             controller: controller.phoneNumber,
             decoration: const InputDecoration(

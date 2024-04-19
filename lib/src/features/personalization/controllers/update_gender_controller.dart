@@ -8,28 +8,26 @@ import 'package:servy_app/src/utils/network/loaders.dart';
 import 'package:servy_app/src/utils/network/network_manager.dart';
 import 'package:servy_app/src/utils/popups/full_screen_loader.dart';
 
-class UpdateController extends GetxController {
-  static UpdateController get instance => Get.find();
+class UpdateGenderController extends GetxController {
+  static UpdateGenderController get instance => Get.find();
 
-  final firstName = TextEditingController();
-  final lastName = TextEditingController();
+  final gender = TextEditingController();
   final userController = UserController.instance;
   final userRepository = Get.put(UserRepository());
-  GlobalKey<FormState> updateUserNameFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> updateGenderFormKey = GlobalKey<FormState>();
 
   @override
   void onInit() {
-    initializeNames();
+    initializeGender();
     super.onInit();
   }
 
   /// Fetch user record
-  Future<void> initializeNames() async {
-    firstName.text = userController.user.value.firstName;
-    lastName.text = userController.user.value.lastName;
+  Future<void> initializeGender() async {
+    gender.text = userController.user.value.gender;
   }
 
-  Future<void> updateUserNames() async {
+  Future<void> updateGender() async {
     try {
       //Start Loading
       TFullScreenLoader.openLoading(
@@ -44,29 +42,27 @@ class UpdateController extends GetxController {
       }
 
       //Form Validation
-      if (!updateUserNameFormKey.currentState!.validate()) {
+      if (!updateGenderFormKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
         return;
       }
 
-      //Update users first & last name in the Firebase Firestore
-      Map<String, dynamic> name = {
-        'FirstName': firstName.text.trim(),
-        'LastName': lastName.text.trim(),
+      //Update users gender in the Firebase Firestore
+      Map<String, dynamic> genderPerson = {
+        'Gender': gender.text.trim(),
       };
-      await userRepository.updateSingleField(name);
+      await userRepository.updateSingleField(genderPerson);
 
       //Update the Rx user value
-      userController.user.value.firstName = firstName.text.trim();
-      userController.user.value.lastName = lastName.text.trim();
+      userController.user.value.gender = gender.text.trim();
 
       //remove Loader
       TFullScreenLoader.stopLoading();
 
-      //Show Success Message
+      //Show Success MEssage
 
       TLoaders.successSnackBar(
-          title: "Congratulations", message: 'Your Name has been updated.');
+          title: "Congratulations", message: 'Your Gender has been updated.');
 
       //Move to previous screen
       Get.off(() => const ProfileScreen());

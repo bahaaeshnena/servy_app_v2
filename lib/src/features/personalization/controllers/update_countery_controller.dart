@@ -8,28 +8,26 @@ import 'package:servy_app/src/utils/network/loaders.dart';
 import 'package:servy_app/src/utils/network/network_manager.dart';
 import 'package:servy_app/src/utils/popups/full_screen_loader.dart';
 
-class UpdateController extends GetxController {
-  static UpdateController get instance => Get.find();
+class UpdateCountryController extends GetxController {
+  static UpdateCountryController get instance => Get.find();
 
-  final firstName = TextEditingController();
-  final lastName = TextEditingController();
+  final country = TextEditingController();
   final userController = UserController.instance;
   final userRepository = Get.put(UserRepository());
-  GlobalKey<FormState> updateUserNameFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> updateCountryFormKey = GlobalKey<FormState>();
 
   @override
   void onInit() {
-    initializeNames();
+    initializeCountry();
     super.onInit();
   }
 
   /// Fetch user record
-  Future<void> initializeNames() async {
-    firstName.text = userController.user.value.firstName;
-    lastName.text = userController.user.value.lastName;
+  Future<void> initializeCountry() async {
+    country.text = userController.user.value.country;
   }
 
-  Future<void> updateUserNames() async {
+  Future<void> updateCountry() async {
     try {
       //Start Loading
       TFullScreenLoader.openLoading(
@@ -44,29 +42,27 @@ class UpdateController extends GetxController {
       }
 
       //Form Validation
-      if (!updateUserNameFormKey.currentState!.validate()) {
+      if (!updateCountryFormKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
         return;
       }
 
-      //Update users first & last name in the Firebase Firestore
-      Map<String, dynamic> name = {
-        'FirstName': firstName.text.trim(),
-        'LastName': lastName.text.trim(),
+      //Update users country in the Firebase Firestore
+      Map<String, dynamic> countryPerson = {
+        'Country': country.text.trim(),
       };
-      await userRepository.updateSingleField(name);
+      await userRepository.updateSingleField(countryPerson);
 
       //Update the Rx user value
-      userController.user.value.firstName = firstName.text.trim();
-      userController.user.value.lastName = lastName.text.trim();
+      userController.user.value.country = country.text.trim();
 
       //remove Loader
       TFullScreenLoader.stopLoading();
 
-      //Show Success Message
+      //Show Success MEssage
 
       TLoaders.successSnackBar(
-          title: "Congratulations", message: 'Your Name has been updated.');
+          title: "Congratulations", message: 'Your Country has been updated.');
 
       //Move to previous screen
       Get.off(() => const ProfileScreen());

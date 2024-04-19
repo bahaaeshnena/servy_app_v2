@@ -40,6 +40,10 @@ class TText {
   static const String submit = "Submit";
   static const String done = "Done";
 
+  //Profile setting
+  static const String gender = "Gender";
+  static const String country = "Country";
+
   //--Authentication Headings Text
   static const String loginTitle = "Welcom back";
   static const String loginSubTitle =

@@ -9,6 +9,9 @@ class UserModel {
   final String email;
   String phoneNumber;
   String profilePicture;
+  String gender;
+  String country;
+  String skills;
 
   UserModel({
     required this.id,
@@ -18,6 +21,9 @@ class UserModel {
     required this.email,
     required this.phoneNumber,
     required this.profilePicture,
+    required this.gender,
+    required this.country,
+    required this.skills,
   });
   //
 
@@ -48,6 +54,9 @@ class UserModel {
       email: '',
       phoneNumber: '',
       profilePicture: '',
+      gender: '',
+      country: '',
+      skills: '',
     );
   }
 
@@ -59,6 +68,9 @@ class UserModel {
       'Email': email,
       'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
+      'Gender': gender,
+      'Country': country,
+      'Skills': skills,
     };
   }
 
@@ -74,6 +86,9 @@ class UserModel {
         email: date['Email'] ?? '',
         phoneNumber: date['PhoneNumber'] ?? '',
         profilePicture: date['ProfilePicture'] ?? '',
+        gender: date['Gender'] ?? '',
+        country: date['Country'] ?? '',
+        skills: date['Skills'] ?? '',
       );
     } else {
       return UserModel.empty();

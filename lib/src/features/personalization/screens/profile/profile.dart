@@ -4,7 +4,11 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
+import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/chane_phone.dart';
+import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_country.dart';
+import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_gender.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_name.dart';
+
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
@@ -104,17 +108,17 @@ class ProfileScreen extends StatelessWidget {
               TProfileMenu(
                 title: 'Phone Number',
                 value: controller.user.value.phoneNumber,
-                onPressed: () {},
+                onPressed: () => Get.to(() => const ChangePhoneNumber()),
               ),
               TProfileMenu(
                 title: 'Gender',
-                value: "Male",
-                onPressed: () {},
+                value: controller.user.value.gender,
+                onPressed: () => Get.to(() => const ChangeGender()),
               ),
               TProfileMenu(
                 title: 'Country',
-                value: "Jordan",
-                onPressed: () {},
+                value: controller.user.value.country,
+                onPressed: () => Get.to(() => const ChangeCountry()),
               ),
               const SizedBox(height: TSizes.spaceBtwItems / 2),
               const Divider(),
@@ -130,21 +134,7 @@ class ProfileScreen extends StatelessWidget {
                 value: "Android Application",
                 onPressed: () {},
               ),
-              TProfileMenu(
-                title: 'Skills 2',
-                value: "Flutter developer",
-                onPressed: () {},
-              ),
-              TProfileMenu(
-                title: 'Skills 3',
-                value: "Logo design",
-                onPressed: () {},
-              ),
-              TProfileMenu(
-                title: 'Skills 4',
-                value: "Video Editing ",
-                onPressed: () {},
-              ),
+
               const Divider(),
               const SizedBox(height: TSizes.spaceBtwItems),
 
