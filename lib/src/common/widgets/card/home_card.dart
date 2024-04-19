@@ -10,7 +10,7 @@ class HomeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 25),
       child: Container(
         width: 300,
         margin: const EdgeInsets.only(right: 20.0),

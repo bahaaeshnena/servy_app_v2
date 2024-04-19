@@ -15,7 +15,7 @@ class BodyBecomeourBroker extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Column(
         children: [
-          Lottie.asset(TImages.customerService,
+          Lottie.asset(TImages.contactSupport,
               width: MediaQuery.of(context).size.width * 0.8),
           Padding(
             padding: const EdgeInsets.all(8.0),

@@ -15,6 +15,7 @@ import 'package:servy_app/src/features/personalization/screens/settings/privacy_
 import 'package:servy_app/src/features/personalization/screens/settings/rating_and_comments/rating_and_comments_page.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
+import 'package:servy_app/src/utils/theme/theme_mode_change.dart';
 
 import '../../controllers/user_controller.dart';
 
@@ -144,8 +145,10 @@ class SettingsScreen extends StatelessWidget {
                     subTitle: "Change the application theme",
                     onTap: () {},
                     trailing: Switch(
-                      value: true,
-                      onChanged: (value) {},
+                      value: ThemeService().isSavedDarkMode(),
+                      onChanged: (value) {
+                        ThemeService().changeTheme();
+                      },
                     ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections),

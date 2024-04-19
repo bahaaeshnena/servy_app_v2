@@ -43,6 +43,9 @@ class TText {
   //Profile setting
   static const String gender = "Gender";
   static const String country = "Country";
+  static const String skills = "Skills";
+  //Brokers page
+  static const String clickHere = "click here";
 
   //--Authentication Headings Text
   static const String loginTitle = "Welcom back";

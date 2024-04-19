@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
@@ -8,6 +7,7 @@ import 'package:servy_app/src/features/personalization/screens/profile/widgets/c
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_country.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_gender.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_name.dart';
+import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_skills.dart';
 
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/profile_menu.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
@@ -82,6 +82,7 @@ class ProfileScreen extends StatelessWidget {
                 title: 'Username',
                 value: controller.user.value.username,
                 onPressed: () {},
+                iconVisible: false,
               ),
 
               const SizedBox(height: TSizes.spaceBtwItems / 2),
@@ -96,14 +97,15 @@ class ProfileScreen extends StatelessWidget {
 
               TProfileMenu(
                 title: 'User ID',
-                icon: Iconsax.copy,
                 value: controller.user.value.id,
                 onPressed: () {},
+                iconVisible: false,
               ),
               TProfileMenu(
                 title: 'E-Mail',
                 value: controller.user.value.email,
                 onPressed: () {},
+                iconVisible: false,
               ),
               TProfileMenu(
                 title: 'Phone Number',
@@ -131,8 +133,8 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwItems),
               TProfileMenu(
                 title: 'Skills 1',
-                value: "Android Application",
-                onPressed: () {},
+                value: controller.user.value.skills,
+                onPressed: () => Get.to(() => const ChangeSkills()),
               ),
 
               const Divider(),

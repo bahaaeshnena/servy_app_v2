@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
+import 'package:servy_app/src/common/widgets/custom_shapes/containers/search_container.dart';
+import 'package:servy_app/src/features/servy/screens/brokers/details_brokers_page.dart';
 import 'package:servy_app/src/features/servy/screens/brokers/widgets/card_brokers.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
+import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BrokersPage extends StatelessWidget {
@@ -21,8 +25,33 @@ class BrokersPage extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const TSearchContainer(text: "Search in brokers Servy"),
               const SizedBox(height: 20),
+              Text(
+                'On this page we show you approved service brokers. Choose your appropriate broker. If there is any problem with a broker, contact technical support.',
+                style: Theme.of(context).textTheme.bodyLarge,
+              ),
+              const SizedBox(height: 5),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'For more details',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  TextButton(
+                    onPressed: () => Get.to(() => const DetailsBrokersPage()),
+                    child: const Text(
+                      TText.clickHere,
+                      style: TextStyle(fontSize: 15),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+
               //? bahaa
               CardBrokers(
                 color: TColors.primaryColor,
