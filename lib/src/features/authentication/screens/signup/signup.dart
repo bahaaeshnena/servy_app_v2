@@ -4,7 +4,6 @@ import 'package:servy_app/src/common/widgets/widgets_login_signup/divider.dart';
 import 'package:servy_app/src/common/widgets/widgets_login_signup/social_button.dart';
 import 'package:servy_app/src/features/authentication/screens/signup/widgets/signup_form.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
@@ -19,12 +18,12 @@ class SignUpScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(TText.signUpTitle,
+              Text('signUpTitle'.tr,
                   style: Theme.of(context).textTheme.headlineMedium),
               const SizedBox(height: TSizes.spaceBtwSections),
               const TSignupForm(),
               const SizedBox(height: TSizes.spaceBtwSections),
-              TFormDivider(dividerText: TText.orSignUpWith.capitalize!),
+              TFormDivider(dividerText: 'orSignUpWith'.tr.capitalize!),
               const SizedBox(height: TSizes.spaceBtwSections),
               const TSocialButton(),
             ],

@@ -5,7 +5,6 @@ import 'package:servy_app/src/features/authentication/controllers/login/login_co
 import 'package:servy_app/src/features/authentication/screens/password_configuration/forget_password.dart';
 import 'package:servy_app/src/features/authentication/screens/signup/signup.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
 class LoginForm extends StatelessWidget {
@@ -25,9 +24,9 @@ class LoginForm extends StatelessWidget {
             TextFormField(
               controller: controller.email,
               validator: (value) => TValidator.validateEmail(value),
-              decoration: const InputDecoration(
-                prefixIcon: Icon(Iconsax.direct_right),
-                labelText: TText.email,
+              decoration: InputDecoration(
+                prefixIcon: const Icon(Iconsax.direct_right),
+                labelText: 'email'.tr,
               ),
             ),
             const SizedBox(height: TSizes.spaceBtwInputField),
@@ -35,10 +34,10 @@ class LoginForm extends StatelessWidget {
               () => TextFormField(
                 obscureText: controller.hidePassword.value,
                 validator: (value) =>
-                    TValidator.volidateEmptyText('Password', value),
+                    TValidator.volidateEmptyText('password'.tr, value),
                 controller: controller.password,
                 decoration: InputDecoration(
-                  labelText: TText.password,
+                  labelText: 'password'.tr,
                   prefixIcon: const Icon(Iconsax.password_check),
                   suffixIcon: IconButton(
                     onPressed: () => controller.hidePassword.value =
@@ -63,12 +62,12 @@ class LoginForm extends StatelessWidget {
                             !controller.rememberMe.value,
                       ),
                     ),
-                    const Text(TText.rememberMe),
+                    Text('rememberMe'.tr),
                   ],
                 ),
                 TextButton(
                     onPressed: () => Get.to(() => const ForgetPassword()),
-                    child: const Text(TText.forgetPassword))
+                    child: Text('forgetPassword'.tr))
               ],
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
@@ -76,14 +75,14 @@ class LoginForm extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                   onPressed: () => controller.emailPasswordSignIn(),
-                  child: const Text(TText.signIn)),
+                  child: Text('signIn'.tr)),
             ),
             const SizedBox(height: TSizes.spaceBtwItems),
             SizedBox(
               width: double.infinity,
               child: OutlinedButton(
                   onPressed: () => Get.to(() => const SignUpScreen()),
-                  child: const Text(TText.createAccount)),
+                  child: Text('createAccount'.tr)),
             ),
           ],
         ),

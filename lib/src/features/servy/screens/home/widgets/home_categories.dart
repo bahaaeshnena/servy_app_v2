@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/image_text_widgets/vertical_image_text.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 
@@ -16,42 +17,42 @@ class THomeCategories extends StatelessWidget {
         children: [
           TVerticalImageText(
             image: TImages.programming,
-            title: 'Programming',
+            title: 'programming'.tr,
             onTap: () {},
           ),
           TVerticalImageText(
             image: TImages.digitalMarketing,
-            title: 'digital Marketing',
+            title: 'digitalMarketing'.tr,
             onTap: () {},
           ),
           TVerticalImageText(
             image: TImages.design,
-            title: 'design',
+            title: 'design'.tr,
             onTap: () {},
           ),
           TVerticalImageText(
             image: TImages.video,
-            title: 'video editing',
+            title: 'videoEditing'.tr,
             onTap: () {},
           ),
           TVerticalImageText(
             image: TImages.audios,
-            title: 'audios editing ',
+            title: 'audiosEditing'.tr,
             onTap: () {},
           ),
           TVerticalImageText(
             image: TImages.writing,
-            title: 'writing',
+            title: 'writing'.tr,
             onTap: () {},
           ),
           TVerticalImageText(
             image: TImages.translation,
-            title: 'translation',
+            title: 'translation'.tr,
             onTap: () {},
           ),
           TVerticalImageText(
             image: TImages.engineeringAndArchitecture,
-            title: 'engineering & Architecture ',
+            title: 'engineeringArchitecture'.tr,
             onTap: () {},
           ),
         ],

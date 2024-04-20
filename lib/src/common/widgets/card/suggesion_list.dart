@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/card/home_card.dart';
 
 class SuggestionList extends StatelessWidget {
@@ -13,7 +14,7 @@ class SuggestionList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "Recommendation for you",
+                "recommendationForYou".tr,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ],

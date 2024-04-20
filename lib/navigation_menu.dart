@@ -26,13 +26,17 @@ class NavigationMenu extends StatelessWidget {
           indicatorColor: darkMode
               ? TColors.white.withOpacity(0.1)
               : TColors.black.withOpacity(0.1),
-          destinations: const [
-            NavigationDestination(icon: Icon(Iconsax.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Iconsax.message), label: 'Chat'),
-            NavigationDestination(icon: Icon(Iconsax.add_circle), label: 'Add'),
+          destinations: [
             NavigationDestination(
-                icon: Icon(Iconsax.personalcard), label: 'Brokers'),
-            NavigationDestination(icon: Icon(Iconsax.user), label: 'Profile'),
+                icon: const Icon(Iconsax.home), label: 'home'.tr),
+            NavigationDestination(
+                icon: const Icon(Iconsax.message), label: 'chat'.tr),
+            NavigationDestination(
+                icon: const Icon(Iconsax.add_circle), label: 'add'.tr),
+            NavigationDestination(
+                icon: const Icon(Iconsax.personalcard), label: 'brokers'.tr),
+            NavigationDestination(
+                icon: const Icon(Iconsax.user), label: 'profile'.tr),
           ],
         ),
       ),

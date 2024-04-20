@@ -5,10 +5,8 @@ import 'package:servy_app/src/common/widgets/custom_shapes/containers/search_con
 import 'package:servy_app/src/features/servy/screens/brokers/details_brokers_page.dart';
 import 'package:servy_app/src/features/servy/screens/brokers/widgets/card_brokers.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
-
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BrokersPage extends StatelessWidget {
@@ -17,8 +15,8 @@ class BrokersPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('Brokers'),
+      appBar: TAppBar(
+        title: Text('brokers'.tr),
         showBackArrow: false,
       ),
       body: SingleChildScrollView(
@@ -27,10 +25,10 @@ class BrokersPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const TSearchContainer(text: "Search in brokers Servy"),
+              TSearchContainer(text: 'brokersSearchContainer'.tr),
               const SizedBox(height: 20),
               Text(
-                'On this page we show you approved service brokers. Choose your appropriate broker. If there is any problem with a broker, contact technical support.',
+                'brokersTitle'.tr,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(height: 5),
@@ -38,14 +36,14 @@ class BrokersPage extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'For more details',
+                    'forMoreDetails'.tr,
                     style: Theme.of(context).textTheme.bodyMedium,
                   ),
                   TextButton(
                     onPressed: () => Get.to(() => const DetailsBrokersPage()),
-                    child: const Text(
-                      TText.clickHere,
-                      style: TextStyle(fontSize: 15),
+                    child: Text(
+                      'clickHere'.tr,
+                      style: const TextStyle(fontSize: 15),
                     ),
                   ),
                 ],

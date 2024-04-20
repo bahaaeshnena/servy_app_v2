@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:servy_app/src/features/authentication/controllers/signup/signup_controller.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:servy_app/src/utils/helpers/helper_function.dart';
 
 class TTermsAndConditionCheckbox extends StatelessWidget {
@@ -36,11 +35,11 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
             children: [
               TextSpan(
                   // ignore: unnecessary_string_interpolations
-                  text: '${TText.iAgreeTo}',
+                  text: '${'iAgreeTo'.tr}',
                   style: Theme.of(context).textTheme.bodySmall),
               TextSpan(
                 // ignore: unnecessary_string_interpolations
-                text: '${TText.privacyPolicy}',
+                text: '${'privacyPolicy'.tr}',
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
                     color: dark ? TColors.white : TColors.primaryColor,
                     decoration: TextDecoration.underline,
@@ -49,11 +48,11 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
               ),
               TextSpan(
                   // ignore: unnecessary_string_interpolations
-                  text: '${TText.and}',
+                  text: '${'and'.tr}',
                   style: Theme.of(context).textTheme.bodySmall),
               TextSpan(
                 // ignore: unnecessary_string_interpolations
-                text: '${TText.termsOfUse}',
+                text: '${'termsOfUse'.tr}',
                 style: Theme.of(context).textTheme.bodyMedium!.apply(
                     color: dark ? TColors.white : TColors.primaryColor,
                     decoration: TextDecoration.underline,

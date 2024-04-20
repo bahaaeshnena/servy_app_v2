@@ -44,8 +44,6 @@ class TText {
   static const String gender = "Gender";
   static const String country = "Country";
   static const String skills = "Skills";
-  //Brokers page
-  static const String clickHere = "click here";
 
   //--Authentication Headings Text
   static const String loginTitle = "Welcom back";
@@ -71,5 +69,31 @@ class TText {
 //Home
 
   static const String homeAppbarTitle = 'Good day to post services';
-  static const String homeAppbarSubTitle = 'Bahaa Eshnena';
+  static const String searchContainer = 'search in Servy';
+  static const String popularCategories = 'Popular Categories';
+  static const String recommendationForYou = 'Recommendation For You';
+
+//Home Categories
+  static const String programming = 'programming';
+  static const String digitalMarketing = 'digital marketing';
+  static const String design = 'design';
+  static const String videoEditing = 'video editing';
+  static const String audiosEditing = 'audios editing';
+  static const String writing = 'writing';
+  static const String translation = 'translation';
+  static const String engineeringArchitecture = 'engineering & Architecture';
+
+//Navigation menu
+  static const String home = 'Home';
+  static const String chat = 'Chat';
+  static const String add = 'Add';
+  static const String brokers = 'Brokers';
+  static const String profile = 'Profile';
+
+//Brokers page
+  static const String brokersSearchContainer = 'Search for brokers Servy';
+  static const String brokersTitle =
+      'On this page we show you approved service brokers. Choose your appropriate broker. If there is any problem with a broker, contact technical support.';
+  static const String forMoreDetails = 'For more details';
+  static const String clickHere = "click here";
 }

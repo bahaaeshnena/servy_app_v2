@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/features/authentication/controllers/forget_password_controller/forget_password_controller.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
 class ForgetPassword extends StatelessWidget {
@@ -20,10 +19,10 @@ class ForgetPassword extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ///Headings
-            Text(TText.forgetPasswordTitle,
+            Text('forgetPasswordTitle'.tr,
                 style: Theme.of(context).textTheme.headlineMedium),
             const SizedBox(height: TSizes.spaceBtwItems),
-            Text(TText.forgetPasswordSubTitle,
+            Text('forgetPasswordSubTitle'.tr,
                 style: Theme.of(context).textTheme.labelMedium),
             const SizedBox(height: TSizes.spaceBtwSections * 2),
 
@@ -33,9 +32,9 @@ class ForgetPassword extends StatelessWidget {
               child: TextFormField(
                 controller: controller.email,
                 validator: TValidator.validateEmail,
-                decoration: const InputDecoration(
-                  labelText: TText.email,
-                  prefixIcon: Icon(Iconsax.direct_right),
+                decoration: InputDecoration(
+                  labelText: 'email'.tr,
+                  prefixIcon: const Icon(Iconsax.direct_right),
                 ),
               ),
             ),
@@ -46,7 +45,7 @@ class ForgetPassword extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => controller.sendPasswordResetEmail(),
-                child: const Text(TText.submit),
+                child: Text('submit'.tr),
               ),
             ),
           ],

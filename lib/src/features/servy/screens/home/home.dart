@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/card/suggesion_list.dart';
 import 'package:servy_app/src/common/widgets/custom_shapes/containers/primary_header_container.dart';
 import 'package:servy_app/src/common/widgets/custom_shapes/containers/search_container.dart';
@@ -14,7 +15,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       // drawer: ,
       body: SingleChildScrollView(
         child: Column(
@@ -24,32 +25,33 @@ class HomeScreen extends StatelessWidget {
               child: Column(
                 children: [
                   //AppBar
-                  THomeAppBar(),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  const THomeAppBar(),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                   //Searchbar
-                  TSearchContainer(text: "Search in Servy"),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  TSearchContainer(text: 'searchContainer'.tr),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                   //Categories
                   Padding(
-                    padding: EdgeInsets.only(left: TSizes.defaultSpace),
+                    padding: const EdgeInsets.only(
+                        left: TSizes.defaultSpace, right: TSizes.defaultSpace),
                     child: Column(
                       children: [
                         //Heading
                         TSectionHeading(
-                            title: "Popular Categories",
+                            title: "popularCategories".tr,
                             showActionButton: false),
-                        SizedBox(height: TSizes.spaceBtwItems),
+                        const SizedBox(height: TSizes.spaceBtwItems),
                         //Categories
-                        THomeCategories()
+                        const THomeCategories()
                       ],
                     ),
                   ),
-                  SizedBox(height: TSizes.spaceBtwSections),
+                  const SizedBox(height: TSizes.spaceBtwSections),
                 ],
               ),
             ),
             //Body
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(TSizes.defaultSpace),
               child: Column(
                 children: [
