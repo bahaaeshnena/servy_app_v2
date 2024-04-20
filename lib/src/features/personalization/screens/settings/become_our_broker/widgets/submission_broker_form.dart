@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/become_our_broker/widgets/container_form.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
@@ -15,7 +16,7 @@ class SubmissionBrokerForm extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'Submission to the broker',
+          'submissionToBroker'.tr,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         Padding(
@@ -23,14 +24,14 @@ class SubmissionBrokerForm extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(10),
             width: double.infinity,
-            height: 100,
+            constraints: const BoxConstraints(minHeight: 60),
             decoration: BoxDecoration(
               color: TColors.primaryColor,
               borderRadius: BorderRadius.circular(30),
             ),
             child: Text(
               textAlign: TextAlign.center,
-              'If you want to join us to become a certified broker Through the link, fill out the form.',
+              'subSubmissionToBroker'.tr,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),

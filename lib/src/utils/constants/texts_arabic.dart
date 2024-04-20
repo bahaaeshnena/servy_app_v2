@@ -95,4 +95,74 @@ class TTextAr {
       'نعرض لكم في هذه الصفحة وسطاء الخدمة المعتمدين. اختر الوسيط المناسب لك. إذا كانت هناك أي مشكلة مع الوسيط، فاتصل بالدعم الفني.';
   static const String forMoreDetails = 'لمزيد من التفاصيل';
   static const String clickHere = "انقر هنا";
+
+  //Details Brokers page
+  static const String detailsBrokers = 'تفاصيل وسطاء';
+
+  static const String titleBrokers1 = 'من هو الوسيط؟';
+  static const String subTitle1 =
+      'الوسيط هو شخص يعمل لدينا ومعتمد من قبل تطبيقنا لإدارة عملية بيع وشراء وتبادل الخدمات';
+
+  static const String titleBrokers2 = 'الوظيفة الرئيسية للوسطاء';
+  static const String subTitle2 =
+      'وتتمثل الوظيفة الرئيسية للوسطاء في مساعدة المستخدمين وأصحاب الخدمات في عملية تسليم واستلام أموال العمل، وضمان حقوق كل شخص، والقضاء على حالات الاحتيال.';
+
+  static const String titleBrokers3 = 'بعد الانتهاء من المهمة';
+  static const String subTitle3 =
+      'وعندما يكمل الوسيط مهمته يطلب من الشخصين مبلغاً من المال أو نسبة معينة يتم الاتفاق عليها مع الطرفين.';
+
+  static const String titleBrokers4 = 'ملحوظة';
+  static const String subTitle4 =
+      'نظام الوسيط ليس إلزاميا على كل مستخدم والطريقة التي يفضلها في التعامل مع المستخدمين الآخرين.';
+
+  static const String titleBrokers5 = 'لتصبح وسيطا';
+  static const String subTitle5 = 'لتصبح وسيطنا المعتمد';
+
+  //Setting page
+  static const String account = 'حساب';
+
+  static const String accountSettings = 'إعدادت الحساب';
+  static const String titleOption1 = 'إعلاناتي';
+  static const String subTitleOption1 = 'تعديل أو حذف إعلاناتي';
+  static const String titleOption2 = 'التقييمات والتعليقات';
+  static const String subTitleOption2 = 'لرؤية التعليقات والتقييمات لحسابك';
+  static const String titleOption3 = 'تصبح وسيط لدينا';
+  static const String subTitleOption3 = 'انضم إلينا لتصبح وسيطًا معتمدًا';
+  static const String titleOption4 = 'حذف الحساب';
+  static const String subTitleOption4 = 'حذف الحساب نهائيا';
+
+  static const String appPage = 'صفحات التطبيق';
+  static const String titleOption5 = 'مفضلتي';
+  static const String subTitleOption5 = 'قائمة العناصر المفضلة';
+  static const String titleOption6 = 'صفحة الخصومات';
+  static const String subTitleOption6 = 'هنا سوف تجد خدمات مخفضة';
+
+  static const String appSettings = 'إعدادات التطبيق';
+  static const String titleOption7 = 'اتصل بالدعم';
+  static const String subTitleOption7 =
+      'الاتصال بالدعم الفني للمشاكل الفنية ونظام الشكاوى';
+  static const String titleOption8 = 'سياسة الخصوصية';
+  static const String subTitleOption8 =
+      'نحن نأخذ حماية خصوصيتك وبياناتك الشخصية على محمل الجد';
+  static const String titleOption9 = 'اللغات';
+  static const String subTitleOption9 = 'تغيير لغة التطبيق';
+  static const String titleOption10 = 'الوضع الليلي';
+  static const String subTitleOption10 = 'تغيير ثيم التطبيق';
+
+  static const String logout = 'تسجيل خروج';
+
+  //Become our broker
+  static const String becomeOurBroker = 'كن وسيط';
+  static const String description = 'وصف';
+  static const String subDescription =
+      'الوسيط هو الشخص الذي تتمثل مهمته في ضمان حقوق جميع الأطراف من خلال عملية استلام وتسليم العمل والأموال للناس.';
+  static const String howItWorks = 'كيف تعمل';
+  static const String subHowItWorks =
+      'نعرض معلوماتك على صفحة الوسطاء، ومن يحتاج إلى وسيط لضمان الخدمة يتواصل معك. وبعد التواصل معك والاتفاق على التفاصيل تقوم بتسليم العمل والمال وتضمن جودة العمل للطرفين.';
+  static const String profitMechanism = 'آلية الربح';
+  static const String subProfitMechanism =
+      'طريقة الربح تكون عن طريق طلب نسبة معينة من الطرفين أو طلب مبلغ محدد على حسب الخدمة المقدمة والمبلغ.';
+  static const String submissionToBroker = 'التقديم على الوسيط';
+  static const String subSubmissionToBroker =
+      'إذا كنت تريد الانضمام إلينا لتصبح وسيطًا معتمدًا من خلال الرابط، قم بتعبئة النموذج.';
 }

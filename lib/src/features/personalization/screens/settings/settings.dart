@@ -36,7 +36,7 @@ class SettingsScreen extends StatelessWidget {
                   //AppBar
                   TAppBar(
                     title: Text(
-                      "Account",
+                      "account".tr,
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!
@@ -60,89 +60,86 @@ class SettingsScreen extends StatelessWidget {
               child: Column(
                 children: [
                   //?----------------------------- Account Settings--------------------------
-                  const TSectionHeading(
-                    title: "Account Settings",
+                  TSectionHeading(
+                    title: "accountSettings".tr,
                     showActionButton: false,
                   ),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   TSettingsMenuTile(
                     icon: Iconsax.edit_2,
-                    title: 'My ads',
-                    subTitle: "Edit or delete my ads",
+                    title: "titleOption1".tr,
+                    subTitle: "subTitleOption1".tr,
                     onTap: () {},
                   ),
                   TSettingsMenuTile(
                     icon: Icons.star_border_outlined,
-                    title: 'Ratings and comments',
-                    subTitle: "To see comments and ratings for your account",
+                    title: "titleOption2".tr,
+                    subTitle: "subTitleOption2".tr,
                     onTap: () => Get.to(() => const RatingAndCommentsPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.personalcard,
-                    title: 'Become our broker',
-                    subTitle: "Join us to become a certified broker",
+                    title: "titleOption3".tr,
+                    subTitle: "subTitleOption3".tr,
                     color: const Color.fromARGB(255, 68, 197, 120),
                     onTap: () => Get.to(() => const BecomeourBrokerPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.profile_delete,
                     color: Colors.red,
-                    title: 'Delete Account',
-                    subTitle: "Delete the account permanently",
+                    title: "titleOption4".tr,
+                    subTitle: "subTitleOption4".tr,
                     onTap: () => controller.deleteAccountWarningPopup(),
                   ),
                   //?-----------------------------App Page--------------------------
 
                   const SizedBox(height: TSizes.spaceBtwSections),
-                  const TSectionHeading(
-                      title: "App Page", showActionButton: false),
+                  TSectionHeading(title: "appPage".tr, showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   TSettingsMenuTile(
                     icon: Iconsax.heart,
-                    title: 'My Favorites',
-                    subTitle: "List of favorite items",
+                    title: "titleOption5".tr,
+                    subTitle: "subTitleOption5".tr,
                     onTap: () => Get.to(() => const FavouriteScreen()),
                   ),
                   TSettingsMenuTile(
                     // icon: Icons.pages_sharp,
                     icon: Iconsax.discount_shape,
-                    title: 'Discounts page',
-                    subTitle: "Here you will find discounted services",
+                    title: "titleOption6".tr,
+                    subTitle: "subTitleOption6".tr,
                     onTap: () {},
                   ),
                   //?-------------------------App Settings------------------------------
 
                   const SizedBox(height: TSizes.spaceBtwSections),
-                  const TSectionHeading(
-                      title: "App Settings", showActionButton: false),
+                  TSectionHeading(
+                      title: "appSettings".tr, showActionButton: false),
                   const SizedBox(height: TSizes.spaceBtwItems),
 
                   TSettingsMenuTile(
                     icon: Icons.contact_support_outlined,
-                    title: 'Contact Support',
-                    subTitle:
-                        "Contact technical support for technical problems and complaints system",
+                    title: "titleOption7".tr,
+                    subTitle: "subTitleOption7".tr,
                     onTap: () => Get.to(() => const ContactSupportPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Icons.verified_user_outlined,
-                    title: 'Privacy Policy',
-                    subTitle:
-                        "We take the protection of your privacy and personal data seriously",
+                    title: "titleOption8".tr,
+                    subTitle: "subTitleOption8".tr,
                     onTap: () => Get.to(() => const PrivacyPolicyPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.language_square,
-                    title: 'Languages',
-                    subTitle: "Change the application language",
+                    title: "titleOption9".tr,
+                    subTitle: "subTitleOption9".tr,
                     onTap: () {},
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.moon,
-                    title: 'Dark Theme',
-                    subTitle: "Change the application theme",
+                    title: "titleOption10".tr,
+                    subTitle: "subTitleOption10".tr,
                     onTap: () {},
                     trailing: Switch(
                       value: ThemeService().isSavedDarkMode(),
@@ -157,7 +154,7 @@ class SettingsScreen extends StatelessWidget {
                     child: OutlinedButton(
                         onPressed: () => AuthenticationRepository.instance
                             .closeAccountWarningPopup(),
-                        child: const Text("Logout")),
+                        child: Text("logout".tr)),
                   ),
                   const SizedBox(height: TSizes.spaceBtwSections * 2.0),
                 ],

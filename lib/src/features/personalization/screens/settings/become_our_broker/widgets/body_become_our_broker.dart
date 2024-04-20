@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/become_our_broker/widgets/submission_broker_form.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
@@ -20,21 +21,21 @@ class BodyBecomeourBroker extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              'Description',
+              'description'.tr,
               style: Theme.of(context).textTheme.headlineMedium,
             ),
           ),
           Container(
+            constraints: const BoxConstraints(minHeight: 60),
             padding: const EdgeInsets.all(10),
             width: double.infinity,
-            height: 120,
             decoration: BoxDecoration(
               color: TColors.primaryColor,
               borderRadius: BorderRadius.circular(30),
             ),
             child: Text(
               textAlign: TextAlign.center,
-              'A broker is a person whose job is to guarantee the rights of all parties through the process of receiving and delivering work and money to people.',
+              'subDescription'.tr,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
@@ -45,22 +46,22 @@ class BodyBecomeourBroker extends StatelessWidget {
             ),
           ),
           Text(
-            'How it works',
+            'howItWorks'.tr,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
+              constraints: const BoxConstraints(minHeight: 60),
               padding: const EdgeInsets.all(10),
               width: double.infinity,
-              height: 215,
               decoration: BoxDecoration(
                 color: TColors.primaryColor,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
                 textAlign: TextAlign.center,
-                'We display your information on the brokers page, and people who need a broker to guarantee the service contact you. After communicating with you and agreeing on the details, you deliver the work and money and guarantee the quality of work for both parties.',
+                'subHowItWorks'.tr,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),
@@ -72,22 +73,22 @@ class BodyBecomeourBroker extends StatelessWidget {
             ),
           ),
           Text(
-            'Profit mechanism',
+            'profitMechanism'.tr,
             style: Theme.of(context).textTheme.headlineMedium,
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
+              constraints: const BoxConstraints(minHeight: 60),
               padding: const EdgeInsets.all(10),
               width: double.infinity,
-              height: 140,
               decoration: BoxDecoration(
                 color: TColors.primaryColor,
                 borderRadius: BorderRadius.circular(30),
               ),
               child: Text(
                 textAlign: TextAlign.center,
-                'The method of profit is by requesting a certain percentage from both parties or requesting a specific amount that is based on the service offered and the amount.',
+                'subProfitMechanism'.tr,
                 style: Theme.of(context).textTheme.headlineSmall,
               ),
             ),

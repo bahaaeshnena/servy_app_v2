@@ -96,4 +96,76 @@ class TText {
       'On this page we show you approved service brokers. Choose your appropriate broker. If there is any problem with a broker, contact technical support.';
   static const String forMoreDetails = 'For more details';
   static const String clickHere = "click here";
+
+  //Details Brokers page
+  static const String detailsBrokers = 'Details Brokers';
+
+  static const String titleBrokers1 = 'Who is the Broker?';
+  static const String subTitle1 =
+      'A broker is someone who works for us and is certified by our application to manage the process of buying, selling and exchanging services';
+
+  static const String titleBrokers2 = 'Brokers main function';
+  static const String subTitle2 =
+      'The brokers main function is to assist users and service owners in the process of delivering and receiving work Money, guaranteeing the rights of every person, and eliminating cases of fraud.';
+
+  static const String titleBrokers3 = 'After completing the task';
+  static const String subTitle3 =
+      'When the mediator completes his task, he asks the two people for an amount of money or a certain percentage that is agreed upon with both parties.';
+
+  static const String titleBrokers4 = 'Note';
+  static const String subTitle4 =
+      'The mediator system is not obligatory for each user and the method he prefers in dealing with other users.';
+
+  static const String titleBrokers5 = 'To become a broker';
+  static const String subTitle5 = 'To become our approved broker';
+
+  //Setting page
+  static const String account = 'Account';
+
+  static const String accountSettings = 'Account Settings';
+  static const String titleOption1 = 'My ads';
+  static const String subTitleOption1 = 'Edit or delete my ads';
+  static const String titleOption2 = 'Ratings and comments';
+  static const String subTitleOption2 =
+      'To see comments and ratings for your account';
+  static const String titleOption3 = 'Become our broker';
+  static const String subTitleOption3 = 'Join us to become a certified broker';
+  static const String titleOption4 = 'Delete Account';
+  static const String subTitleOption4 = 'Delete the account permanently';
+
+  static const String appPage = 'App Page';
+  static const String titleOption5 = 'My Favorites';
+  static const String subTitleOption5 = 'List of favorite items';
+  static const String titleOption6 = 'Discounts page';
+  static const String subTitleOption6 =
+      'Here you will find discounted services';
+
+  static const String appSettings = 'App Settings';
+  static const String titleOption7 = 'Contact Support';
+  static const String subTitleOption7 =
+      'Contact technical support for technical problems and complaints system';
+  static const String titleOption8 = 'Privacy Policy';
+  static const String subTitleOption8 =
+      'We take the protection of your privacy and personal data seriously';
+  static const String titleOption9 = 'Languages';
+  static const String subTitleOption9 = 'Change the application language';
+  static const String titleOption10 = 'Dark Theme';
+  static const String subTitleOption10 = 'Change the application theme';
+
+  static const String logout = 'Logout';
+
+  //Become our broker
+  static const String becomeOurBroker = 'Become our Broker';
+  static const String description = 'Description';
+  static const String subDescription =
+      'A broker is a person whose job is to guarantee the rights of all parties through the process of receiving and delivering work and money to people.';
+  static const String howItWorks = 'How it works';
+  static const String subHowItWorks =
+      'We display your information on the brokers page, and people who need a broker to guarantee the service contact you. After communicating with you and agreeing on the details, you deliver the work and money and guarantee the quality of work for both parties.';
+  static const String profitMechanism = 'Profit mechanism';
+  static const String subProfitMechanism =
+      'The method of profit is by requesting a certain percentage from both parties or requesting a specific amount that is based on the service offered and the amount.';
+  static const String submissionToBroker = 'Submission to the broker';
+  static const String subSubmissionToBroker =
+      'If you want to join us to become a certified broker Through the link, fill out the form.';
 }
