@@ -251,4 +251,6 @@ class TTextAr {
   //Languages Page
   static const String changeLanguage = 'تغيير اللغة';
   static const String titleChangeLanguage = ': اختر لغة التطبيق التي تفضلها';
+  static const String subTitleChangeLanguage =
+      'يمكنك تغيير لغة التطبيق في أي وقت.';
 }

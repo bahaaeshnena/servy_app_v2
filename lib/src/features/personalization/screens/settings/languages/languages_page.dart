@@ -25,7 +25,12 @@ class LanguagesPage extends StatelessWidget {
               'titleChangeLanguage'.tr,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
-            const SizedBox(height: 120),
+            const SizedBox(height: 30),
+            Text(
+              'subTitleChangeLanguage'.tr,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+            const SizedBox(height: 70),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

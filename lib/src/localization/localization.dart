@@ -182,6 +182,7 @@ class MyLocal implements Translations {
           //?Language Page
           'changeLanguage': TTextAr.changeLanguage,
           'titleChangeLanguage': TTextAr.titleChangeLanguage,
+          'subTitleChangeLanguage': TTextAr.subTitleChangeLanguage,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -363,6 +364,7 @@ class MyLocal implements Translations {
           //?Language Page
           'changeLanguage': TText.changeLanguage,
           'titleChangeLanguage': TText.titleChangeLanguage,
+          'subTitleChangeLanguage': TText.subTitleChangeLanguage,
         },
       };
 }

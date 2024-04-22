@@ -256,4 +256,6 @@ class TText {
   static const String changeLanguage = 'Change Language';
   static const String titleChangeLanguage =
       'Choose the application language you prefer :';
+  static const String subTitleChangeLanguage =
+      'You can change the application language at any time.';
 }
