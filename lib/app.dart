@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:servy_app/src/bindings/general_bindings.dart';
+import 'package:servy_app/src/localization/controller/localization_controller.dart';
 import 'package:servy_app/src/localization/localization.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/theme/theme.dart';
@@ -11,8 +12,8 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MyLocalController controller = Get.put(MyLocalController());
     return GetMaterialApp(
-      // home: const OnBoardingScreen(),
       home: const Scaffold(
         backgroundColor: TColors.primaryColor,
         body: Center(
@@ -26,7 +27,7 @@ class App extends StatelessWidget {
       themeMode: ThemeService().getThemeMode(),
       theme: TAppTheme.lightTheme,
       darkTheme: TAppTheme.darkTheme,
-      locale: Get.deviceLocale,
+      locale: controller.intialling,
       translations: MyLocal(),
     );
   }

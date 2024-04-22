@@ -74,4 +74,8 @@ class TImages {
 
 //Our become Brokers
   static String imageForm = 'assets/images/our_become_brokers/form-image.png';
+
+//language
+  static String language = 'assets/icons/language/language.png';
+  static String english = 'assets/icons/language/global.png';
 }

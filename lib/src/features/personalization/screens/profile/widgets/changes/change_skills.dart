@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/personalization/controllers/update_skills.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
 class ChangeSkills extends StatelessWidget {
@@ -16,7 +15,7 @@ class ChangeSkills extends StatelessWidget {
       appBar: TAppBar(
         showBackArrow: true,
         title: Text(
-          'Change Skills',
+          'changeSkills'.tr,
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
@@ -26,7 +25,7 @@ class ChangeSkills extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Use correct names for your field of work. This name will appear on several pages.',
+              'titleChangeSkill'.tr,
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
@@ -37,11 +36,11 @@ class ChangeSkills extends StatelessWidget {
                   TextFormField(
                     controller: controller.skills,
                     validator: (value) =>
-                        TValidator.volidateEmptyText('Skills', value),
+                        TValidator.volidateEmptyText('skill'.tr, value),
                     expands: false,
-                    decoration: const InputDecoration(
-                      labelText: TText.skills,
-                      prefix: Icon(Icons.work_outline),
+                    decoration: InputDecoration(
+                      labelText: 'skill'.tr,
+                      prefix: const Icon(Icons.work_outline),
                     ),
                   ),
                 ],
@@ -53,7 +52,7 @@ class ChangeSkills extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => controller.updateSkills(),
                 // onPressed: () => controller.updateUserName(),
-                child: const Text("save"),
+                child: Text("save".tr),
               ),
             )
           ],

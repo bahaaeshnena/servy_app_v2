@@ -15,7 +15,7 @@ class FavouriteScreen extends StatelessWidget {
     return Scaffold(
       appBar: TAppBar(
         showBackArrow: true,
-        title: Text('Favourite',
+        title: Text('favourite'.tr,
             style: Theme.of(context).textTheme.headlineMedium),
         actions: [
           TCircularIcon(

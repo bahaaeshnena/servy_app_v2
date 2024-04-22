@@ -93,23 +93,23 @@ class AuthenticationRepository extends GetxController {
   void closeAccountWarningPopup() {
     Get.defaultDialog(
       contentPadding: const EdgeInsets.all(TSizes.md),
-      title: "Logout Account",
-      middleText: 'Are you sure want to log out your account ?',
+      title: "logoutAccount".tr,
+      middleText: 'messageLogout'.tr,
       confirm: ElevatedButton(
         onPressed: () async => logout(),
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.red,
             side: const BorderSide(color: Colors.red)),
-        child: const Padding(
-          padding: EdgeInsets.symmetric(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
             horizontal: TSizes.lg,
           ),
-          child: Text('Close'),
+          child: Text('close'.tr),
         ),
       ),
       cancel: OutlinedButton(
         onPressed: () => Navigator.of(Get.overlayContext!).pop(),
-        child: const Text("Cancel"),
+        child: Text("cancel".tr),
       ),
     );
   }

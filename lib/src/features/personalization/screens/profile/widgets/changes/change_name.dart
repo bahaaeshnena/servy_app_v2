@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/personalization/controllers/update_name_controller.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
 class ChangeName extends StatelessWidget {
@@ -17,7 +16,7 @@ class ChangeName extends StatelessWidget {
       appBar: TAppBar(
         showBackArrow: true,
         title: Text(
-          'Change Name',
+          'changeName'.tr,
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
@@ -27,7 +26,7 @@ class ChangeName extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'use real name for verification. This name will appear on several pages.',
+              'titleChangeName'.tr,
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
@@ -38,22 +37,22 @@ class ChangeName extends StatelessWidget {
                   TextFormField(
                     controller: controller.firstName,
                     validator: (value) =>
-                        TValidator.volidateEmptyText('First name', value),
+                        TValidator.volidateEmptyText('firstName'.tr, value),
                     expands: false,
-                    decoration: const InputDecoration(
-                      labelText: TText.firstName,
-                      prefix: Icon(Iconsax.user),
+                    decoration: InputDecoration(
+                      labelText: 'firstName'.tr,
+                      prefix: const Icon(Iconsax.user),
                     ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwInputField),
                   TextFormField(
                     controller: controller.lastName,
                     validator: (value) =>
-                        TValidator.volidateEmptyText('Last name', value),
+                        TValidator.volidateEmptyText('lastName'.tr, value),
                     expands: false,
-                    decoration: const InputDecoration(
-                      labelText: TText.lastName,
-                      prefix: Icon(Iconsax.user),
+                    decoration: InputDecoration(
+                      labelText: 'lastName'.tr,
+                      prefix: const Icon(Iconsax.user),
                     ),
                   ),
                 ],
@@ -65,7 +64,7 @@ class ChangeName extends StatelessWidget {
               child: ElevatedButton(
                 onPressed: () => controller.updateUserNames(),
                 // onPressed: () => controller.updateUserName(),
-                child: const Text("save"),
+                child: Text("save".tr),
               ),
             )
           ],

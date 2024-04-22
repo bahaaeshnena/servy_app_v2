@@ -24,9 +24,9 @@ class ProfileScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return Scaffold(
-      appBar: const TAppBar(
+      appBar: TAppBar(
         showBackArrow: true,
-        title: Text("Profile"),
+        title: Text("profile".tr),
       ),
       body: SingleChildScrollView(
         //profile picture
@@ -58,7 +58,7 @@ class ProfileScreen extends StatelessWidget {
                     }),
                     TextButton(
                       onPressed: () => controller.uploadUserProfilePicture(),
-                      child: const Text("Change Profile Picture"),
+                      child: Text("changePicture".tr),
                     ),
                   ],
                 ),
@@ -69,17 +69,17 @@ class ProfileScreen extends StatelessWidget {
 
               ///Heading Profile Info
 
-              const TSectionHeading(
-                  title: 'Profile Information', showActionButton: false),
+              TSectionHeading(
+                  title: 'profileInformation'.tr, showActionButton: false),
               const SizedBox(height: TSizes.spaceBtwItems),
 
               TProfileMenu(
-                title: 'Name',
+                title: 'name'.tr,
                 value: controller.user.value.fullName,
                 onPressed: () => Get.to(() => const ChangeName()),
               ),
               TProfileMenu(
-                title: 'Username',
+                title: 'userName'.tr,
                 value: controller.user.value.username,
                 onPressed: () {},
                 iconVisible: false,
@@ -91,34 +91,34 @@ class ProfileScreen extends StatelessWidget {
 
               ///Heading Personal Info
 
-              const TSectionHeading(
-                  title: 'Personal Information', showActionButton: false),
+              TSectionHeading(
+                  title: 'personalInformation'.tr, showActionButton: false),
               const SizedBox(height: TSizes.spaceBtwItems),
 
               TProfileMenu(
-                title: 'User ID',
+                title: 'userId'.tr,
                 value: controller.user.value.id,
                 onPressed: () {},
                 iconVisible: false,
               ),
               TProfileMenu(
-                title: 'E-Mail',
+                title: 'email'.tr,
                 value: controller.user.value.email,
                 onPressed: () {},
                 iconVisible: false,
               ),
               TProfileMenu(
-                title: 'Phone Number',
+                title: 'phoneNumber'.tr,
                 value: controller.user.value.phoneNumber,
                 onPressed: () => Get.to(() => const ChangePhoneNumber()),
               ),
               TProfileMenu(
-                title: 'Gender',
+                title: 'gender'.tr,
                 value: controller.user.value.gender,
                 onPressed: () => Get.to(() => const ChangeGender()),
               ),
               TProfileMenu(
-                title: 'Country',
+                title: 'country'.tr,
                 value: controller.user.value.country,
                 onPressed: () => Get.to(() => const ChangeCountry()),
               ),
@@ -128,11 +128,11 @@ class ProfileScreen extends StatelessWidget {
 
               ///Heading Skills Info
 
-              const TSectionHeading(
-                  title: 'Skills Information', showActionButton: false),
+              TSectionHeading(
+                  title: 'skillsInformation'.tr, showActionButton: false),
               const SizedBox(height: TSizes.spaceBtwItems),
               TProfileMenu(
-                title: 'Skills 1',
+                title: 'skill'.tr,
                 value: controller.user.value.skills,
                 onPressed: () => Get.to(() => const ChangeSkills()),
               ),
@@ -144,9 +144,9 @@ class ProfileScreen extends StatelessWidget {
                 child: TextButton(
                   onPressed: () => AuthenticationRepository.instance
                       .closeAccountWarningPopup(),
-                  child: const Text(
-                    'Close Account',
-                    style: TextStyle(
+                  child: Text(
+                    'logout'.tr,
+                    style: const TextStyle(
                       color: Colors.red,
                       fontSize: 14,
                     ),

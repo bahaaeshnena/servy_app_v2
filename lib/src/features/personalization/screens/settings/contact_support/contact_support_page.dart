@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/contact_support/widgets/card_contact_suppport.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -10,8 +12,8 @@ class ContactSupportPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('Contact Support'),
+      appBar: TAppBar(
+        title: Text('contactSupport'.tr),
         showBackArrow: true,
       ),
       body: Column(
@@ -22,14 +24,14 @@ class ContactSupportPage extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(12),
             child: Text(
-              'If you encounter technical problems or have been defrauded by a user or broker, or if you have suggestions or complaints, contact us.',
+              'titleContactSupport'.tr,
               style: Theme.of(context).textTheme.headlineSmall,
             ),
           ),
           const SizedBox(height: 50),
           CardContactSupport(
             color: const Color.fromARGB(255, 51, 159, 55),
-            text: 'Whats App',
+            text: 'whatsApp'.tr,
             image: TImages.whatsAppAnimation,
             onTap: () async {
               final Uri whatsApp = Uri.parse('https://wa.me/0792838813');
@@ -39,7 +41,7 @@ class ContactSupportPage extends StatelessWidget {
           const SizedBox(height: 30),
           CardContactSupport(
             color: const Color.fromARGB(255, 187, 58, 49),
-            text: 'Email',
+            text: 'email'.tr,
             image: TImages.gmailAnimation,
             onTap: () async {
               final Uri url = Uri(
@@ -50,47 +52,6 @@ class ContactSupportPage extends StatelessWidget {
             },
           ),
         ],
-      ),
-    );
-  }
-}
-
-class CardContactSupport extends StatelessWidget {
-  const CardContactSupport({
-    super.key,
-    required this.color,
-    required this.text,
-    required this.image,
-    required this.onTap,
-  });
-  final Color color;
-  final String text;
-  final String image;
-  final void Function() onTap;
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: GestureDetector(
-        onTap: onTap,
-        child: Container(
-          width: double.infinity,
-          height: 100,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(50),
-            color: color,
-          ),
-          child: Row(
-            children: [
-              LottieBuilder.asset(image),
-              const SizedBox(width: 30),
-              Text(
-                text,
-                style: Theme.of(context).textTheme.displaySmall,
-              )
-            ],
-          ),
-        ),
       ),
     );
   }

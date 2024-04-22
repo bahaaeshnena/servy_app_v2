@@ -119,7 +119,7 @@ class TTextAr {
   static const String subTitle5 = 'لتصبح وسيطنا المعتمد';
 
   //Setting page
-  static const String account = 'حساب';
+  static const String account = 'الحساب';
 
   static const String accountSettings = 'إعدادت الحساب';
   static const String titleOption1 = 'إعلاناتي';
@@ -165,4 +165,90 @@ class TTextAr {
   static const String submissionToBroker = 'التقديم على الوسيط';
   static const String subSubmissionToBroker =
       'إذا كنت تريد الانضمام إلينا لتصبح وسيطًا معتمدًا من خلال الرابط، قم بتعبئة النموذج.';
+
+//delete account & close & favoritePage
+  static const String favourite = 'مفضلة';
+  static const String messageDeleteAccount =
+      'هل أنت متأكد أنك تريد حذف حسابك نهائيا؟ لا يمكن التراجع عن هذا الإجراء وستتم إزالة جميع بياناتك نهائيًا.';
+
+  static const String logoutAccount = 'تسجيل خروج من الحساب';
+  static const String messageLogout =
+      'هل أنت متأكد أنك تريد تسجيل الخروج من حسابك؟';
+  static const String close = 'خروج';
+  static const String cancel = 'الغاء';
+  static const String delete = 'حذف';
+
+  //Contact Support
+  static const String contactSupport = 'اتصل بالدعم';
+  static const String titleContactSupport =
+      'إذا واجهت مشاكل تقنية أو تعرضت للاحتيال من قبل مستخدم أو وسيط، أو إذا كانت لديك اقتراحات أو شكاوى، تواصل معنا.';
+  static const String whatsApp = 'واتس اب';
+
+  //Privacy Policy
+  static const String p1 = 'تاريخ آخر تحديث: [16/04/2024]';
+  static const String p2 =
+      'شكرًا لك على استخدام [ تطبيق الخدمة ] ("نحن"، "Servy  App "). في هذه السياسة، نوضح كيف نقوم بجمع واستخدام ومشاركة المعلومات التي تقدمها لنا عند استخدام التطبيق. باستخدام هذا التطبيق، فإنك توافق على هذه السياسة وشروطها.';
+  static const String p3 = '1. المعلومات التي نجمعها';
+  static const String p4 =
+      'عند استخدام التطبيق، قد نقوم بجمع المعلومات التالية:';
+  static const String p5 =
+      'المعلومات الشخصية: مثل الاسم وعنوان البريد الإلكتروني ورقم الهاتف الذي قدمته أثناء التسجيل أو استخدام التطبيق. معلومات الجهاز: مثل نوع الجهاز ونظام التشغيل والمتصفح الذي تستخدمه عند الوصول إلى التطبيق. معلومات الاستخدام: مثل التفاعلات مع المحتوى الموجود في التطبيق والخدمات التي تستخدمها والتفاعلات مع الإعلانات.';
+  static const String p6 = '2. كيف نستخدم المعلومات';
+  static const String p7 = 'نحن نستخدم المعلومات التي نجمعها للأغراض التالية:';
+  static const String p8 =
+      'تحسين التطبيق: نستخدم المعلومات لتحليل كيفية استخدام المستخدمين للتطبيق وتحسين تجربة المستخدم. تقديم الخدمات: نستخدم المعلومات لتوفير الخدمات التي يطلبها المستخدمون وتخصيص التجربة بناءً على احتياجاتهم. التواصل مع المستخدمين: قد نستخدم معلومات الاتصال لإرسال إشعارات حول التحديثات والعروض الخاصة وأخبار التطبيق.';
+  static const String p9 = '3. مشاركة المعلومات';
+  static const String p10 =
+      'نحن لا نبيع أو نتاجر بالمعلومات الشخصية للمستخدمين لأطراف ثالثة. ومع ذلك، قد نشارك المعلومات مع الشركاء الذين يساعدوننا في تشغيل التطبيق وتحسينه، مثل موفري الخدمات السحابية وشركات التحليلات.';
+  static const String p11 =
+      'المعلومات الشخصية: مثل الاسم وعنوان البريد الإلكتروني ورقم الهاتف الذي قدمته أثناء التسجيل أو استخدام التطبيق. معلومات الجهاز: مثل نوع الجهاز ونظام التشغيل والمتصفح الذي تستخدمه عند الوصول إلى التطبيق. معلومات الاستخدام: مثل التفاعلات مع المحتوى الموجود في التطبيق والخدمات التي تستخدمها والتفاعلات مع الإعلانات.';
+  static const String p12 = '4. الأمن';
+  static const String p13 =
+      'نحن نتخذ التدابير الأمنية المناسبة لحماية المعلومات الشخصية من الوصول أو الاستخدام أو التعديل أو الكشف غير المصرح به.';
+  static const String p14 = '5. اختيارات المستخدمين';
+  static const String p15 =
+      'يحق للمستخدمين طلب الوصول إلى المعلومات الشخصية التي نحتفظ بها وطلب تصحيحها أو حذفها أو تقييدها. يمكن للمستخدمين أيضًا إلغاء الاشتراك في تلقي الاتصالات التسويقية منا.';
+  static const String p16 = '6. التغييرات في السياسة';
+  static const String p17 =
+      'قد نقوم بتحديث هذه السياسة من وقت لآخر، وسنقوم بنشر أي تغييرات على هذه الصفحة. يرجى مراجعة هذه الصفحة بشكل دوري للحصول على أحدث معلومات الخصوصية لدينا.';
+  static const String p18 = '7. الاتصالات';
+  static const String p19 =
+      'إذا كان لديك أي أسئلة أو استفسارات حول سياسة الخصوصية الخاصة بنا، يرجى الاتصال بنا عبر البريد الإلكتروني: eshnenabahaa@gmail.com.';
+
+//Profile Page
+  static const String changePicture = 'تغيير صورة الملف الشخصي';
+  static const String profileInformation = 'معلومات الملف الشخصي';
+  static const String personalInformation = 'معلومات شخصية';
+  static const String userId = 'معرف المستخدم';
+  static const String skill = 'مهارة ';
+  static const String name = 'الاسم';
+  static const String skillsInformation = 'معلومات المهارات';
+
+//profile Information Page
+  static const String changeName = 'تغيير الإسم';
+  static const String titleChangeName =
+      'استخدم الاسم الحقيقي للتحقق. سيظهر هذا الاسم في عدة صفحات.';
+  static const String save = 'حفظ';
+
+  //personal Information Page
+  static const String changePhoneNumber = 'غير رقم الهاتف';
+  static const String titleChangePhoneNumber =
+      'استخدم رقم الهاتف الحقيقي للتحقق. سيظهر هذا الاسم في عدة صفحات.';
+
+  static const String changeGender = 'تغيير الجنس';
+  static const String titleChangeGenderr =
+      'استخدم الاسم الحقيقي للتحقق. سيظهر هذا الاسم في عدة صفحات.';
+
+  static const String changeCountry = 'تغيير الدولة';
+  static const String titleChangeCountry =
+      'استخدم اسم بلدك الحقيقي. سيظهر هذا الاسم في عدة صفحات.';
+
+  //skills Information Page
+  static const String changeSkill = 'تغيير المهارة';
+  static const String titleChangeSkill =
+      'استخدم الأسماء الصحيحة لمجال عملك. سيظهر هذا الاسم في عدة صفحات.';
+
+  //Languages Page
+  static const String changeLanguage = 'تغيير اللغة';
+  static const String titleChangeLanguage = ': اختر لغة التطبيق التي تفضلها';
 }

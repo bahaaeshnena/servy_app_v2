@@ -92,24 +92,23 @@ class UserController extends GetxController {
   void deleteAccountWarningPopup() {
     Get.defaultDialog(
       contentPadding: const EdgeInsets.all(TSizes.md),
-      title: "Delete Account",
-      middleText:
-          'Are you sure want to delete your account permanently? this action is not reversible and all of your data willbe removed permanently.',
+      title: "titleOption4".tr,
+      middleText: 'messageDeleteAccount'.tr,
       confirm: ElevatedButton(
         onPressed: () async => deleteUserAccount(),
         style: ElevatedButton.styleFrom(
             backgroundColor: Colors.red,
             side: const BorderSide(color: Colors.red)),
-        child: const Padding(
-          padding: EdgeInsets.symmetric(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
             horizontal: TSizes.lg,
           ),
-          child: Text('Delete'),
+          child: Text('delete'.tr),
         ),
       ),
       cancel: OutlinedButton(
         onPressed: () => Navigator.of(Get.overlayContext!).pop(),
-        child: const Text("Cancel"),
+        child: Text("cancel".tr),
       ),
     );
   }

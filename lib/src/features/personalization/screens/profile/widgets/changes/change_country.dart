@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/personalization/controllers/update_countery_controller.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
 class ChangeCountry extends StatelessWidget {
@@ -18,7 +17,7 @@ class ChangeCountry extends StatelessWidget {
       appBar: TAppBar(
         showBackArrow: true,
         title: Text(
-          'Change Country',
+          'changeCountry'.tr,
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
@@ -28,7 +27,7 @@ class ChangeCountry extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'Use your country\'s real name. This name will appear on several pages.',
+              'titleChangeCountry'.tr,
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
@@ -39,11 +38,11 @@ class ChangeCountry extends StatelessWidget {
                   TextFormField(
                     controller: controller.country,
                     validator: (value) =>
-                        TValidator.volidateEmptyText('Country', value),
+                        TValidator.volidateEmptyText('country'.tr, value),
                     expands: false,
-                    decoration: const InputDecoration(
-                      labelText: TText.country,
-                      prefix: Icon(Iconsax.flag),
+                    decoration: InputDecoration(
+                      labelText: 'country'.tr,
+                      prefix: const Icon(Iconsax.flag),
                     ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwInputField),
@@ -55,7 +54,7 @@ class ChangeCountry extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => controller.updateCountry(),
-                child: const Text("save"),
+                child: Text("save".tr),
               ),
             )
           ],

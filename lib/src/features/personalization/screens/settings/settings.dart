@@ -11,6 +11,7 @@ import 'package:servy_app/src/features/personalization/screens/profile/profile.d
 import 'package:servy_app/src/features/personalization/screens/settings/become_our_broker/become_our_broker.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/contact_support/contact_support_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/favourite/favourite.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/languages/languages_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/privacy_policy/privacy_policy.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/rating_and_comments/rating_and_comments_page.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
@@ -134,7 +135,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.language_square,
                     title: "titleOption9".tr,
                     subTitle: "subTitleOption9".tr,
-                    onTap: () {},
+                    onTap: () => Get.to(() => const LanguagesPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.moon,

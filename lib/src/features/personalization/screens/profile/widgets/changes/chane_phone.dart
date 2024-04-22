@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/personalization/controllers/update_phone.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
 class ChangePhoneNumber extends StatelessWidget {
@@ -18,7 +17,7 @@ class ChangePhoneNumber extends StatelessWidget {
       appBar: TAppBar(
         showBackArrow: true,
         title: Text(
-          'Change Phone Number',
+          'changePhoneNumber'.tr,
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
@@ -28,7 +27,7 @@ class ChangePhoneNumber extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'use real phone number for verification. This name will appear on several pages.',
+              'titleChangePhoneNumber'.tr,
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
@@ -41,9 +40,9 @@ class ChangePhoneNumber extends StatelessWidget {
                     controller: controller.phoneNo,
                     validator: (value) => TValidator.validatPhoneNumber(value),
                     expands: false,
-                    decoration: const InputDecoration(
-                      labelText: TText.phoneNo,
-                      prefix: Icon(Iconsax.user),
+                    decoration: InputDecoration(
+                      labelText: 'phoneNumber'.tr,
+                      prefix: const Icon(Iconsax.user),
                     ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwInputField),
@@ -55,7 +54,7 @@ class ChangePhoneNumber extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 onPressed: () => controller.updatePhoneNumber(),
-                child: const Text("save"),
+                child: Text("save".tr),
               ),
             )
           ],
