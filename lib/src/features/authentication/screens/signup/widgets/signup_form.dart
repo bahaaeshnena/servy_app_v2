@@ -101,7 +101,7 @@ class TSignupForm extends StatelessWidget {
               onPressed: () => controller.signup(),
               child: Text('createAccount'.tr),
             ),
-          )
+          ),
         ],
       ),
     );

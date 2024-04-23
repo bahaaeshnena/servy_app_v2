@@ -258,4 +258,17 @@ class TText {
       'Choose the application language you prefer :';
   static const String subTitleChangeLanguage =
       'You can change the application language at any time.';
+
+//Add Page
+  static const String addService = 'Add Service';
+  static const String addImageService = 'Add Service Image';
+  static const String titleServise = 'Service Title ';
+  static const String descriptionService = 'Description';
+  static const String priceFrom = 'Price From';
+  static const String activateServiceOption =
+      'Activate the corresponding service option';
+  static const String correspondingService = 'Corresponding Service';
+  static const String descriptioncorrespondingService =
+      'Description Corresponding Service';
+  static const String publish = 'To Publish';
 }

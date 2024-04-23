@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:servy_app/src/common/widgets/images/circular_image.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
-import 'package:servy_app/src/utils/helpers/helper_function.dart';
 
 class TVerticalImageText extends StatelessWidget {
   const TVerticalImageText({
@@ -34,9 +33,7 @@ class TVerticalImageText extends StatelessWidget {
               fit: BoxFit.fitWidth,
               padding: TSizes.sm,
               backgroundColor: backgroundColor,
-              overlayColor: THelperFunctions.isDarkMode(context)
-                  ? TColors.light
-                  : TColors.dark,
+              overlayColor: TColors.dark,
             ),
             const SizedBox(height: TSizes.spaceBtwItems / 2),
             SizedBox(

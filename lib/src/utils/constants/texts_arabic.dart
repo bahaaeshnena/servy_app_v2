@@ -253,4 +253,15 @@ class TTextAr {
   static const String titleChangeLanguage = ': اختر لغة التطبيق التي تفضلها';
   static const String subTitleChangeLanguage =
       'يمكنك تغيير لغة التطبيق في أي وقت.';
+
+  //Add Page
+  static const String addService = 'إضافة خدمة';
+  static const String addImageService = 'إضافة صورة الخدمة';
+  static const String titleServise = 'عنوان الخدمة';
+  static const String descriptionService = 'وصف';
+  static const String priceFrom = 'السعر يبدأ من';
+  static const String activateServiceOption = 'تفعيل خيار الخدمة المقابلة';
+  static const String correspondingService = 'الخدمة المقابلة';
+  static const String descriptioncorrespondingService = 'وصف الخدمة المقابلة';
+  static const String publish = 'نشر';
 }

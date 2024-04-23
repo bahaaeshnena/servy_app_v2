@@ -183,6 +183,18 @@ class MyLocal implements Translations {
           'changeLanguage': TTextAr.changeLanguage,
           'titleChangeLanguage': TTextAr.titleChangeLanguage,
           'subTitleChangeLanguage': TTextAr.subTitleChangeLanguage,
+
+          //?Add Page
+          'addService': TTextAr.addService,
+          'addImageService': TTextAr.addImageService,
+          'titleServise': TTextAr.titleServise,
+          'descriptionService': TTextAr.descriptionService,
+          'priceFrom': TTextAr.priceFrom,
+          'activateServiceOption': TTextAr.activateServiceOption,
+          'correspondingService': TTextAr.correspondingService,
+          'descriptioncorrespondingService':
+              TTextAr.descriptioncorrespondingService,
+          'publish': TTextAr.publish,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -365,6 +377,18 @@ class MyLocal implements Translations {
           'changeLanguage': TText.changeLanguage,
           'titleChangeLanguage': TText.titleChangeLanguage,
           'subTitleChangeLanguage': TText.subTitleChangeLanguage,
+
+          //?Add Page
+          'addService': TText.addService,
+          'addImageService': TText.addImageService,
+          'titleServise': TText.titleServise,
+          'descriptionService': TText.descriptionService,
+          'priceFrom': TText.priceFrom,
+          'activateServiceOption': TText.activateServiceOption,
+          'correspondingService': TText.correspondingService,
+          'descriptioncorrespondingService':
+              TText.descriptioncorrespondingService,
+          'publish': TText.publish,
         },
       };
 }

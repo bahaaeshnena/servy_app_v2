@@ -78,4 +78,7 @@ class TImages {
 //language
   static String language = 'assets/icons/language/language.png';
   static String english = 'assets/icons/language/global.png';
+
+  //language
+  static String add = 'assets/images/Animation/add.json';
 }
