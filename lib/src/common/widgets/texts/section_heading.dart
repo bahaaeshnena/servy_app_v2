@@ -26,7 +26,7 @@ class TSectionHeading extends StatelessWidget {
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
         ),
-        const SizedBox(width: 120),
+        const SizedBox(width: 100),
         if (showActionButton)
           TextButton(
             onPressed: onPressed,

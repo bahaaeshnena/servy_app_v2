@@ -32,22 +32,19 @@ class ImageAndNameBrokers extends StatelessWidget {
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, bottom: 40),
+                  padding: const EdgeInsets.only(left: 5, bottom: 40),
                   child: Column(
                     children: [
                       Text(
                         'Age : $age',
-                        style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const SizedBox(height: 10),
                       Text(
                         'Country : $country',
-                        style: Theme.of(context).textTheme.titleSmall,
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        'Function : $function',
-                        style: Theme.of(context).textTheme.titleSmall,
+                        'Fun : $function',
                       ),
                     ],
                   ),

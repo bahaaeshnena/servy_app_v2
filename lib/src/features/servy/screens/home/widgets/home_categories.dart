@@ -12,50 +12,52 @@ class THomeCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          TVerticalImageText(
-            image: TImages.programming,
-            title: 'programming'.tr,
-            onTap: () {},
-          ),
-          TVerticalImageText(
-            image: TImages.digitalMarketing,
-            title: 'digitalMarketing'.tr,
-            onTap: () {},
-          ),
-          TVerticalImageText(
-            image: TImages.design,
-            title: 'design'.tr,
-            onTap: () {},
-          ),
-          TVerticalImageText(
-            image: TImages.video,
-            title: 'videoEditing'.tr,
-            onTap: () {},
-          ),
-          TVerticalImageText(
-            image: TImages.audios,
-            title: 'audiosEditing'.tr,
-            onTap: () {},
-          ),
-          TVerticalImageText(
-            image: TImages.writing,
-            title: 'writing'.tr,
-            onTap: () {},
-          ),
-          TVerticalImageText(
-            image: TImages.translation,
-            title: 'translation'.tr,
-            onTap: () {},
-          ),
-          TVerticalImageText(
-            image: TImages.engineeringAndArchitecture,
-            title: 'engineeringArchitecture'.tr,
-            onTap: () {},
-          ),
-        ],
+      child: Expanded(
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: [
+            TVerticalImageText(
+              image: TImages.programming,
+              title: 'programming'.tr,
+              onTap: () {},
+            ),
+            TVerticalImageText(
+              image: TImages.digitalMarketing,
+              title: 'digitalMarketing'.tr,
+              onTap: () {},
+            ),
+            TVerticalImageText(
+              image: TImages.design,
+              title: 'design'.tr,
+              onTap: () {},
+            ),
+            TVerticalImageText(
+              image: TImages.video,
+              title: 'videoEditing'.tr,
+              onTap: () {},
+            ),
+            TVerticalImageText(
+              image: TImages.audios,
+              title: 'audiosEditing'.tr,
+              onTap: () {},
+            ),
+            TVerticalImageText(
+              image: TImages.writing,
+              title: 'writing'.tr,
+              onTap: () {},
+            ),
+            TVerticalImageText(
+              image: TImages.translation,
+              title: 'translation'.tr,
+              onTap: () {},
+            ),
+            TVerticalImageText(
+              image: TImages.engineeringAndArchitecture,
+              title: 'engineeringArchitecture'.tr,
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
       // child: ListView.builder(
       //   shrinkWrap: true,

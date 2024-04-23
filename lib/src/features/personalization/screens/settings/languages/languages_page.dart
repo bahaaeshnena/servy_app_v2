@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/languages/widgets/container_language.dart';
@@ -34,20 +36,24 @@ class LanguagesPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ContainerLanguage(
-                  title: 'Arabic',
-                  image: TImages.language,
-                  onTap: () {
-                    controllerLanguage.changeLanguage('ar');
-                  },
+                Expanded(
+                  child: ContainerLanguage(
+                    title: 'Arabic',
+                    image: TImages.language,
+                    onTap: () {
+                      controllerLanguage.changeLanguage('ar');
+                    },
+                  ),
                 ),
                 const SizedBox(width: 20),
-                ContainerLanguage(
-                  title: 'English',
-                  image: TImages.english,
-                  onTap: () {
-                    controllerLanguage.changeLanguage('en');
-                  },
+                Expanded(
+                  child: ContainerLanguage(
+                    title: 'English',
+                    image: TImages.english,
+                    onTap: () {
+                      controllerLanguage.changeLanguage('en');
+                    },
+                  ),
                 ),
               ],
             )

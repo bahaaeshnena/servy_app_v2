@@ -270,5 +270,5 @@ class TText {
   static const String correspondingService = 'Corresponding Service';
   static const String descriptioncorrespondingService =
       'Description Corresponding Service';
-  static const String publish = 'To Publish';
+  static const String publish = 'Publish';
 }

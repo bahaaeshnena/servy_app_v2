@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/features/servy/controller/add_page_controller.dart';
+import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
@@ -22,6 +23,7 @@ class BodyAddPage extends StatelessWidget {
           decoration: InputDecoration(
             labelText: 'titleServise'.tr,
             prefixIcon: const Icon(Iconsax.text_block),
+            prefixIconColor: TColors.primaryColor,
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwInputField),
@@ -33,6 +35,7 @@ class BodyAddPage extends StatelessWidget {
           decoration: InputDecoration(
             labelText: 'descriptionService'.tr,
             prefixIcon: const Icon(Iconsax.text_block),
+            prefixIconColor: TColors.primaryColor,
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwInputField),
@@ -43,6 +46,7 @@ class BodyAddPage extends StatelessWidget {
           decoration: InputDecoration(
             labelText: 'priceFrom'.tr,
             prefixIcon: const Icon(Iconsax.dollar_square),
+            prefixIconColor: TColors.primaryColor,
           ),
         ),
         const SizedBox(height: TSizes.spaceBtwInputField),
@@ -70,9 +74,7 @@ class BodyAddPage extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'correspondingService'.tr,
                 prefixIcon: const Icon(Iconsax.text_block),
-                labelStyle: TextStyle(
-                  color: controller.labelColor.value, // تحديد لون النص
-                ),
+                prefixIconColor: TColors.primaryColor,
               ),
             )),
         const SizedBox(height: 16.0),
@@ -83,9 +85,7 @@ class BodyAddPage extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'descriptioncorrespondingService'.tr,
                 prefixIcon: const Icon(Iconsax.text_block),
-                labelStyle: TextStyle(
-                  color: controller.labelColor.value, // تحديد لون النص
-                ),
+                prefixIconColor: TColors.primaryColor,
               ),
             )),
         const SizedBox(height: TSizes.spaceBtwSections),

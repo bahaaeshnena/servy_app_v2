@@ -8,6 +8,7 @@ import 'package:servy_app/src/utils/constants/images.dart';
 
 class DetailsBrokersPage extends StatelessWidget {
   const DetailsBrokersPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -19,6 +20,7 @@ class DetailsBrokersPage extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               LottieBuilder.asset(TImages.contactSupport),
               ContainerDetailes(
@@ -37,31 +39,40 @@ class DetailsBrokersPage extends StatelessWidget {
                 title: 'title4'.tr,
                 text: 'subTitle4'.tr,
               ),
-              Text(
-                'title5'.tr,
-                style: Theme.of(context).textTheme.headlineMedium,
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8.0),
+                child: Text(
+                  'title5'.tr,
+                  style: Theme.of(context).textTheme.headlineMedium,
+                  textAlign: TextAlign.center,
+                ),
               ),
               LottieBuilder.asset(TImages.arrowDownst),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'subTitle5'.tr,
-                    // style: Theme.of(context).textTheme.bodyMedium,
-                    style: const TextStyle(fontSize: 15),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextButton(
-                      onPressed: () =>
-                          Get.to(() => const BecomeourBrokerPage()),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Expanded(
                       child: Text(
-                        'clickHere'.tr,
+                        'subTitle5'.tr,
                         style: const TextStyle(fontSize: 15),
+                        textAlign: TextAlign.center,
                       ),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: TextButton(
+                        onPressed: () =>
+                            Get.to(() => const BecomeourBrokerPage()),
+                        child: Text(
+                          'clickHere'.tr,
+                          style: const TextStyle(fontSize: 15),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:servy_app/src/utils/constants/colors.dart';
 
 class ContainerImageService extends StatelessWidget {
   const ContainerImageService({
@@ -15,15 +14,15 @@ class ContainerImageService extends StatelessWidget {
         width: double.infinity,
         height: 300,
         decoration: BoxDecoration(
-          color: TColors.darkGrey,
+          color: Colors.grey.withOpacity(0.2),
           borderRadius: BorderRadius.circular(30),
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Icon(
-              Icons.add_a_photo_outlined,
-              size: 100,
+              Icons.image_outlined,
+              size: 150,
             ),
             const SizedBox(height: 10),
             Text(

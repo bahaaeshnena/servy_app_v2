@@ -13,7 +13,7 @@ class ContainerForm extends StatelessWidget {
       onTap: onTap, // Use the onTap function passed from the constructor
       child: Container(
         height: 150,
-        width: 150,
+        width: MediaQuery.of(context).size.width * 0.4,
         decoration: BoxDecoration(
           color: TColors.accent,
           borderRadius: BorderRadius.circular(30),
