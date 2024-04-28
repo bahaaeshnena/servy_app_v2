@@ -174,6 +174,7 @@ class MyLocal implements Translations {
           'titleChangeGenderr': TTextAr.titleChangeGenderr,
           'changeCountry': TTextAr.changeCountry,
           'titleChangeCountry': TTextAr.titleChangeCountry,
+          'copy': TTextAr.copy,
 
           //?skills Information Page
           'changeSkill': TTextAr.changeSkill,
@@ -368,6 +369,7 @@ class MyLocal implements Translations {
           'titleChangeGenderr': TText.titleChangeGenderr,
           'changeCountry': TText.changeCountry,
           'titleChangeCountry': TText.titleChangeCountry,
+          'copy': TText.copy,
 
           //?skills Information Page
           'changeSkill': TText.changeSkill,

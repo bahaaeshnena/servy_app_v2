@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
@@ -96,10 +99,47 @@ class ProfileScreen extends StatelessWidget {
               const SizedBox(height: TSizes.spaceBtwItems),
 
               TProfileMenu(
+                title: 'ID'.tr,
+                value: controller.user.value.id,
+                onPressed: () {
+                  String copiedValue =
+                      controller.user.value.id; // Define value here
+                  Clipboard.setData(ClipboardData(text: copiedValue));
+                  // Display confirmation message
+                  Fluttertoast.showToast(
+                    msg: 'copy'.tr,
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.grey[800],
+                    textColor: Colors.white,
+                    fontSize: 16.0,
+                  );
+                },
+                iconVisible: true,
+                icon: Iconsax.copy,
+              ),
+
+              TProfileMenu(
                 title: 'email'.tr,
                 value: controller.user.value.email,
-                onPressed: () {},
-                iconVisible: false,
+                onPressed: () {
+                  String copiedValue =
+                      controller.user.value.email; // Define value here
+                  Clipboard.setData(ClipboardData(text: copiedValue));
+                  // Display confirmation message
+                  Fluttertoast.showToast(
+                    msg: 'copy'.tr,
+                    toastLength: Toast.LENGTH_SHORT,
+                    gravity: ToastGravity.BOTTOM,
+                    timeInSecForIosWeb: 1,
+                    backgroundColor: Colors.grey[800],
+                    textColor: Colors.white,
+                    fontSize: 16.0,
+                  );
+                },
+                iconVisible: true,
+                icon: Iconsax.copy,
               ),
               TProfileMenu(
                 title: 'phoneNumber'.tr,

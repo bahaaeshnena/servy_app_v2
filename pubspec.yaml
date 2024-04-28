@@ -38,7 +38,6 @@ dependencies:
   get: ^4.6.6
   flutter_native_splash: ^2.4.0
   smooth_page_indicator: ^1.1.0
-  carousel_slider: ^4.2.1
   firebase_core: ^2.27.1
   font_awesome_flutter: ^10.7.0
   get_storage: ^2.1.1
@@ -55,6 +54,11 @@ dependencies:
   cached_network_image: ^3.3.1
   url_launcher: ^6.2.6
   shared_preferences: ^2.2.3
+  fluttertoast: ^8.2.5
+
+  flutter_rating_bar: ^4.0.1
+  readmore: ^2.2.0
+  carousel_slider: ^4.2.1
 
 dev_dependencies:
   flutter_test:
@@ -93,6 +97,7 @@ flutter:
     - assets/images/our_become_brokers/
     - assets/images/brokers_images/
     - assets/icons/language/
+    - assets/images/users_images/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

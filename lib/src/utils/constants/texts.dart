@@ -230,9 +230,9 @@ class TText {
 
   //profile Information Page
   static const String changeName = 'Change Name';
-  static const String titleChangeName = 'Change Name';
-  static const String save =
-      'use real name for verification. This name will appear on several pages.';
+  static const String titleChangeName =
+      'use real name for verification. This name will appear on several pages';
+  static const String save = 'Save';
 
   //personal Information Page
   static const String changePhoneNumber = 'Change Phone Number';
@@ -246,6 +246,8 @@ class TText {
   static const String changeCountry = 'Change Country';
   static const String titleChangeCountry =
       'Use your country\'s real name. This name will appear on several pages.';
+
+  static const String copy = 'The value has been copied';
 
   //skills Information Page
   static const String changeSkill = 'Change Skill';

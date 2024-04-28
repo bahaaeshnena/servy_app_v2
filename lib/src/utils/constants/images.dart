@@ -81,4 +81,10 @@ class TImages {
 
   //language
   static String add = 'assets/images/Animation/add.json';
+  //users
+  static String userAhmed = 'assets/images/users_images/user_ahmed.jpg';
+  static String userAbood = 'assets/images/users_images/user_abood.jpg';
+  static String userBassem = 'assets/images/users_images/user_bassem.jpg';
+  static String userRaed = 'assets/images/users_images/user_raed.jpg';
+  static String userSammer = 'assets/images/users_images/user_sameer.jpg';
 }

@@ -243,6 +243,8 @@ class TTextAr {
   static const String titleChangeCountry =
       'استخدم اسم بلدك الحقيقي. سيظهر هذا الاسم في عدة صفحات.';
 
+  static const String copy = 'تم نسخ القيمة';
+
   //skills Information Page
   static const String changeSkill = 'تغيير المهارة';
   static const String titleChangeSkill =

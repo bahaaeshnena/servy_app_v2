@@ -5,8 +5,14 @@ import 'package:servy_app/src/features/servy/screens/servy_details/product_detai
 import 'package:servy_app/src/utils/constants/images.dart';
 
 class HomeCard extends StatelessWidget {
-  const HomeCard({super.key});
-
+  const HomeCard(
+      {super.key,
+      required this.title,
+      required this.desc,
+      required this.price});
+  final String title;
+  final String desc;
+  final String price;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -40,27 +46,27 @@ class HomeCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 10.0),
-                const Row(
+                Row(
                   children: [
                     Text(
-                      'web Application',
-                      style: TextStyle(
+                      title,
+                      style: const TextStyle(
                         color: Colors.blue,
                         fontSize: 16,
                       ),
                     ),
-                    SizedBox(width: 50),
-                    Icon(Iconsax.star1,
+                    const SizedBox(width: 50),
+                    const Icon(Iconsax.star1,
                         size: 25, color: Color.fromARGB(255, 255, 230, 0)),
-                    Text(
-                      ' 4.5',
+                    const Text(
+                      '4.5',
                       style: TextStyle(fontSize: 16),
                     )
                   ],
                 ),
                 const SizedBox(height: 15.0),
                 Text(
-                  'Programming websites and systems in PHP + MYSQL professionally',
+                  desc,
                   style: Theme.of(context).textTheme.bodyMedium,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
@@ -69,9 +75,10 @@ class HomeCard extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    const Text(
-                      'From 5.00\$',
-                      style: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
+                    Text(
+                      '$price \$',
+                      style:
+                          const TextStyle(fontSize: 20, fontFamily: 'Poppins'),
                     ),
                     IconButton(
                       onPressed: () {},

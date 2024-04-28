@@ -26,7 +26,11 @@ class SuggestionList extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.vertical,
               itemCount: 7,
-              itemBuilder: (context, index) => const HomeCard(),
+              itemBuilder: (context, index) => const HomeCard(
+                title: '',
+                desc: '',
+                price: '',
+              ),
             ),
           )
         ],

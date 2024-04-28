@@ -34,7 +34,11 @@ class FavouriteScreen extends StatelessWidget {
                 child: ListView.builder(
                   scrollDirection: Axis.vertical,
                   itemCount: 10,
-                  itemBuilder: (_, index) => const HomeCard(),
+                  itemBuilder: (_, index) => const HomeCard(
+                    title: '',
+                    desc: '',
+                    price: '',
+                  ),
                 ),
               ),
             ],

@@ -42,7 +42,7 @@ class ChangePhoneNumber extends StatelessWidget {
                     expands: false,
                     decoration: InputDecoration(
                       labelText: 'phoneNumber'.tr,
-                      prefix: const Icon(Iconsax.user),
+                      prefix: const Icon(Iconsax.call),
                     ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwInputField),
