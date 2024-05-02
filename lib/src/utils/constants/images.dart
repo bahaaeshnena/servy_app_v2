@@ -1,7 +1,9 @@
 class TImages {
   //--App logo
-  static const String darkAppLogo = 'assets/logos/Logo-servyApp-light.png';
-  static const String lightAppLogo = 'assets/logos/Logo-servyApp-light.png';
+  // static const String darkAppLogo = 'assets/logos/Logo-servyApp-light.png';
+  // static const String lightAppLogo = 'assets/logos/Logo-servyApp-light.png';
+  static const String darkAppLogo = 'assets/logos/servy_app_logo.png';
+  static const String lightAppLogo = 'assets/logos/servy_app_logo.png';
 
   //--Social logo
 

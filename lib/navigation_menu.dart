@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/settings.dart';
-import 'package:servy_app/src/features/servy/screens/add_post.dart/add_page.dart';
+import 'package:servy_app/src/features/servy/screens/add_service.dart/add_service_page.dart';
 import 'package:servy_app/src/features/servy/screens/brokers/brokers_page.dart';
 import 'package:servy_app/src/features/servy/screens/home/home.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
@@ -52,7 +52,7 @@ class NavigationController extends GetxController {
   final screens = [
     const HomeScreen(),
     Container(color: Colors.blue),
-    const AddPage(),
+    const AddServicePage(),
     const BrokersPage(),
     const SettingsScreen(),
   ];

@@ -262,8 +262,11 @@ class TTextAr {
   static const String titleServise = 'عنوان الخدمة';
   static const String descriptionService = 'وصف';
   static const String priceFrom = 'السعر يبدأ من';
+  static const String priceFromDiscount = 'السعر بعد الخصم يبدأ من ';
+
   static const String activateServiceOption = 'تفعيل خيار الخدمة المقابلة';
   static const String correspondingService = 'الخدمة المقابلة';
   static const String descriptioncorrespondingService = 'وصف الخدمة المقابلة';
   static const String publish = 'نشر';
+  static const String activateDescounts = 'عمل خصم على الخدمة';
 }

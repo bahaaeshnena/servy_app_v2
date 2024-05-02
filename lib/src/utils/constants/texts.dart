@@ -267,8 +267,10 @@ class TText {
   static const String titleServise = 'Service Title ';
   static const String descriptionService = 'Description';
   static const String priceFrom = 'Price From';
+  static const String priceFromDiscount = 'Price From discount';
   static const String activateServiceOption =
       'Activate the corresponding service option';
+  static const String activateDescounts = 'Make a discount on the service';
   static const String correspondingService = 'Corresponding Service';
   static const String descriptioncorrespondingService =
       'Description Corresponding Service';

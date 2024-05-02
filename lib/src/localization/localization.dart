@@ -196,6 +196,8 @@ class MyLocal implements Translations {
           'descriptioncorrespondingService':
               TTextAr.descriptioncorrespondingService,
           'publish': TTextAr.publish,
+          'activateDescounts': TTextAr.activateDescounts,
+          'priceFromDiscount': TTextAr.priceFromDiscount,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -391,6 +393,8 @@ class MyLocal implements Translations {
           'descriptioncorrespondingService':
               TText.descriptioncorrespondingService,
           'publish': TText.publish,
+          'activateDescounts': TText.activateDescounts,
+          'priceFromDiscount': TText.priceFromDiscount,
         },
       };
 }

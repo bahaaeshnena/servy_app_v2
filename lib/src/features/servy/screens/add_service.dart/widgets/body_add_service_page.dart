@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:servy_app/src/features/servy/controller/add_page_controller.dart';
+import 'package:servy_app/src/features/servy/controller/add_service_page_controller.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
-class BodyAddPage extends StatelessWidget {
-  const BodyAddPage({
+class BodyAddServicePage extends StatelessWidget {
+  const BodyAddServicePage({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    AddPageController controller = Get.put(AddPageController());
+    AddServicePageController controller = Get.put(AddServicePageController());
 
     return Form(
       key: controller.addPostFormKey,
@@ -108,6 +108,44 @@ class BodyAddPage extends StatelessWidget {
                 ),
               )),
           const SizedBox(height: TSizes.spaceBtwSections),
+
+          //! active discount price
+          Obx(() => Row(
+                children: [
+                  Checkbox(
+                    value: controller.isChecked2.value,
+                    onChanged: (newValue) {
+                      controller.isChecked2.value = newValue!;
+                    },
+                  ),
+                  Expanded(
+                    child: Text(
+                      'activateDescounts'.tr,
+                      style: Theme.of(context).textTheme.bodyMedium,
+                    ),
+                  ),
+                ],
+              )),
+          const SizedBox(height: TSizes.spaceBtwInputField),
+          Obx(() => TextFormField(
+                enabled: controller.isChecked2.value,
+                validator: (value) {
+                  if (controller.isChecked2.value) {
+                    return TValidator.volidateEmptyText(
+                        'priceFromDiscount'.tr, value);
+                  } else {
+                    return null;
+                  }
+                },
+                controller: controller.corssPodingService,
+                decoration: InputDecoration(
+                  labelText: 'priceFromDiscount'.tr,
+                  prefixIcon: const Icon(Iconsax.text_block),
+                  prefixIconColor: TColors.primaryColor,
+                ),
+              )),
+          const SizedBox(height: TSizes.spaceBtwInputField),
+
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(

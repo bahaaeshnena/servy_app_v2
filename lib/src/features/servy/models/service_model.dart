@@ -1,15 +1,19 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class PostModel {
+class ServiceModel {
+  String id; // حقل المعرف الجديد
   String title;
   String descreption;
   String imageService;
   String priceFrom;
   String? corssPodingService;
   String? descrCorssPodingService;
-  String? ownerId; // Add owner ID field
+  String? priceFromDescount;
+  String? ownerId; // حقل المعرف للمستخدم
+  String status; // حالة المشاركة
 
-  PostModel({
+  ServiceModel({
+    required this.id,
     required this.title,
     required this.descreption,
     required this.imageService,
@@ -17,47 +21,58 @@ class PostModel {
     this.corssPodingService,
     this.descrCorssPodingService,
     this.ownerId,
+    this.priceFromDescount,
+    required this.status,
   });
 
-  static PostModel empty() {
-    return PostModel(
+  static ServiceModel empty() {
+    return ServiceModel(
+      id: '',
       title: '',
       descreption: '',
       imageService: '',
       priceFrom: '',
       corssPodingService: '',
       descrCorssPodingService: '',
-      ownerId: '', // Initialize ownerId
+      ownerId: '',
+      priceFromDescount: '',
+      status: 'pending',
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
+      'id': id, // إضافة المعرف إلى JSON
       'title': title,
       'descreption': descreption,
       'imageService': imageService,
       'priceFrom': priceFrom,
       'corssPodingService': corssPodingService,
       'descrCorssPodingService': descrCorssPodingService,
-      'ownerId': ownerId, // Add ownerId to JSON
+      'ownerId': ownerId,
+      'priceFromDescount': priceFromDescount,
+      'status': status,
     };
   }
 
-  factory PostModel.fromSnapshot(
+  factory ServiceModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
       final data = document.data()!;
-      return PostModel(
+      return ServiceModel(
+        id: data['id'] ?? '', // استرجاع المعرف من الوثيقة
         title: data['title'] ?? '',
         descreption: data['descreption'] ?? '',
         imageService: data['imageService'] ?? '',
         priceFrom: data['priceFrom'] ?? '',
         corssPodingService: data['corssPodingService'] ?? '',
         descrCorssPodingService: data['descrCorssPodingService'] ?? '',
-        ownerId: data['ownerId'] ?? '', // Set ownerId from snapshot
+        ownerId: data['ownerId'] ?? '',
+        priceFromDescount: data['priceFromDescount'] ?? '',
+        status: data['status'] ?? '',
       );
     } else {
-      return PostModel.empty();
+      return ServiceModel.empty();
     }
   }
 }
