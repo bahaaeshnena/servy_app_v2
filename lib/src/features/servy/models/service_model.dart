@@ -55,12 +55,12 @@ class ServiceModel {
     };
   }
 
-  factory ServiceModel.fromSnapshot(
-      DocumentSnapshot<Map<String, dynamic>> document) {
+  factory ServiceModel.fromSnapshot(QueryDocumentSnapshot<Object?> document) {
     if (document.data() != null) {
-      final data = document.data()!;
+      final data =
+          document.data()! as Map<String, dynamic>; // Cast to correct type
       return ServiceModel(
-        id: data['id'] ?? '', // استرجاع المعرف من الوثيقة
+        id: data['id'] ?? '',
         title: data['title'] ?? '',
         descreption: data['descreption'] ?? '',
         imageService: data['imageService'] ?? '',
