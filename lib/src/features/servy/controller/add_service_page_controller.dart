@@ -16,6 +16,7 @@ class AddServicePageController extends GetxController {
   TextEditingController corssPodingService = TextEditingController();
   TextEditingController descrCorssPodingService = TextEditingController();
   TextEditingController priceFromDescount = TextEditingController();
+  TextEditingController categories = TextEditingController();
   GlobalKey<FormState> addPostFormKey = GlobalKey<FormState>();
 
   final _db = FirebaseFirestore.instance;
@@ -62,6 +63,7 @@ class AddServicePageController extends GetxController {
     corssPodingService.clear();
     descrCorssPodingService.clear();
     priceFromDescount.clear();
+    categories.clear();
   }
 
   void showSuccessMessageAndClearInputs() {
@@ -91,6 +93,7 @@ class AddServicePageController extends GetxController {
         ownerId: currentUser.id,
         priceFromDescount: priceFromDescount.text,
         status: 'pending',
+        categoris: categories.text,
       );
       // Ensure that priceFromDescount is less than priceFrom
       if (isChecked2.value) {

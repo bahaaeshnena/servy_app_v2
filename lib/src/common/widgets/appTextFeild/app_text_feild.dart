@@ -10,7 +10,7 @@ class AppTextField extends StatefulWidget {
   final String hint;
   final bool isCategorySelected;
   final List<SelectedListItem>? categories;
-
+  final String? Function(String?)? validate;
   const AppTextField({
     required this.textEditingController,
     required this.title,
@@ -18,6 +18,7 @@ class AppTextField extends StatefulWidget {
     required this.isCategorySelected,
     this.categories,
     super.key,
+    this.validate,
   });
 
   @override
@@ -83,6 +84,7 @@ class _AppTextFieldState extends State<AppTextField> {
           height: 5.0,
         ),
         TextFormField(
+          validator: widget.validate,
           controller: widget.textEditingController,
           cursorColor: Colors.black,
           onTap: widget.isCategorySelected

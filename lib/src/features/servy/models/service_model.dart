@@ -11,6 +11,7 @@ class ServiceModel {
   String? priceFromDescount;
   String? ownerId; // حقل المعرف للمستخدم
   String status; // حالة المشاركة
+  String categoris;
 
   ServiceModel({
     required this.id,
@@ -23,6 +24,7 @@ class ServiceModel {
     this.ownerId,
     this.priceFromDescount,
     required this.status,
+    required this.categoris,
   });
 
   static ServiceModel empty() {
@@ -37,6 +39,7 @@ class ServiceModel {
       ownerId: '',
       priceFromDescount: '',
       status: 'pending',
+      categoris: '',
     );
   }
 
@@ -52,6 +55,7 @@ class ServiceModel {
       'ownerId': ownerId,
       'priceFromDescount': priceFromDescount,
       'status': status,
+      'categoris': categoris,
     };
   }
 
@@ -70,6 +74,7 @@ class ServiceModel {
         ownerId: data['ownerId'] ?? '',
         priceFromDescount: data['priceFromDescount'] ?? '',
         status: data['status'] ?? '',
+        categoris: data['categoris'] ?? '',
       );
     } else {
       return ServiceModel.empty();

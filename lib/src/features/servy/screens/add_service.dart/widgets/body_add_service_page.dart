@@ -1,6 +1,8 @@
+import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:servy_app/src/common/widgets/appTextFeild/app_text_feild.dart';
 import 'package:servy_app/src/features/servy/controller/add_service_page_controller.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
@@ -19,6 +21,24 @@ class BodyAddServicePage extends StatelessWidget {
       key: controller.addPostFormKey,
       child: Column(
         children: [
+          AppTextField(
+            categories: [
+              SelectedListItem(name: 'programming'.tr),
+              SelectedListItem(name: 'digitalMarketing'.tr),
+              SelectedListItem(name: 'design'.tr),
+              SelectedListItem(name: 'videoEditing'.tr),
+              SelectedListItem(name: 'audiosEditing'.tr),
+              SelectedListItem(name: 'writing'.tr),
+              SelectedListItem(name: 'translation'.tr),
+              SelectedListItem(name: 'engineeringArchitecture'.tr),
+            ],
+            textEditingController: controller.categories,
+            title: 'selectCategories'.tr,
+            hint: 'categories'.tr,
+            isCategorySelected: true,
+            validate: (value) =>
+                TValidator.volidateEmptyText('selectCategories'.tr, value),
+          ),
           Row(
             children: [
               Text('informationsService'.tr),
