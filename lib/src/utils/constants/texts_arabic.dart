@@ -269,4 +269,9 @@ class TTextAr {
   static const String descriptioncorrespondingService = 'وصف الخدمة المقابلة';
   static const String publish = 'نشر';
   static const String activateDescounts = 'عمل خصم على الخدمة';
+
+  static const String informationsService = 'أدخل معلومات الخدمة';
+  static const String selectCategories = 'حدد الفئات';
+  static const String categories = 'فئات';
+  static const String clear = 'مسح';
 }

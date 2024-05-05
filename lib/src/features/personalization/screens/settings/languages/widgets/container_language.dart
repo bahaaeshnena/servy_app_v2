@@ -3,11 +3,11 @@ import 'package:servy_app/src/utils/constants/colors.dart';
 
 class ContainerLanguage extends StatelessWidget {
   const ContainerLanguage({
-    Key? key,
+    super.key,
     required this.title,
     required this.image,
     required this.onTap,
-  }) : super(key: key);
+  });
 
   final String title;
   final String image;

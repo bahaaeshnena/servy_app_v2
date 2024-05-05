@@ -275,4 +275,9 @@ class TText {
   static const String descriptioncorrespondingService =
       'Description Corresponding Service';
   static const String publish = 'Publish';
+
+  static const String informationsService = 'Enter Service Information ';
+  static const String selectCategories = 'Select Categories';
+  static const String categories = 'Categories';
+  static const String clear = 'Clear';
 }

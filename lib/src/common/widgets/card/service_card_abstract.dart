@@ -58,23 +58,26 @@ class ServiceCardAbstract extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 10.0),
-                  Row(
-                    children: [
-                      Text(
-                        title,
-                        style: const TextStyle(
-                          color: Colors.blue,
-                          fontSize: 16,
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: [
+                        Text(
+                          title,
+                          style: const TextStyle(
+                            color: Colors.blue,
+                            fontSize: 16,
+                          ),
                         ),
-                      ),
-                      const SizedBox(width: 50),
-                      const Icon(Iconsax.star1,
-                          size: 25, color: Color.fromARGB(255, 255, 230, 0)),
-                      const Text(
-                        '4.5',
-                        style: TextStyle(fontSize: 16),
-                      )
-                    ],
+                        const SizedBox(width: 50),
+                        const Icon(Iconsax.star1,
+                            size: 25, color: Color.fromARGB(255, 255, 230, 0)),
+                        const Text(
+                          '4.5',
+                          style: TextStyle(fontSize: 16),
+                        )
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 15.0),
                   ReadMoreText(

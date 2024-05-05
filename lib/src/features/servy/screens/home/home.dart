@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
             ),
             //Body
             const Padding(
-              padding: EdgeInsets.all(TSizes.defaultSpace),
+              padding: EdgeInsets.all(15),
               child: Column(
                 children: [
                   AdsSlider(

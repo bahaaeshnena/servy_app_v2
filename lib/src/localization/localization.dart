@@ -198,6 +198,11 @@ class MyLocal implements Translations {
           'publish': TTextAr.publish,
           'activateDescounts': TTextAr.activateDescounts,
           'priceFromDiscount': TTextAr.priceFromDiscount,
+
+          'informationsService': TTextAr.informationsService,
+          'selectCategories': TTextAr.selectCategories,
+          'categories': TTextAr.categories,
+          'clear': TTextAr.clear,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -395,6 +400,11 @@ class MyLocal implements Translations {
           'publish': TText.publish,
           'activateDescounts': TText.activateDescounts,
           'priceFromDiscount': TText.priceFromDiscount,
+
+          'informationsService': TText.informationsService,
+          'selectCategories': TText.selectCategories,
+          'categories': TText.categories,
+          'clear': TText.clear,
         },
       };
 }

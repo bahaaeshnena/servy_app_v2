@@ -19,6 +19,12 @@ class BodyAddServicePage extends StatelessWidget {
       key: controller.addPostFormKey,
       child: Column(
         children: [
+          Row(
+            children: [
+              Text('informationsService'.tr),
+            ],
+          ),
+          const SizedBox(height: 8),
           TextFormField(
             validator: (value) =>
                 TValidator.volidateEmptyText('titleServise'.tr, value),
@@ -137,7 +143,7 @@ class BodyAddServicePage extends StatelessWidget {
                     return null;
                   }
                 },
-                controller: controller.corssPodingService,
+                controller: controller.priceFromDescount,
                 decoration: InputDecoration(
                   labelText: 'priceFromDiscount'.tr,
                   prefixIcon: const Icon(Iconsax.text_block),
