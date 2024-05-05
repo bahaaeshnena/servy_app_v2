@@ -1,6 +1,10 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:servy_app/src/features/personalization/models/user_model.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/network/loaders.dart';
@@ -22,10 +26,27 @@ class AddServicePageController extends GetxController {
   final _db = FirebaseFirestore.instance;
   final RxList<ServiceModel> posts = RxList<ServiceModel>([]);
 
+  File? _imageFile;
+  String? _imageUrl;
+
+  File? get imageFile => _imageFile;
+  String? get imageUrl => _imageUrl;
   @override
   void onInit() {
     super.onInit();
     getposts();
+  }
+
+  @override
+  void onClose() {
+    title.dispose();
+    descreption.dispose();
+    priceFrom.dispose();
+    corssPodingService.dispose();
+    descrCorssPodingService.dispose();
+    priceFromDescount.dispose();
+    categories.dispose();
+    super.onClose();
   }
 
   void getposts() async {
@@ -64,6 +85,10 @@ class AddServicePageController extends GetxController {
     descrCorssPodingService.clear();
     priceFromDescount.clear();
     categories.clear();
+    _imageFile = null;
+    _imageUrl = null;
+    update();
+    // تفريغ الصورة المحددة
   }
 
   void showSuccessMessageAndClearInputs() {
@@ -74,8 +99,34 @@ class AddServicePageController extends GetxController {
     clearInputFields();
   }
 
-  void addPost() async {
+  Future<void> pickImage() async {
+    final pickedImage =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
+    if (pickedImage != null) {
+      _imageFile = File(pickedImage.path);
+      update(); // يحدث الـ Obx المتعلقة بالصورة
+    }
+  }
+
+  Future<void> uploadImage() async {
+    if (_imageFile == null) return;
+
     try {
+      final ref = FirebaseStorage.instance
+          .ref()
+          .child('service_images')
+          .child('${DateTime.now()}.jpg');
+      await ref.putFile(_imageFile!);
+      _imageUrl = await ref.getDownloadURL();
+    } catch (e) {
+      // إدارة الأخطاء هنا
+    }
+  }
+
+  Future<void> addPost() async {
+    try {
+      await uploadImage();
+
       if (!addPostFormKey.currentState!.validate()) {
         return;
       }
@@ -87,7 +138,7 @@ class AddServicePageController extends GetxController {
         id: postId,
         title: title.text,
         descreption: descreption.text,
-        imageService: '',
+        imageService: _imageUrl ?? '',
         priceFrom: priceFrom.text,
         corssPodingService: corssPodingService.text,
         ownerId: currentUser.id,

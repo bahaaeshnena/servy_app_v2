@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/servy/screens/add_service.dart/widgets/body_add_service_page.dart';
-import 'package:servy_app/src/features/servy/screens/add_service.dart/widgets/container_image_service.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
@@ -22,7 +21,6 @@ class AddServicePage extends StatelessWidget {
           padding: EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
-              ContainerImageService(),
               SizedBox(height: TSizes.spaceBtwSections),
               BodyAddServicePage(),
               SizedBox(height: TSizes.spaceBtwInputField),

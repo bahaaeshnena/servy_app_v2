@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/product_detail.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
-import 'package:servy_app/src/utils/constants/images.dart';
 
 class ServiceCardAbstract extends StatelessWidget {
   const ServiceCardAbstract({
@@ -14,11 +13,12 @@ class ServiceCardAbstract extends StatelessWidget {
     required this.price,
     this.showHeartIcon = true,
     this.priceFromDescount,
+    required this.imageUrl, // استبدال الصورة الثابتة برابط الصورة المُحفوظ في Firebase
   });
   final String title;
   final String desc;
   final String price;
-  // final String image;
+  final String imageUrl; // تعريف imageUrl هنا
   final String? priceFromDescount;
   final bool showHeartIcon;
 
@@ -51,8 +51,9 @@ class ServiceCardAbstract extends StatelessWidget {
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(8.0),
                       color: Colors.grey.shade200,
-                      image: const DecorationImage(
-                        image: AssetImage(TImages.card),
+                      // استبدال الصورة الثابتة بصورة محملة من Firebase
+                      image: DecorationImage(
+                        image: NetworkImage(imageUrl),
                         fit: BoxFit.cover,
                       ),
                     ),

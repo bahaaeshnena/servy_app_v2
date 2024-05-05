@@ -44,6 +44,7 @@ class SuggestionList extends StatelessWidget {
                       desc: service.descreption,
                       price: service.priceFrom,
                       priceFromDescount: service.priceFromDescount,
+                      imageUrl: service.imageService,
                     );
                   }).toList(),
                 );

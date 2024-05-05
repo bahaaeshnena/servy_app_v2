@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appTextFeild/app_text_feild.dart';
 import 'package:servy_app/src/features/servy/controller/add_service_page_controller.dart';
+import 'package:servy_app/src/features/servy/screens/add_service.dart/widgets/container_image_service.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
@@ -21,6 +22,8 @@ class BodyAddServicePage extends StatelessWidget {
       key: controller.addPostFormKey,
       child: Column(
         children: [
+          const ContainerImageService(),
+          const SizedBox(height: TSizes.spaceBtwSections),
           AppTextField(
             categories: [
               SelectedListItem(name: 'programming'.tr),

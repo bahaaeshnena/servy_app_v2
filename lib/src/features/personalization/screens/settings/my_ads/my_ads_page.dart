@@ -46,6 +46,7 @@ class MyAdsPage extends StatelessWidget {
                           desc: post.descreption,
                           priceFromDescount: post.priceFromDescount,
                           price: post.priceFrom,
+                          imageUrl: post.imageService,
                         ),
                   ],
                 ),
