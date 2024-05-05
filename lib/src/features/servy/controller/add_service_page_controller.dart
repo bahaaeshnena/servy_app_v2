@@ -14,6 +14,8 @@ import 'package:uuid/uuid.dart';
 class AddServicePageController extends GetxController {
   var isChecked = false.obs;
   var isChecked2 = false.obs;
+  final imageUploading = false.obs;
+
   TextEditingController title = TextEditingController();
   TextEditingController descreption = TextEditingController();
   TextEditingController priceFrom = TextEditingController();

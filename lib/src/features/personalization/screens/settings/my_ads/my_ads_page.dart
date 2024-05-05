@@ -47,6 +47,7 @@ class MyAdsPage extends StatelessWidget {
                           priceFromDescount: post.priceFromDescount,
                           price: post.priceFrom,
                           imageUrl: post.imageService,
+                          isLoadingImage: false, // عرض الصورة المحملة
                         ),
                   ],
                 ),

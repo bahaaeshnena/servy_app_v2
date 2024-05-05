@@ -5,9 +5,7 @@ import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SuggestionList extends StatelessWidget {
-  const SuggestionList({
-    super.key,
-  });
+  const SuggestionList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +43,7 @@ class SuggestionList extends StatelessWidget {
                       price: service.priceFrom,
                       priceFromDescount: service.priceFromDescount,
                       imageUrl: service.imageService,
+                      isLoadingImage: false, // عرض الصورة المحملة
                     );
                   }).toList(),
                 );

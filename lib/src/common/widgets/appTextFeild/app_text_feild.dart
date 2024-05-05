@@ -2,7 +2,9 @@ import 'package:drop_down_list/drop_down_list.dart';
 import 'package:drop_down_list/model/selected_list_item.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/network/loaders.dart';
 
 class AppTextField extends StatefulWidget {
   final TextEditingController textEditingController;
@@ -62,16 +64,12 @@ class _AppTextFieldState extends State<AppTextField> {
               widget.textEditingController.text = item.name;
             }
           }
-          showSnackBar(list.toString());
+          TLoaders.successSnackBar(
+              title: 'Success Category selected', message: list.toString());
         },
         enableMultipleSelection: false,
       ),
     ).showModal(context);
-  }
-
-  void showSnackBar(String message) {
-    ScaffoldMessenger.of(context)
-        .showSnackBar(SnackBar(content: Text(message)));
   }
 
   @override
@@ -86,7 +84,6 @@ class _AppTextFieldState extends State<AppTextField> {
         TextFormField(
           validator: widget.validate,
           controller: widget.textEditingController,
-          cursorColor: Colors.black,
           onTap: widget.isCategorySelected
               ? () {
                   FocusScope.of(context).unfocus();
@@ -94,8 +91,12 @@ class _AppTextFieldState extends State<AppTextField> {
                 }
               : null,
           decoration: InputDecoration(
+            suffixIcon: const Icon(
+              Iconsax.arrow_bottom,
+              color: TColors.primaryColor,
+            ),
             prefixIcon: const Icon(
-              Icons.category_outlined,
+              Iconsax.category,
               color: TColors.primaryColor,
             ),
             filled: true,
