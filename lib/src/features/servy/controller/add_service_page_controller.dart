@@ -14,7 +14,6 @@ import 'package:uuid/uuid.dart';
 class AddServicePageController extends GetxController {
   var isChecked = false.obs;
   var isChecked2 = false.obs;
-  final imageUploading = false.obs;
 
   TextEditingController title = TextEditingController();
   TextEditingController descreption = TextEditingController();
@@ -55,7 +54,7 @@ class AddServicePageController extends GetxController {
     try {
       UserModel currentUser = UserController.instance.user.value;
       QuerySnapshot<Map<String, dynamic>> snapshot = await _db
-          .collection("Posts")
+          .collection("Services")
           .where('ownerId', isEqualTo: currentUser.id)
           .get();
       posts.value =
@@ -71,7 +70,10 @@ class AddServicePageController extends GetxController {
 
   void acceptPost(String postId) async {
     try {
-      await _db.collection("Posts").doc(postId).update({"status": "accepted"});
+      await _db
+          .collection("Services")
+          .doc(postId)
+          .update({"status": "accepted"});
       getposts(); // تحديث البيانات بعد التحديث
       // إرسال إشعارات أو تنبيهات إضافية هنا إذا لزم الأمر
     } catch (e) {
@@ -129,6 +131,16 @@ class AddServicePageController extends GetxController {
     try {
       await uploadImage();
 
+      // التحقق من وجود صورة
+      if (_imageFile == null) {
+        // عرض رسالة خطأ وعدم تقديم النموذج إذا لم يتم تحميل الصورة
+        TLoaders.errorSnackBar(
+          title: 'Error',
+          message: 'Please select an image before submitting.',
+        );
+        return;
+      }
+
       if (!addPostFormKey.currentState!.validate()) {
         return;
       }
@@ -155,25 +167,31 @@ class AddServicePageController extends GetxController {
             double.tryParse(priceFromDescount.text) ?? 0;
         if (priceFromDescountValue >= priceFromValue) {
           TLoaders.errorSnackBar(
-              title: 'Validation Error',
-              message: 'Price from discount must be less than price from');
+            title: 'Validation Error',
+            message: 'Price from discount must be less than price from',
+          );
           return;
         }
       }
 
-      await _db.collection("Posts").add(post.toJson());
+      await _db.collection("Services").add(post.toJson());
       getposts();
 
       TLoaders.successSnackBar(
-          title: "Done", message: 'The service has been deployed successfully');
+        title: "Done",
+        message: 'The service has been deployed successfully',
+      );
       TLoaders.warningSnackBar(
-          title: "info",
-          message: 'The service you posted is under review by admin');
+        title: "info",
+        message: 'The service you posted is under review by admin',
+      );
       // Refresh page and clear input fields
       Get.find<AddServicePageController>().clearInputFields();
     } catch (e) {
       TLoaders.errorSnackBar(
-          title: 'Oh Snap!', message: 'Something went wrong: $e');
+        title: 'Oh Snap!',
+        message: 'Something went wrong: $e',
+      );
     }
   }
 }

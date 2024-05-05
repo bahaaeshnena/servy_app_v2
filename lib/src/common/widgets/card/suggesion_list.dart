@@ -23,7 +23,8 @@ class SuggestionList extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           StreamBuilder<QuerySnapshot>(
-            stream: FirebaseFirestore.instance.collection('Posts').snapshots(),
+            stream:
+                FirebaseFirestore.instance.collection('Services').snapshots(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
                 return const CircularProgressIndicator();

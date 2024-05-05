@@ -82,6 +82,7 @@ class _AppTextFieldState extends State<AppTextField> {
           height: 5.0,
         ),
         TextFormField(
+          readOnly: true,
           validator: widget.validate,
           controller: widget.textEditingController,
           onTap: widget.isCategorySelected
