@@ -11,7 +11,7 @@ import 'package:servy_app/src/utils/network/loaders.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:uuid/uuid.dart';
 
-class AddServicePageController extends GetxController {
+class ServiceController extends GetxController {
   var isChecked = false.obs;
   var isChecked2 = false.obs;
 
@@ -186,7 +186,7 @@ class AddServicePageController extends GetxController {
         message: 'The service you posted is under review by admin',
       );
       // Refresh page and clear input fields
-      Get.find<AddServicePageController>().clearInputFields();
+      Get.find<ServiceController>().clearInputFields();
     } catch (e) {
       TLoaders.errorSnackBar(
         title: 'Oh Snap!',

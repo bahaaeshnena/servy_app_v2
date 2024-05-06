@@ -13,7 +13,7 @@ class MyAdsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AddServicePageController controller = Get.put(AddServicePageController());
+    ServiceController controller = Get.put(ServiceController());
     UserController userController =
         Get.find<UserController>(); // Get the user controller
 

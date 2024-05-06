@@ -12,6 +12,7 @@ class ServiceModel {
   String? ownerId; // حقل المعرف للمستخدم
   String status; // حالة المشاركة
   String categoris;
+  bool isLiked;
 
   ServiceModel({
     required this.id,
@@ -25,6 +26,7 @@ class ServiceModel {
     this.priceFromDescount,
     required this.status,
     required this.categoris,
+    this.isLiked = false, // تعيين قيمة افتراضية لـ isLiked
   });
 
   static ServiceModel empty() {
@@ -56,6 +58,7 @@ class ServiceModel {
       'priceFromDescount': priceFromDescount,
       'status': status,
       'categoris': categoris,
+      'isLiked': isLiked,
     };
   }
 
@@ -75,6 +78,7 @@ class ServiceModel {
         priceFromDescount: data['priceFromDescount'] ?? '',
         status: data['status'] ?? '',
         categoris: data['categoris'] ?? '',
+        isLiked: data['isLiked'] ?? false, // استخراج قيمة isLiked من الـ JSON
       );
     } else {
       return ServiceModel.empty();

@@ -8,14 +8,14 @@ class ContainerImageService extends StatelessWidget {
   });
 
   Future<void> _pickImage() async {
-    Get.find<AddServicePageController>().pickImage();
+    Get.find<ServiceController>().pickImage();
   }
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => _pickImage(),
-      child: GetBuilder<AddServicePageController>(
+      child: GetBuilder<ServiceController>(
         builder: (controller) {
           return Container(
             width: double.infinity,

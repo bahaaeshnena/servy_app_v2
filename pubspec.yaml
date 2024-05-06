@@ -61,6 +61,7 @@ dependencies:
   carousel_slider: ^4.2.1
   uuid: ^4.4.0
   drop_down_list: ^0.0.6
+  random_avatar: ^0.0.8
   # flutter_local_notifications: ^8.0.0
   # firebase_messaging: ^14.9.1
 

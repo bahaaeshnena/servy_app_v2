@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/icons/circular_icon.dart';
 import 'package:servy_app/src/features/servy/screens/home/home.dart';
-import 'package:servy_app/src/utils/constants/sizes.dart';
 
 class FavouriteScreen extends StatelessWidget {
   const FavouriteScreen({super.key});
@@ -14,35 +13,17 @@ class FavouriteScreen extends StatelessWidget {
     return Scaffold(
       appBar: TAppBar(
         showBackArrow: true,
-        title: Text('favourite'.tr,
-            style: Theme.of(context).textTheme.headlineMedium),
+        title: Text(
+          'favourite'.tr,
+          style: Theme.of(context).textTheme.headlineMedium,
+        ),
         actions: [
           TCircularIcon(
             icon: Iconsax.add,
             onPressed: () => Get.to(() => const HomeScreen()),
           ),
         ],
-      ),
-      body: const SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.all(TSizes.defaultSpace),
-          child: Column(
-            children: [
-              // SizedBox(
-              //   height: MediaQuery.of(context).size.height,
-              //   child: ListView.builder(
-              //     scrollDirection: Axis.vertical,
-              //     itemCount: 10,
-              //     itemBuilder: (_, index) => const HomeCard(
-              //       title: '',
-              //       desc: '',
-              //       price: '',
-              //     ),
-              //   ),
-              // ),
-            ],
-          ),
-        ),
+        // الباقي من الـ AppBar...
       ),
     );
   }

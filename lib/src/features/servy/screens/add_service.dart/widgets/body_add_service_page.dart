@@ -16,7 +16,7 @@ class BodyAddServicePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    AddServicePageController controller = Get.put(AddServicePageController());
+    ServiceController controller = Get.put(ServiceController());
 
     return Form(
       key: controller.addPostFormKey,
