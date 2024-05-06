@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/card/service_card_abstract.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
-import 'package:servy_app/src/features/servy/controller/add_service_page_controller.dart';
+import 'package:servy_app/src/features/servy/controller/service_controller.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
@@ -39,7 +39,7 @@ class MyAdsPage extends StatelessWidget {
                   post.ownerId == userController.user.value.id &&
                   post.status == 'accepted')
               .toList();
-          controller.updatePosts(
+          controller.updateServices(
               currentUserPosts); // Update the posts in the controller
           return SingleChildScrollView(
             child: Padding(
@@ -47,15 +47,16 @@ class MyAdsPage extends StatelessWidget {
               child: Obx(
                 () => Column(
                   children: [
-                    for (var post in controller.posts)
+                    for (var service in controller.service)
                       ServiceCardAbstract(
                         showHeartIcon: false,
-                        title: post.title,
-                        desc: post.descreption,
-                        priceFromDescount: post.priceFromDescount,
-                        price: post.priceFrom,
-                        imageUrl: post.imageService,
-                        isLoadingImage: false, // عرض الصورة المحملة
+                        title: service.title,
+                        desc: service.descreption,
+                        priceFromDescount: service.priceFromDescount,
+                        price: service.priceFrom,
+                        imageUrl: service.imageService,
+                        isLoadingImage: false,
+                        serviceId: '', service: service, // عرض الصورة المحملة
                       ),
                   ],
                 ),

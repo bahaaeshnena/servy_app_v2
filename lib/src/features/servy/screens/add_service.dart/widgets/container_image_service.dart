@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:servy_app/src/features/servy/controller/add_service_page_controller.dart';
+import 'package:servy_app/src/features/servy/controller/service_controller.dart';
 
 class ContainerImageService extends StatelessWidget {
   const ContainerImageService({

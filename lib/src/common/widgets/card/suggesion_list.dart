@@ -44,7 +44,8 @@ class SuggestionList extends StatelessWidget {
                       price: service.priceFrom,
                       priceFromDescount: service.priceFromDescount,
                       imageUrl: service.imageService,
-                      isLoadingImage: false, // عرض الصورة المحملة
+                      isLoadingImage: false,
+                      serviceId: '', service: service, // عرض الصورة المحملة
                     );
                   }).toList(),
                 );

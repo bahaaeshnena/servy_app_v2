@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ServiceModel {
-  String id; // حقل المعرف الجديد
+  String serviceID; // حقل المعرف الجديد
   String title;
   String descreption;
   String imageService;
@@ -15,7 +15,7 @@ class ServiceModel {
   bool isLiked;
 
   ServiceModel({
-    required this.id,
+    required this.serviceID,
     required this.title,
     required this.descreption,
     required this.imageService,
@@ -31,7 +31,7 @@ class ServiceModel {
 
   static ServiceModel empty() {
     return ServiceModel(
-      id: '',
+      serviceID: '',
       title: '',
       descreption: '',
       imageService: '',
@@ -47,7 +47,7 @@ class ServiceModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'id': id, // إضافة المعرف إلى JSON
+      'serviceID': serviceID, // إضافة المعرف إلى JSON
       'title': title,
       'descreption': descreption,
       'imageService': imageService,
@@ -67,7 +67,7 @@ class ServiceModel {
       final data =
           document.data()! as Map<String, dynamic>; // Cast to correct type
       return ServiceModel(
-        id: data['id'] ?? '',
+        serviceID: data['serviceID'] ?? '',
         title: data['title'] ?? '',
         descreption: data['descreption'] ?? '',
         imageService: data['imageService'] ?? '',

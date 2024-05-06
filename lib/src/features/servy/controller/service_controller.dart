@@ -5,7 +5,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:servy_app/src/data/repositories/user/user_repositories.dart';
 import 'package:servy_app/src/features/personalization/models/user_model.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/network/loaders.dart';
@@ -16,6 +15,9 @@ class ServiceController extends GetxController {
   var isChecked = false.obs;
   var isChecked2 = false.obs;
 
+  RxList<ServiceModel> favoriteServices = <ServiceModel>[].obs;
+  final RxList<ServiceModel> service = RxList<ServiceModel>([]);
+
   TextEditingController title = TextEditingController();
   TextEditingController descreption = TextEditingController();
   TextEditingController priceFrom = TextEditingController();
@@ -25,20 +27,17 @@ class ServiceController extends GetxController {
   TextEditingController categories = TextEditingController();
   GlobalKey<FormState> addPostFormKey = GlobalKey<FormState>();
 
-  final UserController controller = Get.find<UserController>();
-
   final _db = FirebaseFirestore.instance;
-  final RxList<ServiceModel> posts = RxList<ServiceModel>([]);
 
   File? _imageFile;
   String? _imageUrl;
-
   File? get imageFile => _imageFile;
   String? get imageUrl => _imageUrl;
+
   @override
   void onInit() {
     super.onInit();
-    getposts();
+    getServices();
   }
 
   @override
@@ -52,48 +51,42 @@ class ServiceController extends GetxController {
     categories.dispose();
     super.onClose();
   }
-//!
+//!----------------------Add favorite------------------
 
-  void addToFavorites(String userId, String serviceId) {
-    UserRepository userRepository =
-        UserRepository(); // قم بإنشاء مثيل لمستودع المستخدم هنا
-    userRepository.addToFavorites(userId, serviceId);
-
-    // قم بإضافة معرف الخدمة إلى قائمة favoriteServices في وثيقة المستخدم
+  void toggleFavorite(ServiceModel services) {
+    if (favoriteServices.contains(services)) {
+      favoriteServices.remove(services);
+    } else {
+      favoriteServices.add(services);
+    }
   }
 
-  void removeFromFavorites(String userId, String serviceId) {
-    _db.collection('Users').doc(userId).update({
-      'FavoriteServices': FieldValue.arrayRemove([serviceId]),
-    });
-  }
-
-//!
-  void getposts() async {
+  //!-------------------------------------------------
+  void getServices() async {
     try {
       UserModel currentUser = UserController.instance.user.value;
       QuerySnapshot<Map<String, dynamic>> snapshot = await _db
           .collection("Services")
           .where('ownerId', isEqualTo: currentUser.id)
           .get();
-      posts.value =
+      service.value =
           snapshot.docs.map((doc) => ServiceModel.fromSnapshot(doc)).toList();
     } catch (e) {
       // Handle error here
     }
   }
 
-  void updatePosts(List<ServiceModel> newPosts) {
-    posts.value = newPosts;
+  void updateServices(List<ServiceModel> newPosts) {
+    service.value = newPosts;
   }
 
-  void acceptPost(String postId) async {
+  void acceptServices(String postId) async {
     try {
       await _db
           .collection("Services")
           .doc(postId)
           .update({"status": "accepted"});
-      getposts(); // تحديث البيانات بعد التحديث
+      getServices(); // تحديث البيانات بعد التحديث
       // إرسال إشعارات أو تنبيهات إضافية هنا إذا لزم الأمر
     } catch (e) {
       // إدارة الأخطاء هنا
@@ -168,7 +161,7 @@ class ServiceController extends GetxController {
 
       var serviceId = const Uuid().v4(); // توليد معرف UUID جديد
       var service = ServiceModel(
-        idService: serviceId,
+        serviceID: serviceId,
         title: title.text,
         descreption: descreption.text,
         imageService: _imageUrl ?? '',
@@ -194,7 +187,7 @@ class ServiceController extends GetxController {
       }
 
       await _db.collection("Services").add(service.toJson());
-      getposts();
+      getServices();
 
       TLoaders.successSnackBar(
         title: "Done",

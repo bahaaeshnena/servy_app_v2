@@ -2,33 +2,43 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
+import 'package:servy_app/src/features/servy/controller/service_controller.dart';
+import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/product_detail.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
 class ServiceCardAbstract extends StatelessWidget {
   const ServiceCardAbstract({
-    super.key,
+    Key? key,
     required this.title,
     required this.desc,
     required this.price,
     this.showHeartIcon = true,
     this.priceFromDescount,
     required this.imageUrl,
-    required this.isLoadingImage, // إضافة حالة التحميل هنا
+    required this.isLoadingImage,
+    required this.serviceId,
+    required this.service,
+    this.isLiked = false, // Define the named parameter isLiked
   });
 
+  final ServiceModel service;
+  final String serviceId;
   final String title;
   final String desc;
   final String price;
   final String imageUrl;
   final String? priceFromDescount;
   final bool showHeartIcon;
-  final bool isLoadingImage; // تعريف حالة التحميل هنا
+  final bool isLoadingImage;
+  final bool isLiked; // Declare the named parameter isLiked
 
   @override
   Widget build(BuildContext context) {
-    final RxBool isLiked = false.obs;
+    final RxBool isLikedState =
+        isLiked.obs; // Use a different name to avoid conflict
+    ServiceController controller = Get.put(ServiceController());
 
     return Padding(
       padding: const EdgeInsets.only(bottom: 25),
@@ -115,22 +125,23 @@ class ServiceCardAbstract extends StatelessWidget {
                       style:
                           const TextStyle(fontSize: 20, fontFamily: 'Poppins'),
                     ),
-                    Text(
-                      '$priceFromDescount \$',
-                      style:
-                          const TextStyle(fontSize: 20, fontFamily: 'Poppins'),
+                    const Text(
+                      '\$',
+                      style: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
                     ),
                     if (showHeartIcon)
-                      Obx(() => IconButton(
+                      Obx(
+                        () => IconButton(
                             onPressed: () {
-                              isLiked.value = !isLiked.value;
+                              controller.toggleFavorite(service);
+                              isLikedState.value = !isLikedState.value;
                             },
                             icon: Icon(
                               Iconsax.heart5,
-                              color: isLiked.value ? Colors.red : null,
+                              color: isLikedState.value ? Colors.red : null,
                               size: 33,
-                            ),
-                          )),
+                            )),
+                      )
                   ],
                 ),
               ],

@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/formatters/formatter.dart';
 
 class UserModel {
@@ -12,6 +13,7 @@ class UserModel {
   String gender;
   String country;
   String skills;
+  List<ServiceModel> favoriteServices; // القائمة لتخزين الخدمات
 
   UserModel({
     required this.id,
@@ -24,6 +26,7 @@ class UserModel {
     required this.gender,
     required this.country,
     required this.skills,
+    this.favoriteServices = const [], // تعيين قائمة فارغة افتراضيًا
   });
   //
 
@@ -71,6 +74,9 @@ class UserModel {
       'Gender': gender,
       'Country': country,
       'Skills': skills,
+      'FavoriteServices': favoriteServices
+          .map((service) => service.toJson())
+          .toList(), // تحويل قائمة الخدمات المفضلة إلى JSON
     };
   }
 
@@ -78,6 +84,11 @@ class UserModel {
       DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
       final date = document.data()!;
+      List<ServiceModel> favoriteServices = [];
+      if (date['FavoriteServices'] != null) {
+        favoriteServices = List<ServiceModel>.from(date['FavoriteServices']
+            .map((serviceData) => ServiceModel.fromSnapshot(serviceData)));
+      }
       return UserModel(
         id: document.id,
         firstName: date['FirstName'] ?? '',
@@ -89,6 +100,7 @@ class UserModel {
         gender: date['Gender'] ?? '',
         country: date['Country'] ?? '',
         skills: date['Skills'] ?? '',
+        favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
       );
     } else {
       return UserModel.empty();
