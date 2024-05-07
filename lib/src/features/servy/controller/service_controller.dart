@@ -64,7 +64,7 @@ class ServiceController extends GetxController {
     } else {
       favoriteServices.add(services);
       TLoaders.successSnackBar(
-        title: "Done",
+        title: "Done".tr,
         message: 'Added to favorites page',
         duration: 1,
       );
@@ -129,7 +129,7 @@ class ServiceController extends GetxController {
 
   void showSuccessMessageAndClearInputs() {
     TLoaders.successSnackBar(
-      title: "Done",
+      title: "Done".tr,
       message: 'The service has been deployed successfully',
     );
     clearInputFields();
@@ -210,7 +210,7 @@ class ServiceController extends GetxController {
       getServices();
 
       TLoaders.successSnackBar(
-        title: "Done",
+        title: "Done".tr,
         message: 'The service has been deployed successfully',
       );
       TLoaders.warningSnackBar(

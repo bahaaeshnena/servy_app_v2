@@ -405,6 +405,8 @@ class MyLocal implements Translations {
           'selectCategories': TText.selectCategories,
           'categories': TText.categories,
           'clear': TText.clear,
+
+          //? Massages User
         },
       };
 }
