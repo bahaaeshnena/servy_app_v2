@@ -6,7 +6,6 @@ import 'package:servy_app/src/data/repositories/authentication/authentication_re
 import 'package:servy_app/src/data/repositories/user/user_repositories.dart';
 import 'package:servy_app/src/features/authentication/screens/login/login.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/re_authenticate_user_login_form.dart';
-import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/network/network_manager.dart';
@@ -196,33 +195,6 @@ class UserController extends GetxController {
           title: 'Oh Snap!', message: 'Something went wrong: $e');
     } finally {
       imageUploading.value = false;
-    }
-  }
-
-//!-------------------------------------------------------
-
-  void addServiceToFavorites(ServiceModel service) async {
-    try {
-      // إضافة الخدمة إلى قائمة الخدمات المفضلة للمستخدم الحالي
-      user.update((val) {
-        val!.favoriteServices.add(service);
-      });
-
-      // تحديث بيانات المستخدم في قاعدة البيانات
-      await userRepository.updateSingleField({
-        'FavoriteServices':
-            user.value.favoriteServices.map((s) => s.toJson()).toList(),
-      });
-
-      TLoaders.successSnackBar(
-        title: 'Success',
-        message: 'Service added to favorites!',
-      );
-    } catch (e) {
-      TLoaders.errorSnackBar(
-        title: 'Error',
-        message: 'Failed to add service to favorites: $e',
-      );
     }
   }
 }

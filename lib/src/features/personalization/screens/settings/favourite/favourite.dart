@@ -1,11 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/card/service_card_abstract.dart';
-import 'package:servy_app/src/common/widgets/icons/circular_icon.dart';
 import 'package:servy_app/src/features/servy/controller/service_controller.dart';
-import 'package:servy_app/src/features/servy/screens/home/home.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
 class FavouriteScreen extends StatelessWidget {
@@ -21,13 +18,6 @@ class FavouriteScreen extends StatelessWidget {
           'favourite'.tr,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
-        actions: [
-          TCircularIcon(
-            icon: Iconsax.add,
-            onPressed: () => Get.to(() => const HomeScreen()),
-          ),
-        ],
-        // الباقي من الـ AppBar...
       ),
       body: SingleChildScrollView(
         child: Padding(

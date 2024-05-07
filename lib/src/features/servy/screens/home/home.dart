@@ -28,7 +28,11 @@ class HomeScreen extends StatelessWidget {
                   const THomeAppBar(),
                   const SizedBox(height: TSizes.spaceBtwSections),
                   //Searchbar
-                  TSearchContainer(text: 'searchContainer'.tr),
+                  TSearchContainer(
+                    text: 'searchContainer'.tr,
+                    // ignore: avoid_types_as_parameter_names, non_constant_identifier_names
+                    onSearchTextChanged: (String) {},
+                  ),
                   const SizedBox(height: TSizes.spaceBtwSections),
                   //Categories
                   Padding(

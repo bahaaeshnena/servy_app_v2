@@ -17,6 +17,7 @@ class ServiceController extends GetxController {
 
   RxList<ServiceModel> favoriteServices = <ServiceModel>[].obs;
   final RxList<ServiceModel> service = RxList<ServiceModel>([]);
+  RxList<ServiceModel> filteredServices = <ServiceModel>[].obs;
 
   TextEditingController title = TextEditingController();
   TextEditingController descreption = TextEditingController();
@@ -56,8 +57,27 @@ class ServiceController extends GetxController {
   void toggleFavorite(ServiceModel services) {
     if (favoriteServices.contains(services)) {
       favoriteServices.remove(services);
+      TLoaders.warningSnackBar(
+        title: "Done",
+        message: 'Remove from favorites page',
+      );
     } else {
       favoriteServices.add(services);
+      TLoaders.successSnackBar(
+        title: "Done",
+        message: 'Added to favorites page',
+        duration: 1,
+      );
+    }
+  }
+
+  //!-----------------Search-----------------------
+  void searchByTitle(String query) {
+    if (query.isEmpty) {
+      filteredServices.assignAll(service);
+    } else {
+      filteredServices.assignAll(service.where((service) =>
+          service.title.toLowerCase().contains(query.toLowerCase())));
     }
   }
 

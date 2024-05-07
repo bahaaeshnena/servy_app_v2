@@ -10,7 +10,7 @@ import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
 class ServiceCardAbstract extends StatelessWidget {
   const ServiceCardAbstract({
-    Key? key,
+    super.key,
     required this.title,
     required this.desc,
     required this.price,
@@ -133,8 +133,8 @@ class ServiceCardAbstract extends StatelessWidget {
                       Obx(
                         () => IconButton(
                             onPressed: () {
-                              controller.toggleFavorite(service);
                               isLikedState.value = !isLikedState.value;
+                              controller.toggleFavorite(service);
                             },
                             icon: Icon(
                               Iconsax.heart5,

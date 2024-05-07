@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
-import 'package:servy_app/src/common/widgets/custom_shapes/containers/search_container.dart';
 import 'package:servy_app/src/features/servy/screens/brokers/details_brokers_page.dart';
 import 'package:servy_app/src/features/servy/screens/brokers/widgets/card_brokers.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
@@ -25,7 +24,6 @@ class BrokersPage extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TSearchContainer(text: 'brokersSearchContainer'.tr),
               const SizedBox(height: 20),
               Text(
                 'brokersTitle'.tr,
