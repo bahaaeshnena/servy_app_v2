@@ -169,7 +169,7 @@ class BodyAddServicePage extends StatelessWidget {
                 controller: controller.priceFromDescount,
                 decoration: InputDecoration(
                   labelText: 'priceFromDiscount'.tr,
-                  prefixIcon: const Icon(Iconsax.text_block),
+                  prefixIcon: const Icon(Iconsax.discount_shape),
                   prefixIconColor: TColors.primaryColor,
                 ),
               )),

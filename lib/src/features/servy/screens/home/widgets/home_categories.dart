@@ -20,53 +20,51 @@ class THomeCategories extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 100,
-      child: Expanded(
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: [
-            TVerticalImageText(
-              image: TImages.programming,
-              title: 'programming'.tr,
-              onTap: () => Get.to(() => const CategoryProgramming()),
-            ),
-            TVerticalImageText(
-              image: TImages.digitalMarketing,
-              title: 'digitalMarketing'.tr,
-              onTap: () => Get.to(() => const CategoryDigitalMarkiting()),
-            ),
-            TVerticalImageText(
-              image: TImages.design,
-              title: 'design'.tr,
-              onTap: () => Get.to(() => const CategoryDesign()),
-            ),
-            TVerticalImageText(
-              image: TImages.video,
-              title: 'videoEditing'.tr,
-              onTap: () => Get.to(() => const CategoryVideoEditing()),
-            ),
-            TVerticalImageText(
-              image: TImages.audios,
-              title: 'audiosEditing'.tr,
-              onTap: () => Get.to(() => const CategoryAudiosEditing()),
-            ),
-            TVerticalImageText(
-              image: TImages.writing,
-              title: 'writing'.tr,
-              onTap: () => Get.to(() => const CategoryWriting()),
-            ),
-            TVerticalImageText(
-              image: TImages.translation,
-              title: 'translation'.tr,
-              onTap: () => Get.to(() => const CategoryTransaltion()),
-            ),
-            TVerticalImageText(
-              image: TImages.engineeringAndArchitecture,
-              title: 'engineeringArchitecture'.tr,
-              onTap: () =>
-                  Get.to(() => const CategoryEngineeringAndArchetecture()),
-            ),
-          ],
-        ),
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: [
+          TVerticalImageText(
+            image: TImages.programming,
+            title: 'programming'.tr,
+            onTap: () => Get.to(() => const CategoryProgramming()),
+          ),
+          TVerticalImageText(
+            image: TImages.digitalMarketing,
+            title: 'digitalMarketing'.tr,
+            onTap: () => Get.to(() => const CategoryDigitalMarkiting()),
+          ),
+          TVerticalImageText(
+            image: TImages.design,
+            title: 'design'.tr,
+            onTap: () => Get.to(() => const CategoryDesign()),
+          ),
+          TVerticalImageText(
+            image: TImages.video,
+            title: 'videoEditing'.tr,
+            onTap: () => Get.to(() => const CategoryVideoEditing()),
+          ),
+          TVerticalImageText(
+            image: TImages.audios,
+            title: 'audiosEditing'.tr,
+            onTap: () => Get.to(() => const CategoryAudiosEditing()),
+          ),
+          TVerticalImageText(
+            image: TImages.writing,
+            title: 'writing'.tr,
+            onTap: () => Get.to(() => const CategoryWriting()),
+          ),
+          TVerticalImageText(
+            image: TImages.translation,
+            title: 'translation'.tr,
+            onTap: () => Get.to(() => const CategoryTransaltion()),
+          ),
+          TVerticalImageText(
+            image: TImages.engineeringAndArchitecture,
+            title: 'engineeringArchitecture'.tr,
+            onTap: () =>
+                Get.to(() => const CategoryEngineeringAndArchetecture()),
+          ),
+        ],
       ),
       // child: ListView.builder(
       //   shrinkWrap: true,

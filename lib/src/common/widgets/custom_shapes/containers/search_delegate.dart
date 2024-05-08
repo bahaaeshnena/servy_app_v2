@@ -93,18 +93,21 @@ class SuggestionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Column(
-        children: services.map((service) {
-          return ServiceCardAbstract(
-            title: service.title,
-            desc: service.descreption,
-            price: service.priceFrom,
-            priceFromDescount: service.priceFromDescount,
-            imageUrl: service.imageService,
-            isLoadingImage: false,
-            serviceId: '', service: service, // عرض الصورة المحملة
-          );
-        }).toList(),
+      child: Padding(
+        padding: const EdgeInsets.all(10),
+        child: Column(
+          children: services.map((service) {
+            return ServiceCardAbstract(
+              title: service.title,
+              desc: service.descreption,
+              price: service.priceFrom,
+              priceFromDescount: service.priceFromDescount,
+              imageUrl: service.imageService,
+              isLoadingImage: false,
+              serviceId: '', service: service, // عرض الصورة المحملة
+            );
+          }).toList(),
+        ),
       ),
     );
   }
