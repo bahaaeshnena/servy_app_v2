@@ -84,6 +84,9 @@ class BodyAddServicePage extends StatelessWidget {
             ),
           ),
           const SizedBox(height: TSizes.spaceBtwInputField),
+
+          //! active Service Option
+
           Obx(() => Row(
                 children: [
                   Checkbox(
@@ -144,7 +147,7 @@ class BodyAddServicePage extends StatelessWidget {
                   Checkbox(
                     value: controller.isChecked2.value,
                     onChanged: (newValue) {
-                      controller.isChecked2.value = newValue!;
+                      controller.toggleDiscount(newValue ?? false);
                     },
                   ),
                   Expanded(
@@ -157,6 +160,7 @@ class BodyAddServicePage extends StatelessWidget {
               )),
           const SizedBox(height: TSizes.spaceBtwInputField),
           Obx(() => TextFormField(
+                keyboardType: TextInputType.number,
                 enabled: controller.isChecked2.value,
                 validator: (value) {
                   if (controller.isChecked2.value) {

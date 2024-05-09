@@ -5,6 +5,7 @@ import 'package:servy_app/src/features/personalization/screens/settings/language
 import 'package:servy_app/src/localization/controller/localization_controller.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
+import 'package:servy_app/src/utils/network/loaders.dart';
 
 class LanguagesPage extends StatelessWidget {
   const LanguagesPage({super.key});
@@ -40,6 +41,11 @@ class LanguagesPage extends StatelessWidget {
                     image: TImages.language,
                     onTap: () {
                       controllerLanguage.changeLanguage('ar');
+                      TLoaders.successSnackBar(
+                        title: "Done".tr,
+                        message: 'The language has been changed successfully',
+                        duration: 1,
+                      );
                     },
                   ),
                 ),
@@ -50,6 +56,11 @@ class LanguagesPage extends StatelessWidget {
                     image: TImages.english,
                     onTap: () {
                       controllerLanguage.changeLanguage('en');
+                      TLoaders.successSnackBar(
+                        title: "Done".tr,
+                        message: 'The language has been changed successfully',
+                        duration: 1,
+                      );
                     },
                   ),
                 ),

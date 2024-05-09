@@ -13,6 +13,7 @@ class ServiceModel {
   String status; // حالة المشاركة
   String categoris;
   bool isLiked;
+  bool hasDiscount;
 
   ServiceModel({
     required this.serviceID,
@@ -26,6 +27,7 @@ class ServiceModel {
     this.priceFromDescount,
     required this.status,
     required this.categoris,
+    this.hasDiscount = false,
     this.isLiked = false, // تعيين قيمة افتراضية لـ isLiked
   });
 
@@ -59,6 +61,7 @@ class ServiceModel {
       'status': status,
       'categoris': categoris,
       'isLiked': isLiked,
+      'hasDiscount': hasDiscount,
     };
   }
 
@@ -79,6 +82,7 @@ class ServiceModel {
         status: data['status'] ?? '',
         categoris: data['categoris'] ?? '',
         isLiked: data['isLiked'] ?? false, // استخراج قيمة isLiked من الـ JSON
+        hasDiscount: data['hasDiscount'] ?? false,
       );
     } else {
       return ServiceModel.empty();

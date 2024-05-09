@@ -52,6 +52,16 @@ class ServiceController extends GetxController {
     categories.dispose();
     super.onClose();
   }
+
+//!---------------------Active Dicount----------------------
+  void toggleDiscount(bool newValue) {
+    isChecked2.value = newValue;
+    // تحديث قيمة hasDiscount في كل الخدمات
+    for (var service in service) {
+      service.hasDiscount = newValue;
+    }
+  }
+
 //!----------------------Add favorite------------------
 
   void toggleFavorite(ServiceModel services) {
@@ -191,6 +201,7 @@ class ServiceController extends GetxController {
         priceFromDescount: priceFromDescount.text,
         status: 'pending',
         categoris: categories.text,
+        hasDiscount: isChecked2.value,
       );
       // Ensure that priceFromDescount is less than priceFrom
       if (isChecked2.value) {

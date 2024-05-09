@@ -10,6 +10,7 @@ import 'package:servy_app/src/data/repositories/authentication/authentication_re
 import 'package:servy_app/src/features/personalization/screens/profile/profile.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/become_our_broker/become_our_broker.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/contact_support/contact_support_page.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/discounts_page/discounts_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/favourite/favourite.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/languages/languages_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/my_ads/my_ads_page.dart';
@@ -111,7 +112,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.discount_shape,
                     title: "titleOption6".tr,
                     subTitle: "subTitleOption6".tr,
-                    onTap: () {},
+                    onTap: () => Get.to(() => const DiscountsScreen()),
                   ),
                   //?-------------------------App Settings------------------------------
 
