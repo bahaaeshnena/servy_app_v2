@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
+import 'package:servy_app/src/common/widgets/like_button/custom_like_button.dart';
 import 'package:servy_app/src/features/servy/controller/service_controller.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/product_detail.dart';
@@ -36,8 +37,6 @@ class ServiceCardAbstract extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final RxBool isLikedState =
-        isLiked.obs; // Use a different name to avoid conflict
     ServiceController controller = Get.put(ServiceController());
 
     return Padding(
@@ -60,7 +59,7 @@ class ServiceCardAbstract extends StatelessWidget {
               children: [
                 Container(
                   width: double.infinity,
-                  height: 170,
+                  height: 200,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
                     color: Colors.grey.shade200,
@@ -168,18 +167,8 @@ class ServiceCardAbstract extends StatelessWidget {
                         ],
                       ),
                     if (showHeartIcon)
-                      Obx(
-                        () => IconButton(
-                            onPressed: () {
-                              isLikedState.value = !isLikedState.value;
-                              controller.toggleFavorite(service);
-                            },
-                            icon: Icon(
-                              Iconsax.heart5,
-                              color: isLikedState.value ? Colors.red : null,
-                              size: 33,
-                            )),
-                      ),
+                      CustomLikeButton(
+                          service: service, controller: controller),
                   ],
                 ),
               ],

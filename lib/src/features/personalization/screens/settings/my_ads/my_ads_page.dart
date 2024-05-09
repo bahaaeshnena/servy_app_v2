@@ -35,9 +35,10 @@ class MyAdsPage extends StatelessWidget {
               .map((doc) => ServiceModel.fromSnapshot(doc))
               .toList();
           List<ServiceModel> currentUserPosts = allPosts
-              .where((post) =>
-                  post.ownerId == userController.user.value.id &&
-                  post.status == 'accepted')
+              .where((service) =>
+                  service.ownerId == userController.user.value.id &&
+                  service.status == 'accepted' &&
+                  service.hasDiscount == false)
               .toList();
           controller.updateServices(
               currentUserPosts); // Update the posts in the controller

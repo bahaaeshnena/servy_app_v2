@@ -35,7 +35,7 @@ class FavouriteScreen extends StatelessWidget {
                         isLoadingImage: false,
                         serviceId: service.serviceID,
                         service: service,
-                        isLiked: true,
+                        isLiked: service.isLikedState.value,
                       );
                     }).toList(),
                   )),

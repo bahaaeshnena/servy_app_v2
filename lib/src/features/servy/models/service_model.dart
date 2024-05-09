@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 class ServiceModel {
   String serviceID; // حقل المعرف الجديد
@@ -12,8 +13,8 @@ class ServiceModel {
   String? ownerId; // حقل المعرف للمستخدم
   String status; // حالة المشاركة
   String categoris;
-  bool isLiked;
   bool hasDiscount;
+  RxBool isLikedState = RxBool(false);
 
   ServiceModel({
     required this.serviceID,
@@ -28,7 +29,6 @@ class ServiceModel {
     required this.status,
     required this.categoris,
     this.hasDiscount = false,
-    this.isLiked = false, // تعيين قيمة افتراضية لـ isLiked
   });
 
   static ServiceModel empty() {
@@ -60,7 +60,7 @@ class ServiceModel {
       'priceFromDescount': priceFromDescount,
       'status': status,
       'categoris': categoris,
-      'isLiked': isLiked,
+      'isLikedState': isLikedState,
       'hasDiscount': hasDiscount,
     };
   }
@@ -81,7 +81,6 @@ class ServiceModel {
         priceFromDescount: data['priceFromDescount'] ?? '',
         status: data['status'] ?? '',
         categoris: data['categoris'] ?? '',
-        isLiked: data['isLiked'] ?? false, // استخراج قيمة isLiked من الـ JSON
         hasDiscount: data['hasDiscount'] ?? false,
       );
     } else {

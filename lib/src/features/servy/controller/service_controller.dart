@@ -64,15 +64,15 @@ class ServiceController extends GetxController {
 
 //!----------------------Add favorite------------------
 
-  void toggleFavorite(ServiceModel services) {
-    if (favoriteServices.contains(services)) {
-      favoriteServices.remove(services);
+  void toggleFavorite(ServiceModel service) {
+    if (favoriteServices.contains(service)) {
+      favoriteServices.remove(service);
       TLoaders.warningSnackBar(
         title: "Done",
         message: 'Remove from favorites page',
       );
     } else {
-      favoriteServices.add(services);
+      favoriteServices.add(service);
       TLoaders.successSnackBar(
         title: "Done".tr,
         message: 'Added to favorites page',
