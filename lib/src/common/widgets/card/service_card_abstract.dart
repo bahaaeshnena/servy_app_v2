@@ -120,15 +120,53 @@ class ServiceCardAbstract extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      '$price \$',
-                      style:
-                          const TextStyle(fontSize: 20, fontFamily: 'Poppins'),
-                    ),
-                    const Text(
-                      '\$',
-                      style: TextStyle(fontSize: 20, fontFamily: 'Poppins'),
-                    ),
+                    if (!service.hasDiscount) // إذا لم يكن هناك خصم
+                      Text(
+                        '$price \$',
+                        style: const TextStyle(
+                            fontSize: 20, fontFamily: 'Poppins'),
+                      ),
+                    if (service.hasDiscount) // إذا كان هناك خصم
+                      Text(
+                        '$price \$',
+                        style: const TextStyle(
+                            fontSize: 22,
+                            fontFamily: 'Poppins',
+                            decoration: TextDecoration.lineThrough,
+                            decorationStyle: TextDecorationStyle.solid,
+                            decorationThickness: 2,
+                            decorationColor: TColors.primaryColor),
+                      ),
+                    if (service.hasDiscount)
+                      Row(
+                        children: [
+                          const Text(
+                            'discount',
+                            style: TextStyle(
+                              color: TColors.primaryColor,
+                              fontSize: 16,
+                            ),
+                          ),
+                          const SizedBox(width: 5),
+                          const Icon(
+                            Iconsax.discount_shape,
+                            color: TColors.primaryColor,
+                          ),
+                          const SizedBox(width: 5),
+                          const Icon(
+                            Iconsax.arrow_right_1,
+                            color: TColors.primaryColor,
+                          ),
+                          const SizedBox(width: 5),
+                          Text(
+                            ' $priceFromDescount \$',
+                            style: const TextStyle(
+                              fontSize: 22,
+                              fontFamily: 'Poppins',
+                            ),
+                          ),
+                        ],
+                      ),
                     if (showHeartIcon)
                       Obx(
                         () => IconButton(
@@ -141,7 +179,7 @@ class ServiceCardAbstract extends StatelessWidget {
                               color: isLikedState.value ? Colors.red : null,
                               size: 33,
                             )),
-                      )
+                      ),
                   ],
                 ),
               ],

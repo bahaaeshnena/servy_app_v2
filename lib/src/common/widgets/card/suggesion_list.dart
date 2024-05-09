@@ -34,7 +34,9 @@ class SuggestionList extends StatelessWidget {
                 // Filter the list of services based on status
                 List<ServiceModel> services = snapshot.data!.docs
                     .map((doc) => ServiceModel.fromSnapshot(doc))
-                    .where((service) => service.status == 'accepted')
+                    .where((service) =>
+                        service.status == 'accepted' &&
+                        service.hasDiscount == false)
                     .toList();
                 return Column(
                   children: services.map((service) {
