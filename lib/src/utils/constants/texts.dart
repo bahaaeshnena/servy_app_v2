@@ -288,4 +288,7 @@ class TText {
   static const String deleteService = 'Delete Service';
   static const String messageDeleteService =
       'Are you sure you want to delete the service permanently? This action cannot be undone and all service data will be permanently removed.';
+
+  static const String update = 'Update';
+  static const String updateService = 'Update Service';
 }

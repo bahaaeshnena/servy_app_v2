@@ -281,4 +281,7 @@ class TTextAr {
   static const String deleteService = 'حذف الخدمة';
   static const String messageDeleteService =
       'هل أنت متأكد أنك تريد حذف الخدمة نهائيا؟ لا يمكن التراجع عن هذا الإجراء وستتم إزالة جميع بيانات الخدمة نهائيًا.';
+
+  static const String update = 'تعديل';
+  static const String updateService = 'تحديث الخدمة';
 }

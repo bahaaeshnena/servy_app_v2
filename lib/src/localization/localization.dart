@@ -209,6 +209,8 @@ class MyLocal implements Translations {
           'edit': TTextAr.edit,
           'deleteService': TTextAr.deleteService,
           'messageDeleteService': TTextAr.messageDeleteService,
+          'update': TTextAr.update,
+          'updateService': TTextAr.updateService,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -417,6 +419,8 @@ class MyLocal implements Translations {
           'edit': TText.edit,
           'deleteService': TText.deleteService,
           'messageDeleteService': TText.messageDeleteService,
+          'update': TText.update,
+          'updateService': TText.updateService,
         },
       };
 }

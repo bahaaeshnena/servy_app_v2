@@ -6,12 +6,13 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/card/service_card_abstract.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/my_services/update_Service_page.dart';
 import 'package:servy_app/src/features/servy/controller/service_controller.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
 class MyServicesPage extends StatelessWidget {
-  const MyServicesPage({Key? key});
+  const MyServicesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +100,9 @@ class MyServicesPage extends StatelessWidget {
                                     foregroundColor: Colors.blueAccent,
                                     autoClose: false,
                                     label: 'edit'.tr,
-                                    onPressed: ((context) {}),
+                                    onPressed: ((context) {
+                                      Get.to(() => const UpdateServicePage());
+                                    }),
                                     icon: Iconsax.edit,
                                   ),
                                   SlidableAction(
