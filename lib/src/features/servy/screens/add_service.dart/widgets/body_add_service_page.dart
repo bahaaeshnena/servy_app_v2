@@ -183,7 +183,7 @@ class BodyAddServicePage extends StatelessWidget {
             width: double.infinity,
             child: ElevatedButton(
               onPressed: () {
-                controller.addPost();
+                controller.addService();
               },
               child: Text('publish'.tr),
             ),

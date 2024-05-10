@@ -94,9 +94,17 @@ class ServiceController extends GetxController {
   //!---------------------delete service----------------------------
   void deleteService(String servece) async {
     try {
+      TFullScreenLoader.openLoading(
+          "We are processing your information...", TImages.procsingAnimation);
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) return;
       await _db.collection('Services').doc(servece).delete();
       service.removeWhere((element) => element.serviceID == servece);
       update(); // Update the UI after removing the service
+      Navigator.of(Get.overlayContext!).pop();
+
+      TFullScreenLoader.stopLoading();
+
       TLoaders.successSnackBar(
         title: "Success",
         message: 'Service deleted successfully',
@@ -109,7 +117,7 @@ class ServiceController extends GetxController {
     }
   }
 
-  //!-------------------------------------------------
+  //!---------------------get services----------------------------
   void getServices() async {
     try {
       UserModel currentUser = UserController.instance.user.value;
@@ -123,8 +131,9 @@ class ServiceController extends GetxController {
       // Handle error here
     }
   }
+  //!---------------------update get services----------------------------
 
-  void updateServices(List<ServiceModel> newPosts) {
+  void updateGetServices(List<ServiceModel> newPosts) {
     service.value = newPosts;
   }
 
@@ -140,6 +149,7 @@ class ServiceController extends GetxController {
       // إدارة الأخطاء هنا
     }
   }
+  //!---------------------Clear textField add page----------------------------
 
   void clearInputFields() {
     title.clear();
@@ -162,6 +172,7 @@ class ServiceController extends GetxController {
     );
     clearInputFields();
   }
+  //!---------------------Pick Image----------------------------
 
   Future<void> pickImage() async {
     final pickedImage =
@@ -171,6 +182,7 @@ class ServiceController extends GetxController {
       update(); // يحدث الـ Obx المتعلقة بالصورة
     }
   }
+  //!---------------------Upload Image----------------------------
 
   Future<void> uploadImage() async {
     if (_imageFile == null) return;
@@ -186,18 +198,18 @@ class ServiceController extends GetxController {
       // إدارة الأخطاء هنا
     }
   }
+  //!---------------------add service----------------------------
 
-  Future<void> addPost() async {
+  Future<void> addService() async {
     try {
       TFullScreenLoader.openLoading(
-          "We are processing your information...", TImages.publishingAnimation);
+          "We are processing your information...", TImages.procsingAnimation);
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) return;
       await uploadImage();
 
       // التحقق من وجود صورة
       if (_imageFile == null) {
-        // عرض رسالة خطأ وعدم تقديم النموذج إذا لم يتم تحميل الصورة
         TLoaders.errorSnackBar(
           title: 'Error',
           message: 'Please select an image before submitting.',

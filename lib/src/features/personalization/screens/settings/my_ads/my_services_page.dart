@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -12,7 +11,7 @@ import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
 class MyServicesPage extends StatelessWidget {
-  const MyServicesPage({super.key});
+  const MyServicesPage({Key? key});
 
   @override
   Widget build(BuildContext context) {
@@ -42,89 +41,120 @@ class MyServicesPage extends StatelessWidget {
                   service.ownerId == userController.user.value.id &&
                   service.status == 'accepted')
               .toList();
-          controller.updateServices(
+          controller.updateGetServices(
               currentUserPosts); // Update the posts in the controller
           return SingleChildScrollView(
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Obx(
-                () => Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.all(TSizes.defaultSpace),
-                      child: Row(
+                () {
+                  if (controller.service.isEmpty) {
+                    // إذا لم تكن هناك بيانات لعرضها
+                    return Center(
+                      child: Column(
                         children: [
-                          Expanded(
-                            child: Text(
-                              'titleMyServiceScreen'.tr,
-                              style: Theme.of(context).textTheme.headlineSmall,
-                            ),
+                          Text(
+                            'titleMyServiceScreen'.tr,
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
+                          const SizedBox(height: 150),
+                          const Text(
+                            'No services found', // رسالة العرض
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          const Text(
+                            'You have not posted services!', // رسالة العرض
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                         ],
                       ),
-                    ),
-                    for (var service in controller.service)
-                      Slidable(
-                        endActionPane:
-                            ActionPane(motion: const DrawerMotion(), children: [
-                          SlidableAction(
-                            foregroundColor: Colors.blueAccent,
-                            autoClose: false,
-                            label: 'edit'.tr,
-                            onPressed: ((context) {}),
-                            icon: Iconsax.edit,
-                            // backgroundColor: Colors.blueAccent,
-                          ),
-                          SlidableAction(
-                            foregroundColor: Colors.red,
-                            autoClose: false,
-                            label: 'delete'.tr,
-                            onPressed: (context) {
-                              Get.defaultDialog(
-                                contentPadding: const EdgeInsets.all(TSizes.md),
-                                title: "deleteService".tr,
-                                middleText: 'messageDeleteService'.tr,
-                                confirm: ElevatedButton(
-                                  onPressed: () async {
-                                    controller.deleteService(service.serviceID);
-                                  },
-                                  style: ElevatedButton.styleFrom(
-                                      backgroundColor: Colors.red,
-                                      side:
-                                          const BorderSide(color: Colors.red)),
-                                  child: Padding(
-                                    padding: const EdgeInsets.symmetric(
-                                      horizontal: TSizes.lg,
-                                    ),
-                                    child: Text('delete'.tr),
-                                  ),
+                    );
+                  } else {
+                    // إذا كانت هناك بيانات لعرضها
+                    return Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(TSizes.defaultSpace),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  'titleMyServiceScreen'.tr,
+                                  style:
+                                      Theme.of(context).textTheme.headlineSmall,
                                 ),
-                                cancel: OutlinedButton(
-                                  onPressed: () =>
-                                      Navigator.of(Get.overlayContext!).pop(),
-                                  child: Text("cancel".tr),
-                                ),
-                              );
-                            },
-                            icon: Iconsax.box_remove,
-                            // backgroundColor: Colors.redAccent,
+                              ),
+                            ],
                           ),
-                        ]),
-                        child: ServiceCardAbstract(
-                          showHeartIcon: false,
-                          title: service.title,
-                          desc: service.descreption,
-                          priceFromDescount: service.priceFromDescount,
-                          price: service.priceFrom,
-                          imageUrl: service.imageService,
-                          isLoadingImage: false,
-                          serviceId: '',
-                          service: service, // عرض الصورة المحملة
                         ),
-                      ),
-                  ],
-                ),
+                        for (var service in controller.service)
+                          Slidable(
+                            endActionPane: ActionPane(
+                                motion: const DrawerMotion(),
+                                children: [
+                                  SlidableAction(
+                                    foregroundColor: Colors.blueAccent,
+                                    autoClose: false,
+                                    label: 'edit'.tr,
+                                    onPressed: ((context) {}),
+                                    icon: Iconsax.edit,
+                                  ),
+                                  SlidableAction(
+                                    foregroundColor: Colors.red,
+                                    autoClose: false,
+                                    label: 'delete'.tr,
+                                    onPressed: (context) {
+                                      Get.defaultDialog(
+                                        contentPadding:
+                                            const EdgeInsets.all(TSizes.md),
+                                        title: "deleteService".tr,
+                                        middleText: 'messageDeleteService'.tr,
+                                        confirm: ElevatedButton(
+                                          onPressed: () async {
+                                            controller.deleteService(
+                                                service.serviceID);
+                                          },
+                                          style: ElevatedButton.styleFrom(
+                                              backgroundColor: Colors.red,
+                                              side: const BorderSide(
+                                                  color: Colors.red)),
+                                          child: Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                              horizontal: TSizes.lg,
+                                            ),
+                                            child: Text('delete'.tr),
+                                          ),
+                                        ),
+                                        cancel: OutlinedButton(
+                                          onPressed: () =>
+                                              Navigator.of(Get.overlayContext!)
+                                                  .pop(),
+                                          child: Text("cancel".tr),
+                                        ),
+                                      );
+                                    },
+                                    icon: Iconsax.box_remove,
+                                  ),
+                                ]),
+                            child: ServiceCardAbstract(
+                              showHeartIcon: false,
+                              title: service.title,
+                              desc: service.descreption,
+                              priceFromDescount: service.priceFromDescount,
+                              price: service.priceFrom,
+                              imageUrl: service.imageService,
+                              isLoadingImage: false,
+                              serviceId: '',
+                              service: service,
+                            ),
+                          ),
+                      ],
+                    );
+                  }
+                },
               ),
             ),
           );
