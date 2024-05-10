@@ -21,7 +21,6 @@ class ServiceCardAbstract extends StatelessWidget {
     required this.isLoadingImage,
     required this.serviceId,
     required this.service,
-    this.isLiked = false, // Define the named parameter isLiked
   });
 
   final ServiceModel service;
@@ -33,7 +32,6 @@ class ServiceCardAbstract extends StatelessWidget {
   final String? priceFromDescount;
   final bool showHeartIcon;
   final bool isLoadingImage;
-  final bool isLiked; // Declare the named parameter isLiked
 
   @override
   Widget build(BuildContext context) {
@@ -86,7 +84,7 @@ class ServiceCardAbstract extends StatelessWidget {
                         title,
                         style: const TextStyle(
                           color: Colors.blue,
-                          fontSize: 16,
+                          fontSize: 18,
                         ),
                       ),
                       const SizedBox(width: 50),

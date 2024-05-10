@@ -65,19 +65,13 @@ class ServiceController extends GetxController {
 //!----------------------Add favorite------------------
 
   void toggleFavorite(ServiceModel service) {
-    if (favoriteServices.contains(service)) {
+    bool isFavorite = favoriteServices.contains(service);
+    if (isFavorite) {
       favoriteServices.remove(service);
-      TLoaders.warningSnackBar(
-        title: "Done",
-        message: 'Remove from favorites page',
-      );
+      service.isLikedState = false; // تحديث الحالة
     } else {
       favoriteServices.add(service);
-      TLoaders.successSnackBar(
-        title: "Done".tr,
-        message: 'Added to favorites page',
-        duration: 1,
-      );
+      service.isLikedState = true; // تحديث الحالة
     }
   }
 
@@ -88,6 +82,24 @@ class ServiceController extends GetxController {
     } else {
       filteredServices.assignAll(service.where((service) =>
           service.title.toLowerCase().contains(query.toLowerCase())));
+    }
+  }
+
+  //!---------------------delete service----------------------------
+  void deleteService(String servece) async {
+    try {
+      await _db.collection('Services').doc(servece).delete();
+      service.removeWhere((element) => element.serviceID == servece);
+      update(); // Update the UI after removing the service
+      TLoaders.successSnackBar(
+        title: "Success",
+        message: 'Service deleted successfully',
+      );
+    } catch (e) {
+      TLoaders.errorSnackBar(
+        title: "Error",
+        message: 'Failed to delete service: $e',
+      );
     }
   }
 

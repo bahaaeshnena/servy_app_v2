@@ -18,7 +18,7 @@ class CustomLikeButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return LikeButton(
       size: 50,
-      isLiked: service.isLikedState.value,
+      isLiked: service.isLikedState,
       circleColor:
           const CircleColor(start: Color(0xff00ddff), end: Color(0xff0099cc)),
       bubblesColor: const BubblesColor(
@@ -33,7 +33,7 @@ class CustomLikeButton extends StatelessWidget {
         );
       },
       onTap: (isLiked) async {
-        service.isLikedState.value = !isLiked;
+        service.isLikedState = !isLiked;
         if (!isLiked) {
           controller.toggleFavorite(service);
         }

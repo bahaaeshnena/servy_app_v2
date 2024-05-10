@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 class ServiceModel {
   String serviceID; // حقل المعرف الجديد
@@ -14,7 +13,7 @@ class ServiceModel {
   String status; // حالة المشاركة
   String categoris;
   bool hasDiscount;
-  RxBool isLikedState = RxBool(false);
+  bool isLikedState = false;
 
   ServiceModel({
     required this.serviceID,
@@ -65,12 +64,12 @@ class ServiceModel {
     };
   }
 
-  factory ServiceModel.fromSnapshot(QueryDocumentSnapshot<Object?> document) {
+  factory ServiceModel.fromSnapshot(QueryDocumentSnapshot document) {
     if (document.data() != null) {
       final data =
           document.data()! as Map<String, dynamic>; // Cast to correct type
       return ServiceModel(
-        serviceID: data['serviceID'] ?? '',
+        serviceID: document.id,
         title: data['title'] ?? '',
         descreption: data['descreption'] ?? '',
         imageService: data['imageService'] ?? '',

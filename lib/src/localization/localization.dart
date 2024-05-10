@@ -203,6 +203,12 @@ class MyLocal implements Translations {
           'selectCategories': TTextAr.selectCategories,
           'categories': TTextAr.categories,
           'clear': TTextAr.clear,
+
+          //? my Service page
+          'titleMyServiceScreen': TTextAr.titleMyServiceScreen,
+          'edit': TTextAr.edit,
+          'deleteService': TTextAr.deleteService,
+          'messageDeleteService': TTextAr.messageDeleteService,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -406,7 +412,11 @@ class MyLocal implements Translations {
           'categories': TText.categories,
           'clear': TText.clear,
 
-          //? Massages User
+          //? my Service page
+          'titleMyServiceScreen': TText.titleMyServiceScreen,
+          'edit': TText.edit,
+          'deleteService': TText.deleteService,
+          'messageDeleteService': TText.messageDeleteService,
         },
       };
 }

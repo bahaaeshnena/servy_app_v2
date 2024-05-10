@@ -122,8 +122,8 @@ class TTextAr {
   static const String account = 'الحساب';
 
   static const String accountSettings = 'إعدادت الحساب';
-  static const String titleOption1 = 'إعلاناتي';
-  static const String subTitleOption1 = 'تعديل أو حذف إعلاناتي';
+  static const String titleOption1 = 'خدماتي';
+  static const String subTitleOption1 = 'تعديل أو حذف خدماتي';
   static const String titleOption2 = 'التقييمات والتعليقات';
   static const String subTitleOption2 = 'لرؤية التعليقات والتقييمات لحسابك';
   static const String titleOption3 = 'تصبح وسيط لدينا';
@@ -274,4 +274,11 @@ class TTextAr {
   static const String selectCategories = 'حدد الفئات';
   static const String categories = 'فئات';
   static const String clear = 'مسح';
+
+  //My ads
+  static const String titleMyServiceScreen = 'اسحب لتعديل الخدمة أو حذفها';
+  static const String edit = 'تعديل';
+  static const String deleteService = 'حذف الخدمة';
+  static const String messageDeleteService =
+      'هل أنت متأكد أنك تريد حذف الخدمة نهائيا؟ لا يمكن التراجع عن هذا الإجراء وستتم إزالة جميع بيانات الخدمة نهائيًا.';
 }

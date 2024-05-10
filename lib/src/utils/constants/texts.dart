@@ -123,8 +123,8 @@ class TText {
   static const String account = 'Account';
 
   static const String accountSettings = 'Account Settings';
-  static const String titleOption1 = 'My ads';
-  static const String subTitleOption1 = 'Edit or delete my ads';
+  static const String titleOption1 = 'My services';
+  static const String subTitleOption1 = 'Edit or delete my services';
   static const String titleOption2 = 'Ratings and comments';
   static const String subTitleOption2 =
       'To see comments and ratings for your account';
@@ -280,4 +280,12 @@ class TText {
   static const String selectCategories = 'Select Categories';
   static const String categories = 'Categories';
   static const String clear = 'Clear';
+
+  //My ads
+  static const String titleMyServiceScreen =
+      'Drag to edit or delete the service';
+  static const String edit = 'edit';
+  static const String deleteService = 'Delete Service';
+  static const String messageDeleteService =
+      'Are you sure you want to delete the service permanently? This action cannot be undone and all service data will be permanently removed.';
 }

@@ -13,7 +13,7 @@ import 'package:servy_app/src/features/personalization/screens/settings/contact_
 import 'package:servy_app/src/features/personalization/screens/settings/discounts_page/discounts_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/favourite/favourite.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/languages/languages_page.dart';
-import 'package:servy_app/src/features/personalization/screens/settings/my_ads/my_ads_page.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/my_ads/my_services_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/privacy_policy/privacy_policy.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/rating_and_comments/rating_and_comments_page.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
@@ -73,7 +73,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Iconsax.edit_2,
                     title: "titleOption1".tr,
                     subTitle: "subTitleOption1".tr,
-                    onTap: () => Get.to(() => const MyAdsPage()),
+                    onTap: () => Get.to(() => const MyServicesPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Icons.star_border_outlined,
