@@ -117,48 +117,59 @@ class ServiceCardAbstract extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    if (!service.hasDiscount) // إذا لم يكن هناك خصم
-                      Text(
-                        '$price \$',
-                        style: const TextStyle(
-                            fontSize: 20, fontFamily: 'Poppins'),
+                    if (!service.hasDiscount)
+                      Flexible(
+                        child: Text(
+                          '$price \$',
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.04,
+                            fontFamily: 'Poppins',
+                          ),
+                        ),
                       ),
-                    if (service.hasDiscount) // إذا كان هناك خصم
-                      Text(
-                        '$price \$',
-                        style: const TextStyle(
-                            fontSize: 22,
+                    if (service.hasDiscount)
+                      Flexible(
+                        child: Text(
+                          '$price \$',
+                          style: TextStyle(
+                            fontSize: MediaQuery.of(context).size.width * 0.045,
                             fontFamily: 'Poppins',
                             decoration: TextDecoration.lineThrough,
                             decorationStyle: TextDecorationStyle.solid,
                             decorationThickness: 2,
-                            decorationColor: TColors.primaryColor),
+                            decorationColor: TColors.primaryColor,
+                          ),
+                        ),
                       ),
                     if (service.hasDiscount)
                       Row(
                         children: [
-                          const Text(
+                          Text(
                             'discount',
                             style: TextStyle(
                               color: TColors.primaryColor,
-                              fontSize: 16,
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.032,
                             ),
                           ),
                           const SizedBox(width: 5),
-                          const Icon(
+                          Icon(
                             Iconsax.discount_shape,
                             color: TColors.primaryColor,
+                            size: MediaQuery.of(context).size.width * 0.06,
                           ),
                           const SizedBox(width: 5),
-                          const Icon(
+                          Icon(
                             Iconsax.arrow_right_1,
                             color: TColors.primaryColor,
+                            size: MediaQuery.of(context).size.width * 0.06,
                           ),
                           const SizedBox(width: 5),
                           Text(
                             ' $priceFromDescount \$',
-                            style: const TextStyle(
-                              fontSize: 22,
+                            style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.045,
                               fontFamily: 'Poppins',
                             ),
                           ),

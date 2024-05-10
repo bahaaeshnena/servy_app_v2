@@ -7,13 +7,19 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:servy_app/src/features/personalization/models/user_model.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
+import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/network/loaders.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
+import 'package:servy_app/src/utils/network/network_manager.dart';
+import 'package:servy_app/src/utils/popups/full_screen_loader.dart';
 import 'package:uuid/uuid.dart';
 
 class ServiceController extends GetxController {
   var isChecked = false.obs;
   var isChecked2 = false.obs;
+
+  var isPosting = false.obs; // متغير يحدد ما إذا كانت العملية جارية أم لا
+  var postMessage = ''.obs; // رسالة نصية تظهر بعد اكتمال العملية
 
   RxList<ServiceModel> favoriteServices = <ServiceModel>[].obs;
   final RxList<ServiceModel> service = RxList<ServiceModel>([]);
@@ -183,6 +189,10 @@ class ServiceController extends GetxController {
 
   Future<void> addPost() async {
     try {
+      TFullScreenLoader.openLoading(
+          "We are processing your information...", TImages.publishingAnimation);
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) return;
       await uploadImage();
 
       // التحقق من وجود صورة
@@ -229,8 +239,12 @@ class ServiceController extends GetxController {
         }
       }
 
+      postMessage.value = 'The service has been deployed successfully';
       await _db.collection("Services").add(service.toJson());
       getServices();
+      Get.find<ServiceController>().clearInputFields();
+
+      TFullScreenLoader.stopLoading();
 
       TLoaders.successSnackBar(
         title: "Done".tr,
@@ -241,12 +255,11 @@ class ServiceController extends GetxController {
         message: 'The service you posted is under review by admin',
       );
       // Refresh page and clear input fields
-      Get.find<ServiceController>().clearInputFields();
     } catch (e) {
       TLoaders.errorSnackBar(
         title: 'Oh Snap!',
         message: 'Something went wrong: $e',
       );
-    }
+    } finally {}
   }
 }

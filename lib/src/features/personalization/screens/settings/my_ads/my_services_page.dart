@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
@@ -39,8 +40,7 @@ class MyServicesPage extends StatelessWidget {
           List<ServiceModel> currentUserPosts = allServices
               .where((service) =>
                   service.ownerId == userController.user.value.id &&
-                  service.status == 'accepted' &&
-                  service.hasDiscount == false)
+                  service.status == 'accepted')
               .toList();
           controller.updateServices(
               currentUserPosts); // Update the posts in the controller
@@ -53,9 +53,15 @@ class MyServicesPage extends StatelessWidget {
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(TSizes.defaultSpace),
-                      child: Text(
-                        'titleMyServiceScreen'.tr,
-                        style: Theme.of(context).textTheme.headlineSmall,
+                      child: Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              'titleMyServiceScreen'.tr,
+                              style: Theme.of(context).textTheme.headlineSmall,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     for (var service in controller.service)
