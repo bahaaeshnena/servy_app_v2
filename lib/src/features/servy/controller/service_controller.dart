@@ -92,7 +92,20 @@ class ServiceController extends GetxController {
   }
 
   //!---------------------update service----------------------------
-  void updateServiceData(ServiceModel updatedService) async {
+  void updateDiscountStatus(String serviceID, bool newValue) async {
+    try {
+      await _db.collection('Services').doc(serviceID).update({
+        'hasDiscount': newValue,
+      });
+    } catch (e) {
+      // إدارة الأخطاء هنا
+    }
+  }
+
+  //!---------------------update service----------------------------
+  void updateServiceData(
+    ServiceModel updatedService,
+  ) async {
     try {
       // يفتح Loading للتحديث
       TFullScreenLoader.openLoading(

@@ -23,21 +23,27 @@ class SuggestionList extends StatelessWidget {
           ),
           const SizedBox(height: 12),
           StreamBuilder<QuerySnapshot>(
-            stream:
-                FirebaseFirestore.instance.collection('Services').snapshots(),
+            stream: FirebaseFirestore.instance
+                .collection('Services')
+                .where('status', isEqualTo: 'accepted')
+                .where('hasDiscount', isEqualTo: false)
+                .snapshots(),
             builder: (context, snapshot) {
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return const CircularProgressIndicator();
+                return const Center(child: CircularProgressIndicator());
               } else if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
+                return Center(child: Text('Error: ${snapshot.error}'));
               } else {
-                // Filter the list of services based on status
-                List<ServiceModel> services = snapshot.data!.docs
-                    .map((doc) => ServiceModel.fromSnapshot(doc))
-                    .where((service) =>
-                        service.status == 'accepted' &&
-                        service.hasDiscount == false)
+                final List<DocumentSnapshot> documents = snapshot.data!.docs;
+                if (documents.isEmpty) {
+                  return const Center(
+                      child: Text('No pending services found.'));
+                }
+                final List<ServiceModel> services = documents
+                    .map((doc) =>
+                        ServiceModel.fromSnapshot(doc as QueryDocumentSnapshot))
                     .toList();
+
                 return Column(
                   children: services.map((service) {
                     return ServiceCardAbstract(
@@ -47,7 +53,8 @@ class SuggestionList extends StatelessWidget {
                       priceFromDescount: service.priceFromDescount,
                       imageUrl: service.imageService,
                       isLoadingImage: false,
-                      serviceId: '', service: service, // عرض الصورة المحملة
+                      serviceId: '',
+                      service: service, // عرض الصورة المحملة
                     );
                   }).toList(),
                 );

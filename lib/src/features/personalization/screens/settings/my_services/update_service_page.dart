@@ -23,6 +23,7 @@ class UpdateServicePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     ServiceController controller = Get.put(ServiceController());
+    controller.isChecked2.value = service.hasDiscount;
 
     return Scaffold(
       appBar: TAppBar(
@@ -191,6 +192,8 @@ class UpdateServicePage extends StatelessWidget {
                           value: controller.isChecked2.value,
                           onChanged: (newValue) {
                             controller.toggleDiscount(newValue ?? false);
+                            controller.updateDiscountStatus(
+                                service.serviceID, newValue ?? false);
                           },
                         ),
                         Expanded(
