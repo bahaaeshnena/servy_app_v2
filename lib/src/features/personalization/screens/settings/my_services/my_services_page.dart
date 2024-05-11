@@ -101,7 +101,9 @@ class MyServicesPage extends StatelessWidget {
                                     autoClose: false,
                                     label: 'edit'.tr,
                                     onPressed: ((context) {
-                                      Get.to(() => const UpdateServicePage());
+                                      Get.to(() => UpdateServicePage(
+                                          service: service,
+                                          serviceID: service.serviceID));
                                     }),
                                     icon: Iconsax.edit,
                                   ),

@@ -91,6 +91,59 @@ class ServiceController extends GetxController {
     }
   }
 
+  //!---------------------update service----------------------------
+  void updateServiceData(ServiceModel updatedService) async {
+    try {
+      // يفتح Loading للتحديث
+      TFullScreenLoader.openLoading(
+          "We are processing your information...", TImages.procsingAnimation);
+
+      final isConnected = await NetworkManager.instance.isConnected();
+      if (!isConnected) return;
+
+      // قم بتحديث البيانات في Firebase Firestore باستخدام معرف الخدمة
+      await _db.collection('Services').doc(updatedService.serviceID).update({
+        'title': updatedService.title,
+        'descreption': updatedService.descreption,
+        'priceFrom': updatedService.priceFrom,
+        'corssPodingService': updatedService.corssPodingService,
+        'descrCorssPodingService': updatedService.descrCorssPodingService,
+        'priceFromDescount': updatedService.priceFromDescount,
+        'categoris': updatedService.categoris,
+        'status': 'pending', // تحديث قيمة الحالة هنا
+
+        // قم بتحديث المزيد من الحقول حسب الحاجة
+      });
+
+      // يحدث القائمة المحلية للخدمات بعد التحديث
+      int index = service.indexWhere(
+          (element) => element.serviceID == updatedService.serviceID);
+      if (index != -1) {
+        service[index] = updatedService;
+      }
+      clearInputFields();
+      Get.back();
+      // قم بإيقاف ال Loading بعد التحديث
+      TFullScreenLoader.stopLoading();
+
+      // عرض رسالة نجاح
+      TLoaders.successSnackBar(
+        title: "Success",
+        message: 'Service updated successfully',
+      );
+      TLoaders.warningSnackBar(
+        title: "info",
+        message: 'Modifications will be reviewed by the admin',
+      );
+    } catch (e) {
+      // إدارة الأخطاء هنا
+      TLoaders.errorSnackBar(
+        title: "Error",
+        message: 'Failed to update service: $e',
+      );
+    }
+  }
+
   //!---------------------delete service----------------------------
   void deleteService(String servece) async {
     try {

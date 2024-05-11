@@ -7,7 +7,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appTextFeild/app_text_feild.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/servy/controller/service_controller.dart';
-import 'package:servy_app/src/features/servy/screens/add_service.dart/widgets/container_image_service.dart';
+import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
@@ -15,8 +15,11 @@ import 'package:servy_app/src/utils/validators/validation.dart';
 class UpdateServicePage extends StatelessWidget {
   const UpdateServicePage({
     super.key,
+    required this.serviceID,
+    required this.service,
   });
-
+  final String serviceID;
+  final ServiceModel service;
   @override
   Widget build(BuildContext context) {
     ServiceController controller = Get.put(ServiceController());
@@ -33,7 +36,44 @@ class UpdateServicePage extends StatelessWidget {
             padding: const EdgeInsets.all(TSizes.defaultSpace),
             child: Column(
               children: [
-                const ContainerImageService(),
+                GestureDetector(
+                  onTap: () {},
+                  child: GetBuilder<ServiceController>(
+                    builder: (controller) {
+                      return Container(
+                        width: double.infinity,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          color: Colors.grey.withOpacity(0.2),
+                          borderRadius: BorderRadius.circular(30),
+                          image: controller.imageFile != null
+                              ? DecorationImage(
+                                  image: FileImage(controller.imageFile!),
+                                  fit: BoxFit.cover,
+                                )
+                              : null,
+                        ),
+                        child: controller.imageFile == null
+                            ? Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  const Icon(
+                                    Icons.image_outlined,
+                                    size: 150,
+                                  ),
+                                  const SizedBox(height: 10),
+                                  Text(
+                                    'addImageService'.tr,
+                                    style:
+                                        Theme.of(context).textTheme.titleMedium,
+                                  ),
+                                ],
+                              )
+                            : null,
+                      );
+                    },
+                  ),
+                ),
                 const SizedBox(height: TSizes.spaceBtwSections),
                 AppTextField(
                   categories: [
@@ -50,8 +90,6 @@ class UpdateServicePage extends StatelessWidget {
                   title: 'selectCategories'.tr,
                   hint: 'categories'.tr,
                   isCategorySelected: true,
-                  validate: (value) => TValidator.volidateEmptyText(
-                      'selectCategories'.tr, value),
                 ),
                 Row(
                   children: [
@@ -60,8 +98,6 @@ class UpdateServicePage extends StatelessWidget {
                 ),
                 const SizedBox(height: 8),
                 TextFormField(
-                  validator: (value) =>
-                      TValidator.volidateEmptyText('titleServise'.tr, value),
                   controller: controller.title,
                   decoration: InputDecoration(
                     labelText: 'titleServise'.tr,
@@ -73,8 +109,6 @@ class UpdateServicePage extends StatelessWidget {
                 TextFormField(
                   minLines: 1,
                   maxLines: 10,
-                  validator: (value) => TValidator.volidateEmptyText(
-                      'descriptionService'.tr, value),
                   controller: controller.descreption,
                   decoration: InputDecoration(
                     labelText: 'descriptionService'.tr,
@@ -84,8 +118,6 @@ class UpdateServicePage extends StatelessWidget {
                 ),
                 const SizedBox(height: TSizes.spaceBtwInputField),
                 TextFormField(
-                  validator: (value) =>
-                      TValidator.volidateEmptyText('priceFrom'.tr, value),
                   controller: controller.priceFrom,
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
@@ -194,7 +226,39 @@ class UpdateServicePage extends StatelessWidget {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: () {
-                      controller.addService();
+                      ServiceModel updatedService = ServiceModel(
+                        serviceID: service.serviceID,
+                        title: controller.title.text.isEmpty
+                            ? service.title
+                            : controller.title.text,
+                        descreption: controller.descreption.text.isEmpty
+                            ? service.descreption
+                            : controller.descreption.text,
+                        imageService: service
+                            .imageService, // لا يمكن تحديث الصورة في هذه الصفحة
+                        priceFrom: controller.priceFrom.text.isEmpty
+                            ? service.priceFrom
+                            : controller.priceFrom.text,
+                        corssPodingService:
+                            controller.corssPodingService.text.isEmpty
+                                ? service.corssPodingService
+                                : controller.corssPodingService.text,
+                        descrCorssPodingService:
+                            controller.descrCorssPodingService.text.isEmpty
+                                ? service.descrCorssPodingService
+                                : controller.descrCorssPodingService.text,
+                        ownerId: service.ownerId,
+                        priceFromDescount:
+                            controller.priceFromDescount.text.isEmpty
+                                ? service.priceFromDescount
+                                : controller.priceFromDescount.text,
+                        status: service.status,
+                        categoris: controller.categories.text.isEmpty
+                            ? service.categoris
+                            : controller.categories.text,
+                        hasDiscount: service.hasDiscount,
+                      );
+                      controller.updateServiceData(updatedService);
                     },
                     child: Text('update'.tr),
                   ),
