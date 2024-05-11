@@ -38,7 +38,9 @@ class UpdateServicePage extends StatelessWidget {
             child: Column(
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    controller.pickImage();
+                  },
                   child: GetBuilder<ServiceController>(
                     builder: (controller) {
                       return Container(
@@ -237,8 +239,9 @@ class UpdateServicePage extends StatelessWidget {
                         descreption: controller.descreption.text.isEmpty
                             ? service.descreption
                             : controller.descreption.text,
-                        imageService: service
-                            .imageService, // لا يمكن تحديث الصورة في هذه الصفحة
+                        imageService: controller.imageUrl != null
+                            ? controller.imageUrl!
+                            : service.imageService,
                         priceFrom: controller.priceFrom.text.isEmpty
                             ? service.priceFrom
                             : controller.priceFrom.text,
@@ -261,6 +264,7 @@ class UpdateServicePage extends StatelessWidget {
                             : controller.categories.text,
                         hasDiscount: service.hasDiscount,
                       );
+
                       controller.updateServiceData(updatedService);
                     },
                     child: Text('update'.tr),

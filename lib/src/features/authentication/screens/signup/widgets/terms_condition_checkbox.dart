@@ -30,36 +30,39 @@ class TTermsAndConditionCheckbox extends StatelessWidget {
           ),
         ),
         const SizedBox(width: TSizes.spaceBtwItems),
-        Text.rich(
-          TextSpan(
-            children: [
-              TextSpan(
+        Expanded(
+          // استخدام Expanded للتمدد بنسبة
+          child: Text.rich(
+            TextSpan(
+              children: [
+                TextSpan(
+                    // ignore: unnecessary_string_interpolations
+                    text: '${'iAgreeTo'.tr}',
+                    style: Theme.of(context).textTheme.bodySmall),
+                TextSpan(
                   // ignore: unnecessary_string_interpolations
-                  text: '${'iAgreeTo'.tr}',
-                  style: Theme.of(context).textTheme.bodySmall),
-              TextSpan(
-                // ignore: unnecessary_string_interpolations
-                text: '${'privacyPolicy'.tr}',
-                style: Theme.of(context).textTheme.bodyMedium!.apply(
-                    color: dark ? TColors.white : TColors.primaryColor,
-                    decoration: TextDecoration.underline,
-                    decorationColor:
-                        dark ? TColors.white : TColors.primaryColor),
-              ),
-              TextSpan(
+                  text: '${'privacyPolicy'.tr}',
+                  style: Theme.of(context).textTheme.bodyMedium!.apply(
+                      color: dark ? TColors.white : TColors.primaryColor,
+                      decoration: TextDecoration.underline,
+                      decorationColor:
+                          dark ? TColors.white : TColors.primaryColor),
+                ),
+                TextSpan(
+                    // ignore: unnecessary_string_interpolations
+                    text: '${'and'.tr}',
+                    style: Theme.of(context).textTheme.bodySmall),
+                TextSpan(
                   // ignore: unnecessary_string_interpolations
-                  text: '${'and'.tr}',
-                  style: Theme.of(context).textTheme.bodySmall),
-              TextSpan(
-                // ignore: unnecessary_string_interpolations
-                text: '${'termsOfUse'.tr}',
-                style: Theme.of(context).textTheme.bodyMedium!.apply(
-                    color: dark ? TColors.white : TColors.primaryColor,
-                    decoration: TextDecoration.underline,
-                    decorationColor:
-                        dark ? TColors.white : TColors.primaryColor),
-              ),
-            ],
+                  text: '${'termsOfUse'.tr}',
+                  style: Theme.of(context).textTheme.bodyMedium!.apply(
+                      color: dark ? TColors.white : TColors.primaryColor,
+                      decoration: TextDecoration.underline,
+                      decorationColor:
+                          dark ? TColors.white : TColors.primaryColor),
+                ),
+              ],
+            ),
           ),
         ),
       ],

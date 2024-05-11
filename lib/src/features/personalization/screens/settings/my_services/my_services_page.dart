@@ -97,6 +97,9 @@ class MyServicesPage extends StatelessWidget {
                                 motion: const DrawerMotion(),
                                 children: [
                                   SlidableAction(
+                                    backgroundColor: Get.isDarkMode
+                                        ? Colors.black
+                                        : Colors.white,
                                     foregroundColor: Colors.blueAccent,
                                     autoClose: false,
                                     label: 'edit'.tr,
@@ -108,6 +111,9 @@ class MyServicesPage extends StatelessWidget {
                                     icon: Iconsax.edit,
                                   ),
                                   SlidableAction(
+                                    backgroundColor: Get.isDarkMode
+                                        ? Colors.black
+                                        : Colors.white,
                                     foregroundColor: Colors.red,
                                     autoClose: false,
                                     label: 'delete'.tr,

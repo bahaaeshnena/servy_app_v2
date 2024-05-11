@@ -211,6 +211,14 @@ class MyLocal implements Translations {
           'messageDeleteService': TTextAr.messageDeleteService,
           'update': TTextAr.update,
           'updateService': TTextAr.updateService,
+
+          //? onBoarding page
+          'tOnBoardingTitle1': TTextAr.tOnBoardingTitle1,
+          'tOnBoardingTitle2': TTextAr.tOnBoardingTitle2,
+          'tOnBoardingTitle3': TTextAr.tOnBoardingTitle3,
+          'tOnBoardingSubTitle1': TTextAr.tOnBoardingSubTitle1,
+          'tOnBoardingSubTitle2': TTextAr.tOnBoardingSubTitle2,
+          'tOnBoardingSubTitle3': TTextAr.tOnBoardingSubTitle3,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -421,6 +429,14 @@ class MyLocal implements Translations {
           'messageDeleteService': TText.messageDeleteService,
           'update': TText.update,
           'updateService': TText.updateService,
+
+          //? onBoarding page
+          'tOnBoardingTitle1': TText.tOnBoardingTitle1,
+          'tOnBoardingTitle2': TText.tOnBoardingTitle2,
+          'tOnBoardingTitle3': TText.tOnBoardingTitle3,
+          'tOnBoardingSubTitle1': TText.tOnBoardingSubTitle1,
+          'tOnBoardingSubTitle2': TText.tOnBoardingSubTitle2,
+          'tOnBoardingSubTitle3': TText.tOnBoardingSubTitle3,
         },
       };
 }

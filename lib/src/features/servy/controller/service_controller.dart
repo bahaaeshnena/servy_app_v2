@@ -91,7 +91,8 @@ class ServiceController extends GetxController {
     }
   }
 
-  //!---------------------update service----------------------------
+  //!---------------------update cheackBox2(active discount) service----------------------
+
   void updateDiscountStatus(String serviceID, bool newValue) async {
     try {
       await _db.collection('Services').doc(serviceID).update({
@@ -113,7 +114,12 @@ class ServiceController extends GetxController {
 
       final isConnected = await NetworkManager.instance.isConnected();
       if (!isConnected) return;
-
+      ///////////////////////////////////
+      if (_imageFile != null) {
+        await uploadImage();
+        updatedService.imageService =
+            _imageUrl ?? ''; // تحديث رابط الصورة في البيانات
+      }
       // قم بتحديث البيانات في Firebase Firestore باستخدام معرف الخدمة
       await _db.collection('Services').doc(updatedService.serviceID).update({
         'title': updatedService.title,
@@ -124,6 +130,7 @@ class ServiceController extends GetxController {
         'priceFromDescount': updatedService.priceFromDescount,
         'categoris': updatedService.categoris,
         'status': 'pending', // تحديث قيمة الحالة هنا
+        'imageService': updatedService.imageService,
 
         // قم بتحديث المزيد من الحقول حسب الحاجة
       });

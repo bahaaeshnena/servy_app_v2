@@ -6,7 +6,6 @@ import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets
 import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets/onboarding_page.dart';
 import 'package:servy_app/src/features/authentication/screens/onBoarding/widgets/onboarding_skip.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
-import 'package:servy_app/src/utils/constants/texts.dart';
 
 class OnBoardingScreen extends StatelessWidget {
   const OnBoardingScreen({super.key});
@@ -21,21 +20,21 @@ class OnBoardingScreen extends StatelessWidget {
           PageView(
             controller: controller.pageController,
             onPageChanged: controller.updatePageIndicator,
-            children: const [
+            children: [
               OnBoardingPage(
                 image: TImages.onBoardingImage1,
-                title: TText.tOnBoardingTitle1,
-                subTitle: TText.tOnBoardingTitle1,
+                title: 'tOnBoardingTitle1'.tr,
+                subTitle: 'tOnBoardingSubTitle1'.tr,
               ),
               OnBoardingPage(
                 image: TImages.onBoardingImage2,
-                title: TText.tOnBoardingTitle2,
-                subTitle: TText.tOnBoardingTitle2,
+                title: 'tOnBoardingTitle2'.tr,
+                subTitle: 'tOnBoardingSubTitle2'.tr,
               ),
               OnBoardingPage(
                 image: TImages.onBoardingImage3,
-                title: TText.tOnBoardingTitle3,
-                subTitle: TText.tOnBoardingTitle3,
+                title: 'tOnBoardingTitle3'.tr,
+                subTitle: 'tOnBoardingSubTitle3'.tr,
               ),
             ],
           ),

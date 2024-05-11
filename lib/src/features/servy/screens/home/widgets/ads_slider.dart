@@ -28,7 +28,7 @@ class AdsSlider extends StatelessWidget {
               .map(
                 (url) => TRoundedImage(
                   imageUrl: url,
-                  width: 340,
+                  width: MediaQuery.of(context).size.width * 0.9,
                   height: 300,
                   fit: BoxFit.fill,
                 ),
