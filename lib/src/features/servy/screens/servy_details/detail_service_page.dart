@@ -33,7 +33,7 @@ class DetailServisePage extends StatelessWidget {
               tag: service.title,
               child: ClipRRect(
                 child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 3.5,
+                  height: MediaQuery.of(context).size.height / 2.8,
                   width: screenWidth,
                   child: Image.network(
                     service.imageService,
@@ -70,12 +70,6 @@ class DetailServisePage extends StatelessWidget {
                         horizontal: screenWidth / 20, vertical: 20),
                     child: Text(
                       service.title,
-                      // style: const TextStyle(
-                      //   fontWeight: FontWeight.w900,
-                      //   fontSize: 20,
-                      //   fontFamily: 'Poppins',
-                      //   color: TColors.primaryColor,
-                      // ),
                       style: Theme.of(context)
                           .textTheme
                           .headlineMedium!
