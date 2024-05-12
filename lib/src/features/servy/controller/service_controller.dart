@@ -68,6 +68,15 @@ class ServiceController extends GetxController {
     }
   }
 
+//!---------------------Active crossServices----------------------
+  void toggleCrossServices(bool newValue) {
+    isChecked.value = newValue;
+    // تحديث قيمة hasDiscount في كل الخدمات
+    for (var service in service) {
+      service.hasDiscount = newValue;
+    }
+  }
+
 //!----------------------Add favorite------------------
 
   void toggleFavorite(ServiceModel service) {
@@ -97,6 +106,17 @@ class ServiceController extends GetxController {
     try {
       await _db.collection('Services').doc(serviceID).update({
         'hasDiscount': newValue,
+      });
+    } catch (e) {
+      // إدارة الأخطاء هنا
+    }
+  }
+  //!---------------------update cheackBox1(active crossServices) service----------------------
+
+  void updateCrossServiceStatus(String serviceID, bool newValue) async {
+    try {
+      await _db.collection('Services').doc(serviceID).update({
+        'hasCorresService': newValue,
       });
     } catch (e) {
       // إدارة الأخطاء هنا
@@ -309,6 +329,7 @@ class ServiceController extends GetxController {
         status: 'pending',
         categoris: categories.text,
         hasDiscount: isChecked2.value,
+        hasCorresService: isChecked.value,
       );
       // Ensure that priceFromDescount is less than priceFrom
       if (isChecked2.value) {

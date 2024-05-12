@@ -5,7 +5,7 @@ import 'package:readmore/readmore.dart';
 import 'package:servy_app/src/common/widgets/like_button/custom_like_button.dart';
 import 'package:servy_app/src/features/servy/controller/service_controller.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
-import 'package:servy_app/src/features/servy/screens/servy_details/product_detail.dart';
+import 'package:servy_app/src/features/servy/screens/servy_details/detail_service_page.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
@@ -48,7 +48,9 @@ class ServiceCardAbstract extends StatelessWidget {
           border: Border.all(color: Colors.grey.shade200),
         ),
         child: InkWell(
-          onTap: () => Get.to(() => const ServyDtailsScreen()),
+          onTap: () => Get.to(() => DetailServisePage(
+                service: service,
+              )),
           child: Padding(
             padding: const EdgeInsets.all(12.0),
             child: Column(
@@ -65,7 +67,7 @@ class ServiceCardAbstract extends StatelessWidget {
                         ? null // لا تظهر الصورة إذا كان isLoadingImage == true
                         : DecorationImage(
                             image: NetworkImage(imageUrl),
-                            fit: BoxFit.cover,
+                            fit: BoxFit.fill,
                           ),
                   ),
                   child: isLoadingImage

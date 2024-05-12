@@ -36,8 +36,7 @@ class SuggestionList extends StatelessWidget {
               } else {
                 final List<DocumentSnapshot> documents = snapshot.data!.docs;
                 if (documents.isEmpty) {
-                  return const Center(
-                      child: Text('No pending services found.'));
+                  return const Center(child: Text('No services found.'));
                 }
                 final List<ServiceModel> services = documents
                     .map((doc) =>

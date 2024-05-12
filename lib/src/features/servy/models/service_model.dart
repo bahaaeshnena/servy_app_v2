@@ -13,6 +13,7 @@ class ServiceModel {
   String status; // حالة المشاركة
   String categoris;
   bool hasDiscount;
+  bool hasCorresService;
   bool isLikedState = false;
 
   ServiceModel({
@@ -28,6 +29,7 @@ class ServiceModel {
     required this.status,
     required this.categoris,
     this.hasDiscount = false,
+    this.hasCorresService = false,
   });
 
   static ServiceModel empty() {
@@ -61,6 +63,7 @@ class ServiceModel {
       'categoris': categoris,
       'isLikedState': isLikedState,
       'hasDiscount': hasDiscount,
+      'hasCorresService': hasCorresService,
     };
   }
 
@@ -81,6 +84,7 @@ class ServiceModel {
         status: data['status'] ?? '',
         categoris: data['categoris'] ?? '',
         hasDiscount: data['hasDiscount'] ?? false,
+        hasCorresService: data['hasCorresService'] ?? false,
       );
     } else {
       return ServiceModel.empty();

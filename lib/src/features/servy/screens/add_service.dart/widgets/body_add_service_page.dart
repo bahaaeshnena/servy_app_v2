@@ -92,7 +92,7 @@ class BodyAddServicePage extends StatelessWidget {
                   Checkbox(
                     value: controller.isChecked.value,
                     onChanged: (newValue) {
-                      controller.isChecked.value = newValue!;
+                      controller.toggleCrossServices(newValue ?? false);
                     },
                   ),
                   Expanded(

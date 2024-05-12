@@ -138,7 +138,9 @@ class UpdateServicePage extends StatelessWidget {
                         Checkbox(
                           value: controller.isChecked.value,
                           onChanged: (newValue) {
-                            controller.isChecked.value = newValue!;
+                            controller.toggleCrossServices(newValue ?? false);
+                            controller.updateCrossServiceStatus(
+                                service.serviceID, newValue ?? false);
                           },
                         ),
                         Expanded(
@@ -263,6 +265,7 @@ class UpdateServicePage extends StatelessWidget {
                             ? service.categoris
                             : controller.categories.text,
                         hasDiscount: service.hasDiscount,
+                        hasCorresService: service.hasCorresService,
                       );
 
                       controller.updateServiceData(updatedService);
