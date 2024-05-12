@@ -85,7 +85,8 @@ class ServiceCardAbstract extends StatelessWidget {
                       Text(
                         title,
                         style: const TextStyle(
-                          color: Colors.blue,
+                          color: TColors.primaryColor,
+                          fontWeight: FontWeight.w800,
                           fontSize: 18,
                         ),
                       ),

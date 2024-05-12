@@ -41,13 +41,13 @@ class DetailServisePage extends StatelessWidget {
               ),
             ),
             Container(
-              height: 100,
+              height: 70,
+              width: double.infinity,
               color: THelperFunctions.isDarkMode(context)
                   ? TColors.black
                   : Colors.grey.shade200,
               child: Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: screenWidth / 20, vertical: 20),
+                padding: const EdgeInsets.only(top: 10),
                 child: TUserProfilsServiceCard(
                   onPressed: () {},
                 ),
@@ -55,6 +55,7 @@ class DetailServisePage extends StatelessWidget {
             ),
             const SizedBox(height: 5),
             Container(
+              width: double.infinity,
               color: THelperFunctions.isDarkMode(context)
                   ? TColors.black
                   : Colors.grey.shade200,
@@ -68,9 +69,9 @@ class DetailServisePage extends StatelessWidget {
                       service.title,
                       style: const TextStyle(
                         fontWeight: FontWeight.w900,
-                        fontSize: 30,
+                        fontSize: 20,
                         fontFamily: 'Poppins',
-                        color: Colors.blue,
+                        color: TColors.primaryColor,
                       ),
                     ),
                   ),
@@ -86,11 +87,11 @@ class DetailServisePage extends StatelessWidget {
                       moreStyle: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue),
+                          color: TColors.primaryColor),
                       lessStyle: const TextStyle(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue),
+                          color: TColors.primaryColor),
                       style: const TextStyle(
                         fontWeight: FontWeight.w600,
                         fontSize: 15,
@@ -101,8 +102,11 @@ class DetailServisePage extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 5),
+
+            //!CorresService
             if (service.hasCorresService)
               Container(
+                width: double.infinity,
                 color: THelperFunctions.isDarkMode(context)
                     ? TColors.black
                     : Colors.grey.shade200,
@@ -112,13 +116,26 @@ class DetailServisePage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: screenWidth / 20, vertical: 20),
+                      child: const Text(
+                        'Corresponding service details',
+                        style: TextStyle(
+                          fontWeight: FontWeight.w900,
+                          fontSize: 18,
+                          fontFamily: 'Poppins',
+                          color: TColors.accent,
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: screenWidth / 20, vertical: 20),
                       child: Text(
                         service.corssPodingService!,
                         style: const TextStyle(
                           fontWeight: FontWeight.w900,
-                          fontSize: 30,
+                          fontSize: 15,
                           fontFamily: 'Poppins',
-                          color: Colors.blue,
+                          color: TColors.primaryColor,
                         ),
                       ),
                     ),
