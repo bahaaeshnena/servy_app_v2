@@ -61,7 +61,7 @@ class BodyAddServicePage extends StatelessWidget {
           const SizedBox(height: TSizes.spaceBtwInputField),
           TextFormField(
             minLines: 1,
-            maxLines: 10,
+            maxLines: 20,
             validator: (value) =>
                 TValidator.volidateEmptyText('descriptionService'.tr, value),
             controller: controller.descreption,
@@ -123,6 +123,8 @@ class BodyAddServicePage extends StatelessWidget {
               )),
           const SizedBox(height: 16.0),
           Obx(() => TextFormField(
+                minLines: 1,
+                maxLines: 20,
                 enabled: controller.isChecked.value,
                 validator: (value) {
                   if (controller.isChecked.value) {

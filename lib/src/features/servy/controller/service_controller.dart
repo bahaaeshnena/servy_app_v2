@@ -302,7 +302,10 @@ class ServiceController extends GetxController {
       TFullScreenLoader.openLoading(
           "We are processing your information...", TImages.procsingAnimation);
       final isConnected = await NetworkManager.instance.isConnected();
-      if (!isConnected) return;
+      if (!isConnected) {
+        TFullScreenLoader.stopLoading();
+        return;
+      }
       await uploadImage();
 
       // التحقق من وجود صورة
@@ -356,8 +359,6 @@ class ServiceController extends GetxController {
       getServices();
       Get.find<ServiceController>().clearInputFields();
 
-      TFullScreenLoader.stopLoading();
-
       TLoaders.successSnackBar(
         title: "Done".tr,
         message: 'The service has been deployed successfully',
@@ -366,6 +367,8 @@ class ServiceController extends GetxController {
         title: "info",
         message: 'The service you posted is under review by admin',
       );
+      // TFullScreenLoader.stopLoading();
+
       // Refresh page and clear input fields
     } catch (e) {
       TFullScreenLoader.stopLoading();
