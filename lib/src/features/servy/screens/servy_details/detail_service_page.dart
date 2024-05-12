@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
+import 'package:servy_app/src/features/servy/screens/servy_details/page_payment.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/widgets/user_profile_service_card.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/helpers/helper_function.dart';
@@ -50,6 +52,7 @@ class DetailServisePage extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 10),
                 child: TUserProfilsServiceCard(
                   onPressed: () {},
+                  service: service,
                 ),
               ),
             ),
@@ -67,12 +70,16 @@ class DetailServisePage extends StatelessWidget {
                         horizontal: screenWidth / 20, vertical: 20),
                     child: Text(
                       service.title,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w900,
-                        fontSize: 20,
-                        fontFamily: 'Poppins',
-                        color: TColors.primaryColor,
-                      ),
+                      // style: const TextStyle(
+                      //   fontWeight: FontWeight.w900,
+                      //   fontSize: 20,
+                      //   fontFamily: 'Poppins',
+                      //   color: TColors.primaryColor,
+                      // ),
+                      style: Theme.of(context)
+                          .textTheme
+                          .headlineMedium!
+                          .apply(color: TColors.primaryColor),
                     ),
                   ),
                   Padding(
@@ -116,14 +123,12 @@ class DetailServisePage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: screenWidth / 20, vertical: 20),
-                      child: const Text(
+                      child: Text(
                         'Corresponding service details',
-                        style: TextStyle(
-                          fontWeight: FontWeight.w900,
-                          fontSize: 18,
-                          fontFamily: 'Poppins',
-                          color: TColors.accent,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .apply(color: TColors.accent),
                       ),
                     ),
                     Padding(
@@ -131,12 +136,10 @@ class DetailServisePage extends StatelessWidget {
                           horizontal: screenWidth / 20, vertical: 20),
                       child: Text(
                         service.corssPodingService!,
-                        style: const TextStyle(
-                          fontWeight: FontWeight.w900,
-                          fontSize: 15,
-                          fontFamily: 'Poppins',
-                          color: TColors.primaryColor,
-                        ),
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .apply(color: TColors.primaryColor),
                       ),
                     ),
                     Padding(
@@ -213,7 +216,7 @@ class DetailServisePage extends StatelessWidget {
                         height: 50,
                         width: 160,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () => Get.to(() => const PaymentPage()),
                           style: TextButton.styleFrom(
                             backgroundColor: TColors.primaryColor,
                             foregroundColor: Colors.white,

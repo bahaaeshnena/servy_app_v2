@@ -3,6 +3,7 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/images/circular_image.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
+import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
@@ -11,15 +12,17 @@ class TUserProfilsServiceCard extends StatelessWidget {
   const TUserProfilsServiceCard({
     super.key,
     required this.onPressed,
+    required this.service,
   });
   final VoidCallback onPressed;
+  final ServiceModel service;
   @override
   Widget build(BuildContext context) {
     final controller = UserController.instance;
     return ListTile(
       leading: Obx(() {
-        final networkImage = controller.user.value.profilePicture;
-        final image = networkImage.isNotEmpty ? networkImage : TImages.user;
+        final userImage = service.userImage;
+        final image = userImage!.isNotEmpty ? userImage : TImages.user;
 
         return controller.imageUploading.value
             ? const TShimmerEffect(
@@ -31,11 +34,11 @@ class TUserProfilsServiceCard extends StatelessWidget {
                 image: image,
                 width: 50,
                 height: 50,
-                isNetworkImage: networkImage.isNotEmpty,
+                isNetworkImage: userImage.isNotEmpty,
               );
       }),
       title: Text(
-        controller.user.value.fullName,
+        service.username!,
         style: Theme.of(context).textTheme.headlineSmall!,
       ),
       trailing: IconButton(

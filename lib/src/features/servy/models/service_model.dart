@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class ServiceModel {
-  String serviceID; // حقل المعرف الجديد
+  String? username;
+  String? userImage;
+  String serviceID;
   String title;
   String descreption;
   String imageService;
@@ -9,14 +11,16 @@ class ServiceModel {
   String? corssPodingService;
   String? descrCorssPodingService;
   String? priceFromDescount;
-  String? ownerId; // حقل المعرف للمستخدم
-  String status; // حالة المشاركة
+  String? ownerId; //user id
+  String status;
   String categoris;
   bool hasDiscount;
   bool hasCorresService;
   bool isLikedState = false;
 
   ServiceModel({
+    this.username,
+    this.userImage,
     required this.serviceID,
     required this.title,
     required this.descreption,
@@ -45,6 +49,8 @@ class ServiceModel {
       priceFromDescount: '',
       status: 'pending',
       categoris: '',
+      username: '',
+      userImage: '',
     );
   }
 
@@ -64,6 +70,8 @@ class ServiceModel {
       'isLikedState': isLikedState,
       'hasDiscount': hasDiscount,
       'hasCorresService': hasCorresService,
+      'username': username,
+      'userImage': userImage,
     };
   }
 
@@ -73,6 +81,8 @@ class ServiceModel {
           document.data()! as Map<String, dynamic>; // Cast to correct type
       return ServiceModel(
         serviceID: document.id,
+        username: data['username'] ?? '',
+        userImage: data['userImage'] ?? '',
         title: data['title'] ?? '',
         descreption: data['descreption'] ?? '',
         imageService: data['imageService'] ?? '',

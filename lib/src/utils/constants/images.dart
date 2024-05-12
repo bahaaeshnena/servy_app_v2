@@ -90,4 +90,10 @@ class TImages {
   static String userBassem = 'assets/images/users_images/user_bassem.jpg';
   static String userRaed = 'assets/images/users_images/user_raed.jpg';
   static String userSammer = 'assets/images/users_images/user_sameer.jpg';
+
+  //Payment
+  static String checked = 'assets/images/payment/checked.png';
+  static String chip = 'assets/images/payment/chip.png';
+  static String contactLess = 'assets/images/payment/contact_less.png';
+  static String masterCard = 'assets/images/payment/mastercard.png';
 }

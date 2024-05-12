@@ -15,11 +15,15 @@ import 'package:servy_app/src/utils/popups/full_screen_loader.dart';
 import 'package:uuid/uuid.dart';
 
 class ServiceController extends GetxController {
+  // static ServiceController get instance => Get.find();
+
   var isChecked = false.obs;
   var isChecked2 = false.obs;
+  var imageUploading = false.obs;
 
   var isPosting = false.obs; // متغير يحدد ما إذا كانت العملية جارية أم لا
   var postMessage = ''.obs; // رسالة نصية تظهر بعد اكتمال العملية
+  Rx<ServiceModel> services = ServiceModel.empty().obs;
 
   RxList<ServiceModel> favoriteServices = <ServiceModel>[].obs;
   final RxList<ServiceModel> service = RxList<ServiceModel>([]);
@@ -330,6 +334,8 @@ class ServiceController extends GetxController {
         categoris: categories.text,
         hasDiscount: isChecked2.value,
         hasCorresService: isChecked.value,
+        username: currentUser.username,
+        userImage: currentUser.profilePicture,
       );
       // Ensure that priceFromDescount is less than priceFrom
       if (isChecked2.value) {
@@ -362,10 +368,14 @@ class ServiceController extends GetxController {
       );
       // Refresh page and clear input fields
     } catch (e) {
+      TFullScreenLoader.stopLoading();
+
       TLoaders.errorSnackBar(
         title: 'Oh Snap!',
         message: 'Something went wrong: $e',
       );
-    } finally {}
+    } finally {
+      TFullScreenLoader.stopLoading();
+    }
   }
 }

@@ -64,7 +64,8 @@ dependencies:
   random_avatar: ^0.0.8
   like_button: ^2.0.2
   flutter_slidable: ^3.1.0
-
+  flip_card: ^0.6.0
+  patterns_canvas: ^0.4.0
   sliding_up_panel: ^2.0.0+1
 dev_dependencies:
   flutter_test:
@@ -104,6 +105,7 @@ flutter:
     - assets/images/brokers_images/
     - assets/icons/language/
     - assets/images/users_images/
+    - assets/images/payment/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
