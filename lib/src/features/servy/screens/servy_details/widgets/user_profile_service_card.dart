@@ -4,7 +4,6 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/images/circular_image.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
-import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
@@ -46,7 +45,6 @@ class TUserProfilsServiceCard extends StatelessWidget {
         icon: const Icon(
           Iconsax.user,
           size: 28,
-          color: TColors.white,
         ),
       ),
     );

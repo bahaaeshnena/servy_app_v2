@@ -4,7 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
-import 'package:servy_app/src/common/widgets/card/service_card_abstract.dart';
+import 'package:servy_app/src/common/widgets/card/service_card_page_my_services.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/my_services/update_Service_page.dart';
 import 'package:servy_app/src/features/servy/controller/service_controller.dart';
@@ -150,7 +150,7 @@ class MyServicesPage extends StatelessWidget {
                                     icon: Iconsax.box_remove,
                                   ),
                                 ]),
-                            child: ServiceCardAbstract(
+                            child: ServiceCardAbstractMyServicesPage(
                               showHeartIcon: false,
                               title: service.title,
                               desc: service.descreption,

@@ -41,20 +41,33 @@ class DisplayServiceCategories extends StatelessWidget {
                 }
                 return Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: Column(
-                    children: services.map((service) {
-                      return ServiceCardAbstract(
-                        title: service.title,
-                        desc: service.descreption,
-                        price: service.priceFrom,
-                        priceFromDescount: service.priceFromDescount,
-                        imageUrl: service.imageService,
-                        isLoadingImage: false,
-                        serviceId: '',
-                        service: service,
-                      );
-                    }).toList(),
-                  ),
+                  child: Column(children: [
+                    GridView.builder(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      gridDelegate:
+                          const SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2,
+                        crossAxisSpacing: 15.0,
+                        mainAxisSpacing: 15.0,
+                        childAspectRatio: 0.6, // تحديد نسبة العرض إلى الارتفاع
+                      ),
+                      itemCount: services.length,
+                      itemBuilder: (context, index) {
+                        return ServiceAbstract(
+                          // هنا قمت بتغيير الويدجت المستخدمة
+                          title: services[index].title,
+                          desc: services[index].descreption,
+                          price: services[index].priceFrom,
+                          priceFromDescount: services[index].priceFromDescount,
+                          imageUrl: services[index].imageService,
+                          isLoadingImage: false,
+                          serviceId: '',
+                          service: services[index], // عرض الصورة المحملة
+                        );
+                      },
+                    )
+                  ]),
                 );
               }
             },

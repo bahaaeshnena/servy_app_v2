@@ -279,6 +279,12 @@ class ServiceController extends GetxController {
       update(); // يحدث الـ Obx المتعلقة بالصورة
     }
   }
+
+  List<ServiceModel> getFavoriteServices() {
+    // Logic to fetch favorite services
+    // For example, you can filter the list of services to get only favorite ones
+    return service.where((service) => service.isLikedState).toList();
+  }
   //!---------------------Upload Image----------------------------
 
   Future<void> uploadImage() async {

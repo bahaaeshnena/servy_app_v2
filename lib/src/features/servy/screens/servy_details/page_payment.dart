@@ -32,7 +32,7 @@ class _HomePageState extends State<PaymentPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(10.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
@@ -158,6 +158,7 @@ class _HomePageState extends State<PaymentPage> {
                 ),
                 const SizedBox(height: 12),
                 TextFormField(
+                  maxLength: 27,
                   controller: cardHolderNameController,
                   keyboardType: TextInputType.name,
                   decoration: const InputDecoration(
@@ -168,6 +169,7 @@ class _HomePageState extends State<PaymentPage> {
                     ),
                   ),
                   onChanged: (value) {
+                    // لا تحتاج للتغييرات في هذا المنطق
                     setState(() {
                       cardHolderNameController.value =
                           cardHolderNameController.value.copyWith(

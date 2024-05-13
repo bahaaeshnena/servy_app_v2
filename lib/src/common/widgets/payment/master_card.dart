@@ -86,7 +86,7 @@ Column buildDetailsBlock({required String label, required String value}) {
       Text(
         label,
         style: const TextStyle(
-            color: Colors.grey, fontSize: 10, fontWeight: FontWeight.bold),
+            color: Colors.white, fontSize: 10, fontWeight: FontWeight.bold),
       ),
       Text(
         value,

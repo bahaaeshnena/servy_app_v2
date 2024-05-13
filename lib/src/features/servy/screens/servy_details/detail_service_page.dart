@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:readmore/readmore.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
+import 'package:servy_app/src/features/servy/controller/service_controller.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/page_payment.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/widgets/user_profile_service_card.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/helpers/helper_function.dart';
+import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
 class DetailServisePage extends StatelessWidget {
   const DetailServisePage({
@@ -19,6 +21,7 @@ class DetailServisePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    ServiceController controller = Get.put(ServiceController());
 
     return Scaffold(
       appBar: const TAppBar(
@@ -31,23 +34,35 @@ class DetailServisePage extends StatelessWidget {
           children: [
             Hero(
               tag: service.title,
-              child: ClipRRect(
-                child: SizedBox(
-                  height: MediaQuery.of(context).size.height / 2.8,
-                  width: screenWidth,
-                  child: Image.network(
-                    service.imageService,
-                    fit: BoxFit.cover,
+              child: Obx(() {
+                // ignore: unused_local_variable
+                final networkImage = controller.services.value.imageService;
+
+                return ClipRRect(
+                  child: SizedBox(
+                    height: MediaQuery.of(context).size.height / 2.8,
+                    width: screenWidth,
+                    child: Image.network(
+                      service.imageService,
+                      fit: BoxFit.cover,
+                      errorBuilder: (context, error, stackTrace) {
+                        return TShimmerEffect(
+                          width: screenWidth,
+                          height: MediaQuery.of(context).size.height / 2.8,
+                          radius: 0,
+                        );
+                      },
+                    ),
                   ),
-                ),
-              ),
+                );
+              }),
             ),
             Container(
               height: 70,
               width: double.infinity,
               color: THelperFunctions.isDarkMode(context)
-                  ? TColors.black
-                  : Colors.grey.shade200,
+                  ? TColors.darkContainer
+                  : Colors.grey.shade100,
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: TUserProfilsServiceCard(
@@ -56,12 +71,19 @@ class DetailServisePage extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 5),
             Container(
+              decoration: const BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.grey,
+                    width: 0.2,
+                  ),
+                ),
+              ),
               width: double.infinity,
-              color: THelperFunctions.isDarkMode(context)
-                  ? TColors.black
-                  : Colors.grey.shade200,
+              // color: THelperFunctions.isDarkMode(context)
+              //     ? TColors.black
+              //     : Colors.grey.shade200,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -72,7 +94,7 @@ class DetailServisePage extends StatelessWidget {
                       service.title,
                       style: Theme.of(context)
                           .textTheme
-                          .headlineMedium!
+                          .headlineSmall!
                           .apply(color: TColors.primaryColor),
                     ),
                   ),
@@ -94,47 +116,45 @@ class DetailServisePage extends StatelessWidget {
                           fontWeight: FontWeight.bold,
                           color: TColors.primaryColor),
                       style: const TextStyle(
-                        fontWeight: FontWeight.w600,
-                        fontSize: 15,
+                        fontSize: 12,
                       ),
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(height: 5),
+            Container(
+              height: 15,
+              color: THelperFunctions.isDarkMode(context)
+                  ? TColors.darkContainer
+                  : Colors.grey.shade200,
+            ),
 
             //!CorresService
             if (service.hasCorresService)
               Container(
+                decoration: const BoxDecoration(
+                  // تعيين الحواف العلوية والسفلية
+                  border: BorderDirectional(
+                    top: BorderSide(
+                      color: Colors.grey, // لون الحافة العلوية
+                      width: 0.2, // عرض الحافة العلوية
+                    ),
+                    bottom: BorderSide(
+                      color: Colors.grey, // لون الحافة السفلية
+                      width: 0.2, // عرض الحافة السفلية
+                    ),
+                  ),
+                ),
                 width: double.infinity,
-                color: THelperFunctions.isDarkMode(context)
-                    ? TColors.black
-                    : Colors.grey.shade200,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: screenWidth / 20, vertical: 20),
-                      child: Text(
-                        'Corresponding service details',
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall!
-                            .apply(color: TColors.accent),
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: screenWidth / 20, vertical: 20),
-                      child: Text(
-                        service.corssPodingService!,
-                        style: Theme.of(context)
-                            .textTheme
-                            .headlineSmall!
-                            .apply(color: TColors.primaryColor),
-                      ),
+                      child: Text(service.corssPodingService!,
+                          style: Theme.of(context).textTheme.headlineSmall!),
                     ),
                     Padding(
                       padding: EdgeInsets.only(
@@ -154,8 +174,7 @@ class DetailServisePage extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                             color: Colors.blue),
                         style: const TextStyle(
-                          fontWeight: FontWeight.w600,
-                          fontSize: 15,
+                          fontSize: 12,
                         ),
                       ),
                     ),

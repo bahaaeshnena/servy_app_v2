@@ -10,6 +10,7 @@ class SuggestionList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
+      physics: const ClampingScrollPhysics(),
       child: Column(
         children: [
           Row(
@@ -43,19 +44,29 @@ class SuggestionList extends StatelessWidget {
                         ServiceModel.fromSnapshot(doc as QueryDocumentSnapshot))
                     .toList();
 
-                return Column(
-                  children: services.map((service) {
-                    return ServiceCardAbstract(
-                      title: service.title,
-                      desc: service.descreption,
-                      price: service.priceFrom,
-                      priceFromDescount: service.priceFromDescount,
-                      imageUrl: service.imageService,
+                return GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 15.0,
+                    mainAxisSpacing: 15.0,
+                    childAspectRatio: 0.6, // تحديد نسبة العرض إلى الارتفاع
+                  ),
+                  itemCount: services.length,
+                  itemBuilder: (context, index) {
+                    return ServiceAbstract(
+                      // هنا قمت بتغيير الويدجت المستخدمة
+                      title: services[index].title,
+                      desc: services[index].descreption,
+                      price: services[index].priceFrom,
+                      priceFromDescount: services[index].priceFromDescount,
+                      imageUrl: services[index].imageService,
                       isLoadingImage: false,
                       serviceId: '',
-                      service: service, // عرض الصورة المحملة
+                      service: services[index], // عرض الصورة المحملة
                     );
-                  }).toList(),
+                  },
                 );
               }
             },

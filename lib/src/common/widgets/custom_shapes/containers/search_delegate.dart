@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/common/widgets/card/service_card_abstract.dart';
+import 'package:servy_app/src/features/servy/models/service_model.dart';
 
 class CustomSearchDelegate extends SearchDelegate<String> {
   final Function(String) onSearchTextChanged;
@@ -32,7 +32,29 @@ class CustomSearchDelegate extends SearchDelegate<String> {
 
   @override
   Widget buildResults(BuildContext context) {
-    return Container(); // We'll display results in SuggestionList
+    return FutureBuilder<List<ServiceModel>>(
+      future: _searchServices(query),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        } else if (snapshot.hasError) {
+          return Center(
+            child: Text('Error: ${snapshot.error}'),
+          );
+        } else {
+          final List<ServiceModel> services = snapshot.data ?? [];
+          if (services.isEmpty) {
+            return const Center(
+              child: Text('No results found'),
+            );
+          } else {
+            return SuggestionList(services: services);
+          }
+        }
+      },
+    );
   }
 
   @override
@@ -94,20 +116,33 @@ class SuggestionList extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: services.map((service) {
-            return ServiceCardAbstract(
-              title: service.title,
-              desc: service.descreption,
-              price: service.priceFrom,
-              priceFromDescount: service.priceFromDescount,
-              imageUrl: service.imageService,
-              isLoadingImage: false,
-              serviceId: '', service: service, // عرض الصورة المحملة
-            );
-          }).toList(),
-        ),
+        padding: const EdgeInsets.all(15),
+        child: Column(children: [
+          GridView.builder(
+            shrinkWrap: true,
+            physics: const NeverScrollableScrollPhysics(),
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 15.0,
+              mainAxisSpacing: 10.0,
+              childAspectRatio: 0.6, // تحديد نسبة العرض إلى الارتفاع
+            ),
+            itemCount: services.length,
+            itemBuilder: (context, index) {
+              return ServiceAbstract(
+                // هنا قمت بتغيير الويدجت المستخدمة
+                title: services[index].title,
+                desc: services[index].descreption,
+                price: services[index].priceFrom,
+                priceFromDescount: services[index].priceFromDescount,
+                imageUrl: services[index].imageService,
+                isLoadingImage: false,
+                serviceId: '',
+                service: services[index], // عرض الصورة المحملة
+              );
+            },
+          )
+        ]),
       ),
     );
   }
