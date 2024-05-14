@@ -8,6 +8,7 @@ import 'package:servy_app/src/features/servy/controller/service_controller.dart'
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/page_payment.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/profile_user_publish.dart';
+import 'package:servy_app/src/features/servy/screens/servy_details/widgets/format_text_reating.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/widgets/user_profile_service_card.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/helpers/helper_function.dart';
@@ -213,20 +214,23 @@ class DetailServisePage extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      RatingBarIndicator(
-                        rating: 4,
-                        itemBuilder: (context, index) => const Icon(
-                          Icons.star,
-                          color: Colors.amber,
-                        ),
-                        itemCount: 5,
-                        itemSize: 40.0,
-                        direction: Axis.horizontal,
-                      ),
+                      Obx(() {
+                        return RatingBarIndicator(
+                          rating: controller.rating.value,
+                          itemBuilder: (context, index) => const Icon(
+                            Icons.star,
+                            color: Colors.amber,
+                          ),
+                          itemCount: 5,
+                          itemSize: 50.0,
+                          direction: Axis.horizontal,
+                        );
+                      }),
                     ],
                   ),
                   const SizedBox(height: 10),
                   TextField(
+                    inputFormatters: [RangeInputFormatter(min: 1, max: 5)],
                     controller: controller.ratingController,
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
@@ -234,13 +238,20 @@ class DetailServisePage extends StatelessWidget {
                       prefixIcon: Icon(Iconsax.star),
                       prefixIconColor: TColors.primaryColor,
                     ),
-                    onChanged: (value) {},
+                    onChanged: (value) {
+                      controller.updateRating(value);
+                    },
                   ),
                   const SizedBox(height: 10),
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
-                      onPressed: () {},
+                      onPressed: () async {
+                        // استدعاء دالة حفظ التقييم هنا
+                        await Get.find<ServiceController>()
+                            .saveRatingToFirestore(service
+                                .serviceID); // حيث أنه يجب عليك تمرير معرف الخدمة إلى هذه الدالة
+                      },
                       child: const Text('Rate'),
                     ),
                   ),

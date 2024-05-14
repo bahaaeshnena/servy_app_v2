@@ -40,6 +40,7 @@ class ServiceController extends GetxController {
 
   //! rating
   TextEditingController ratingController = TextEditingController();
+  RxDouble rating = 0.0.obs; // Add RxDouble for rating
 
   final _db = FirebaseFirestore.instance;
 
@@ -69,6 +70,62 @@ class ServiceController extends GetxController {
   }
 
 //!---------------------Rating----------------------
+
+  void updateRating(String value) {
+    final int? ratingValue = int.tryParse(value);
+    if (ratingValue != null && ratingValue >= 1 && ratingValue <= 5) {
+      rating.value = ratingValue.toDouble();
+    } else {
+      rating.value = 0.0; // Reset rating if invalid value
+    }
+  }
+
+  Future<void> updateServiceRating(String serviceID, double newRating) async {
+    final serviceRef = _db.collection('Services').doc(serviceID);
+
+    await _db.runTransaction((transaction) async {
+      final snapshot = await transaction.get(serviceRef);
+      if (!snapshot.exists) {
+        throw Exception("Service does not exist!");
+      }
+
+      final serviceData = snapshot.data() as Map<String, dynamic>;
+      final numberOfRatings = (serviceData['numberOfRatings'] ?? 0) as int;
+      final totalRating = (serviceData['totalRating'] ?? 0.0) as double;
+
+      final newNumberOfRatings = numberOfRatings + 1;
+      final newTotalRating = totalRating + newRating;
+      final newAverageRating = newTotalRating / newNumberOfRatings;
+
+      transaction.update(serviceRef, {
+        'numberOfRatings': newNumberOfRatings,
+        'totalRating': newTotalRating,
+        'ratingService': newAverageRating,
+      });
+    });
+  }
+
+  Future<void> saveRatingToFirestore(String serviceID) async {
+    try {
+      if (rating.value >= 1 && rating.value <= 5) {
+        await updateServiceRating(serviceID, rating.value);
+        TLoaders.successSnackBar(
+          title: 'Success',
+          message: 'Rating updated successfully',
+        );
+      } else {
+        TLoaders.errorSnackBar(
+          title: 'Error',
+          message: 'Rating must be between 1 and 5',
+        );
+      }
+    } catch (e) {
+      TLoaders.errorSnackBar(
+        title: 'Error',
+        message: 'Failed to update rating: $e',
+      );
+    }
+  }
 
 //!---------------------Active Dicount----------------------
   void toggleDiscount(bool newValue) {

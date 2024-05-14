@@ -23,6 +23,9 @@ class ServiceModel {
   String? countryUser;
   String? skillsUser;
   String? descUser;
+  double ratingService;
+  int numberOfRatings; // جديد: عدد التقييمات
+  double totalRating; // جديد: إجمالي التقييمات
 
   ServiceModel({
     required this.user,
@@ -45,6 +48,9 @@ class ServiceModel {
     required this.categoris,
     this.hasDiscount = false,
     this.hasCorresService = false,
+    this.ratingService = 0.0,
+    this.numberOfRatings = 0, // جديد
+    this.totalRating = 0.0, // جديد
   });
 
   static ServiceModel empty() {
@@ -65,7 +71,9 @@ class ServiceModel {
       countryUser: '',
       skillsUser: '',
       descUser: '',
-
+      ratingService: 0.0,
+      numberOfRatings: 0, // جديد
+      totalRating: 0.0, // جديد
       //!
       user: UserModel.empty(),
     );
@@ -92,7 +100,9 @@ class ServiceModel {
       'countryUser': countryUser,
       'skillsUser': skillsUser,
       'descUser': descUser,
-
+      'ratingService': ratingService,
+      'numberOfRatings': numberOfRatings, // جديد
+      'totalRating': totalRating, // جديد
       //!
       'user': user.toJson(),
     };
@@ -121,6 +131,9 @@ class ServiceModel {
         categoris: data['categoris'] ?? '',
         hasDiscount: data['hasDiscount'] ?? false,
         hasCorresService: data['hasCorresService'] ?? false,
+        ratingService: (data['ratingService'] ?? 0).toDouble(),
+        numberOfRatings: data['numberOfRatings'] ?? 0, // جديد
+        totalRating: (data['totalRating'] ?? 0).toDouble(), // جديد
         user: UserModel.fromJson(data['user']),
       );
     } else {
