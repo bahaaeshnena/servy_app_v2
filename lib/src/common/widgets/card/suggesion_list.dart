@@ -47,16 +47,16 @@ class SuggestionList extends StatelessWidget {
                 return GridView.builder(
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     crossAxisSpacing: 15.0,
                     mainAxisSpacing: 15.0,
-                    childAspectRatio: 0.6, // تحديد نسبة العرض إلى الارتفاع
+                    childAspectRatio: MediaQuery.of(context).size.width /
+                        (MediaQuery.of(context).size.height / 1.2),
                   ),
                   itemCount: services.length,
                   itemBuilder: (context, index) {
                     return ServiceAbstract(
-                      // هنا قمت بتغيير الويدجت المستخدمة
                       title: services[index].title,
                       desc: services[index].descreption,
                       price: services[index].priceFrom,

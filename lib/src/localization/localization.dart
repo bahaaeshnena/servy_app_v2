@@ -157,7 +157,7 @@ class MyLocal implements Translations {
           'personalInformation': TTextAr.personalInformation,
           'userId': TTextAr.userId,
           'skillsInformation': TTextAr.skillsInformation,
-          'gender': TTextAr.gender,
+          'descriptionProfile': TTextAr.descriptionProfile,
           'country': TTextAr.country,
           'skill': TTextAr.skill,
           'name': TTextAr.name,
@@ -170,10 +170,10 @@ class MyLocal implements Translations {
           //? Personal Information Page
           'changePhoneNumber': TTextAr.changePhoneNumber,
           'titleChangePhoneNumber': TTextAr.titleChangePhoneNumber,
-          'changeGender': TTextAr.changeGender,
-          'titleChangeGenderr': TTextAr.titleChangeGenderr,
-          'changeCountry': TTextAr.changeCountry,
+          'changeDescription': TTextAr.changeDescription,
+          'titleChangeDescription': TTextAr.titleChangeDescription,
           'titleChangeCountry': TTextAr.titleChangeCountry,
+          'changeCountry': TTextAr.changeCountry,
           'copy': TTextAr.copy,
 
           //?skills Information Page
@@ -375,7 +375,7 @@ class MyLocal implements Translations {
           'personalInformation': TText.personalInformation,
           'userId': TText.userId,
           'skillsInformation': TText.skillsInformation,
-          'gender': TText.gender,
+          'descriptionProfile': TText.descriptionProfile,
           'country': TText.country,
           'skill': TText.skill,
           'name': TText.name,
@@ -388,10 +388,11 @@ class MyLocal implements Translations {
           //? Personal Information Page
           'changePhoneNumber': TText.changePhoneNumber,
           'titleChangePhoneNumber': TText.titleChangePhoneNumber,
-          'changeGender': TText.changeGender,
-          'titleChangeGenderr': TText.titleChangeGenderr,
-          'changeCountry': TText.changeCountry,
+          'changeDescription': TText.changeDescription,
+          'titleChangeDescription': TText.titleChangeDescription,
+
           'titleChangeCountry': TText.titleChangeCountry,
+          'changeCountry': TText.changeCountry,
           'copy': TText.copy,
 
           //?skills Information Page

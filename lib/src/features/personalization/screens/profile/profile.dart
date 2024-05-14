@@ -8,7 +8,7 @@ import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/chane_phone.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_country.dart';
-import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_gender.dart';
+import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_description.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_name.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/widgets/changes/change_skills.dart';
 
@@ -147,9 +147,9 @@ class ProfileScreen extends StatelessWidget {
                 onPressed: () => Get.to(() => const ChangePhoneNumber()),
               ),
               TProfileMenu(
-                title: 'gender'.tr,
-                value: controller.user.value.gender,
-                onPressed: () => Get.to(() => const ChangeGender()),
+                title: 'descriptionProfile'.tr,
+                value: controller.user.value.description,
+                onPressed: () => Get.to(() => const ChangeDesc()),
               ),
               TProfileMenu(
                 title: 'country'.tr,

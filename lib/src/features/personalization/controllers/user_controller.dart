@@ -70,7 +70,7 @@ class UserController extends GetxController {
             email: userCredential.user!.email ?? ' ',
             phoneNumber: userCredential.user!.phoneNumber ?? " ",
             profilePicture: userCredential.user!.photoURL ?? " ",
-            gender: userCredential.user!.phoneNumber ?? " ",
+            description: userCredential.user!.phoneNumber ?? " ",
             country: userCredential.user!.phoneNumber ?? " ",
             skills: userCredential.user!.phoneNumber ?? " ",
           );
@@ -171,8 +171,8 @@ class UserController extends GetxController {
       final image = await ImagePicker().pickImage(
         source: ImageSource.gallery,
         imageQuality: 70,
-        maxHeight: 512,
-        maxWidth: 512,
+        maxHeight: 1080,
+        maxWidth: 1920,
       );
       if (image != null) {
         imageUploading.value = true;

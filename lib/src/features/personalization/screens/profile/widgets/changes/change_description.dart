@@ -6,8 +6,8 @@ import 'package:servy_app/src/features/personalization/controllers/update_gender
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
-class ChangeGender extends StatelessWidget {
-  const ChangeGender({super.key});
+class ChangeDesc extends StatelessWidget {
+  const ChangeDesc({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ChangeGender extends StatelessWidget {
       appBar: TAppBar(
         showBackArrow: true,
         title: Text(
-          'changeGender'.tr,
+          'changeDescription'.tr,
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
@@ -27,21 +27,23 @@ class ChangeGender extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              'titleChangeGenderr'.tr,
+              'titleChangeDescription'.tr,
               style: Theme.of(context).textTheme.labelMedium,
             ),
             const SizedBox(height: TSizes.spaceBtwSections),
             Form(
-              key: controller.updateGenderFormKey,
+              key: controller.updateDescriptionFormKey,
               child: Column(
                 children: [
                   TextFormField(
-                    controller: controller.gender,
+                    minLines: 1,
+                    maxLines: 20,
+                    controller: controller.description,
                     validator: (value) =>
-                        TValidator.volidateEmptyText('gennder'.tr, value),
+                        TValidator.volidateEmptyText('description'.tr, value),
                     expands: false,
                     decoration: InputDecoration(
-                      labelText: 'gender'.tr,
+                      labelText: 'description'.tr,
                       prefix: const Icon(Iconsax.user),
                     ),
                   ),

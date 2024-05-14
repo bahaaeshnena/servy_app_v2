@@ -11,10 +11,10 @@ import 'package:servy_app/src/utils/popups/full_screen_loader.dart';
 class UpdateGenderController extends GetxController {
   static UpdateGenderController get instance => Get.find();
 
-  final gender = TextEditingController();
+  final description = TextEditingController();
   final userController = UserController.instance;
   final userRepository = Get.put(UserRepository());
-  GlobalKey<FormState> updateGenderFormKey = GlobalKey<FormState>();
+  GlobalKey<FormState> updateDescriptionFormKey = GlobalKey<FormState>();
 
   @override
   void onInit() {
@@ -24,7 +24,7 @@ class UpdateGenderController extends GetxController {
 
   /// Fetch user record
   Future<void> initializeGender() async {
-    gender.text = userController.user.value.gender;
+    description.text = userController.user.value.description;
   }
 
   Future<void> updateGender() async {
@@ -42,19 +42,19 @@ class UpdateGenderController extends GetxController {
       }
 
       //Form Validation
-      if (!updateGenderFormKey.currentState!.validate()) {
+      if (!updateDescriptionFormKey.currentState!.validate()) {
         TFullScreenLoader.stopLoading();
         return;
       }
 
       //Update users gender in the Firebase Firestore
       Map<String, dynamic> genderPerson = {
-        'Gender': gender.text.trim(),
+        'description': description.text.trim(),
       };
       await userRepository.updateSingleField(genderPerson);
 
       //Update the Rx user value
-      userController.user.value.gender = gender.text.trim();
+      userController.user.value.description = description.text.trim();
 
       //remove Loader
       TFullScreenLoader.stopLoading();
@@ -62,11 +62,13 @@ class UpdateGenderController extends GetxController {
       //Show Success MEssage
 
       TLoaders.successSnackBar(
-          title: "Congratulations", message: 'Your Gender has been updated.');
+          title: "Congratulations",
+          message: 'Your description has been updated.');
 
       //Move to previous screen
       Get.off(() => const ProfileScreen());
     } catch (e) {
+      print(e.toString());
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/servy/controller/service_controller.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/page_payment.dart';
+import 'package:servy_app/src/features/servy/screens/servy_details/profile_user_publish.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/widgets/user_profile_service_card.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/helpers/helper_function.dart';
@@ -66,7 +68,20 @@ class DetailServisePage extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.only(top: 10),
                 child: TUserProfilsServiceCard(
-                  onPressed: () {},
+                  icon: Iconsax.user,
+                  onPressed: () {
+                    showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (context) {
+                          return SizedBox(
+                            height: 600,
+                            child: ProfileUserPublish(
+                              service: service,
+                            ),
+                          );
+                        });
+                  },
                   service: service,
                 ),
               ),
@@ -81,9 +96,6 @@ class DetailServisePage extends StatelessWidget {
                 ),
               ),
               width: double.infinity,
-              // color: THelperFunctions.isDarkMode(context)
-              //     ? TColors.black
-              //     : Colors.grey.shade200,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [

@@ -41,7 +41,7 @@ class TText {
   static const String done = "Done";
 
   //Profile setting
-  static const String gender = "Gender";
+  static const String descriptionProfile = "Description";
   static const String country = "Country";
   static const String skills = "Skills";
 
@@ -239,9 +239,9 @@ class TText {
   static const String titleChangePhoneNumber =
       'use real phone number for verification. This name will appear on several pages.';
 
-  static const String changeGender = 'Change Gender';
-  static const String titleChangeGenderr =
-      'use real name for verification. This name will appear on several pages.';
+  static const String changeDescription = 'Change Description';
+  static const String titleChangeDescription =
+      'Describe yourself, your work, and your accomplishments.';
 
   static const String changeCountry = 'Change Country';
   static const String titleChangeCountry =

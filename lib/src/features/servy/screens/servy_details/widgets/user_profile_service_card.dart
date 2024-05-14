@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/images/circular_image.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
+import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
@@ -12,9 +12,11 @@ class TUserProfilsServiceCard extends StatelessWidget {
     super.key,
     required this.onPressed,
     required this.service,
+    this.icon,
   });
   final VoidCallback onPressed;
   final ServiceModel service;
+  final IconData? icon;
   @override
   Widget build(BuildContext context) {
     final controller = UserController.instance;
@@ -42,9 +44,10 @@ class TUserProfilsServiceCard extends StatelessWidget {
       ),
       trailing: IconButton(
         onPressed: onPressed,
-        icon: const Icon(
-          Iconsax.user,
-          size: 28,
+        icon: Icon(
+          icon,
+          size: 30,
+          color: TColors.primaryColor,
         ),
       ),
     );

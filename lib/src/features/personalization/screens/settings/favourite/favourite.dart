@@ -22,11 +22,12 @@ class FavouriteScreen extends StatelessWidget {
         padding: const EdgeInsets.all(12),
         child: GridView.builder(
           shrinkWrap: true,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 2,
             crossAxisSpacing: 15.0,
             mainAxisSpacing: 15.0,
-            childAspectRatio: 0.6,
+            childAspectRatio: MediaQuery.of(context).size.width /
+                (MediaQuery.of(context).size.height / 1.2),
           ),
           itemCount: controller.favoriteServices.length,
           itemBuilder: (context, index) {

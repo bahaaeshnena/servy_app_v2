@@ -1,6 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:servy_app/src/features/personalization/models/user_model.dart';
 
 class ServiceModel {
+  UserModel user;
+  //!
   String? username;
   String? userImage;
   String serviceID;
@@ -17,10 +20,18 @@ class ServiceModel {
   bool hasDiscount;
   bool hasCorresService;
   bool isLikedState = false;
+  String? countryUser;
+  String? skillsUser;
+  String? descUser;
 
   ServiceModel({
+    required this.user,
+    //!
     this.username,
     this.userImage,
+    this.skillsUser,
+    this.countryUser,
+    this.descUser,
     required this.serviceID,
     required this.title,
     required this.descreption,
@@ -51,6 +62,11 @@ class ServiceModel {
       categoris: '',
       username: '',
       userImage: '',
+      countryUser: '',
+      skillsUser: '',
+      descUser: '',
+      //!
+      user: UserModel.empty(),
     );
   }
 
@@ -72,6 +88,11 @@ class ServiceModel {
       'hasCorresService': hasCorresService,
       'username': username,
       'userImage': userImage,
+      'countryUser': countryUser,
+      'skillsUser': skillsUser,
+      'descUser': descUser,
+      //!
+      'user': user.toJson(),
     };
   }
 
@@ -82,7 +103,10 @@ class ServiceModel {
       return ServiceModel(
         serviceID: document.id,
         username: data['username'] ?? '',
+        skillsUser: data['skillsUser'] ?? '',
+        countryUser: data['countryUser'] ?? '',
         userImage: data['userImage'] ?? '',
+        descUser: data['descUser'] ?? '',
         title: data['title'] ?? '',
         descreption: data['descreption'] ?? '',
         imageService: data['imageService'] ?? '',
@@ -95,6 +119,7 @@ class ServiceModel {
         categoris: data['categoris'] ?? '',
         hasDiscount: data['hasDiscount'] ?? false,
         hasCorresService: data['hasCorresService'] ?? false,
+        user: UserModel.fromJson(data['user']),
       );
     } else {
       return ServiceModel.empty();

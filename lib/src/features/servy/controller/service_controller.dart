@@ -345,6 +345,10 @@ class ServiceController extends GetxController {
         hasCorresService: isChecked.value,
         username: currentUser.username,
         userImage: currentUser.profilePicture,
+        skillsUser: currentUser.skills,
+        countryUser: currentUser.country,
+        descUser: currentUser.description,
+        user: currentUser,
       );
       // Ensure that priceFromDescount is less than priceFrom
       if (isChecked2.value) {

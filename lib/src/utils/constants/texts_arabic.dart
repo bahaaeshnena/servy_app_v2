@@ -40,7 +40,7 @@ class TTextAr {
   static const String done = "تم";
 
   //Profile setting
-  static const String gender = "جنس";
+  static const String descriptionProfile = "وصف";
   static const String country = "دولة";
   static const String skills = "مهارات";
 
@@ -235,9 +235,8 @@ class TTextAr {
   static const String titleChangePhoneNumber =
       'استخدم رقم الهاتف الحقيقي للتحقق. سيظهر هذا الاسم في عدة صفحات.';
 
-  static const String changeGender = 'تغيير الجنس';
-  static const String titleChangeGenderr =
-      'استخدم الاسم الحقيقي للتحقق. سيظهر هذا الاسم في عدة صفحات.';
+  static const String changeDescription = 'تغيير الوصف';
+  static const String titleChangeDescription = 'اوصف نفسك وعملك وانجازاتك .';
 
   static const String changeCountry = 'تغيير الدولة';
   static const String titleChangeCountry =

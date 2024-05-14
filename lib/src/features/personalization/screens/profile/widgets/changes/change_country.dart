@@ -42,7 +42,7 @@ class ChangeCountry extends StatelessWidget {
                     expands: false,
                     decoration: InputDecoration(
                       labelText: 'country'.tr,
-                      prefix: const Icon(Iconsax.flag),
+                      prefix: const Icon(Iconsax.location),
                     ),
                   ),
                   const SizedBox(height: TSizes.spaceBtwInputField),

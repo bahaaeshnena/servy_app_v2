@@ -67,6 +67,7 @@ dependencies:
   flip_card: ^0.6.0
   patterns_canvas: ^0.4.0
   sliding_up_panel: ^2.0.0+1
+  auto_size_text: ^3.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -106,6 +107,7 @@ flutter:
     - assets/icons/language/
     - assets/images/users_images/
     - assets/images/payment/
+    - assets/images/profile/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -154,6 +156,13 @@ flutter:
     - family: Arvo-Regular
       fonts:
         - asset: assets/fonts/Arvo_font/Arvo-Regular.ttf
+
+    # - family: NimbusSanL
+    #   fonts:
+    #     - asset: fonts/NimbusSanL-Bol.ttf
+    #       weight: 700
+    #     - asset: fonts/NimbusSanL-RegIta.ttf
+    #       style: italic
 
   #
   # For details regarding fonts from package dependencies,

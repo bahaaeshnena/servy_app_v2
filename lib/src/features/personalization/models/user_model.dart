@@ -10,7 +10,7 @@ class UserModel {
   final String email;
   String phoneNumber;
   String profilePicture;
-  String gender;
+  String description;
   String country;
   String skills;
   List<ServiceModel> favoriteServices; // القائمة لتخزين الخدمات
@@ -23,7 +23,7 @@ class UserModel {
     required this.email,
     required this.phoneNumber,
     required this.profilePicture,
-    required this.gender,
+    required this.description,
     required this.country,
     required this.skills,
     this.favoriteServices = const [], // تعيين قائمة فارغة افتراضيًا
@@ -57,7 +57,7 @@ class UserModel {
       email: '',
       phoneNumber: '',
       profilePicture: '',
-      gender: '',
+      description: '',
       country: '',
       skills: '',
     );
@@ -71,7 +71,7 @@ class UserModel {
       'Email': email,
       'PhoneNumber': phoneNumber,
       'ProfilePicture': profilePicture,
-      'Gender': gender,
+      'description': description,
       'Country': country,
       'Skills': skills,
       'FavoriteServices': favoriteServices
@@ -97,7 +97,7 @@ class UserModel {
         email: date['Email'] ?? '',
         phoneNumber: date['PhoneNumber'] ?? '',
         profilePicture: date['ProfilePicture'] ?? '',
-        gender: date['Gender'] ?? '',
+        description: date['description'] ?? '',
         country: date['Country'] ?? '',
         skills: date['Skills'] ?? '',
         favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
@@ -105,5 +105,22 @@ class UserModel {
     } else {
       return UserModel.empty();
     }
+  }
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    List<ServiceModel> favoriteServices = [];
+
+    return UserModel(
+      id: json['id'] ?? '',
+      firstName: json['FirstName'] ?? '',
+      lastName: json['LastName'] ?? '',
+      username: json['Username'] ?? '',
+      email: json['Email'] ?? '',
+      phoneNumber: json['PhoneNumber'] ?? '',
+      profilePicture: json['ProfilePicture'] ?? '',
+      description: json['description'] ?? '',
+      country: json['Country'] ?? '',
+      skills: json['Skills'] ?? '',
+      favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
+    );
   }
 }

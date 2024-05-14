@@ -266,6 +266,7 @@ class UpdateServicePage extends StatelessWidget {
                             : controller.categories.text,
                         hasDiscount: service.hasDiscount,
                         hasCorresService: service.hasCorresService,
+                        user: service.user,
                       );
 
                       controller.updateServiceData(updatedService);

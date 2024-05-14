@@ -2,6 +2,7 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/payment/card_alert_dialog.dart';
 import 'package:servy_app/src/common/widgets/payment/card_input_formatter.dart';
 import 'package:servy_app/src/common/widgets/payment/card_month_input_formatter.dart';
@@ -29,6 +30,10 @@ class _HomePageState extends State<PaymentPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const TAppBar(
+        title: Text('Payment Page'),
+        showBackArrow: true,
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
