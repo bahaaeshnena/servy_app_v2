@@ -65,6 +65,7 @@ class ServiceModel {
       countryUser: '',
       skillsUser: '',
       descUser: '',
+
       //!
       user: UserModel.empty(),
     );
@@ -91,6 +92,7 @@ class ServiceModel {
       'countryUser': countryUser,
       'skillsUser': skillsUser,
       'descUser': descUser,
+
       //!
       'user': user.toJson(),
     };

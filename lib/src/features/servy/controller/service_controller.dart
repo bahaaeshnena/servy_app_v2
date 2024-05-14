@@ -38,6 +38,9 @@ class ServiceController extends GetxController {
   TextEditingController categories = TextEditingController();
   GlobalKey<FormState> addPostFormKey = GlobalKey<FormState>();
 
+  //! rating
+  TextEditingController ratingController = TextEditingController();
+
   final _db = FirebaseFirestore.instance;
 
   File? _imageFile;
@@ -60,8 +63,12 @@ class ServiceController extends GetxController {
     descrCorssPodingService.dispose();
     priceFromDescount.dispose();
     categories.dispose();
+    isChecked = false.obs;
+    isChecked2 = false.obs;
     super.onClose();
   }
+
+//!---------------------Rating----------------------
 
 //!---------------------Active Dicount----------------------
   void toggleDiscount(bool newValue) {
@@ -258,6 +265,7 @@ class ServiceController extends GetxController {
     categories.clear();
     _imageFile = null;
     _imageUrl = null;
+
     update();
     // تفريغ الصورة المحددة
   }
@@ -337,6 +345,7 @@ class ServiceController extends GetxController {
         imageService: _imageUrl ?? '',
         priceFrom: priceFrom.text,
         corssPodingService: corssPodingService.text,
+        descrCorssPodingService: descrCorssPodingService.text,
         ownerId: currentUser.id,
         priceFromDescount: priceFromDescount.text,
         status: 'pending',

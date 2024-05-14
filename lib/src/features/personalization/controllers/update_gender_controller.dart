@@ -68,7 +68,7 @@ class UpdateGenderController extends GetxController {
       //Move to previous screen
       Get.off(() => const ProfileScreen());
     } catch (e) {
-      print(e.toString());
+      // print(e.toString());
       TFullScreenLoader.stopLoading();
       TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
     }

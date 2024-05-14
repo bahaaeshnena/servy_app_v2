@@ -94,14 +94,14 @@ class ServiceAbstract extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Row(
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Icon(Iconsax.star1,
+                        const Icon(Iconsax.star1,
                             color: Color.fromARGB(255, 255, 230, 0)),
                         Text(
-                          '4.5',
-                          style: TextStyle(color: TColors.white),
+                          '4.6',
+                          style: const TextStyle(color: TColors.white),
                         ),
                       ],
                     ),

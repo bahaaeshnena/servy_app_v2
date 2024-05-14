@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:readmore/readmore.dart';
@@ -71,16 +72,15 @@ class DetailServisePage extends StatelessWidget {
                   icon: Iconsax.user,
                   onPressed: () {
                     showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        builder: (context) {
-                          return SizedBox(
-                            height: 600,
-                            child: ProfileUserPublish(
-                              service: service,
-                            ),
-                          );
-                        });
+                      isScrollControlled: true,
+                      context: context,
+                      builder: (context) {
+                        return SizedBox(
+                          height: 600,
+                          child: ProfileUserPublish(service: service),
+                        );
+                      },
+                    );
                   },
                   service: service,
                 ),
@@ -141,20 +141,17 @@ class DetailServisePage extends StatelessWidget {
                   ? TColors.darkContainer
                   : Colors.grey.shade200,
             ),
-
-            //!CorresService
             if (service.hasCorresService)
               Container(
                 decoration: const BoxDecoration(
-                  // تعيين الحواف العلوية والسفلية
                   border: BorderDirectional(
                     top: BorderSide(
-                      color: Colors.grey, // لون الحافة العلوية
-                      width: 0.2, // عرض الحافة العلوية
+                      color: Colors.grey,
+                      width: 0.2,
                     ),
                     bottom: BorderSide(
-                      color: Colors.grey, // لون الحافة السفلية
-                      width: 0.2, // عرض الحافة السفلية
+                      color: Colors.grey,
+                      width: 0.2,
                     ),
                   ),
                 ),
@@ -165,8 +162,10 @@ class DetailServisePage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.symmetric(
                           horizontal: screenWidth / 20, vertical: 20),
-                      child: Text(service.corssPodingService!,
-                          style: Theme.of(context).textTheme.headlineSmall!),
+                      child: Text(
+                        service.corssPodingService!,
+                        style: Theme.of(context).textTheme.headlineSmall!,
+                      ),
                     ),
                     Padding(
                       padding: EdgeInsets.only(
@@ -193,6 +192,61 @@ class DetailServisePage extends StatelessWidget {
                   ],
                 ),
               ),
+            Container(
+              height: 15,
+              color: THelperFunctions.isDarkMode(context)
+                  ? TColors.darkContainer
+                  : Colors.grey.shade200,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Text(
+                    'Rate Service',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .apply(color: TColors.primaryColor),
+                  ),
+                  const SizedBox(height: 10),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      RatingBarIndicator(
+                        rating: 4,
+                        itemBuilder: (context, index) => const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        itemCount: 5,
+                        itemSize: 40.0,
+                        direction: Axis.horizontal,
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  TextField(
+                    controller: controller.ratingController,
+                    keyboardType: TextInputType.number,
+                    decoration: const InputDecoration(
+                      labelText: 'Rate',
+                      prefixIcon: Icon(Iconsax.star),
+                      prefixIconColor: TColors.primaryColor,
+                    ),
+                    onChanged: (value) {},
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      onPressed: () {},
+                      child: const Text('Rate'),
+                    ),
+                  ),
+                ],
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
               child: Row(
