@@ -8,8 +8,8 @@ import 'package:servy_app/src/utils/network/loaders.dart';
 import 'package:servy_app/src/utils/network/network_manager.dart';
 import 'package:servy_app/src/utils/popups/full_screen_loader.dart';
 
-class UpdateGenderController extends GetxController {
-  static UpdateGenderController get instance => Get.find();
+class UpdateDescriptionController extends GetxController {
+  static UpdateDescriptionController get instance => Get.find();
 
   final description = TextEditingController();
   final userController = UserController.instance;
@@ -48,10 +48,10 @@ class UpdateGenderController extends GetxController {
       }
 
       //Update users gender in the Firebase Firestore
-      Map<String, dynamic> genderPerson = {
+      Map<String, dynamic> descriptionPerson = {
         'description': description.text.trim(),
       };
-      await userRepository.updateSingleField(genderPerson);
+      await userRepository.updateSingleField(descriptionPerson);
 
       //Update the Rx user value
       userController.user.value.description = description.text.trim();

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
-import 'package:servy_app/src/features/personalization/controllers/update_gender_controller.dart';
+import 'package:servy_app/src/features/personalization/controllers/update_description_controller.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
@@ -11,7 +11,7 @@ class ChangeDesc extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = Get.put(UpdateGenderController());
+    final controller = Get.put(UpdateDescriptionController());
 
     return Scaffold(
       appBar: TAppBar(
