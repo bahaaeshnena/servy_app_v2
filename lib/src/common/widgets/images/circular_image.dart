@@ -55,7 +55,7 @@ class TCircularImage extends StatelessWidget {
                 )
               : Image(
                   fit: fit,
-                  image: AssetImage(image),
+                  image: NetworkImage(image),
                   color: overlayColor,
                 ),
         ),

@@ -1,10 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:servy_app/src/features/personalization/models/user_model.dart';
 
 class CommentsModel {
-  String? date;
-  UserModel user; //صاحب التعليق
-  String userID; //صاحب ال profile
+  DateTime? date; // تعديل النوع إلى DateTime
+  String userEvaluation; // صاحب التعليق
+  String userID; // صاحب ال profile
   String comment;
   double ratingProfile;
   int numberOfRatings; // جديد: عدد التقييمات
@@ -12,7 +11,7 @@ class CommentsModel {
 
   CommentsModel({
     this.date,
-    required this.user,
+    required this.userEvaluation,
     required this.userID,
     required this.comment,
     this.ratingProfile = 0.0,
@@ -25,8 +24,8 @@ class CommentsModel {
       ratingProfile: 0.0,
       numberOfRatings: 0, // جديد
       totalRating: 0.0, // جديد
-      date: '',
-      user: UserModel.empty(),
+      date: DateTime.now(), // تعديل النوع إلى DateTime
+      userEvaluation: '',
       userID: '',
       comment: '',
     );
@@ -34,9 +33,9 @@ class CommentsModel {
 
   Map<String, dynamic> toJson() {
     return {
-      'user': user.toJson(),
+      'userEvaluation': userEvaluation,
       'userID': userID,
-      'date': date,
+      'date': date?.toIso8601String(), // تحويل التاريخ إلى نص ISO8601
       'comment': comment,
       'ratingProfile': ratingProfile,
       'numberOfRatings': numberOfRatings, // جديد
@@ -49,10 +48,12 @@ class CommentsModel {
       final data =
           document.data()! as Map<String, dynamic>; // Cast to correct type
       return CommentsModel(
-        user: UserModel.fromJson(data['user']),
+        userEvaluation: data['userEvaluation'] ?? '',
         userID: data['userID'] ?? '',
         comment: data['comment'] ?? '',
-        date: data['date'] ?? '',
+        date: data['date'] != null
+            ? DateTime.parse(data['date'])
+            : null, // تحويل النص إلى DateTime
         ratingProfile: (data['ratingProfile'] ?? 0).toDouble(),
         numberOfRatings: data['numberOfRatings'] ?? 0, // جديد
         totalRating: (data['totalRating'] ?? 0).toDouble(), // جديد

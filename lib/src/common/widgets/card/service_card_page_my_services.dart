@@ -93,9 +93,9 @@ class ServiceCardAbstractMyServicesPage extends StatelessWidget {
                       const SizedBox(width: 50),
                       const Icon(Iconsax.star1,
                           size: 25, color: Color.fromARGB(255, 255, 230, 0)),
-                      const Text(
-                        '4.5',
-                        style: TextStyle(fontSize: 16),
+                      Text(
+                        service.ratingService.toStringAsFixed(1),
+                        style: const TextStyle(fontSize: 16),
                       )
                     ],
                   ),

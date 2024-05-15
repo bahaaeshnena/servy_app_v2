@@ -1,18 +1,24 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/rating_and_comments/widgets/user_review_card.dart';
+import 'package:servy_app/src/features/servy/models/comments_model.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/add_comments.dart';
+import 'package:servy_app/src/features/servy/screens/servy_details/see_all_comments.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/services_user.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/widgets/user_profile_service_card.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
-import 'package:servy_app/src/utils/constants/images.dart';
+import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
 class ProfileUserPublish extends StatelessWidget {
-  const ProfileUserPublish({super.key, required this.service});
+  const ProfileUserPublish({
+    super.key,
+    required this.service,
+  });
   final ServiceModel service;
   @override
   Widget build(BuildContext context) {
@@ -51,7 +57,8 @@ class ProfileUserPublish extends StatelessWidget {
                       builder: (context, snapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return const CircularProgressIndicator();
+                          return const TShimmerEffect(
+                              width: double.infinity, height: 15);
                         } else if (snapshot.hasError) {
                           return Text('Error: ${snapshot.error}');
                         } else {
@@ -85,7 +92,8 @@ class ProfileUserPublish extends StatelessWidget {
                               builder: (context, snapshot) {
                                 if (snapshot.connectionState ==
                                     ConnectionState.waiting) {
-                                  return const CircularProgressIndicator();
+                                  return const TShimmerEffect(
+                                      width: 100, height: 15);
                                 } else if (snapshot.hasError) {
                                   return Text('Error: ${snapshot.error}');
                                 } else {
@@ -137,7 +145,8 @@ class ProfileUserPublish extends StatelessWidget {
                           builder: (context, snapshot) {
                             if (snapshot.connectionState ==
                                 ConnectionState.waiting) {
-                              return const CircularProgressIndicator();
+                              return const TShimmerEffect(
+                                  width: 100, height: 15);
                             } else if (snapshot.hasError) {
                               return Text('Error: ${snapshot.error}');
                             } else {
@@ -189,7 +198,8 @@ class ProfileUserPublish extends StatelessWidget {
                               builder: (context, snapshot) {
                                 if (snapshot.connectionState ==
                                     ConnectionState.waiting) {
-                                  return const CircularProgressIndicator();
+                                  return const TShimmerEffect(
+                                      width: 100, height: 15);
                                 } else if (snapshot.hasError) {
                                   return Text('Error: ${snapshot.error}');
                                 } else {
@@ -210,7 +220,7 @@ class ProfileUserPublish extends StatelessWidget {
                                                   .labelMedium,
                                             ),
                                             Text(
-                                              snapshot.data.toString(),
+                                              snapshot.data.toStringAsFixed(1),
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .headlineSmall,
@@ -248,48 +258,50 @@ class ProfileUserPublish extends StatelessWidget {
                         ),
                         Expanded(
                           child: TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Get.to(() => SeeAllComments(
+                                    service: service,
+                                  ));
+                            },
                             child: const Text('See All'),
                           ),
                         ),
                       ],
                     ),
                     const SizedBox(height: 20),
-                    UserReviewCard(
-                      image: TImages.userAhmed,
-                      userName: 'Ahmed adli',
-                      comment: 'A creative and hardworking person in his work',
-                      date: '01 Nov, 2024',
-                      rating: 3,
-                    ),
-                    UserReviewCard(
-                      date: '11 Dec, 2024',
-                      rating: 5,
-                      image: TImages.userAbood,
-                      userName: 'Abood bni Salamah',
-                      comment: 'He does great work and delivers on time',
-                    ),
-                    UserReviewCard(
-                      date: '05 Jan, 2024',
-                      rating: 3.5,
-                      image: TImages.userBassem,
-                      userName: 'Mohammed Bassem',
-                      comment:
-                          'He is an excellent person to deal with and trustworthy',
-                    ),
-                    UserReviewCard(
-                      date: '20 Feb, 2024',
-                      rating: 4.5,
-                      image: TImages.userRaed,
-                      userName: 'Mohammed Raed',
-                      comment: 'Excellent and precise work',
-                    ),
-                    UserReviewCard(
-                      date: '05 Nov, 2024',
-                      rating: 4.2,
-                      image: TImages.userSammer,
-                      userName: 'Sammer Al Hajeid',
-                      comment: 'Creative in his work',
+                    StreamBuilder<QuerySnapshot>(
+                      stream: FirebaseFirestore.instance
+                          .collection('comments')
+                          .where('userID', isEqualTo: service.ownerId!)
+                          .snapshots(),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        } else if (!snapshot.hasData ||
+                            snapshot.data!.docs.isEmpty) {
+                          return const Text('No comments available');
+                        } else {
+                          final comments = snapshot.data!.docs
+                              .map((doc) => CommentsModel.fromSnapshot(doc))
+                              .toList();
+
+                          return Column(
+                            children: comments.take(8).map((comment) {
+                              return UserReviewCard(
+                                comment: comment.comment,
+                                date: comment.date != null
+                                    ? '${comment.date!.day} ${_getMonthName(comment.date!.month)}, ${comment.date!.year}'
+                                    : 'No date',
+                                rating: comment.ratingProfile,
+                                userEvalution: comment.userEvaluation,
+                              );
+                            }).toList(),
+                          );
+                        }
+                      },
                     ),
                     const SizedBox(height: 20),
                     SizedBox(
@@ -308,5 +320,23 @@ class ProfileUserPublish extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  String _getMonthName(int month) {
+    const monthNames = [
+      'Jan',
+      'Feb',
+      'Mar',
+      'Apr',
+      'May',
+      'Jun',
+      'Jul',
+      'Aug',
+      'Sep',
+      'Oct',
+      'Nov',
+      'Dec'
+    ];
+    return monthNames[month - 1];
   }
 }

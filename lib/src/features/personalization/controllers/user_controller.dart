@@ -58,11 +58,9 @@ class UserController extends GetxController {
         return value;
       } else {
         // إذا لم يكن المستند موجودًا، يمكنك التعامل مع الحالة هنا
-        print('Document with ownerId $ownerId does not exist.');
         return null;
       }
     } catch (e) {
-      print('Error fetching document: $e');
       return null;
     }
   }

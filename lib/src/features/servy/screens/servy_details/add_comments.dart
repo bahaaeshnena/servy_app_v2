@@ -7,6 +7,7 @@ import 'package:servy_app/src/features/servy/controller/comments_controller.dart
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/widgets/format_text_reating.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/validators/validation.dart';
 
 class AddComment extends StatelessWidget {
   const AddComment({super.key, required this.serviceID});
@@ -14,71 +15,78 @@ class AddComment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     CommentController controller = Get.put(CommentController());
-    // ServiceController controllerService = Get.put(ServiceController());
 
     return Scaffold(
       appBar: const TAppBar(
         showBackArrow: true,
         title: Text('Add comment'),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(12),
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Obx(() {
-                    return RatingBarIndicator(
-                      rating: controller.rating.value,
-                      itemBuilder: (context, index) => const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                      ),
-                      itemCount: 5,
-                      itemSize: 50.0,
-                      direction: Axis.horizontal,
-                    );
-                  }),
-                ],
-              ),
-              const SizedBox(height: 10),
-              TextField(
-                controller: controller.ratingController,
-                inputFormatters: [RangeInputFormatter(min: 1, max: 5)],
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  labelText: 'Rate',
-                  prefixIcon: Icon(Iconsax.star),
-                  prefixIconColor: TColors.primaryColor,
+      body: Form(
+        key: controller.addCommentAndrateFormKey,
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(12),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Obx(() {
+                      return RatingBarIndicator(
+                        rating: controller.rating.value,
+                        itemBuilder: (context, index) => const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        itemCount: 5,
+                        itemSize: 50.0,
+                        direction: Axis.horizontal,
+                      );
+                    }),
+                  ],
                 ),
-                onChanged: (value) {
-                  controller.updateRating(value);
-                },
-              ),
-              const SizedBox(height: 10),
-              const TextField(
-                minLines: 1,
-                maxLines: 20,
-                decoration: InputDecoration(
-                  labelText: 'Comment',
-                  prefixIcon: Icon(Iconsax.star),
-                  prefixIconColor: TColors.primaryColor,
-                ),
-              ),
-              const SizedBox(height: 10),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () async {
-                    await Get.find<CommentController>()
-                        .saveRatingToFirestore(serviceID.ownerId!);
+                const SizedBox(height: 10),
+                TextFormField(
+                  validator: (value) =>
+                      TValidator.volidateEmptyText('Rate', value),
+                  controller: controller.ratingController,
+                  inputFormatters: [RangeInputFormatter(min: 1, max: 5)],
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                    labelText: 'Rate',
+                    prefixIcon: Icon(Iconsax.star),
+                    prefixIconColor: TColors.primaryColor,
+                  ),
+                  onChanged: (value) {
+                    controller.updateRating(value);
                   },
-                  child: const Text('Comment & Rate'),
                 ),
-              ),
-            ],
+                const SizedBox(height: 10),
+                TextFormField(
+                  validator: (value) =>
+                      TValidator.volidateEmptyText('Comment', value),
+                  controller: controller.commentController, // استخدام المتحكم
+                  minLines: 1,
+                  maxLines: 20,
+                  decoration: const InputDecoration(
+                    labelText: 'Comment',
+                    prefixIcon: Icon(Iconsax.message),
+                    prefixIconColor: TColors.primaryColor,
+                  ),
+                ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      await controller
+                          .saveRatingToFirestore(serviceID.ownerId!);
+                    },
+                    child: const Text('Comment & Rate'),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

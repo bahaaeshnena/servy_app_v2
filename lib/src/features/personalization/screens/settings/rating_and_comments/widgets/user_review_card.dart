@@ -1,20 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:readmore/readmore.dart';
+import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/rating_and_comments/widgets/rating_barlndicator.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
 class UserReviewCard extends StatelessWidget {
   const UserReviewCard({
     super.key,
-    required this.image,
-    required this.userName,
+    // required this.image,
+    this.userName,
     required this.comment,
     required this.date,
     required this.rating,
+    required this.userEvalution,
   });
 
-  final String image;
-  final String userName;
+  // final String image;
+  final String userEvalution;
+  final String? userName;
   final String comment;
   final String date;
   final double rating;
@@ -27,14 +31,43 @@ class UserReviewCard extends StatelessWidget {
           children: [
             Row(
               children: [
-                CircleAvatar(
-                  backgroundImage: AssetImage(image),
+                FutureBuilder(
+                  future: UserController.instance
+                      .getFieldValue(userEvalution, 'ProfilePicture'),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const TShimmerEffect(width: 100, height: 15);
+                    } else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else {
+                      return CircleAvatar(
+                        backgroundImage: NetworkImage(snapshot.data.toString()),
+                      );
+                    }
+                  },
                 ),
                 const SizedBox(width: 10),
-                Text(
-                  userName,
-                  style: const TextStyle(fontWeight: FontWeight.bold),
-                )
+                FutureBuilder(
+                  future: UserController.instance
+                      .getFieldValue(userEvalution, 'Username'),
+                  builder: (context, snapshot) {
+                    if (snapshot.connectionState == ConnectionState.waiting) {
+                      return const TShimmerEffect(width: 100, height: 15);
+                    } else if (snapshot.hasError) {
+                      return Text('Error: ${snapshot.error}');
+                    } else if (!snapshot.hasData || snapshot.data == null) {
+                      return const Text(
+                        'Unknown User',
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      );
+                    } else {
+                      return Text(
+                        snapshot.data!,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      );
+                    }
+                  },
+                ),
               ],
             ),
             IconButton(
@@ -71,52 +104,6 @@ class UserReviewCard extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         const Divider(),
-        // /// company Review
-        // Container(
-        //   decoration: const BoxDecoration(
-        //     color: Color.fromARGB(255, 210, 203, 203),
-        //     borderRadius: BorderRadius.all(
-        //       Radius.circular(20),
-        //     ),
-        //   ),
-        //   child: const Padding(
-        //     padding: EdgeInsets.all(20.0),
-        //     child: Column(
-        //       children: [
-        //         Row(
-        //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        //           children: [
-        //             Text(
-        //               'Bahaa',
-        //               style: TextStyle(fontWeight: FontWeight.bold),
-        //             ),
-        //             Text(
-        //               '02 Nov, 2024',
-        //               style: TextStyle(fontWeight: FontWeight.bold),
-        //             ),
-        //           ],
-        //         ),
-        //         SizedBox(height: 10),
-        //         ReadMoreText(
-        //           'The user interface of the app is quite intuitive. I was able to navigate and make purchases seamlessly. Great job!',
-        //           trimLines: 2,
-        //           trimMode: TrimMode.Line,
-        //           trimExpandedText: ' show less',
-        //           trimCollapsedText: ' show more',
-        //           moreStyle: TextStyle(
-        //               fontSize: 14,
-        //               fontWeight: FontWeight.bold,
-        //               color: TColors.primaryColor),
-        //           lessStyle: TextStyle(
-        //               fontSize: 14,
-        //               fontWeight: FontWeight.bold,
-        //               color: TColors.primaryColor),
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
-        // const SizedBox(height: 30),
       ],
     );
   }
