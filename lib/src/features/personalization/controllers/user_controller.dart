@@ -66,6 +66,7 @@ class UserController extends GetxController {
       return null;
     }
   }
+
   //!----------------------get feild user-------------------
 
   //*Fetch user Record

@@ -185,7 +185,7 @@ class ProfileUserPublish extends StatelessWidget {
                           children: [
                             FutureBuilder(
                               future: UserController.instance.getFieldValue(
-                                  service.ownerId!, 'totalRating'),
+                                  service.ownerId!, 'ratingService'),
                               builder: (context, snapshot) {
                                 if (snapshot.connectionState ==
                                     ConnectionState.waiting) {
@@ -240,7 +240,7 @@ class ProfileUserPublish extends StatelessWidget {
                           child: TextButton(
                             onPressed: () {
                               Get.to(() => AddComment(
-                                    user: service.user,
+                                    serviceID: service,
                                   ));
                             },
                             child: const Text('Add Comment'),

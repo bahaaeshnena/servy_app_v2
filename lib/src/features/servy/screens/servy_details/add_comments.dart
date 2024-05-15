@@ -3,19 +3,18 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
-import 'package:servy_app/src/features/personalization/models/user_model.dart';
 import 'package:servy_app/src/features/servy/controller/comments_controller.dart';
+import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/widgets/format_text_reating.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 
 class AddComment extends StatelessWidget {
-  const AddComment({super.key, required this.user});
-
-  final UserModel user;
+  const AddComment({super.key, required this.serviceID});
+  final ServiceModel serviceID;
   @override
   Widget build(BuildContext context) {
     CommentController controller = Get.put(CommentController());
-    // UserController controllerUser = Get.put(UserController());
+    // ServiceController controllerService = Get.put(ServiceController());
 
     return Scaffold(
       appBar: const TAppBar(
@@ -55,7 +54,7 @@ class AddComment extends StatelessWidget {
                   prefixIconColor: TColors.primaryColor,
                 ),
                 onChanged: (value) {
-                  // controller.updateRating(value);
+                  controller.updateRating(value);
                 },
               ),
               const SizedBox(height: 10),
@@ -73,8 +72,8 @@ class AddComment extends StatelessWidget {
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () async {
-                    // await Get.find<CommentController>()
-                    //     .saveRatingToFirestore(user.id);
+                    await Get.find<CommentController>()
+                        .saveRatingToFirestore(serviceID.ownerId!);
                   },
                   child: const Text('Comment & Rate'),
                 ),

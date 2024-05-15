@@ -1,10 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:servy_app/src/features/personalization/models/user_model.dart';
 
 class ServiceModel {
-  UserModel user;
-  //!
-  String? username;
   String? userImage;
   String serviceID;
   String title;
@@ -20,21 +16,13 @@ class ServiceModel {
   bool hasDiscount;
   bool hasCorresService;
   bool isLikedState = false;
-  String? countryUser;
-  String? skillsUser;
-  String? descUser;
+
   double ratingService;
   int numberOfRatings; // جديد: عدد التقييمات
   double totalRating; // جديد: إجمالي التقييمات
 
   ServiceModel({
-    required this.user,
-    //!
-    this.username,
     this.userImage,
-    this.skillsUser,
-    this.countryUser,
-    this.descUser,
     required this.serviceID,
     required this.title,
     required this.descreption,
@@ -66,16 +54,13 @@ class ServiceModel {
       priceFromDescount: '',
       status: 'pending',
       categoris: '',
-      username: '',
+
       userImage: '',
-      countryUser: '',
-      skillsUser: '',
-      descUser: '',
+
       ratingService: 0.0,
       numberOfRatings: 0, // جديد
       totalRating: 0.0, // جديد
       //!
-      user: UserModel.empty(),
     );
   }
 
@@ -95,16 +80,11 @@ class ServiceModel {
       'isLikedState': isLikedState,
       'hasDiscount': hasDiscount,
       'hasCorresService': hasCorresService,
-      'username': username,
       'userImage': userImage,
-      'countryUser': countryUser,
-      'skillsUser': skillsUser,
-      'descUser': descUser,
+
       'ratingService': ratingService,
       'numberOfRatings': numberOfRatings, // جديد
       'totalRating': totalRating, // جديد
-      //!
-      'user': user.toJson(),
     };
   }
 
@@ -114,11 +94,9 @@ class ServiceModel {
           document.data()! as Map<String, dynamic>; // Cast to correct type
       return ServiceModel(
         serviceID: document.id,
-        username: data['username'] ?? '',
-        skillsUser: data['skillsUser'] ?? '',
-        countryUser: data['countryUser'] ?? '',
+
         userImage: data['userImage'] ?? '',
-        descUser: data['descUser'] ?? '',
+
         title: data['title'] ?? '',
         descreption: data['descreption'] ?? '',
         imageService: data['imageService'] ?? '',
@@ -134,7 +112,6 @@ class ServiceModel {
         ratingService: (data['ratingService'] ?? 0).toDouble(),
         numberOfRatings: data['numberOfRatings'] ?? 0, // جديد
         totalRating: (data['totalRating'] ?? 0).toDouble(), // جديد
-        user: UserModel.fromJson(data['user']),
       );
     } else {
       return ServiceModel.empty();
