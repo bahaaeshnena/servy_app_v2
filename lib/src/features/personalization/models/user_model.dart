@@ -14,6 +14,9 @@ class UserModel {
   String country;
   String skills;
   List<ServiceModel> favoriteServices; // القائمة لتخزين الخدمات
+  double ratingService;
+  int numberOfRatings; // جديد: عدد التقييمات
+  double totalRating; // جديد: إجمالي التقييمات
 
   UserModel({
     required this.id,
@@ -27,6 +30,9 @@ class UserModel {
     required this.country,
     required this.skills,
     this.favoriteServices = const [], // تعيين قائمة فارغة افتراضيًا
+    this.ratingService = 0.0,
+    this.numberOfRatings = 0, // جديد
+    this.totalRating = 0.0, // جديد
   });
   //
 
@@ -60,6 +66,9 @@ class UserModel {
       description: '',
       country: '',
       skills: '',
+      ratingService: 0.0,
+      numberOfRatings: 0, // جديد
+      totalRating: 0.0, // جديدs
     );
   }
 
@@ -77,30 +86,36 @@ class UserModel {
       'FavoriteServices': favoriteServices
           .map((service) => service.toJson())
           .toList(), // تحويل قائمة الخدمات المفضلة إلى JSON
+      'ratingService': ratingService,
+      'numberOfRatings': numberOfRatings, // جديد
+      'totalRating': totalRating, // جديد
     };
   }
 
   factory UserModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {
     if (document.data() != null) {
-      final date = document.data()!;
+      final data = document.data()!;
       List<ServiceModel> favoriteServices = [];
-      if (date['FavoriteServices'] != null) {
-        favoriteServices = List<ServiceModel>.from(date['FavoriteServices']
+      if (data['FavoriteServices'] != null) {
+        favoriteServices = List<ServiceModel>.from(data['FavoriteServices']
             .map((serviceData) => ServiceModel.fromSnapshot(serviceData)));
       }
       return UserModel(
         id: document.id,
-        firstName: date['FirstName'] ?? '',
-        lastName: date['LastName'] ?? '',
-        username: date['Username'] ?? '',
-        email: date['Email'] ?? '',
-        phoneNumber: date['PhoneNumber'] ?? '',
-        profilePicture: date['ProfilePicture'] ?? '',
-        description: date['description'] ?? '',
-        country: date['Country'] ?? '',
-        skills: date['Skills'] ?? '',
+        firstName: data['FirstName'] ?? '',
+        lastName: data['LastName'] ?? '',
+        username: data['Username'] ?? '',
+        email: data['Email'] ?? '',
+        phoneNumber: data['PhoneNumber'] ?? '',
+        profilePicture: data['ProfilePicture'] ?? '',
+        description: data['description'] ?? '',
+        country: data['Country'] ?? '',
+        skills: data['Skills'] ?? '',
         favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
+        ratingService: (data['ratingService'] ?? 0).toDouble(),
+        numberOfRatings: data['numberOfRatings'] ?? 0, // جديد
+        totalRating: (data['totalRating'] ?? 0).toDouble(), // جديد
       );
     } else {
       return UserModel.empty();
@@ -121,6 +136,9 @@ class UserModel {
       country: json['Country'] ?? '',
       skills: json['Skills'] ?? '',
       favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
+      ratingService: (json['ratingService'] ?? 0).toDouble(),
+      numberOfRatings: json['numberOfRatings'] ?? 0, // جديد
+      totalRating: (json['totalRating'] ?? 0).toDouble(), // جديد
     );
   }
 }

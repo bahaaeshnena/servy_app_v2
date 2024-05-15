@@ -2,8 +2,10 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/rating_and_comments/widgets/user_review_card.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
+import 'package:servy_app/src/features/servy/screens/servy_details/add_comments.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/services_user.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/widgets/user_profile_service_card.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
@@ -14,6 +16,7 @@ class ProfileUserPublish extends StatelessWidget {
   final ServiceModel service;
   @override
   Widget build(BuildContext context) {
+    // UserController userController = Get.put(UserController());
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -42,14 +45,27 @@ class ProfileUserPublish extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 20),
-                    SizedBox(
-                      child: AutoSizeText(
-                        service.descUser!,
-                        style: Theme.of(context).textTheme.headlineSmall,
-                        minFontSize: 12,
-                        maxFontSize: 24,
-                        maxLines: 4,
-                      ),
+                    FutureBuilder(
+                      future: UserController.instance
+                          .getFieldValue(service.ownerId!, 'description'),
+                      builder: (context, snapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return const CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          return Text('Error: ${snapshot.error}');
+                        } else {
+                          return SizedBox(
+                            child: AutoSizeText(
+                              snapshot.data.toString(),
+                              style: Theme.of(context).textTheme.headlineSmall,
+                              minFontSize: 12,
+                              maxFontSize: 24,
+                              maxLines: 4,
+                            ),
+                          );
+                        }
+                      },
                     ),
                     const SizedBox(height: 20),
                     Row(
@@ -59,23 +75,55 @@ class ProfileUserPublish extends StatelessWidget {
                           size: 30,
                           color: TColors.primaryColor,
                         ),
-                        const SizedBox(width: 20),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Skills',
-                              style: Theme.of(context).textTheme.labelMedium,
+                            // Add other widgets here
+                            FutureBuilder(
+                              future: UserController.instance
+                                  .getFieldValue(service.ownerId!, 'Skills'),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return const CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text('Error: ${snapshot.error}');
+                                } else {
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 10),
+                                    child: Row(
+                                      children: [
+                                        const SizedBox(width: 20),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Skills',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .labelMedium,
+                                            ),
+                                            Text(
+                                              snapshot.data.toString(),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineSmall,
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }
+                              },
                             ),
-                            Text(
-                              service.skillsUser!,
-                              style: Theme.of(context).textTheme.headlineSmall,
-                            ),
+                            // Add other widgets here
                           ],
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
                     Row(
                       children: [
                         const Icon(
@@ -83,17 +131,97 @@ class ProfileUserPublish extends StatelessWidget {
                           size: 30,
                           color: TColors.primaryColor,
                         ),
-                        const SizedBox(width: 20),
+                        FutureBuilder(
+                          future: UserController.instance
+                              .getFieldValue(service.ownerId!, 'Country'),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return const CircularProgressIndicator();
+                            } else if (snapshot.hasError) {
+                              return Text('Error: ${snapshot.error}');
+                            } else {
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 10),
+                                child: Row(
+                                  children: [
+                                    const SizedBox(width: 20),
+                                    Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'From',
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .labelMedium,
+                                        ),
+                                        Text(
+                                          snapshot.data.toString(),
+                                          style: Theme.of(context)
+                                              .textTheme
+                                              .headlineSmall,
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              );
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        const Icon(
+                          Iconsax.star,
+                          size: 30,
+                          color: TColors.primaryColor,
+                        ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'From',
-                              style: Theme.of(context).textTheme.labelMedium,
-                            ),
-                            Text(
-                              service.user.country,
-                              style: Theme.of(context).textTheme.headlineSmall,
+                            FutureBuilder(
+                              future: UserController.instance.getFieldValue(
+                                  service.ownerId!, 'totalRating'),
+                              builder: (context, snapshot) {
+                                if (snapshot.connectionState ==
+                                    ConnectionState.waiting) {
+                                  return const CircularProgressIndicator();
+                                } else if (snapshot.hasError) {
+                                  return Text('Error: ${snapshot.error}');
+                                } else {
+                                  return Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        vertical: 10),
+                                    child: Row(
+                                      children: [
+                                        const SizedBox(width: 20),
+                                        Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Rate',
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .labelMedium,
+                                            ),
+                                            Text(
+                                              snapshot.data.toString(),
+                                              style: Theme.of(context)
+                                                  .textTheme
+                                                  .headlineSmall,
+                                            )
+                                          ],
+                                        ),
+                                      ],
+                                    ),
+                                  );
+                                }
+                              },
                             ),
                           ],
                         ),
@@ -102,31 +230,29 @@ class ProfileUserPublish extends StatelessWidget {
                     const SizedBox(height: 20),
                     Row(
                       children: [
-                        const Icon(
-                          Iconsax.star,
-                          size: 30,
-                          color: TColors.primaryColor,
+                        Expanded(
+                          child: Text(
+                            'Reviews & Comments',
+                            style: Theme.of(context).textTheme.headlineSmall,
+                          ),
                         ),
-                        const SizedBox(width: 20),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'Rate',
-                              style: Theme.of(context).textTheme.labelMedium,
-                            ),
-                            Text(
-                              '4.2',
-                              style: Theme.of(context).textTheme.headlineSmall,
-                            ),
-                          ],
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () {
+                              Get.to(() => AddComment(
+                                    user: service.user,
+                                  ));
+                            },
+                            child: const Text('Add Comment'),
+                          ),
+                        ),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () {},
+                            child: const Text('See All'),
+                          ),
                         ),
                       ],
-                    ),
-                    const SizedBox(height: 20),
-                    Text(
-                      'reviews',
-                      style: Theme.of(context).textTheme.headlineSmall,
                     ),
                     const SizedBox(height: 20),
                     UserReviewCard(

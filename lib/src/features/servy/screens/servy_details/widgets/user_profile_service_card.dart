@@ -38,9 +38,21 @@ class TUserProfilsServiceCard extends StatelessWidget {
                 isNetworkImage: userImage.isNotEmpty,
               );
       }),
-      title: Text(
-        service.username!,
-        style: Theme.of(context).textTheme.headlineSmall!,
+      title: FutureBuilder(
+        future:
+            UserController.instance.getFieldValue(service.ownerId!, 'Username'),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const CircularProgressIndicator();
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else {
+            return Text(
+              snapshot.data.toString(),
+              style: Theme.of(context).textTheme.headlineSmall,
+            );
+          }
+        },
       ),
       trailing: IconButton(
         onPressed: onPressed,

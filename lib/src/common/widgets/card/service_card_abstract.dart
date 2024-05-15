@@ -100,7 +100,7 @@ class ServiceAbstract extends StatelessWidget {
                         const Icon(Iconsax.star1,
                             color: Color.fromARGB(255, 255, 230, 0)),
                         Text(
-                          service.ratingService.toStringAsFixed(1),
+                          service.totalRating.toString(),
                           style: const TextStyle(color: TColors.white),
                         ),
                       ],

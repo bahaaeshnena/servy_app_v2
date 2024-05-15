@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,6 +20,7 @@ class UserController extends GetxController {
 
   final profileLoading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
+  final RxList<UserModel> service = RxList<UserModel>([]);
 
   final hidePassword = false.obs;
   final imageUploading = false.obs;
@@ -26,12 +28,45 @@ class UserController extends GetxController {
   final verifyPassword = TextEditingController();
   final userRepository = Get.put(UserRepository());
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
+  final _db = FirebaseFirestore.instance;
 
   @override
   void onInit() {
     super.onInit();
     fetchUserRecord();
   }
+
+//!---------------------get Users information----------------------------
+  // void getServices(String ownerID) async {
+  //   try {
+  //     UserModel currentUser = UserController.instance.user.value;
+  //     QuerySnapshot<Map<String, dynamic>> snapshot = await _db
+  //         .collection("Services")
+  //         .where(ownerID, isEqualTo: currentUser.id)
+  //         .get();
+  //   } catch (e) {
+  //     // Handle error here
+  //   }
+  // }
+  Future<dynamic> getFieldValue(String ownerId, String field) async {
+    try {
+      DocumentSnapshot<Map<String, dynamic>> snapshot =
+          await _db.collection('Users').doc(ownerId).get();
+
+      if (snapshot.exists) {
+        dynamic value = snapshot.get(field);
+        return value;
+      } else {
+        // إذا لم يكن المستند موجودًا، يمكنك التعامل مع الحالة هنا
+        print('Document with ownerId $ownerId does not exist.');
+        return null;
+      }
+    } catch (e) {
+      print('Error fetching document: $e');
+      return null;
+    }
+  }
+  //!----------------------get feild user-------------------
 
   //*Fetch user Record
 
