@@ -249,6 +249,13 @@ class MyLocal implements Translations {
 
           //? Search page
           'noResultsFound': TTextAr.noResultsFound,
+
+          //? Payment page
+          'paymentPage': TTextAr.paymentPage,
+          'cardNumber': TTextAr.cardNumber,
+          'fullName': TTextAr.fullName,
+          'mmyy': TTextAr.mmyy,
+          'cvv': TTextAr.cvv,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -497,6 +504,13 @@ class MyLocal implements Translations {
 
           //? Search page
           'noResultsFound': TText.noResultsFound,
+
+          //? Payment page
+          'paymentPage': TText.paymentPage,
+          'cardNYmber': TText.cardNumber,
+          'fullName': TText.fullName,
+          'mmyy': TText.mmyy,
+          'cvv': TText.cvv,
         },
       };
 }

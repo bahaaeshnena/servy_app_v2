@@ -36,7 +36,7 @@ class AddComment extends StatelessWidget {
                         rating: controller.rating.value,
                         itemBuilder: (context, index) => const Icon(
                           Icons.star,
-                          color: Colors.amber,
+                          color: TColors.primaryColor,
                         ),
                         itemCount: 5,
                         itemSize: 50.0,

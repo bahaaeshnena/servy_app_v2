@@ -314,4 +314,11 @@ class TTextAr {
 
   //Search page
   static const String noResultsFound = 'لم يتم العثور على نتائج';
+
+  // Payment page
+  static const String paymentPage = 'صفحة الدفع';
+  static const String cardNumber = 'رقم البطاقة';
+  static const String fullName = 'الاسم الكامل';
+  static const String mmyy = 'MM/YY';
+  static const String cvv = 'CVV';
 }

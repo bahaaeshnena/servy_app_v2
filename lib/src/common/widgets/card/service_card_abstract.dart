@@ -54,14 +54,14 @@ class ServiceAbstract extends StatelessWidget {
                   Colors.deepPurple[200] ?? Colors.transparent,
                 ],
               ),
-              // boxShadow: [
-              //   BoxShadow(
-              //     color: Colors.grey.withOpacity(0.5), // لون الظل
-              //     spreadRadius: 2, // نطاق الانتشار
-              //     blurRadius: 10, // نسبة الضبابية
-              //     offset: const Offset(0, 5), // مكان بداية الظل
-              //   ),
-              // ],
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.5), // لون الظل
+                  spreadRadius: 2, // نطاق الانتشار
+                  blurRadius: 10, // نسبة الضبابية
+                  offset: const Offset(0, 5), // مكان بداية الظل
+                ),
+              ],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,7 +77,7 @@ class ServiceAbstract extends StatelessWidget {
                     ),
                     child: Image.network(
                       imageUrl,
-                      height: 160,
+                      height: 180,
                       width: double.infinity,
                       fit: BoxFit.cover,
                       errorBuilder: (context, error, stackTrace) {

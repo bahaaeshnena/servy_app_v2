@@ -101,8 +101,8 @@ class DetailServisePage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: screenWidth / 20, vertical: 20),
+                    padding: EdgeInsets.only(
+                        left: screenWidth / 20, top: 20, right: 20),
                     child: Row(
                       children: [
                         const Icon(
@@ -256,7 +256,7 @@ class DetailServisePage extends StatelessWidget {
                           rating: controller.rating.value,
                           itemBuilder: (context, index) => const Icon(
                             Icons.star,
-                            color: Colors.amber,
+                            color: TColors.primaryColor,
                           ),
                           itemCount: 5,
                           itemSize: 50.0,

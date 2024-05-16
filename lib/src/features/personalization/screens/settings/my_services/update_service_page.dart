@@ -10,6 +10,7 @@ import 'package:servy_app/src/features/servy/controller/service_controller.dart'
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
+import 'package:servy_app/src/utils/constants/texts.dart';
 import 'package:servy_app/src/utils/validators/validation.dart';
 
 class UpdateServicePage extends StatelessWidget {
@@ -80,14 +81,16 @@ class UpdateServicePage extends StatelessWidget {
                 const SizedBox(height: TSizes.spaceBtwSections),
                 AppTextField(
                   categories: [
-                    SelectedListItem(name: 'programming'.tr),
-                    SelectedListItem(name: 'digitalMarketing'.tr),
-                    SelectedListItem(name: 'design'.tr),
-                    SelectedListItem(name: 'videoEditing'.tr),
-                    SelectedListItem(name: 'audiosEditing'.tr),
-                    SelectedListItem(name: 'writing'.tr),
-                    SelectedListItem(name: 'translation'.tr),
-                    SelectedListItem(name: 'engineeringArchitecture'.tr),
+                    SelectedListItem(name: TText.programming),
+                    SelectedListItem(name: TText.digitalMarketing),
+                    SelectedListItem(name: TText.design),
+                    SelectedListItem(name: TText.videoEditing),
+                    SelectedListItem(name: TText.audiosEditing),
+                    SelectedListItem(name: TText.writing),
+                    SelectedListItem(name: TText.translation),
+                    SelectedListItem(
+                      name: TText.engineeringArchitecture,
+                    ),
                   ],
                   textEditingController: controller.categories,
                   title: 'selectCategories'.tr,

@@ -107,7 +107,7 @@ class ServiceController extends GetxController {
 
   Future<void> saveRatingToFirestore(String serviceID) async {
     try {
-      if (rating.value >= 1 && rating.value <= 5) {
+      if (rating.value >= 1.0 && rating.value <= 5.0) {
         await updateServiceRating(serviceID, rating.value);
         TLoaders.successSnackBar(
           title: 'Success',

@@ -29,6 +29,7 @@ class CustomLikeButton extends StatelessWidget {
         return Icon(
           CupertinoIcons.heart_fill,
           color: isLiked ? Colors.red : Colors.grey[100],
+          size: 30,
         );
       },
       onTap: (isLiked) async {

@@ -67,7 +67,7 @@ class ServiceCardAbstractMyServicesPage extends StatelessWidget {
                         ? null // لا تظهر الصورة إذا كان isLoadingImage == true
                         : DecorationImage(
                             image: NetworkImage(imageUrl),
-                            fit: BoxFit.fill,
+                            fit: BoxFit.cover,
                           ),
                   ),
                   child: isLoadingImage

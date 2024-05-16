@@ -324,4 +324,11 @@ class TText {
 
   //Search page
   static const String noResultsFound = 'No results found';
+
+  // Payment page
+  static const String paymentPage = 'Payment Page';
+  static const String cardNumber = 'Card Number';
+  static const String fullName = 'Full Name';
+  static const String mmyy = 'MM/YY';
+  static const String cvv = 'CVV';
 }
