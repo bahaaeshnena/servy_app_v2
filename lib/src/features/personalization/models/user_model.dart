@@ -14,7 +14,7 @@ class UserModel {
   String country;
   String skills;
   List<ServiceModel> favoriteServices; // القائمة لتخزين الخدمات
-  double ratingService;
+  double ratingUser;
   int numberOfRatings; // جديد: عدد التقييمات
   double totalRating; // جديد: إجمالي التقييمات
 
@@ -30,7 +30,7 @@ class UserModel {
     required this.country,
     required this.skills,
     this.favoriteServices = const [], // تعيين قائمة فارغة افتراضيًا
-    this.ratingService = 0.0,
+    this.ratingUser = 0.0,
     this.numberOfRatings = 0, // جديد
     this.totalRating = 0.0, // جديد
   });
@@ -66,7 +66,7 @@ class UserModel {
       description: '',
       country: '',
       skills: '',
-      ratingService: 0.0,
+      ratingUser: 0.0,
       numberOfRatings: 0, // جديد
       totalRating: 0.0, // جديدs
     );
@@ -86,7 +86,7 @@ class UserModel {
       'FavoriteServices': favoriteServices
           .map((service) => service.toJson())
           .toList(), // تحويل قائمة الخدمات المفضلة إلى JSON
-      'ratingService': ratingService,
+      'ratingUser': ratingUser,
       'numberOfRatings': numberOfRatings, // جديد
       'totalRating': totalRating, // جديد
     };
@@ -113,7 +113,7 @@ class UserModel {
         country: data['Country'] ?? '',
         skills: data['Skills'] ?? '',
         favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
-        ratingService: (data['ratingService'] ?? 0).toDouble(),
+        ratingUser: (data['ratingUser'] ?? 0).toDouble(),
         numberOfRatings: data['numberOfRatings'] ?? 0, // جديد
         totalRating: (data['totalRating'] ?? 0).toDouble(), // جديد
       );
@@ -136,7 +136,7 @@ class UserModel {
       country: json['Country'] ?? '',
       skills: json['Skills'] ?? '',
       favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
-      ratingService: (json['ratingService'] ?? 0).toDouble(),
+      ratingUser: (json['ratingUser'] ?? 0).toDouble(),
       numberOfRatings: json['numberOfRatings'] ?? 0, // جديد
       totalRating: (json['totalRating'] ?? 0).toDouble(), // جديد
     );

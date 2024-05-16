@@ -16,6 +16,12 @@ class CommentController extends GetxController {
   GlobalKey<FormState> addCommentAndrateFormKey = GlobalKey<FormState>();
 
   RxDouble rating = 0.0.obs;
+  void clearInputFields() {
+    ratingController.clear();
+    commentController.clear();
+    update();
+    // تفريغ الصورة المحددة
+  }
 
   void updateRating(String value) {
     final int? ratingValue = int.tryParse(value);
@@ -46,7 +52,7 @@ class CommentController extends GetxController {
       transaction.update(serviceRef, {
         'numberOfRatings': newNumberOfRatings,
         'totalRating': newTotalRating,
-        'ratingService': newAverageRating,
+        'ratingUser': newAverageRating,
       });
     });
   }
@@ -67,6 +73,7 @@ class CommentController extends GetxController {
         await updateServiceRating(serviceID, rating.value);
         await saveCommentToFirestore(
             serviceID); // تخزين التعليق بعد تحديث التقييم
+        clearInputFields();
 
         TLoaders.successSnackBar(
           title: 'Success',

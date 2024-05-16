@@ -15,6 +15,7 @@ import 'package:servy_app/src/features/personalization/screens/settings/favourit
 import 'package:servy_app/src/features/personalization/screens/settings/languages/languages_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/my_services/my_services_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/privacy_policy/privacy_policy.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/rating_and_comments/rating_and_comments_page.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/theme/theme_mode_change.dart';
@@ -78,7 +79,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Icons.star_border_outlined,
                     title: "titleOption2".tr,
                     subTitle: "subTitleOption2".tr,
-                    // onTap: () => Get.to(() => const RatingAndCommentsPage()),
+                    onTap: () => Get.to(() => const RatingAndCommentsPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Iconsax.personalcard,

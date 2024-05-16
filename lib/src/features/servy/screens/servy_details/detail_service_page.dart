@@ -248,9 +248,8 @@ class DetailServisePage extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () async {
                         // استدعاء دالة حفظ التقييم هنا
-                        await Get.find<ServiceController>()
-                            .saveRatingToFirestore(service
-                                .serviceID); // حيث أنه يجب عليك تمرير معرف الخدمة إلى هذه الدالة
+                        controller.saveRatingToFirestore(service
+                            .serviceID); // حيث أنه يجب عليك تمرير معرف الخدمة إلى هذه الدالة
                       },
                       child: const Text('Rate'),
                     ),

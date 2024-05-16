@@ -66,21 +66,6 @@ class THomeCategories extends StatelessWidget {
           ),
         ],
       ),
-      // child: ListView.builder(
-      //   shrinkWrap: true,
-      //   itemCount: 6,
-      //   scrollDirection: Axis.horizontal,
-      //   itemBuilder: (_, index) {
-      //     return SizedBox(
-      //       height: 80,
-      //       child: TVerticalImageText(
-      //         image: image,
-      //         title: title,
-      //         onTap: onPressed,
-      //       ),
-      //     );
-      //   },
-      // ),
     );
   }
 }

@@ -28,7 +28,7 @@ class TUserProfilsServiceCard extends StatelessWidget {
             return Text('Error: ${snapshot.error}');
           } else {
             return TCircularImage(
-              image: snapshot.data,
+              image: snapshot.data.toString(),
               width: 50,
               height: 50,
             );

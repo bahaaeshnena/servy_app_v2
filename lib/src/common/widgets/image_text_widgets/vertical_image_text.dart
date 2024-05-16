@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:servy_app/src/common/widgets/images/circular_image.dart';
+import 'package:servy_app/src/common/widgets/images/circular_image_with_assest.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
@@ -28,7 +28,7 @@ class TVerticalImageText extends StatelessWidget {
         padding: const EdgeInsets.only(right: TSizes.spaceBtwItems),
         child: Column(
           children: [
-            TCircularImage(
+            TCircularImageWithAssetImage(
               image: image,
               fit: BoxFit.fitWidth,
               padding: TSizes.sm,

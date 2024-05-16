@@ -88,6 +88,7 @@ class UserReviewCard extends StatelessWidget {
         ),
         const SizedBox(height: 10),
         ReadMoreText(
+          textAlign: TextAlign.start,
           comment,
           trimLines: 2,
           trimMode: TrimMode.Line,

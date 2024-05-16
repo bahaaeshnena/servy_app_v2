@@ -20,6 +20,7 @@ class UserController extends GetxController {
 
   final profileLoading = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
+  final UserModel userModel = UserModel.empty();
   final RxList<UserModel> service = RxList<UserModel>([]);
 
   final hidePassword = false.obs;

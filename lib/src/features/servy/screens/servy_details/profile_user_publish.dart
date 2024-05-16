@@ -194,7 +194,7 @@ class ProfileUserPublish extends StatelessWidget {
                           children: [
                             FutureBuilder(
                               future: UserController.instance.getFieldValue(
-                                  service.ownerId!, 'ratingService'),
+                                  service.ownerId!, 'ratingUser'),
                               builder: (context, snapshot) {
                                 if (snapshot.connectionState ==
                                     ConnectionState.waiting) {
