@@ -103,6 +103,32 @@ class DetailServisePage extends StatelessWidget {
                   Padding(
                     padding: EdgeInsets.symmetric(
                         horizontal: screenWidth / 20, vertical: 20),
+                    child: Row(
+                      children: [
+                        const Icon(
+                          Iconsax.star,
+                          size: 30,
+                          color: TColors.primaryColor,
+                        ),
+                        const SizedBox(width: 10),
+                        Column(
+                          children: [
+                            Text(
+                              'rate'.tr,
+                              style: Theme.of(context).textTheme.labelMedium,
+                            ),
+                            Text(
+                              service.ratingService.toStringAsFixed(1),
+                              style: Theme.of(context).textTheme.headlineSmall,
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.symmetric(
+                        horizontal: screenWidth / 20, vertical: 20),
                     child: Text(
                       service.title,
                       style: Theme.of(context)
