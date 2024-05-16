@@ -17,9 +17,9 @@ class AddComment extends StatelessWidget {
     CommentController controller = Get.put(CommentController());
 
     return Scaffold(
-      appBar: const TAppBar(
+      appBar: TAppBar(
         showBackArrow: true,
-        title: Text('Add comment'),
+        title: Text('addComment'.tr),
       ),
       body: Form(
         key: controller.addCommentAndrateFormKey,
@@ -48,13 +48,13 @@ class AddComment extends StatelessWidget {
                 const SizedBox(height: 10),
                 TextFormField(
                   validator: (value) =>
-                      TValidator.volidateEmptyText('Rate', value),
+                      TValidator.volidateEmptyText('rate'.tr, value),
                   controller: controller.ratingController,
                   inputFormatters: [RangeInputFormatter(min: 1, max: 5)],
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                    labelText: 'Rate',
-                    prefixIcon: Icon(Iconsax.star),
+                  decoration: InputDecoration(
+                    labelText: 'rate'.tr,
+                    prefixIcon: const Icon(Iconsax.star),
                     prefixIconColor: TColors.primaryColor,
                   ),
                   onChanged: (value) {
@@ -64,13 +64,13 @@ class AddComment extends StatelessWidget {
                 const SizedBox(height: 10),
                 TextFormField(
                   validator: (value) =>
-                      TValidator.volidateEmptyText('Comment', value),
+                      TValidator.volidateEmptyText('comment'.tr, value),
                   controller: controller.commentController, // استخدام المتحكم
                   minLines: 1,
                   maxLines: 20,
-                  decoration: const InputDecoration(
-                    labelText: 'Comment',
-                    prefixIcon: Icon(Iconsax.message),
+                  decoration: InputDecoration(
+                    labelText: 'comment'.tr,
+                    prefixIcon: const Icon(Iconsax.message),
                     prefixIconColor: TColors.primaryColor,
                   ),
                 ),
@@ -82,7 +82,7 @@ class AddComment extends StatelessWidget {
                       await controller
                           .saveRatingToFirestore(serviceID.ownerId!);
                     },
-                    child: const Text('Comment & Rate'),
+                    child: Text('addComment'.tr),
                   ),
                 ),
               ],

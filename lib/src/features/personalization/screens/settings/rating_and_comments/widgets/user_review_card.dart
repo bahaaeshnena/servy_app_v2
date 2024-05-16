@@ -25,6 +25,7 @@ class UserReviewCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -69,10 +70,6 @@ class UserReviewCard extends StatelessWidget {
                   },
                 ),
               ],
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(Icons.more_vert),
             ),
           ],
         ),

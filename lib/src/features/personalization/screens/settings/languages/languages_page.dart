@@ -42,8 +42,8 @@ class LanguagesPage extends StatelessWidget {
                     onTap: () {
                       controllerLanguage.changeLanguage('ar');
                       TLoaders.successSnackBar(
-                        title: "Done".tr,
-                        message: 'The language has been changed successfully',
+                        title: "تم",
+                        message: 'تم تغيير اللغة بنجاح',
                         duration: 1,
                       );
                     },

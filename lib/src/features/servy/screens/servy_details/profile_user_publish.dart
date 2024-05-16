@@ -42,7 +42,7 @@ class ProfileUserPublish extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          'User information',
+                          'userInformation'.tr,
                           style: Theme.of(context)
                               .textTheme
                               .headlineSmall!
@@ -108,7 +108,7 @@ class ProfileUserPublish extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'Skills',
+                                              'skill'.tr,
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .labelMedium,
@@ -161,7 +161,7 @@ class ProfileUserPublish extends StatelessWidget {
                                           CrossAxisAlignment.start,
                                       children: [
                                         Text(
-                                          'From',
+                                          'from'.tr,
                                           style: Theme.of(context)
                                               .textTheme
                                               .labelMedium,
@@ -214,7 +214,7 @@ class ProfileUserPublish extends StatelessWidget {
                                               CrossAxisAlignment.start,
                                           children: [
                                             Text(
-                                              'Rate',
+                                              'rate'.tr,
                                               style: Theme.of(context)
                                                   .textTheme
                                                   .labelMedium,
@@ -242,7 +242,7 @@ class ProfileUserPublish extends StatelessWidget {
                       children: [
                         Expanded(
                           child: Text(
-                            'Reviews & Comments',
+                            'reviewAndComments'.tr,
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                         ),
@@ -253,7 +253,7 @@ class ProfileUserPublish extends StatelessWidget {
                                     serviceID: service,
                                   ));
                             },
-                            child: const Text('Add Comment'),
+                            child: Text('addComment'.tr),
                           ),
                         ),
                         Expanded(
@@ -263,7 +263,7 @@ class ProfileUserPublish extends StatelessWidget {
                                     service: service,
                                   ));
                             },
-                            child: const Text('See All'),
+                            child: Text('seeAll'.tr),
                           ),
                         ),
                       ],
@@ -282,7 +282,7 @@ class ProfileUserPublish extends StatelessWidget {
                           return Text('Error: ${snapshot.error}');
                         } else if (!snapshot.hasData ||
                             snapshot.data!.docs.isEmpty) {
-                          return const Text('No comments available');
+                          return Text('noCommentsAvailable'.tr);
                         } else {
                           final comments = snapshot.data!.docs
                               .map((doc) => CommentsModel.fromSnapshot(doc))
@@ -311,7 +311,7 @@ class ProfileUserPublish extends StatelessWidget {
                               Get.to(
                                   () => ServicesUserPublish(service: service));
                             },
-                            child: const Text('View my work')))
+                            child: Text('viewMyWorks'.tr)))
                   ],
                 ),
               ),

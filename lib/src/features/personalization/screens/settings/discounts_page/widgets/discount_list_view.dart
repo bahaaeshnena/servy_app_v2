@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/card/service_card_abstract.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 
@@ -24,8 +25,7 @@ class DiscountServicesListView extends StatelessWidget {
               .toList();
 
           if (services.isEmpty) {
-            return const Center(
-                child: Text('No discounted services available'));
+            return Center(child: Text('subTitleDiscountPage'.tr));
           }
 
           return Padding(

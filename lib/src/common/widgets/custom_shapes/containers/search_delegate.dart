@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/card/service_card_abstract.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 
@@ -46,8 +47,8 @@ class CustomSearchDelegate extends SearchDelegate<String> {
         } else {
           final List<ServiceModel> services = snapshot.data ?? [];
           if (services.isEmpty) {
-            return const Center(
-              child: Text('No results found'),
+            return Center(
+              child: Text('noResultsFound'.tr),
             );
           } else {
             return SuggestionList(services: services);
@@ -73,8 +74,8 @@ class CustomSearchDelegate extends SearchDelegate<String> {
         } else {
           final List<ServiceModel> services = snapshot.data ?? [];
           if (services.isEmpty) {
-            return const Center(
-              child: Text('No results found'),
+            return Center(
+              child: Text('noResultsFound'.tr),
             );
           } else {
             return SuggestionList(services: services);

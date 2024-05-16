@@ -136,9 +136,9 @@ class UserModel {
       country: json['Country'] ?? '',
       skills: json['Skills'] ?? '',
       favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
-      ratingUser: (json['ratingUser'] ?? 0).toDouble(),
+      ratingUser: (json['ratingUser'] ?? 0.0).toDouble(),
       numberOfRatings: json['numberOfRatings'] ?? 0, // جديد
-      totalRating: (json['totalRating'] ?? 0).toDouble(), // جديد
+      totalRating: (json['totalRating'] ?? 0.0).toDouble(), // جديد
     );
   }
 }

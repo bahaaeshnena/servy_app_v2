@@ -211,6 +211,8 @@ class MyLocal implements Translations {
           'messageDeleteService': TTextAr.messageDeleteService,
           'update': TTextAr.update,
           'updateService': TTextAr.updateService,
+          'noServicesFound': TTextAr.noServicesFound,
+          'youHaveNotPostedServices': TTextAr.youHaveNotPostedServices,
 
           //? onBoarding page
           'tOnBoardingTitle1': TTextAr.tOnBoardingTitle1,
@@ -219,6 +221,34 @@ class MyLocal implements Translations {
           'tOnBoardingSubTitle1': TTextAr.tOnBoardingSubTitle1,
           'tOnBoardingSubTitle2': TTextAr.tOnBoardingSubTitle2,
           'tOnBoardingSubTitle3': TTextAr.tOnBoardingSubTitle3,
+
+          //? //? Discount page
+          'subTitleDiscountPage': TTextAr.subTitleDiscountPage,
+
+          //? Detail service page
+          'possibilityOfInterviewService':
+              TTextAr.possibilityOfInterviewService,
+          'rateService': TTextAr.rateService,
+          'rate': TTextAr.rate,
+          'pay': TTextAr.pay,
+          'price': TTextAr.price,
+          'titleDetailService': TTextAr.titleDetailService,
+
+          //? Detail service page
+          'userInformation': TTextAr.userInformation,
+          'from': TTextAr.from,
+          'seeAll': TTextAr.seeAll,
+          'addComment': TTextAr.addComment,
+          'reviewAndComments': TTextAr.reviewAndComments,
+          'viewMyWorks': TTextAr.viewMyWorks,
+          'noCommentsAvailable': TTextAr.noCommentsAvailable,
+          'comment': TTextAr.comment,
+
+          //? Categories page
+          'subTitlePageCategoris': TTextAr.subTitlePageCategoris,
+
+          //? Search page
+          'noResultsFound': TTextAr.noResultsFound,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -430,6 +460,8 @@ class MyLocal implements Translations {
           'messageDeleteService': TText.messageDeleteService,
           'update': TText.update,
           'updateService': TText.updateService,
+          'noServicesFound': TText.noServicesFound,
+          'youHaveNotPostedServices': TText.youHaveNotPostedServices,
 
           //? onBoarding page
           'tOnBoardingTitle1': TText.tOnBoardingTitle1,
@@ -438,6 +470,33 @@ class MyLocal implements Translations {
           'tOnBoardingSubTitle1': TText.tOnBoardingSubTitle1,
           'tOnBoardingSubTitle2': TText.tOnBoardingSubTitle2,
           'tOnBoardingSubTitle3': TText.tOnBoardingSubTitle3,
+
+          //? Discount page
+          'subTitleDiscountPage': TText.subTitleDiscountPage,
+
+          //? Detail service page
+          'possibilityOfInterviewService': TText.possibilityOfInterviewService,
+          'rateService': TText.rateService,
+          'rate': TText.rate,
+          'pay': TText.pay,
+          'price': TText.price,
+          'titleDetailService': TText.titleDetailService,
+
+          //? Detail service page
+          'userInformation': TText.userInformation,
+          'from': TText.from,
+          'seeAll': TText.seeAll,
+          'addComment': TText.addComment,
+          'reviewAndComments': TText.reviewAndComments,
+          'viewMyWorks': TText.viewMyWorks,
+          'noCommentsAvailable': TText.noCommentsAvailable,
+          'comment': TText.comment,
+
+          //? Categories page
+          'subTitlePageCategoris': TText.subTitlePageCategoris,
+
+          //? Search page
+          'noResultsFound': TText.noResultsFound,
         },
       };
 }

@@ -28,8 +28,8 @@ class DetailServisePage extends StatelessWidget {
     ServiceController controller = Get.put(ServiceController());
 
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('Detail Service'),
+      appBar: TAppBar(
+        title: Text('titleDetailService'.tr),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
@@ -164,8 +164,19 @@ class DetailServisePage extends StatelessWidget {
                       padding: EdgeInsets.symmetric(
                           horizontal: screenWidth / 20, vertical: 20),
                       child: Text(
-                        service.corssPodingService!,
+                        'possibilityOfInterviewService'.tr,
                         style: Theme.of(context).textTheme.headlineSmall!,
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: screenWidth / 20, vertical: 20),
+                      child: Text(
+                        service.corssPodingService!,
+                        style: Theme.of(context)
+                            .textTheme
+                            .headlineSmall!
+                            .apply(color: TColors.primaryColor),
                       ),
                     ),
                     Padding(
@@ -204,7 +215,7 @@ class DetailServisePage extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    'Rate Service',
+                    'rateService'.tr,
                     style: Theme.of(context)
                         .textTheme
                         .bodyLarge!
@@ -233,9 +244,9 @@ class DetailServisePage extends StatelessWidget {
                     inputFormatters: [RangeInputFormatter(min: 1, max: 5)],
                     controller: controller.ratingController,
                     keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(
-                      labelText: 'Rate',
-                      prefixIcon: Icon(Iconsax.star),
+                    decoration: InputDecoration(
+                      labelText: 'rate'.tr,
+                      prefixIcon: const Icon(Iconsax.star),
                       prefixIconColor: TColors.primaryColor,
                     ),
                     onChanged: (value) {
@@ -251,7 +262,7 @@ class DetailServisePage extends StatelessWidget {
                         controller.saveRatingToFirestore(service
                             .serviceID); // حيث أنه يجب عليك تمرير معرف الخدمة إلى هذه الدالة
                       },
-                      child: const Text('Rate'),
+                      child: Text('rate'.tr),
                     ),
                   ),
                 ],
@@ -268,9 +279,9 @@ class DetailServisePage extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          const Text(
-                            'PRICE',
-                            style: TextStyle(
+                          Text(
+                            'price'.tr,
+                            style: const TextStyle(
                               fontWeight: FontWeight.w600,
                               color: Colors.green,
                               fontSize: 14,
@@ -313,9 +324,9 @@ class DetailServisePage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
-                          child: const Text(
-                            'PAY',
-                            style: TextStyle(
+                          child: Text(
+                            'pay'.tr,
+                            style: const TextStyle(
                               fontFamily: 'NimbusSanL',
                               fontSize: 15,
                               fontWeight: FontWeight.w700,

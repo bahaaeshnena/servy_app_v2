@@ -161,7 +161,7 @@ class TTextAr {
       'نعرض معلوماتك على صفحة الوسطاء، ومن يحتاج إلى وسيط لضمان الخدمة يتواصل معك. وبعد التواصل معك والاتفاق على التفاصيل تقوم بتسليم العمل والمال وتضمن جودة العمل للطرفين.';
   static const String profitMechanism = 'آلية الربح';
   static const String subProfitMechanism =
-      'طريقة الربح تكون عن طريق طلب نسبة معينة من الطرفين أو طلب مبلغ محدد على حسب الخدمة المقدمة والمبلغ.';
+      'طريقة الربح تكون عن طريق راتب من الشركة المالكة للتطبيق';
   static const String submissionToBroker = 'التقديم على الوسيط';
   static const String subSubmissionToBroker =
       'إذا كنت تريد الانضمام إلينا لتصبح وسيطًا معتمدًا من خلال الرابط، قم بتعبئة النموذج.';
@@ -283,4 +283,35 @@ class TTextAr {
 
   static const String update = 'تعديل';
   static const String updateService = 'تحديث الخدمة';
+
+  static const String noServicesFound = 'لم يتم العثور على الخدمات';
+  static const String youHaveNotPostedServices = 'لم تقم بنشر الخدمات!';
+
+  //Discount page
+  static const String subTitleDiscountPage = 'لا توجد خدمات مخفضة متاحة';
+
+  //Detail service page
+  static const String titleDetailService = 'تفاصيل الخدمة';
+  static const String possibilityOfInterviewService = 'إمكانية خدمة المقابلة';
+  static const String rateService = 'تقييم الخدمة';
+  static const String rate = 'التقييم';
+  static const String pay = 'للدفع';
+  static const String price = 'السعر';
+
+  //User puplish page
+  static const String userInformation = 'معلومات المستخدم';
+  static const String from = 'الدولة';
+  static const String seeAll = 'اظهار الكل';
+  static const String addComment = 'أضف تعليق';
+  static const String reviewAndComments = 'المراجعات والتعليقات';
+  static const String viewMyWorks = 'عرض أعمالي';
+  static const String noCommentsAvailable = 'لا توجد تعليقات متاحة';
+  static const String comment = 'تعليق';
+
+  //Categories page
+  static const String subTitlePageCategoris =
+      'لا توجد خدمات متوفرة في هذه الفئة.';
+
+  //Search page
+  static const String noResultsFound = 'لم يتم العثور على نتائج';
 }

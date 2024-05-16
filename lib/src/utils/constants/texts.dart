@@ -164,7 +164,7 @@ class TText {
       'We display your information on the brokers page, and people who need a broker to guarantee the service contact you. After communicating with you and agreeing on the details, you deliver the work and money and guarantee the quality of work for both parties.';
   static const String profitMechanism = 'Profit mechanism';
   static const String subProfitMechanism =
-      'The method of profit is by requesting a certain percentage from both parties or requesting a specific amount that is based on the service offered and the amount.';
+      'The method of profit is through a salary from the company that owns the application';
   static const String submissionToBroker = 'Submission to the broker';
   static const String subSubmissionToBroker =
       'If you want to join us to become a certified broker Through the link, fill out the form.';
@@ -291,4 +291,37 @@ class TText {
 
   static const String update = 'Update';
   static const String updateService = 'Update Service';
+
+  static const String noServicesFound = 'No services found';
+  static const String youHaveNotPostedServices =
+      'You have not posted services!';
+
+  //Discount page
+  static const String subTitleDiscountPage = 'No discounted services available';
+
+  //Detail service page
+  static const String titleDetailService = 'Detail Service';
+  static const String possibilityOfInterviewService =
+      'Possibility of interview service';
+  static const String rateService = 'Rate Service';
+  static const String rate = 'Rate';
+  static const String pay = 'PAY';
+  static const String price = 'Price';
+
+  //User puplish page
+  static const String userInformation = 'User information';
+  static const String from = 'From';
+  static const String seeAll = 'See All';
+  static const String addComment = 'Add Comment';
+  static const String reviewAndComments = 'Reviews & Comments';
+  static const String viewMyWorks = 'View my work';
+  static const String noCommentsAvailable = 'No comments available';
+  static const String comment = 'Comment';
+
+  //Categories page
+  static const String subTitlePageCategoris =
+      'No services available in this category.';
+
+  //Search page
+  static const String noResultsFound = 'No results found';
 }

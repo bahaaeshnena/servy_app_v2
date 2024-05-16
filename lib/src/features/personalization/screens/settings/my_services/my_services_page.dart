@@ -59,14 +59,14 @@ class MyServicesPage extends StatelessWidget {
                             style: Theme.of(context).textTheme.headlineSmall,
                           ),
                           const SizedBox(height: 150),
-                          const Text(
-                            'No services found', // رسالة العرض
-                            style: TextStyle(
+                          Text(
+                            'noServicesFound'.tr, // رسالة العرض
+                            style: const TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
-                          const Text(
-                            'You have not posted services!', // رسالة العرض
-                            style: TextStyle(
+                          Text(
+                            'youHaveNotPostedServices'.tr, // رسالة العرض
+                            style: const TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold),
                           ),
                         ],

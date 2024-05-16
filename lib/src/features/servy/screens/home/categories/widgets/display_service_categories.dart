@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/card/service_card_abstract.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
 
@@ -34,7 +35,7 @@ class DisplayServiceCategories extends StatelessWidget {
                 if (services.isEmpty) {
                   return Center(
                     child: Text(
-                      'No services available in this category.',
+                      'subTitlePageCategoris'.tr,
                       style: Theme.of(context).textTheme.bodyLarge,
                     ),
                   );
