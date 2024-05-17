@@ -7,6 +7,7 @@ class TColors {
   static const Color primaryColor = Color(0xff8B93FF);
   static const Color secondry = Color(0xFFFFE24B);
   static const Color accent = Color.fromARGB(255, 127, 208, 230);
+  static const Color chatColor = Color(0xff635985);
 
 //--Gradient Colors
   static const Gradient linerGradient = LinearGradient(
