@@ -108,6 +108,9 @@ class UserController extends GetxController {
             description: userCredential.user!.phoneNumber ?? " ",
             country: userCredential.user!.phoneNumber ?? " ",
             skills: userCredential.user!.phoneNumber ?? " ",
+            lastActivated: DateTime.now().microsecondsSinceEpoch.toString(),
+            online: false,
+            pushToken: userCredential.user!.phoneNumber ?? " ",
           );
 
           //* Save user data

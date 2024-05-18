@@ -4,6 +4,9 @@ import 'package:servy_app/src/utils/formatters/formatter.dart';
 
 class UserModel {
   final String id;
+  String? lastActivated;
+  String? pushToken;
+  bool? online;
   String firstName;
   String lastName;
   final String username;
@@ -19,6 +22,9 @@ class UserModel {
   double totalRating; // جديد: إجمالي التقييمات
 
   UserModel({
+    required this.lastActivated,
+    required this.pushToken,
+    required this.online,
     required this.id,
     required this.firstName,
     required this.lastName,
@@ -67,8 +73,11 @@ class UserModel {
       country: '',
       skills: '',
       ratingUser: 0.0,
-      numberOfRatings: 0, // جديد
-      totalRating: 0.0, // جديدs
+      numberOfRatings: 0,
+      totalRating: 0.0,
+      lastActivated: '',
+      online: false,
+      pushToken: '',
     );
   }
 
@@ -89,6 +98,9 @@ class UserModel {
       'ratingUser': ratingUser,
       'numberOfRatings': numberOfRatings, // جديد
       'totalRating': totalRating, // جديد
+      'lastActivated': lastActivated,
+      'online': online,
+      'pushToken': pushToken,
     };
   }
 
@@ -115,7 +127,10 @@ class UserModel {
         favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
         ratingUser: (data['ratingUser'] ?? 0).toDouble(),
         numberOfRatings: data['numberOfRatings'] ?? 0, // جديد
-        totalRating: (data['totalRating'] ?? 0).toDouble(), // جديد
+        totalRating: (data['totalRating'] ?? 0).toDouble(),
+        lastActivated: data['lastActivated'] ?? '',
+        online: data['online'] ?? false,
+        pushToken: data['pushToken'] ?? '',
       );
     } else {
       return UserModel.empty();
@@ -138,7 +153,10 @@ class UserModel {
       favoriteServices: favoriteServices, // تعيين قائمة الخدمات المفضلة
       ratingUser: (json['ratingUser'] ?? 0.0).toDouble(),
       numberOfRatings: json['numberOfRatings'] ?? 0, // جديد
-      totalRating: (json['totalRating'] ?? 0.0).toDouble(), // جديد
+      totalRating: (json['totalRating'] ?? 0.0).toDouble(),
+      lastActivated: json['lastActivated'] ?? '',
+      online: json['online'] ?? false,
+      pushToken: json['pushToken'] ?? '',
     );
   }
 }

@@ -64,6 +64,9 @@ class SignUpController extends GetxController {
         description: '',
         country: '',
         skills: '',
+        lastActivated: DateTime.now().toString(),
+        pushToken: '',
+        online: false,
       );
       final userRepository = Get.put(UserRepository());
       await userRepository.saveUserRecord(newUser);
