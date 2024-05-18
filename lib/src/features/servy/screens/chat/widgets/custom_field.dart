@@ -15,9 +15,9 @@ class CustomField extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: controller,
-      validator: (value) => TValidator.volidateEmptyText('Person Name', value),
+      validator: (value) => TValidator.volidateEmptyText('Person Email', value),
       decoration: const InputDecoration(
-        labelText: 'Person Name',
+        labelText: 'Person Email',
         prefixIcon: Icon(Iconsax.search_normal_1),
         prefixIconColor: TColors.primaryColor,
       ),

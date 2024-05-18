@@ -87,7 +87,7 @@ class _ChatMessageCardState extends State<ChatMessageCard> {
                               size: 18,
                               color: widget.messageItem.read == ""
                                   ? Colors.white
-                                  : Colors.lightGreenAccent,
+                                  : const Color(0xff002379),
                             ),
                           const SizedBox(width: 6),
                           Text(
