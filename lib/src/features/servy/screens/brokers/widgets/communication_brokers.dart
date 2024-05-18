@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/helpers/helper_function.dart';
 
@@ -6,10 +7,9 @@ class CommunicationBrokers extends StatelessWidget {
   const CommunicationBrokers({
     super.key,
     required this.onPressedEmail,
-    required this.onPressedCall,
   });
   final void Function() onPressedEmail;
-  final void Function() onPressedCall;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,7 +27,7 @@ class CommunicationBrokers extends StatelessWidget {
               IconButton(
                 onPressed: onPressedEmail,
                 icon: Icon(
-                  Icons.email_rounded,
+                  Iconsax.message_add,
                   size: 50,
                   color: THelperFunctions.isDarkMode(context)
                       ? TColors.white
@@ -35,16 +35,6 @@ class CommunicationBrokers extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 20),
-              IconButton(
-                onPressed: onPressedCall,
-                icon: Icon(
-                  Icons.phone,
-                  size: 50,
-                  color: THelperFunctions.isDarkMode(context)
-                      ? TColors.white
-                      : TColors.black,
-                ),
-              )
             ],
           )
         ],

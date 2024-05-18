@@ -18,9 +18,26 @@ class ChatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String userId = item.members!
+    // Ensure the item.members list is not null and contains more than one element
+    if (item.members == null || item.members!.isEmpty) {
+      return const Center(
+        child: Text('No members found in this chat room.'),
+      );
+    }
+
+    // Filter to find the userId that is not the current user's UID
+    List filteredMembers = item.members!
         .where((element) => element != FirebaseAuth.instance.currentUser!.uid)
-        .first;
+        .toList();
+
+    // Ensure filteredMembers list is not empty
+    if (filteredMembers.isEmpty) {
+      return const Center(
+        child: Text('No other members found in this chat room.'),
+      );
+    }
+
+    String userId = filteredMembers.first;
 
     return StreamBuilder<DocumentSnapshot>(
         stream: FirebaseFirestore.instance
@@ -98,16 +115,4 @@ class ChatCard extends StatelessWidget {
           }
         });
   }
-
-  // String _formatTimestamp(String? timestamp) {
-  //   if (timestamp == null || timestamp.isEmpty) {
-  //     return 'Invalid date';
-  //   }
-  //   int? milliseconds = int.tryParse(timestamp);
-  //   if (milliseconds == null) {
-  //     return 'Invalid date';
-  //   }
-  //   DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(milliseconds);
-  //   return DateFormat.yMMMEd().format(dateTime).toString();
-  // }
 }

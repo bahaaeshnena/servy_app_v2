@@ -13,8 +13,8 @@ class CardBrokers extends StatelessWidget {
     required this.function,
     required this.describtions,
     required this.color,
+    required this.email,
     required this.onPressedEmail,
-    required this.onPressedCall,
   });
 
   final String image;
@@ -23,9 +23,9 @@ class CardBrokers extends StatelessWidget {
   final String country;
   final String function;
   final String describtions;
+  final String email;
   final Color color;
   final void Function() onPressedEmail;
-  final void Function() onPressedCall;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class CardBrokers extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 25),
       child: Container(
         width: double.infinity,
-        height: 450,
+        height: 500,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(22),
@@ -61,9 +61,15 @@ class CardBrokers extends StatelessWidget {
             ),
             Divider(height: 1, color: Colors.grey.shade200),
             CommunicationBrokers(
-              onPressedCall: onPressedCall,
               onPressedEmail: onPressedEmail,
-            )
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
+                'After clicking on the chat button, a conversation will be created between you and the broker on the chat page',
+                style: Theme.of(context).textTheme.labelLarge,
+              ),
+            ),
           ],
         ),
       ),
