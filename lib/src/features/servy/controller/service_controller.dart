@@ -404,6 +404,7 @@ class ServiceController extends GetxController {
         corssPodingService: corssPodingService.text,
         descrCorssPodingService: descrCorssPodingService.text,
         ownerId: currentUser.id,
+        ownerEmail: currentUser.email,
         priceFromDescount: priceFromDescount.text,
         status: 'pending',
         categoris: categories.text,

@@ -8,6 +8,7 @@ import 'package:servy_app/src/features/servy/screens/chat/model/message_model.da
 import 'package:servy_app/src/features/servy/screens/chat/model/room_model.dart';
 import 'package:servy_app/src/features/servy/screens/chat/screens/chat_room.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/constants/images.dart'; // import TImages
 
 class ChatCard extends StatelessWidget {
   const ChatCard({
@@ -18,19 +19,16 @@ class ChatCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Ensure the item.members list is not null and contains more than one element
     if (item.members == null || item.members!.isEmpty) {
       return const Center(
         child: Text('No members found in this chat room.'),
       );
     }
 
-    // Filter to find the userId that is not the current user's UID
     List filteredMembers = item.members!
         .where((element) => element != FirebaseAuth.instance.currentUser!.uid)
         .toList();
 
-    // Ensure filteredMembers list is not empty
     if (filteredMembers.isEmpty) {
       return const Center(
         child: Text('No other members found in this chat room.'),
@@ -61,6 +59,8 @@ class ChatCard extends StatelessWidget {
               },
               leading: TCircularImage(
                 image: chatuser.profilePicture,
+                defaultImage: TImages.user, // set default image
+                isNetworkImage: chatuser.profilePicture.isNotEmpty,
               ),
               title: Text(
                 chatuser.username,
@@ -99,11 +99,9 @@ class ChatCard extends StatelessWidget {
                             largeSize: 30,
                             backgroundColor: TColors.primaryColor,
                           )
-                        : const SizedBox
-                            .shrink(); // Return an empty widget if no unread messages
+                        : const SizedBox.shrink();
                   } else {
-                    return const SizedBox
-                        .shrink(); // Return an empty widget if no messages data
+                    return const SizedBox.shrink();
                   }
                 },
               ),

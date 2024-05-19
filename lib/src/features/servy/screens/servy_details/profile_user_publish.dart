@@ -7,11 +7,13 @@ import 'package:servy_app/src/features/personalization/controllers/user_controll
 import 'package:servy_app/src/features/personalization/screens/settings/rating_and_comments/widgets/user_review_card.dart';
 import 'package:servy_app/src/features/servy/models/comments_model.dart';
 import 'package:servy_app/src/features/servy/models/service_model.dart';
+import 'package:servy_app/src/features/servy/screens/chat/firebase/fire_database.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/add_comments.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/see_all_comments.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/services_user.dart';
 import 'package:servy_app/src/features/servy/screens/servy_details/widgets/user_profile_service_card.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/network/loaders.dart';
 import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
 class ProfileUserPublish extends StatelessWidget {
@@ -30,7 +32,13 @@ class ProfileUserPublish extends StatelessWidget {
           children: [
             TUserProfilsServiceCard(
               icon: Iconsax.message,
-              onPressed: () {},
+              onPressed: () async {
+                await FireData().createRoom(service.ownerEmail!);
+                TLoaders.successSnackBar(
+                    title: 'Done',
+                    message:
+                        'A chat room has been created between you and the user on the chat page');
+              },
               service: service,
             ),
             SingleChildScrollView(

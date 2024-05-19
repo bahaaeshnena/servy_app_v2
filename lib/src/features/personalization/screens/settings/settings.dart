@@ -125,7 +125,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Icons.contact_support_outlined,
                     title: "titleOption7".tr,
                     subTitle: "subTitleOption7".tr,
-                    onTap: () => Get.to(() => const ContactSupportPage()),
+                    onTap: () => Get.to(() =>const ContactSupportPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Icons.verified_user_outlined,

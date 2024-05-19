@@ -11,6 +11,7 @@ class ServiceModel {
   String? descrCorssPodingService;
   String? priceFromDescount;
   String? ownerId; //user id
+  String? ownerEmail; //user EMAIL
   String status;
   String categoris;
   bool hasDiscount;
@@ -31,6 +32,7 @@ class ServiceModel {
     this.corssPodingService,
     this.descrCorssPodingService,
     this.ownerId,
+    this.ownerEmail,
     this.priceFromDescount,
     required this.status,
     required this.categoris,
@@ -51,10 +53,11 @@ class ServiceModel {
       corssPodingService: '',
       descrCorssPodingService: '',
       ownerId: '',
+      ownerEmail: '',
+
       priceFromDescount: '',
       status: 'pending',
       categoris: '',
-
       userImage: '',
 
       ratingService: 0.0,
@@ -74,6 +77,7 @@ class ServiceModel {
       'corssPodingService': corssPodingService,
       'descrCorssPodingService': descrCorssPodingService,
       'ownerId': ownerId,
+      'ownerEmail': ownerEmail,
       'priceFromDescount': priceFromDescount,
       'status': status,
       'categoris': categoris,
@@ -104,6 +108,7 @@ class ServiceModel {
         corssPodingService: data['corssPodingService'] ?? '',
         descrCorssPodingService: data['descrCorssPodingService'] ?? '',
         ownerId: data['ownerId'] ?? '',
+        ownerEmail: data['ownerEmail'] ?? '',
         priceFromDescount: data['priceFromDescount'] ?? '',
         status: data['status'] ?? '',
         categoris: data['categoris'] ?? '',

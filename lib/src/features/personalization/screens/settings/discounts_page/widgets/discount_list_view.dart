@@ -40,7 +40,7 @@ class DiscountServicesListView extends StatelessWidget {
                     crossAxisSpacing: 10.0,
                     mainAxisSpacing: 10.0,
                     childAspectRatio: MediaQuery.of(context).size.width /
-                        (MediaQuery.of(context).size.height / 1.2),
+                        (MediaQuery.of(context).size.height / 1.1),
                   ),
                   itemCount: services.length,
                   itemBuilder: (context, index) {

@@ -7,6 +7,7 @@ import 'package:servy_app/src/features/servy/screens/chat/firebase/fire_database
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
+import 'package:servy_app/src/utils/network/loaders.dart';
 
 class BrokersPage extends StatelessWidget {
   const BrokersPage({super.key});
@@ -64,57 +65,45 @@ class BrokersPage extends StatelessWidget {
                 email: 'eshnenabahaa@gmail.com',
               ),
 
+              // //? hamza
+              CardBrokers(
+                color: TColors.accent,
+                image: TImages.brokersHamza,
+                name: 'Hamza Haitham',
+                age: '22',
+                country: 'jordan',
+                function: 'Programming',
+                describtions:
+                    'I am a certified broker with Servy. I have experience in developing pages and websites using Asp.net',
+                onPressedEmail: () async {
+                  await FireData().createRoom('hamzaenim443@gmail.com');
+                  TLoaders.successSnackBar(
+                      title: 'Done',
+                      message:
+                          'A chat room has been created between you and the broker on the chat page');
+                },
+                email: 'hamzaenim443@gmail.com',
+              ),
               // //? Saif
 
-              // CardBrokers(
-              //   color: TColors.primaryColor,
-              //   image: TImages.brokersSaif,
-              //   name: 'Saif Abu Mater',
-              //   age: '22',
-              //   country: 'jordan',
-              //   function: 'Programming',
-              //   describtions:
-              //       'I am a certified broker with Servy. I have experience in developing pages and websites using (html, css, js, php, node js)',
-              //   onPressedEmail: () async {
-              //     final Uri url = Uri(
-              //       scheme: 'mailto',
-              //       path: 'saif@gmail.com',
-              //     );
-              //     await launchUrl(url);
-              //   },
-              //   onPressedCall: () async {
-              //     final Uri url = Uri(
-              //       scheme: 'tel',
-              //       path: '0796835109',
-              //     );
-              //     await launchUrl(url);
-              //   },
-              // ),
-              // //? hamza
-              // CardBrokers(
-              //   color: TColors.accent,
-              //   image: TImages.brokersHamza,
-              //   name: 'Hamza Haitham',
-              //   age: '22',
-              //   country: 'jordan',
-              //   function: 'Programming',
-              //   describtions:
-              //       'I am a certified broker with Servy. I have experience in developing pages and websites using Asp.net',
-              //   onPressedEmail: () async {
-              //     final Uri url = Uri(
-              //       scheme: 'mailto',
-              //       path: 'hamza@gmail.com',
-              //     );
-              //     await launchUrl(url);
-              //   },
-              //   onPressedCall: () async {
-              //     final Uri url = Uri(
-              //       scheme: 'tel',
-              //       path: '0795358186',
-              //     );
-              //     await launchUrl(url);
-              //   },
-              // ),
+              CardBrokers(
+                color: TColors.primaryColor,
+                image: TImages.brokersSaif,
+                name: 'Saif Abu Mater',
+                age: '22',
+                country: 'jordan',
+                function: 'Programming',
+                describtions:
+                    'I am a certified broker with Servy. I have experience in developing pages and websites using (html, css, js, php, node js)',
+                email: 'Saifaabumatar@gmail.com',
+                onPressedEmail: () async {
+                  await FireData().createRoom('Saifaabumatar@gmail.com');
+                  TLoaders.successSnackBar(
+                      title: 'Done',
+                      message:
+                          'A chat room has been created between you and the broker on the chat page');
+                },
+              ),
             ],
           ),
         ),

@@ -21,43 +21,45 @@ class ChangeCountry extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'titleChangeCountry'.tr,
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Form(
-              key: controller.updateCountryFormKey,
-              child: Column(
-                children: [
-                  TextFormField(
-                    controller: controller.country,
-                    validator: (value) =>
-                        TValidator.volidateEmptyText('country'.tr, value),
-                    expands: false,
-                    decoration: InputDecoration(
-                      labelText: 'country'.tr,
-                      prefix: const Icon(Iconsax.location),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'titleChangeCountry'.tr,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              const SizedBox(height: TSizes.spaceBtwSections),
+              Form(
+                key: controller.updateCountryFormKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: controller.country,
+                      validator: (value) =>
+                          TValidator.volidateEmptyText('country'.tr, value),
+                      expands: false,
+                      decoration: InputDecoration(
+                        labelText: 'country'.tr,
+                        prefix: const Icon(Iconsax.location),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: TSizes.spaceBtwInputField),
-                ],
+                    const SizedBox(height: TSizes.spaceBtwInputField),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => controller.updateCountry(),
-                child: Text("save".tr),
-              ),
-            )
-          ],
+              const SizedBox(height: TSizes.spaceBtwSections),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => controller.updateCountry(),
+                  child: Text("save".tr),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

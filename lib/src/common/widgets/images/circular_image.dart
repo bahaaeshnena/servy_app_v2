@@ -10,6 +10,7 @@ class TCircularImage extends StatelessWidget {
     super.key,
     this.fit = BoxFit.cover,
     required this.image,
+    this.defaultImage,
     this.overlayColor,
     this.backgroundColor,
     this.width = 56,
@@ -19,6 +20,7 @@ class TCircularImage extends StatelessWidget {
   });
   final BoxFit? fit;
   final String image;
+  final String? defaultImage;
   final Color? overlayColor;
   final Color? backgroundColor;
   final double width, height, padding;
@@ -26,6 +28,9 @@ class TCircularImage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final imageUrl = image.isNotEmpty ? image : (defaultImage ?? '');
+    final isNetwork = image.isNotEmpty ? isNetworkImage : false;
+
     return Container(
       width: width,
       height: height,
@@ -40,11 +45,11 @@ class TCircularImage extends StatelessWidget {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),
         child: Center(
-          child: isNetworkImage
+          child: isNetwork
               ? CachedNetworkImage(
                   fit: fit,
                   color: overlayColor,
-                  imageUrl: image,
+                  imageUrl: imageUrl,
                   progressIndicatorBuilder: (context, url, downloadProgress) =>
                       const TShimmerEffect(
                     width: 55,
@@ -55,7 +60,7 @@ class TCircularImage extends StatelessWidget {
                 )
               : Image(
                   fit: fit,
-                  image: NetworkImage(image),
+                  image: AssetImage(imageUrl),
                   color: overlayColor,
                 ),
         ),

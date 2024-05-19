@@ -23,41 +23,44 @@ class ChangePhoneNumber extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'titleChangePhoneNumber'.tr,
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Form(
-              key: controller.updatePhoneNumberFormKey,
-              child: Column(
-                children: [
-                  TextFormField(
-                    keyboardType: TextInputType.phone,
-                    controller: controller.phoneNo,
-                    validator: (value) => TValidator.validatPhoneNumber(value),
-                    expands: false,
-                    decoration: InputDecoration(
-                      labelText: 'phoneNumber'.tr,
-                      prefix: const Icon(Iconsax.call),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'titleChangePhoneNumber'.tr,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              const SizedBox(height: TSizes.spaceBtwSections),
+              Form(
+                key: controller.updatePhoneNumberFormKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      keyboardType: TextInputType.phone,
+                      controller: controller.phoneNo,
+                      validator: (value) =>
+                          TValidator.validatPhoneNumber(value),
+                      expands: false,
+                      decoration: InputDecoration(
+                        labelText: 'phoneNumber'.tr,
+                        prefix: const Icon(Iconsax.call),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: TSizes.spaceBtwInputField),
-                ],
+                    const SizedBox(height: TSizes.spaceBtwInputField),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => controller.updatePhoneNumber(),
-                child: Text("save".tr),
-              ),
-            )
-          ],
+              const SizedBox(height: TSizes.spaceBtwSections),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => controller.updatePhoneNumber(),
+                  child: Text("save".tr),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

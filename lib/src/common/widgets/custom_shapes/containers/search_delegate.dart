@@ -128,7 +128,7 @@ class SuggestionList extends StatelessWidget {
               mainAxisSpacing: 10.0,
               childAspectRatio: MediaQuery.of(context).size.width /
                   (MediaQuery.of(context).size.height /
-                      1.2), // تحديد نسبة العرض إلى الارتفاع
+                      1.1), // تحديد نسبة العرض إلى الارتفاع
             ),
             itemCount: services.length,
             itemBuilder: (context, index) {

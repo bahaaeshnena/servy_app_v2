@@ -19,43 +19,45 @@ class ChangeSkills extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'titleChangeSkill'.tr,
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Form(
-              key: controller.updateSkillsFormKey,
-              child: Column(
-                children: [
-                  TextFormField(
-                    controller: controller.skills,
-                    validator: (value) =>
-                        TValidator.volidateEmptyText('skill'.tr, value),
-                    expands: false,
-                    decoration: InputDecoration(
-                      labelText: 'skill'.tr,
-                      prefix: const Icon(Icons.work_outline),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'titleChangeSkill'.tr,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              const SizedBox(height: TSizes.spaceBtwSections),
+              Form(
+                key: controller.updateSkillsFormKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      controller: controller.skills,
+                      validator: (value) =>
+                          TValidator.volidateEmptyText('skill'.tr, value),
+                      expands: false,
+                      decoration: InputDecoration(
+                        labelText: 'skill'.tr,
+                        prefix: const Icon(Icons.work_outline),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => controller.updateSkills(),
-                // onPressed: () => controller.updateUserName(),
-                child: Text("save".tr),
-              ),
-            )
-          ],
+              const SizedBox(height: TSizes.spaceBtwSections),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => controller.updateSkills(),
+                  // onPressed: () => controller.updateUserName(),
+                  child: Text("save".tr),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

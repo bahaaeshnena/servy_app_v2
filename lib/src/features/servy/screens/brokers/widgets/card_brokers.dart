@@ -33,7 +33,7 @@ class CardBrokers extends StatelessWidget {
       padding: const EdgeInsets.only(bottom: 25),
       child: Container(
         width: double.infinity,
-        height: 500,
+        height: 530,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(22),

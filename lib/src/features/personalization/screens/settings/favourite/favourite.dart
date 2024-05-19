@@ -27,7 +27,7 @@ class FavouriteScreen extends StatelessWidget {
             crossAxisSpacing: 15.0,
             mainAxisSpacing: 15.0,
             childAspectRatio: MediaQuery.of(context).size.width /
-                (MediaQuery.of(context).size.height / 1.2),
+                (MediaQuery.of(context).size.height / 1.1),
           ),
           itemCount: controller.favoriteServices.length,
           itemBuilder: (context, index) {
@@ -40,7 +40,7 @@ class FavouriteScreen extends StatelessWidget {
               imageUrl: service.imageService,
               isLoadingImage: false,
               serviceId: '',
-              service: service, // عرض الصورة المحملة
+              service: service,
             );
           },
         ),

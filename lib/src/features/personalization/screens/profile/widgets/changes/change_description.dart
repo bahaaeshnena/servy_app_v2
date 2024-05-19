@@ -21,45 +21,47 @@ class ChangeDesc extends StatelessWidget {
           style: Theme.of(context).textTheme.headlineSmall,
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(TSizes.defaultSpace),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'titleChangeDescription'.tr,
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            Form(
-              key: controller.updateDescriptionFormKey,
-              child: Column(
-                children: [
-                  TextFormField(
-                    minLines: 1,
-                    maxLines: 20,
-                    controller: controller.description,
-                    validator: (value) =>
-                        TValidator.volidateEmptyText('description'.tr, value),
-                    expands: false,
-                    decoration: InputDecoration(
-                      labelText: 'description'.tr,
-                      prefix: const Icon(Iconsax.user),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(TSizes.defaultSpace),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'titleChangeDescription'.tr,
+                style: Theme.of(context).textTheme.labelMedium,
+              ),
+              const SizedBox(height: TSizes.spaceBtwSections),
+              Form(
+                key: controller.updateDescriptionFormKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      minLines: 1,
+                      maxLines: 20,
+                      controller: controller.description,
+                      validator: (value) =>
+                          TValidator.volidateEmptyText('description'.tr, value),
+                      expands: false,
+                      decoration: InputDecoration(
+                        labelText: 'description'.tr,
+                        prefix: const Icon(Iconsax.user),
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: TSizes.spaceBtwInputField),
-                ],
+                    const SizedBox(height: TSizes.spaceBtwInputField),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: TSizes.spaceBtwSections),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                onPressed: () => controller.updateGender(),
-                child: Text("save".tr),
-              ),
-            )
-          ],
+              const SizedBox(height: TSizes.spaceBtwSections),
+              SizedBox(
+                width: double.infinity,
+                child: ElevatedButton(
+                  onPressed: () => controller.updateGender(),
+                  child: Text("save".tr),
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );

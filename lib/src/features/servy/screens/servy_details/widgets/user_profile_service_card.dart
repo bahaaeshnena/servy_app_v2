@@ -59,6 +59,22 @@ class TUserProfilsServiceCard extends StatelessWidget {
           color: TColors.primaryColor,
         ),
       ),
+      subtitle: FutureBuilder(
+        future:
+            UserController.instance.getFieldValue(service.ownerId!, 'Email'),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const TShimmerEffect(width: 100, height: 15);
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else {
+            return Text(
+              snapshot.data.toString(),
+              style: Theme.of(context).textTheme.labelSmall,
+            );
+          }
+        },
+      ),
     );
   }
 }
