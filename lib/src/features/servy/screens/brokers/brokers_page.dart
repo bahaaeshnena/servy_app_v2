@@ -61,6 +61,10 @@ class BrokersPage extends StatelessWidget {
                     'I am a certified broker with Servy. I have experience in developing mobile applications in the Flutter language',
                 onPressedEmail: () async {
                   await FireData().createRoom('eshnenabahaa@gmail.com');
+                  TLoaders.successSnackBar(
+                      title: 'Done',
+                      message:
+                          'A chat room has been created between you and the broker on the chat page');
                 },
                 email: 'eshnenabahaa@gmail.com',
               ),

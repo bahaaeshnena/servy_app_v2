@@ -1,13 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
-import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 import 'package:servy_app/src/utils/helpers/helper_function.dart';
 import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart';
 
-class TCircularImage extends StatelessWidget {
-  const TCircularImage({
+class TCircularImageProfileAndSetting extends StatelessWidget {
+  const TCircularImageProfileAndSetting({
     super.key,
     this.fit = BoxFit.cover,
     required this.image,
@@ -59,19 +58,11 @@ class TCircularImage extends StatelessWidget {
                   ),
                   errorWidget: (context, url, error) => const Icon(Icons.error),
                 )
-              : imageUrl.isNotEmpty
-                  ? Image(
-                      fit: fit,
-                      image: NetworkImage(imageUrl),
-                      color: overlayColor,
-                    )
-                  : Image.asset(
-                      TImages.user, // استبدال مسار الصورة الافتراضية هنا
-                      fit: fit,
-                      width: width,
-                      height: height,
-                      color: overlayColor,
-                    ),
+              : Image(
+                  fit: fit,
+                  image: AssetImage(imageUrl),
+                  color: overlayColor,
+                ),
         ),
       ),
     );

@@ -63,7 +63,6 @@ class _ChatRoomState extends State<ChatRoom> {
                   icon: const Icon(Iconsax.copy))
               : const SizedBox(),
           // IconButton(onPressed: () {}, icon: const Icon(Iconsax.trash)),
-          IconButton(onPressed: () {}, icon: const Icon(Iconsax.more_circle)),
         ],
       ),
       body: Padding(
@@ -193,10 +192,6 @@ class _ChatRoomState extends State<ChatRoom> {
                           mainAxisAlignment: MainAxisAlignment.end,
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            IconButton(
-                              onPressed: () {},
-                              icon: const Icon(Iconsax.emoji_happy),
-                            ),
                             IconButton(
                               onPressed: () async {
                                 ImagePicker picker = ImagePicker();

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:servy_app/src/common/widgets/images/circular_image.dart';
+import 'package:servy_app/src/common/widgets/images/circular_image_profile_and_setting.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
@@ -27,7 +27,7 @@ class TUserProfileTile extends StatelessWidget {
                 height: 50,
                 radius: 80,
               )
-            : TCircularImage(
+            : TCircularImageProfileAndSetting(
                 image: image,
                 width: 50,
                 height: 50,
