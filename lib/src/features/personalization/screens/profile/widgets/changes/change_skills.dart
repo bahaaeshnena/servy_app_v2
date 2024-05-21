@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/personalization/controllers/update_skills.dart';
@@ -35,6 +36,9 @@ class ChangeSkills extends StatelessWidget {
                 child: Column(
                   children: [
                     TextFormField(
+                      inputFormatters: [
+                        LengthLimitingTextInputFormatter(27),
+                      ],
                       controller: controller.skills,
                       validator: (value) =>
                           TValidator.volidateEmptyText('skill'.tr, value),
