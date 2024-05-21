@@ -27,6 +27,11 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icons_applcation_servy_app/servy_app_logo_splash.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
 dependencies:
   flutter:
     sdk: flutter
@@ -55,7 +60,6 @@ dependencies:
   url_launcher: ^6.2.6
   shared_preferences: ^2.2.3
   fluttertoast: ^8.2.5
-
   flutter_rating_bar: ^4.0.1
   readmore: ^2.2.0
   carousel_slider: ^4.2.1
@@ -68,6 +72,7 @@ dependencies:
   patterns_canvas: ^0.4.0
   sliding_up_panel: ^2.0.0+1
   auto_size_text: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
 
 dev_dependencies:
   flutter_test:
@@ -91,6 +96,7 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+
   assets:
     - assets/icons/
     - assets/images/
@@ -109,6 +115,7 @@ flutter:
     - assets/images/users_images/
     - assets/images/payment/
     - assets/images/profile/
+    - assets/icons/icons_applcation_servy_app/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
