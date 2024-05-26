@@ -3,12 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/images/circular_image.dart';
+import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/features/personalization/models/user_model.dart';
 import 'package:servy_app/src/features/servy/screens/chat/model/message_model.dart';
 import 'package:servy_app/src/features/servy/screens/chat/model/room_model.dart';
 import 'package:servy_app/src/features/servy/screens/chat/screens/chat_room.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
-import 'package:servy_app/src/utils/constants/images.dart'; // import TImages
+import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart'; // import TImages
 
 class ChatCard extends StatelessWidget {
   const ChatCard({
@@ -57,10 +58,22 @@ class ChatCard extends StatelessWidget {
                       userChat: chatuser,
                     ));
               },
-              leading: TCircularImage(
-                image: chatuser.profilePicture,
-                defaultImage: TImages.user, // set default image
-                isNetworkImage: chatuser.profilePicture.isNotEmpty,
+              leading: FutureBuilder(
+                future: UserController.instance
+                    .getFieldValue(userId, 'ProfilePicture'),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return const TShimmerEffect(width: 50, height: 50);
+                  } else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    return TCircularImage(
+                      image: snapshot.data.toString(),
+                      width: 50,
+                      height: 50,
+                    );
+                  }
+                },
               ),
               title: Text(
                 chatuser.username,
