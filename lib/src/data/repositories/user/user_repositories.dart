@@ -28,6 +28,15 @@ class UserRepository extends GetxController {
     }
   }
 
+//?------------------delete  Users with Admin date from Firebase-------------
+  Future<void> deleteUserWithAdmin(String userId) async {
+    try {
+      await _db.collection('Users').doc(userId).delete();
+    } catch (e) {
+      throw 'Error deleting user: $e';
+    }
+  }
+
   //?------------------fetch All Users data from Firebase-------------
   Stream<List<UserModel>> getAllUsersStream() {
     return _db.collection('Users').snapshots().map((querySnapshot) {

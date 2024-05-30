@@ -52,6 +52,19 @@ class UserController extends GetxController {
     }
   }
 
+//!--------------------------------------------
+  Future<void> deleteUserWithAdmin(String userId) async {
+    try {
+      await userRepository.deleteUserWithAdmin(userId);
+      users.removeWhere((user) => user.id == userId);
+      TLoaders.successSnackBar(
+          title: 'Success', message: 'User deleted successfully');
+    } catch (e) {
+      TLoaders.errorSnackBar(
+          title: 'Error', message: 'Error deleting user: $e');
+    }
+  }
+
 //!---------------------get Users information----------------------------
 
   Future<dynamic> getFieldValue(String ownerId, String field) async {
