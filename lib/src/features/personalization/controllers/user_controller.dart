@@ -38,6 +38,7 @@ class UserController extends GetxController {
     fetchUserRecord();
     subscribeToUserDocument();
   }
+//!---------------------delete  Users with admin information----------------------------
 
   Future<void> deleteUser(String userId) async {
     try {

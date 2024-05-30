@@ -62,7 +62,7 @@ class UsersDepartment extends StatelessWidget {
                         middleText: 'messageDeleteAccount'.tr,
                         confirm: ElevatedButton(
                           onPressed: () async {
-                            userController.deleteUser(user.id);
+                            userController.deleteUser(user.email);
                             Navigator.of(Get.overlayContext!).pop();
                           },
                           style: ElevatedButton.styleFrom(

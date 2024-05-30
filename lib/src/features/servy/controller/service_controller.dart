@@ -16,7 +16,7 @@ import 'package:uuid/uuid.dart';
 
 class ServiceController extends GetxController {
   // static ServiceController get instance => Get.find();
-
+  static ServiceController get instance => Get.find();
   var isChecked = false.obs;
   var isChecked2 = false.obs;
   var imageUploading = false.obs;
