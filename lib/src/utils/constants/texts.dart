@@ -140,6 +140,9 @@ class TText {
   static const String subTitleOption6 =
       'Here you will find discounted services';
 
+  static const String adminOptions = 'Admin Options';
+  static const String subTitleAdminOption6 = 'Administrator options';
+
   static const String appSettings = 'App Settings';
   static const String titleOption7 = 'Contact Support';
   static const String subTitleOption7 =

@@ -137,6 +137,9 @@ class TTextAr {
   static const String titleOption6 = 'صفحة الخصومات';
   static const String subTitleOption6 = 'هنا سوف تجد خدمات مخفضة';
 
+  static const String adminOptions = 'خيارات المشرف';
+  static const String subTitleAdminOption6 = 'الخيارات الخاصة بالمشرف';
+
   static const String appSettings = 'إعدادات التطبيق';
   static const String titleOption7 = 'اتصل بالدعم';
   static const String subTitleOption7 =

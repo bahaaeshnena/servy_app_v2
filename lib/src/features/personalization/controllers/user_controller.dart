@@ -19,6 +19,7 @@ class UserController extends GetxController {
   static UserController get instance => Get.find();
 
   final profileLoading = false.obs;
+  final isAdmin = false.obs;
   Rx<UserModel> user = UserModel.empty().obs;
   final UserModel userModel = UserModel.empty();
   final RxList<UserModel> service = RxList<UserModel>([]);
@@ -35,20 +36,11 @@ class UserController extends GetxController {
   void onInit() {
     super.onInit();
     fetchUserRecord();
+    subscribeToUserDocument();
   }
 
 //!---------------------get Users information----------------------------
-  // void getServices(String ownerID) async {
-  //   try {
-  //     UserModel currentUser = UserController.instance.user.value;
-  //     QuerySnapshot<Map<String, dynamic>> snapshot = await _db
-  //         .collection("Services")
-  //         .where(ownerID, isEqualTo: currentUser.id)
-  //         .get();
-  //   } catch (e) {
-  //     // Handle error here
-  //   }
-  // }
+
   Future<dynamic> getFieldValue(String ownerId, String field) async {
     try {
       DocumentSnapshot<Map<String, dynamic>> snapshot =
@@ -75,10 +67,38 @@ class UserController extends GetxController {
       profileLoading.value = true;
       final user = await userRepository.fetchUserDetails();
       this.user(user);
+      updateIsAdminValue(user.id); // تحديث قيمة isAdmin
     } catch (e) {
       user(UserModel.empty());
     } finally {
       profileLoading.value = false;
+    }
+  }
+
+  Future<void> updateIsAdminValue(String userId) async {
+    try {
+      final isAdminValue = await getFieldValue(userId, 'isAdmin');
+      if (isAdminValue != null) {
+        isAdmin.value = isAdminValue; // تحديث قيمة isAdmin
+      }
+    } catch (e) {
+      TLoaders.errorSnackBar(title: e.toString());
+    }
+  }
+
+  void subscribeToUserDocument() {
+    final userId = FirebaseAuth.instance.currentUser?.uid;
+    if (userId != null) {
+      final userDoc =
+          FirebaseFirestore.instance.collection('Users').doc(userId);
+      userDoc.snapshots().listen((snapshot) {
+        if (snapshot.exists) {
+          final user = UserModel.fromSnapshot(snapshot);
+          // تحديث حالة المستخدم عند تغيير الوثيقة
+          this.user(user);
+          isAdmin.value = user.isAdmin.value;
+        }
+      });
     }
   }
 
@@ -97,6 +117,7 @@ class UserController extends GetxController {
 
           //* Map Data
           final user = UserModel(
+            isAdmin: false,
             id: userCredential.user!.uid,
             firstName: nameParts[0],
             lastName:

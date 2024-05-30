@@ -8,6 +8,7 @@ import 'package:servy_app/src/common/widgets/list_tiles/user_profile_tile.dart';
 import 'package:servy_app/src/common/widgets/texts/section_heading.dart';
 import 'package:servy_app/src/data/repositories/authentication/authentication_repository.dart';
 import 'package:servy_app/src/features/personalization/screens/profile/profile.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/Admin/admin_options_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/become_our_broker/become_our_broker.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/contact_support/contact_support_page.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/discounts_page/discounts_page.dart';
@@ -114,6 +115,20 @@ class SettingsScreen extends StatelessWidget {
                     subTitle: "subTitleOption6".tr,
                     onTap: () => Get.to(() => const DiscountsScreen()),
                   ),
+                  Obx(() {
+                    if (controller.user.value.isAdmin.value) {
+                      return TSettingsMenuTile(
+                        // icon: Icons.pages_sharp,
+                        icon: Iconsax.user_octagon,
+                        color: TColors.accent,
+                        title: "adminOptions".tr,
+                        subTitle: "subTitleAdminOption6".tr,
+                        onTap: () => Get.to(() => const AdminOptionsPage()),
+                      );
+                    } else {
+                      return const SizedBox.shrink();
+                    }
+                  }),
                   //?-------------------------App Settings------------------------------
 
                   const SizedBox(height: TSizes.spaceBtwSections),
@@ -125,7 +140,7 @@ class SettingsScreen extends StatelessWidget {
                     icon: Icons.contact_support_outlined,
                     title: "titleOption7".tr,
                     subTitle: "subTitleOption7".tr,
-                    onTap: () => Get.to(() =>const ContactSupportPage()),
+                    onTap: () => Get.to(() => const ContactSupportPage()),
                   ),
                   TSettingsMenuTile(
                     icon: Icons.verified_user_outlined,

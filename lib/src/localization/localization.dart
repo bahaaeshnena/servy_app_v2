@@ -94,6 +94,9 @@ class MyLocal implements Translations {
           'titleOption6': TTextAr.titleOption6,
           'subTitleOption6': TTextAr.subTitleOption6,
 
+          'adminOptions': TTextAr.adminOptions,
+          'subTitleAdminOption6': TTextAr.subTitleAdminOption6,
+
           'appSettings': TTextAr.appSettings,
           'titleOption7': TTextAr.titleOption7,
           'subTitleOption7': TTextAr.subTitleOption7,
@@ -348,6 +351,9 @@ class MyLocal implements Translations {
           'subTitleOption5': TText.subTitleOption5,
           'titleOption6': TText.titleOption6,
           'subTitleOption6': TText.subTitleOption6,
+
+          'adminOptions': TText.adminOptions,
+          'subTitleAdminOption6': TText.subTitleAdminOption6,
 
           'appSettings': TText.appSettings,
           'titleOption7': TText.titleOption7,

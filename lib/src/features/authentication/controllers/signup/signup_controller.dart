@@ -54,6 +54,7 @@ class SignUpController extends GetxController {
 
       //!Save Authentication user date in the firebase firestore
       final newUser = UserModel(
+        isAdmin: false,
         id: userCredential.user!.uid,
         firstName: firstName.text.trim(),
         lastName: lastName.text.trim(),
