@@ -23,7 +23,7 @@ class UserController extends GetxController {
   Rx<UserModel> user = UserModel.empty().obs;
   final UserModel userModel = UserModel.empty();
   final RxList<UserModel> service = RxList<UserModel>([]);
-
+  var users = <UserModel>[].obs;
   final hidePassword = false.obs;
   final imageUploading = false.obs;
   final verifyEmail = TextEditingController();
@@ -37,6 +37,18 @@ class UserController extends GetxController {
     super.onInit();
     fetchUserRecord();
     subscribeToUserDocument();
+  }
+
+  Future<void> deleteUser(String userId) async {
+    try {
+      await userRepository.deleteUser(userId);
+      users.removeWhere((user) => user.id == userId);
+      TLoaders.successSnackBar(
+          title: 'Success', message: 'User deleted successfully');
+    } catch (e) {
+      TLoaders.errorSnackBar(
+          title: 'Error', message: 'Error deleting user: $e');
+    }
   }
 
 //!---------------------get Users information----------------------------

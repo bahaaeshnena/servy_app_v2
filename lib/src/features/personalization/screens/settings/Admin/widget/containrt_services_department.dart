@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
 
-class ContainerAdmin extends StatelessWidget {
-  const ContainerAdmin({
+class ContainerServicesDepartment extends StatelessWidget {
+  const ContainerServicesDepartment({
     super.key,
     required this.title,
     required this.onTap,
@@ -14,18 +14,17 @@ class ContainerAdmin extends StatelessWidget {
     return GestureDetector(
       onTap: onTap,
       child: Container(
-        height: 125,
-        width: 125,
+        width: double.infinity,
+        height: 100,
         decoration: BoxDecoration(
-          color: TColors.primaryColor,
-          borderRadius: BorderRadius.circular(12),
-        ),
+            color: TColors.primaryColor,
+            borderRadius: BorderRadius.circular(12)),
         child: Center(
-            child: Text(
-          textAlign: TextAlign.center,
-          title,
-          style: Theme.of(context).textTheme.headlineSmall,
-        )),
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.headlineSmall,
+          ),
+        ),
       ),
     );
   }

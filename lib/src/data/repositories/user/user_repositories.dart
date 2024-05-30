@@ -17,6 +17,24 @@ class UserRepository extends GetxController {
 
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
+//?------------------delete  Users date from Firebase-------------
+  Future<void> deleteUser(String userId) async {
+    try {
+      await _db.collection('Users').doc(userId).delete();
+    } catch (e) {
+      throw 'Error deleting user: $e';
+    }
+  }
+
+  //?------------------fetch All Users data from Firebase-------------
+  Stream<List<UserModel>> getAllUsersStream() {
+    return _db.collection('Users').snapshots().map((querySnapshot) {
+      return querySnapshot.docs
+          .map((doc) => UserModel.fromSnapshot(doc))
+          .toList();
+    });
+  }
+
 //?------------------Finction to save user date to Firebase-------------
   Future<void> saveUserRecord(UserModel user) async {
     try {
