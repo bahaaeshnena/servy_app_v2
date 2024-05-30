@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
 import 'package:servy_app/src/features/personalization/models/user_model.dart';
+import 'package:servy_app/src/utils/constants/images.dart';
 import 'package:servy_app/src/utils/constants/sizes.dart';
 
 class UsersDepartment extends StatelessWidget {
@@ -36,11 +37,23 @@ class UsersDepartment extends StatelessWidget {
                 return ListTile(
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(user.profilePicture),
+                    child: FadeInImage(
+                      placeholder: const AssetImage(TImages.user),
+                      image: NetworkImage(user.profilePicture),
+                      fit: BoxFit.cover,
+                      imageErrorBuilder: (context, error, stackTrace) {
+                        return Image.asset(TImages.user, fit: BoxFit.cover);
+                      },
+                    ),
                   ),
-                  title: Text(user.email,
-                      style: Theme.of(context).textTheme.labelLarge),
-                  subtitle: Text(user.id,
-                      style: Theme.of(context).textTheme.labelMedium),
+                  title: Text(
+                    user.email,
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                  subtitle: Text(
+                    user.id,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
                   trailing: IconButton(
                     onPressed: () {
                       Get.defaultDialog(
