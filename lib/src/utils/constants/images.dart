@@ -63,6 +63,8 @@ class TImages {
   static String adminOptions = 'assets/images/Animation/admin_options.json';
   static String servicesDepartment =
       'assets/images/Animation/services_department.json';
+  static String brokersDepartment =
+      'assets/images/Animation/brokers_department.json';
 
 //Brokers
   static String brokersBahaa = 'assets/images/brokers_images/brokers_bahaa.jpg';

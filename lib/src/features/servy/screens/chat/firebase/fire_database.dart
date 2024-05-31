@@ -29,7 +29,10 @@ class FireData {
           .collection('rooms')
           .where('members', isEqualTo: members)
           .get();
-
+      TLoaders.successSnackBar(
+          title: 'Done',
+          message:
+              'A chat room has been created between you and the broker on the chat page');
       if (roomExist.docs.isEmpty) {
         ChatRoomModel chatRoom = ChatRoomModel(
           id: members.join('_'),
@@ -45,7 +48,7 @@ class FireData {
             .set(chatRoom.toJSon());
       }
     } catch (e) {
-      // print('Error creating room: $e');
+      TLoaders.errorSnackBar(title: 'Error', message: e.toString());
     }
   }
 
@@ -85,7 +88,7 @@ class FireData {
         'read': DateTime.now().millisecondsSinceEpoch.toString(),
       });
     } catch (e) {
-      // print('Error updating message read status: $e');
+      TLoaders.errorSnackBar(title: 'Error', message: e.toString());
     }
   }
 }

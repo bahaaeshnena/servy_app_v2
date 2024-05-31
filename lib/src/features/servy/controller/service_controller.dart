@@ -334,6 +334,15 @@ class ServiceController extends GetxController {
     );
     clearInputFields();
   }
+
+  //!---------------------------get favorite services-----------------
+
+  List<ServiceModel> getFavoriteServices() {
+    // Logic to fetch favorite services
+    // For example, you can filter the list of services to get only favorite ones
+    return service.where((service) => service.isLikedState).toList();
+  }
+
   //!---------------------Pick Image----------------------------
 
   Future<void> pickImage() async {
@@ -345,11 +354,6 @@ class ServiceController extends GetxController {
     }
   }
 
-  List<ServiceModel> getFavoriteServices() {
-    // Logic to fetch favorite services
-    // For example, you can filter the list of services to get only favorite ones
-    return service.where((service) => service.isLikedState).toList();
-  }
   //!---------------------Upload Image----------------------------
 
   Future<void> uploadImage() async {

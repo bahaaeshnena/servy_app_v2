@@ -25,7 +25,7 @@ class ImageAndNameBrokers extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(right: 9.0, left: 9.0),
-                  child: Image.asset(
+                  child: Image.network(
                     image,
                     width: 100,
                     fit: BoxFit.cover,

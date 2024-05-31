@@ -32,8 +32,8 @@ class CardBrokers extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 25),
       child: Container(
+        constraints: const BoxConstraints(minHeight: 100),
         width: double.infinity,
-        height: 530,
         decoration: BoxDecoration(
           color: color,
           borderRadius: BorderRadius.circular(22),

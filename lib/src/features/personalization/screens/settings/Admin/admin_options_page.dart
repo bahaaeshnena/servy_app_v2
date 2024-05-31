@@ -4,6 +4,7 @@ import 'package:iconsax/iconsax.dart';
 import 'package:lottie/lottie.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/common/widgets/list_tiles/settings_menu_tile.dart';
+import 'package:servy_app/src/features/personalization/screens/settings/Admin/screens/brokers_department.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/Admin/screens/services_department.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/Admin/screens/users_department_page.dart';
 import 'package:servy_app/src/utils/constants/images.dart';
@@ -39,7 +40,7 @@ class AdminOptionsPage extends StatelessWidget {
                 icon: Iconsax.personalcard,
                 title: 'Brokers Department',
                 subTitle: "Brokers Management Department",
-                onTap: () => Get.to(() => const ServicesDepartment()),
+                onTap: () => Get.to(() => const BrokersDepartment()),
               ),
               TSettingsMenuTile(
                 icon: Iconsax.user_search,
