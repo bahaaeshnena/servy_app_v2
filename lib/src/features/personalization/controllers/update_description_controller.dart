@@ -62,8 +62,7 @@ class UpdateDescriptionController extends GetxController {
       //Show Success MEssage
 
       TLoaders.successSnackBar(
-          title: "Congratulations",
-          message: 'Your description has been updated.');
+          title: "congratulations".tr, message: 'decUpdate'.tr);
 
       //Move to previous screen
       Get.off(() => const ProfileScreen());

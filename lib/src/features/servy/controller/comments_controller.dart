@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/simple/get_controllers.dart';
 import 'package:servy_app/src/features/personalization/controllers/user_controller.dart';
@@ -76,21 +77,21 @@ class CommentController extends GetxController {
         clearInputFields();
 
         TLoaders.successSnackBar(
-          title: 'Success',
-          message: 'Rating and comment updated successfully',
+          title: 'success'.tr,
+          message: 'successComments'.tr,
         );
       } else {
         TLoaders.errorSnackBar(
-          title: 'Error',
-          message: 'Rating must be between 1 and 5',
+          title: 'error'.tr,
+          message: 'errorRating'.tr,
         );
       }
     } catch (e) {
       TFullScreenLoader.stopLoading();
 
       TLoaders.errorSnackBar(
-        title: 'Error',
-        message: 'Failed to update rating and comment: $e',
+        title: 'error'.tr,
+        message: 'errorComments $e'.tr,
       );
     } finally {
       TFullScreenLoader.stopLoading();

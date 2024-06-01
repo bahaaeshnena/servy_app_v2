@@ -45,10 +45,10 @@ class UserController extends GetxController {
       await userRepository.deleteUser(userId);
       users.removeWhere((user) => user.id == userId);
       TLoaders.successSnackBar(
-          title: 'Success', message: 'User deleted successfully');
+          title: 'success'.tr, message: 'successDeleteUser'.tr);
     } catch (e) {
       TLoaders.errorSnackBar(
-          title: 'Error', message: 'Error deleting user: $e');
+          title: 'error'.tr, message: 'errorDeleteUser $e'.tr);
     }
   }
 
@@ -58,10 +58,10 @@ class UserController extends GetxController {
       await userRepository.deleteUserWithAdmin(userId);
       users.removeWhere((user) => user.id == userId);
       TLoaders.successSnackBar(
-          title: 'Success', message: 'User deleted successfully');
+          title: 'success'.tr, message: 'successDeleteUser'.tr);
     } catch (e) {
       TLoaders.errorSnackBar(
-          title: 'Error', message: 'Error deleting user: $e');
+          title: 'error'.tr, message: 'errorDeleteUser $e'.tr);
     }
   }
 
@@ -166,9 +166,8 @@ class UserController extends GetxController {
       }
     } catch (e) {
       TLoaders.warningSnackBar(
-        title: 'Date not Saved',
-        message:
-            'Something went wrong while saving your information. You can re-save your date in your Profile.',
+        title: 'dataNotSaved'.tr,
+        message: 'dataNotSavedMessage'.tr,
       );
     }
   }
@@ -220,7 +219,7 @@ class UserController extends GetxController {
       }
     } catch (e) {
       TFullScreenLoader.stopLoading();
-      TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.warningSnackBar(title: 'ohSnap'.tr, message: e.toString());
     }
   }
 
@@ -246,7 +245,7 @@ class UserController extends GetxController {
       Get.offAll(() => const LoginScreen());
     } catch (e) {
       TFullScreenLoader.stopLoading();
-      TLoaders.warningSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.warningSnackBar(title: 'ohSnap'.tr, message: e.toString());
     }
   }
 
@@ -272,12 +271,11 @@ class UserController extends GetxController {
         user.value.profilePicture = imageUrl;
         user.refresh();
         TLoaders.successSnackBar(
-            title: "Congratulations",
-            message: 'Your Profile Image has been updated!');
+            title: "congratulations".tr, message: 'congratulationsMessage'.tr);
       }
     } catch (e) {
       TLoaders.errorSnackBar(
-          title: 'Oh Snap!', message: 'Something went wrong: $e');
+          title: 'ohSnap'.tr, message: 'ohSnapMessage $e'.tr);
     } finally {
       imageUploading.value = false;
     }

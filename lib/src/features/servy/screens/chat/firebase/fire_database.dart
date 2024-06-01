@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 import 'package:servy_app/src/features/servy/screens/chat/model/message_model.dart';
 import 'package:servy_app/src/features/servy/screens/chat/model/room_model.dart';
 import 'package:servy_app/src/utils/network/loaders.dart';
@@ -18,7 +19,7 @@ class FireData {
 
       if (userEmail.docs.isEmpty) {
         TLoaders.errorSnackBar(
-            title: 'Error', message: 'No user found with this email');
+            title: 'error'.tr, message: 'nouserfoundwiththisemail'.tr);
         return;
       }
 
@@ -44,8 +45,11 @@ class FireData {
             .doc(chatRoom.id)
             .set(chatRoom.toJSon());
       }
+      TLoaders.successSnackBar(
+          title: 'success'.tr, message: 'createChatMessage'.tr);
+      return;
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Error', message: e.toString());
+      TLoaders.errorSnackBar(title: 'error'.tr, message: e.toString());
     }
   }
 
@@ -85,7 +89,7 @@ class FireData {
         'read': DateTime.now().millisecondsSinceEpoch.toString(),
       });
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Error', message: e.toString());
+      TLoaders.errorSnackBar(title: 'error'.tr, message: e.toString());
     }
   }
 }

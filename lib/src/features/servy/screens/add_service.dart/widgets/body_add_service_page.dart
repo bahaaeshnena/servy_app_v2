@@ -37,6 +37,7 @@ class BodyAddServicePage extends StatelessWidget {
               SelectedListItem(
                 name: TText.engineeringArchitecture,
               ),
+              SelectedListItem(name: TText.other),
             ],
             textEditingController: controller.categories,
             title: 'selectCategories'.tr,

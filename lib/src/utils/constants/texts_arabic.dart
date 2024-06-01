@@ -81,6 +81,7 @@ class TTextAr {
   static const String writing = 'كتابة';
   static const String translation = 'ترجمة';
   static const String engineeringArchitecture = 'الهندسة والعمارة';
+  static const String other = 'اخرى';
 
   //Navigation menu
   static const String home = 'الصفحة الرئيسية';
@@ -363,4 +364,85 @@ class TTextAr {
       'اسحب لتحرير الوسيط أو حذفه';
   static const String managementOfBrokersDoneChat =
       'تم إنشاء غرفة دردشة بينك وبين الوسيط على صفحة الدردشة';
+
+  // Chat Page
+  static const String chatPage = 'صفحة الدردشة';
+  static const String enterPersonEmail = 'أدخل البريد الإلكتروني للشخص';
+  static const String createChat = 'إنشاء دردشة';
+  static const String personEmail = 'البريد الإلكتروني للشخص';
+
+  //!---------------------------- Masseges------------------------
+  //? User Controller
+  static const String success = 'نجاح';
+  static const String error = 'خطأ';
+  static const String successDeleteUser = 'تم حذف المستخدم بنجاح';
+  static const String errorDeleteUser = 'حدث خطأ أثناء حذف المستخدم:';
+  static const String congratulations = 'تهانينا';
+  static const String congratulationsMessage = 'تم تحديث صورة ملفك الشخصي!';
+  static const String ohSnap = 'Oh Snap!';
+  static const String ohSnapMessage = 'هناك خطأ ما:';
+  static const String dataNotSaved = 'لم يتم حفظ البيانات';
+  static const String dataNotSavedMessage =
+      'حدث خطأ ما أثناء حفظ معلوماتك. يمكنك إعادة حفظ بياناتك في ملفك الشخصي.';
+
+  //? Service controller
+  static const String successRating = 'تم تحديث التقييم بنجاح';
+  static const String errorRating = 'يجب أن يكون التقييم بين 1 و5';
+  static const String failedRating = 'فشل تحديث التقييم:';
+
+  static const String info = 'معلومات';
+  static const String successUpdate = 'تم تحديث الخدمة بنجاح';
+  static const String infoUpdate = 'سيتم مراجعة التعديلات من قبل المشرف';
+  static const String errorUpdate = 'فشل في تحديث الخدمة:';
+
+  static const String successDeleted = 'تم حذف الخدمة بنجاح';
+  static const String errorDeleted = 'فشل في حذف الخدمة:';
+
+  static const String showDeploy = 'تم نشر الخدمة بنجاح';
+
+  static const String errorImage = 'الرجاء تحديد صورة قبل الإرسال.';
+
+  static const String validationError = 'خطئ في التحقق';
+  static const String validationErrorMessage =
+      'السعر خصم يجب أن يكون أقل من سعر الاصلي';
+
+  static const String postedService =
+      'الخدمة التي نشرتها قيد المراجعة من قبل المشرف';
+
+  //? chat controller
+  static const String nouserfoundwiththisemail =
+      'لم يتم العثور على مستخدم مع هذا البريد الإلكتروني.';
+  static const String createChatMessage = 'تم إنشاء محادثة';
+
+  //? comments controller
+  static const String successComments = 'تم تحديث التقييم والتعليق بنجاح';
+  static const String errorComments = 'فشل في تحديث التقييم والتعليق:';
+
+  //? broker controller
+  static const String successUpdateBroker = 'تم تحديث الوسيط بنجاح';
+  static const String errorUpdateBroker = 'فشل في تحديث الوسيط:';
+  static const String postMessageBroker = 'تم نشر الوسيط بنجاح';
+
+  //? SignUP controller
+  static const String acceptPrivacyPolicy = 'قبول سياسة الخصوصية';
+  static const String acceptPrivacyPolicyMessage =
+      'من أجل الإنشاء، يجب عليك قراءة وقبول سياسة الخصوصية وشروط الاستخدام';
+  static const String accountHasCreated =
+      'لقد تم إنشاء حسابك! التحقق من البريد الإلكتروني للمتابعة.';
+
+  //? forget password controller
+  static const String emailSent = 'أرسل البريد الإلكتروني';
+  static const String emailSentMessage =
+      'تم إرسال رابط البريد الإلكتروني لإعادة تعيين كلمة المرور الخاصة بك';
+
+  //? verify email controller
+  static const String verifyMessage =
+      'يرجى التحقق من البريد الوارد والتحقق من بريدك الإلكتروني.';
+
+  //? update all controller
+  static const String nameUpdate = 'تم تحديث اسمك.';
+  static const String phoneUpdate = 'لقد تم تحديث هاتفك.';
+  static const String skillsUpdate = 'تم تحديث مهاراتك.';
+  static const String countryUpdate = 'تم تحديث بلدك.';
+  static const String decUpdate = 'تم تحديث الوصف الخاص بك.';
 }

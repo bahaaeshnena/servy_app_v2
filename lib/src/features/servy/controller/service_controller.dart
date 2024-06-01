@@ -110,19 +110,19 @@ class ServiceController extends GetxController {
       if (rating.value >= 1.0 && rating.value <= 5.0) {
         await updateServiceRating(serviceID, rating.value);
         TLoaders.successSnackBar(
-          title: 'Success',
-          message: 'Rating updated successfully',
+          title: 'success'.tr,
+          message: 'successRating'.tr,
         );
       } else {
         TLoaders.errorSnackBar(
-          title: 'Error',
-          message: 'Rating must be between 1 and 5',
+          title: 'error'.tr,
+          message: 'errorRating'.tr,
         );
       }
     } catch (e) {
       TLoaders.errorSnackBar(
-        title: 'Error',
-        message: 'Failed to update rating: $e',
+        title: 'error'.tr,
+        message: 'failedRating $e'.tr,
       );
     }
   }
@@ -236,18 +236,18 @@ class ServiceController extends GetxController {
 
       // عرض رسالة نجاح
       TLoaders.successSnackBar(
-        title: "Success",
-        message: 'Service updated successfully',
+        title: "success".tr,
+        message: 'successUpdate'.tr,
       );
       TLoaders.warningSnackBar(
-        title: "info",
-        message: 'Modifications will be reviewed by the admin',
+        title: "info".tr,
+        message: 'infoUpdate'.tr,
       );
     } catch (e) {
       // إدارة الأخطاء هنا
       TLoaders.errorSnackBar(
-        title: "Error",
-        message: 'Failed to update service: $e',
+        title: "error".tr,
+        message: 'errorUpdate $e'.tr,
       );
     }
   }
@@ -267,13 +267,13 @@ class ServiceController extends GetxController {
       TFullScreenLoader.stopLoading();
 
       TLoaders.successSnackBar(
-        title: "Success",
-        message: 'Service deleted successfully',
+        title: "success".tr,
+        message: 'successDeleted'.tr,
       );
     } catch (e) {
       TLoaders.errorSnackBar(
-        title: "Error",
-        message: 'Failed to delete service: $e',
+        title: "error".tr,
+        message: 'errorDeleted $e'.tr,
       );
     }
   }
@@ -330,7 +330,7 @@ class ServiceController extends GetxController {
   void showSuccessMessageAndClearInputs() {
     TLoaders.successSnackBar(
       title: "Done".tr,
-      message: 'The service has been deployed successfully',
+      message: 'showDeploy'.tr,
     );
     clearInputFields();
   }
@@ -386,8 +386,8 @@ class ServiceController extends GetxController {
       // التحقق من وجود صورة
       if (_imageFile == null) {
         TLoaders.errorSnackBar(
-          title: 'Error',
-          message: 'Please select an image before submitting.',
+          title: 'error'.tr,
+          message: 'errorImage'.tr,
         );
         return;
       }
@@ -423,25 +423,25 @@ class ServiceController extends GetxController {
             double.tryParse(priceFromDescount.text) ?? 0;
         if (priceFromDescountValue >= priceFromValue) {
           TLoaders.errorSnackBar(
-            title: 'Validation Error',
+            title: 'validationError'.tr,
             message: 'Price from discount must be less than price from',
           );
           return;
         }
       }
 
-      postMessage.value = 'The service has been deployed successfully';
+      postMessage.value = 'showDeploy'.tr;
       await _db.collection("Services").add(service.toJson());
       getServices();
       Get.find<ServiceController>().clearInputFields();
 
       TLoaders.successSnackBar(
         title: "Done".tr,
-        message: 'The service has been deployed successfully',
+        message: 'showDeploy'.tr,
       );
       TLoaders.warningSnackBar(
-        title: "info",
-        message: 'The service you posted is under review by admin',
+        title: "info".tr,
+        message: 'postedService'.tr,
       );
       // TFullScreenLoader.stopLoading();
 
@@ -450,8 +450,8 @@ class ServiceController extends GetxController {
       TFullScreenLoader.stopLoading();
 
       TLoaders.errorSnackBar(
-        title: 'Oh Snap!',
-        message: 'Something went wrong: $e',
+        title: 'ohSnap'.tr,
+        message: 'ohSnapMessage $e'.tr,
       );
     } finally {
       TFullScreenLoader.stopLoading();

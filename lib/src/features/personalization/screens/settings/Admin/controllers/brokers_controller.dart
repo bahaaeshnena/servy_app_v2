@@ -102,13 +102,13 @@ class BrokersController extends GetxController {
       TFullScreenLoader.stopLoading();
 
       TLoaders.successSnackBar(
-        title: "Success",
-        message: 'Service deleted successfully',
+        title: "success".tr,
+        message: 'successDeleted'.tr,
       );
     } catch (e) {
       TLoaders.errorSnackBar(
-        title: "Error",
-        message: 'Failed to delete service: $e',
+        title: "error".tr,
+        message: 'errorDeleted $e'.tr,
       );
     }
   }
@@ -153,14 +153,14 @@ class BrokersController extends GetxController {
 
       // عرض رسالة نجاح
       TLoaders.successSnackBar(
-        title: "Success",
-        message: 'Broker updated successfully',
+        title: "success".tr,
+        message: 'successUpdateBroker'.tr,
       );
     } catch (e) {
       // إدارة الأخطاء هنا
       TLoaders.errorSnackBar(
-        title: "Error",
-        message: 'Failed to update broker: $e',
+        title: "error".tr,
+        message: 'errorUpdateBroker $e',
       );
     }
   }
@@ -180,8 +180,8 @@ class BrokersController extends GetxController {
       // التحقق من وجود صورة
       if (_imageFile == null) {
         TLoaders.errorSnackBar(
-          title: 'Error',
-          message: 'Please select an image before submitting.',
+          title: 'error'.tr,
+          message: 'errorImage'.tr,
         );
         return;
       }
@@ -201,21 +201,21 @@ class BrokersController extends GetxController {
           desc: desc.text,
           email: email.text);
 
-      postMessage.value = 'The broker has been deployed successfully';
+      postMessage.value = 'postMessageBroker'.tr;
       await _db.collection("Brokers").add(broker.toJson());
       // getServices();
       clearInputFields();
 
       TLoaders.successSnackBar(
         title: "Done".tr,
-        message: 'The broker has been deployed successfully',
+        message: 'postMessageBroker'.tr,
       );
     } catch (e) {
       TFullScreenLoader.stopLoading();
 
       TLoaders.errorSnackBar(
-        title: 'Oh Snap!',
-        message: 'Something went wrong: $e',
+        title: 'ohSnap'.tr,
+        message: 'ohSnapMessage $e'.tr,
       );
     } finally {
       TFullScreenLoader.stopLoading();

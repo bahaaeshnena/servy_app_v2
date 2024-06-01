@@ -22,10 +22,9 @@ class VeirifyEmailController extends GetxController {
     try {
       await AuthenticationRepository.instance.sendEmailVerification();
       TLoaders.successSnackBar(
-          title: 'Email sent',
-          message: 'Please Check inbox and verify your email.');
+          title: 'emailSent'.tr, message: 'verifyMessage'.tr);
     } catch (e) {
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.errorSnackBar(title: 'ohSnap'.tr, message: e.toString());
     }
   }
 

@@ -62,7 +62,7 @@ class UpdatePhoneNumberController extends GetxController {
       //Show Success MEssage
 
       TLoaders.successSnackBar(
-          title: "Congratulations", message: 'Your Gender has been updated.');
+          title: "congratulations".tr, message: 'phoneUpdate'.tr);
 
       //Move to previous screen
       Get.off(() => const ProfileScreen());

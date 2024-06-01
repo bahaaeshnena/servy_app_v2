@@ -38,8 +38,7 @@ class ForgetPasswordController extends GetxController {
 
       //Remove Loader
       TLoaders.successSnackBar(
-          title: 'Email Sent',
-          message: 'Email Link Sent to Reset your Password'.tr);
+          title: 'emailSent'.tr, message: 'emailSentMessage'.tr);
 
       //Redirect
       Get.to(() => ResetPasswordScreen(
@@ -47,7 +46,7 @@ class ForgetPasswordController extends GetxController {
           ));
     } catch (e) {
       TFullScreenLoader.stopLoading();
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.errorSnackBar(title: 'ohSnap'.tr, message: e.toString());
     }
   }
 
@@ -68,11 +67,10 @@ class ForgetPasswordController extends GetxController {
 
       //Remove Loader
       TLoaders.successSnackBar(
-          title: 'Email Sent',
-          message: 'Email Link Sent to Reset your Password'.tr);
+          title: 'emailSent'.tr, message: 'emailSentMessage'.tr);
     } catch (e) {
       TFullScreenLoader.stopLoading();
-      TLoaders.errorSnackBar(title: 'Oh Snap!', message: e.toString());
+      TLoaders.errorSnackBar(title: 'ohSnap'.tr, message: e.toString());
     }
   }
 }

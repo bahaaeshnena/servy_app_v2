@@ -5,6 +5,7 @@ import 'package:servy_app/src/features/servy/screens/home/categories/audio_editi
 import 'package:servy_app/src/features/servy/screens/home/categories/design.dart';
 import 'package:servy_app/src/features/servy/screens/home/categories/digital_markiting.dart';
 import 'package:servy_app/src/features/servy/screens/home/categories/engineering_and_arthitecture.dart';
+import 'package:servy_app/src/features/servy/screens/home/categories/other.dart';
 import 'package:servy_app/src/features/servy/screens/home/categories/programming.dart';
 import 'package:servy_app/src/features/servy/screens/home/categories/translation.dart';
 import 'package:servy_app/src/features/servy/screens/home/categories/video_editing.dart';
@@ -63,6 +64,11 @@ class THomeCategories extends StatelessWidget {
             title: 'engineeringArchitecture'.tr,
             onTap: () =>
                 Get.to(() => const CategoryEngineeringAndArchetecture()),
+          ),
+          TVerticalImageText(
+            image: TImages.other,
+            title: 'other'.tr,
+            onTap: () => Get.to(() => const CategoryOther()),
           ),
         ],
       ),

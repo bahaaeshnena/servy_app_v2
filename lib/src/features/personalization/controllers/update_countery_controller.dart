@@ -62,7 +62,7 @@ class UpdateCountryController extends GetxController {
       //Show Success MEssage
 
       TLoaders.successSnackBar(
-          title: "Congratulations", message: 'Your Country has been updated.');
+          title: "congratulations".tr, message: 'countryUpdate'.tr);
 
       //Move to previous screen
       Get.off(() => const ProfileScreen());

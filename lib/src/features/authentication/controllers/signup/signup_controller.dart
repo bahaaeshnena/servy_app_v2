@@ -40,9 +40,8 @@ class SignUpController extends GetxController {
 
       if (!privacyPolicy.value) {
         TLoaders.warningSnackBar(
-          title: "Accept Privacy Policy",
-          message:
-              'In oeder to create, you must have to read and accept the Privacy Policy & Terms of Use',
+          title: "acceptPrivacyPolicy".tr,
+          message: 'acceptPrivacyPolicyMessage',
         );
         return;
       }
@@ -76,8 +75,8 @@ class SignUpController extends GetxController {
 
       //!show success Message
       TLoaders.successSnackBar(
-        title: "Congratulations",
-        message: 'Your account has been created! Verify email to continue.',
+        title: "congratulations".tr,
+        message: 'accountHasCreated'.tr,
       );
 
       //!move Success Email Verify Screen
@@ -87,7 +86,7 @@ class SignUpController extends GetxController {
           ));
     } catch (e) {
       TLoaders.errorSnackBar(
-        title: 'Oh Snap!',
+        title: 'ohSnap'.tr,
         message: e.toString(),
       );
     } finally {

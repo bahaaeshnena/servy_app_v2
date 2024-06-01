@@ -36,6 +36,7 @@ class TImages {
       'assets/icons/categoty/language-exchange.png';
   static const String engineeringAndArchitecture =
       'assets/icons/categoty/blueprint.png';
+  static const String other = 'assets/icons/categoty/others.png';
 //--Banner Images
   static const String banner1 = 'assets/images/banners/banner-1.jpg';
   static const String banner2 = 'assets/images/banners/banner-2.jpg';

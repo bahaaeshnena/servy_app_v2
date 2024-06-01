@@ -49,6 +49,7 @@ class MyLocal implements Translations {
           'writing': TTextAr.writing,
           'translation': TTextAr.translation,
           'engineeringArchitecture': TTextAr.engineeringArchitecture,
+          'other': TTextAr.other,
 
           //?Navigation menu
           'home': TTextAr.home,
@@ -292,6 +293,65 @@ class MyLocal implements Translations {
           'managementOfBrokersError': TTextAr.managementOfBrokersError,
           'managementOfBrokersSubTitle': TTextAr.managementOfBrokersSubTitle,
           'managementOfBrokersDoneChat': TTextAr.managementOfBrokersDoneChat,
+
+          //? Chat Page
+          'chatPage': TTextAr.chatPage,
+          'enterPersonEmail': TTextAr.enterPersonEmail,
+          'createChat': TTextAr.createChat,
+          'personEmail': TTextAr.personEmail,
+
+          //? Messages
+          //!User controller
+          'success': TTextAr.success,
+          'error': TTextAr.error,
+          'successDeleteUser': TTextAr.successDeleteUser,
+          'errorDeleteUser': TTextAr.errorDeleteUser,
+          'congratulations': TTextAr.congratulations,
+          'congratulationsMessage': TTextAr.congratulationsMessage,
+          'ohSnap': TTextAr.ohSnap,
+          'ohSnapMessage': TTextAr.ohSnapMessage,
+          'dataNotSaved': TTextAr.dataNotSaved,
+          'dataNotSavedMessage': TTextAr.dataNotSavedMessage,
+          //! Service controller
+          'successRating': TTextAr.successRating,
+          'errorRating': TTextAr.errorRating,
+          'failedRating': TTextAr.failedRating,
+          'info': TTextAr.info,
+          'successUpdate': TTextAr.successUpdate,
+          'infoUpdate': TTextAr.infoUpdate,
+          'errorUpdate': TTextAr.errorUpdate,
+          'succesuccessDeletedss': TTextAr.successDeleted,
+          'errorDeleted': TTextAr.errorDeleted,
+          'showDeploy': TTextAr.showDeploy,
+          'errorImage': TTextAr.errorImage,
+          'validationError': TTextAr.validationError,
+          'validationErrorMessage': TTextAr.validationErrorMessage,
+          'postedService': TTextAr.postedService,
+          //! chat controller
+          'nouserfoundwiththisemail': TTextAr.nouserfoundwiththisemail,
+          'createChatMessage': TTextAr.createChatMessage,
+          //! comments controller
+          'successComments': TTextAr.successComments,
+          'errorComments': TTextAr.errorComments,
+          //! brokers controller
+          'successUpdateBroker': TTextAr.successUpdateBroker,
+          'errorUpdateBroker': TTextAr.errorUpdateBroker,
+          'postMessageBroker': TTextAr.postMessageBroker,
+          //! SignUP controller
+          'acceptPrivacyPolicy': TTextAr.acceptPrivacyPolicy,
+          'acceptPrivacyPolicyMessage': TTextAr.acceptPrivacyPolicyMessage,
+          'accountHasCreated': TTextAr.accountHasCreated,
+          //! forget password controller
+          'emailSent': TTextAr.emailSent,
+          'emailSentMessage': TTextAr.emailSentMessage,
+          //! verify email controller
+          'verifyMessage': TTextAr.verifyMessage,
+          //! update all controller
+          'nameUpdate': TTextAr.nameUpdate,
+          'phoneUpdate': TTextAr.phoneUpdate,
+          'skillsUpdate': TTextAr.skillsUpdate,
+          'countryUpdate': TTextAr.countryUpdate,
+          'decUpdate': TTextAr.decUpdate,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -339,6 +399,7 @@ class MyLocal implements Translations {
           'writing': TText.writing,
           'translation': TText.translation,
           'engineeringArchitecture': TText.engineeringArchitecture,
+          'other': TText.other,
 
           //?Navigation menu
           'home': TText.home,
@@ -583,6 +644,65 @@ class MyLocal implements Translations {
           'managementOfBrokersError': TText.managementOfBrokersError,
           'managementOfBrokersSubTitle': TText.managementOfBrokersSubTitle,
           'managementOfBrokersDoneChat': TText.managementOfBrokersDoneChat,
+
+          //? Chat Page
+          'chatPage': TText.chatPage,
+          'enterPersonEmail': TText.enterPersonEmail,
+          'createChat': TText.createChat,
+          'personEmail': TText.personEmail,
+
+          //? Messages
+          //!User controller
+          'success': TText.success,
+          'error': TText.error,
+          'successDeleteUser': TText.successDeleteUser,
+          'errorDeleteUser': TText.errorDeleteUser,
+          'congratulations': TText.congratulations,
+          'congratulationsMessage': TText.congratulationsMessage,
+          'ohSnap': TText.ohSnap,
+          'ohSnapMessage': TText.ohSnapMessage,
+          'dataNotSaved': TText.dataNotSaved,
+          'dataNotSavedMessage': TText.dataNotSavedMessage,
+          //! Service controller
+          'successRating': TText.successRating,
+          'errorRating': TText.errorRating,
+          'failedRating': TText.failedRating,
+          'info': TText.info,
+          'successUpdate': TText.successUpdate,
+          'infoUpdate': TText.infoUpdate,
+          'errorUpdate': TText.errorUpdate,
+          'succesuccessDeletedss': TText.successDeleted,
+          'errorDeleted': TText.errorDeleted,
+          'showDeploy': TText.showDeploy,
+          'errorImage': TText.errorImage,
+          'validationError': TText.validationError,
+          'validationErrorMessage': TText.validationErrorMessage,
+          'postedService': TText.postedService,
+          //! chat controller
+          'nouserfoundwiththisemail': TText.nouserfoundwiththisemail,
+          'createChatMessage': TText.createChatMessage,
+          //! comments controller
+          'successComments': TText.successComments,
+          'errorComments': TText.errorComments,
+          //! brokers controller
+          'successUpdateBroker': TText.successUpdateBroker,
+          'errorUpdateBroker': TText.errorUpdateBroker,
+          'postMessageBroker': TText.postMessageBroker,
+          //! SignUP controller
+          'acceptPrivacyPolicy': TText.acceptPrivacyPolicy,
+          'acceptPrivacyPolicyMessage': TText.acceptPrivacyPolicyMessage,
+          'accountHasCreated': TText.accountHasCreated,
+          //! forget password controller
+          'emailSent': TText.emailSent,
+          'emailSentMessage': TText.emailSentMessage,
+          //! verify email controller
+          'verifyMessage': TText.verifyMessage,
+          //! update all controller
+          'nameUpdate': TText.nameUpdate,
+          'phoneUpdate': TText.phoneUpdate,
+          'skillsUpdate': TText.skillsUpdate,
+          'countryUpdate': TText.countryUpdate,
+          'decUpdate': TText.decUpdate,
         },
       };
 }

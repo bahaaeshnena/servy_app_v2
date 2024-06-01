@@ -82,6 +82,7 @@ class TText {
   static const String writing = 'writing';
   static const String translation = 'translation';
   static const String engineeringArchitecture = 'engineering & Architecture';
+  static const String other = 'others';
 
 //Navigation menu
   static const String home = 'Home';
@@ -376,4 +377,90 @@ class TText {
       'Drag to edit or delete the broker';
   static const String managementOfBrokersDoneChat =
       'A chat room has been created between you and the broker on the chat page';
+
+  // Chat Page
+  static const String chatPage = 'Chat Page';
+  static const String enterPersonEmail = 'Enter Person email';
+  static const String createChat = 'Create Chat';
+  static const String personEmail = 'Person email';
+
+  //!------------------------- Masseges---------------------------------
+
+  //? User Controller
+  static const String success = 'Success';
+  static const String error = 'Error';
+  static const String successDeleteUser = 'User deleted successfully';
+  static const String errorDeleteUser = 'Error deleting user:';
+  static const String congratulations = 'Congratulations';
+  static const String congratulationsMessage =
+      'Your Profile Image has been updated!';
+  static const String ohSnap = 'Oh Snap!';
+  static const String ohSnapMessage = 'Something went wrong:';
+  static const String dataNotSaved = 'Data not Saved';
+  static const String dataNotSavedMessage =
+      'Something went wrong while saving your information. You can re-save your data in your Profile.';
+
+  //? Service controller
+  static const String successRating = 'Rating updated successfully';
+  static const String errorRating = 'Rating must be between 1 and 5';
+  static const String failedRating = 'Failed to update rating:';
+
+  static const String info = 'Info';
+  static const String successUpdate = 'Service updated successfully';
+  static const String infoUpdate =
+      'Modifications will be reviewed by the admin';
+  static const String errorUpdate = 'Failed to update service:';
+
+  static const String successDeleted = 'Service deleted successfully';
+  static const String errorDeleted = 'Failed to delete service:';
+
+  static const String showDeploy = 'The service has been deployed successfully';
+
+  static const String errorImage = 'Please select an image before submitting.';
+
+  static const String validationError = 'Validation Error';
+  static const String validationErrorMessage =
+      'The discount price must be less than the original price';
+
+  static const String postedService =
+      'The service you posted is under review by admin';
+
+  //? chat controller
+  static const String nouserfoundwiththisemail =
+      'No user found with this email.';
+  static const String createChatMessage = 'A chat has been created';
+
+  //? comments controller
+  static const String successComments =
+      'Rating and comment updated successfully';
+  static const String errorComments = 'Failed to update rating and comment:';
+
+  //? broker controller
+  static const String successUpdateBroker = 'Broker updated successfully';
+  static const String errorUpdateBroker = 'Failed to update broker:';
+  static const String postMessageBroker =
+      'The broker has been deployed successfully';
+
+  //? SignUP controller
+  static const String acceptPrivacyPolicy = 'Accept Privacy Policy';
+  static const String acceptPrivacyPolicyMessage =
+      'In order to create, you must have to read and accept the Privacy Policy & Terms of Use';
+  static const String accountHasCreated =
+      'Your account has been created! Verify email to continue.';
+
+  //? forget password controller
+  static const String emailSent = 'Email Sent';
+  static const String emailSentMessage =
+      'Email Link Sent to Reset your Password';
+
+  //? verify email controller
+  static const String verifyMessage =
+      'Please Check inbox and verify your email.';
+
+  //? update all controller
+  static const String nameUpdate = 'Your Name has been updated.';
+  static const String phoneUpdate = 'Your Phone has been updated.';
+  static const String skillsUpdate = 'Your Skills has been updated.';
+  static const String countryUpdate = 'Your Country has been updated.';
+  static const String decUpdate = 'Your description has been updated.';
 }

@@ -62,7 +62,7 @@ class UpdateSkillsController extends GetxController {
       //Show Success MEssage
 
       TLoaders.successSnackBar(
-          title: "Congratulations", message: 'Your Gender has been updated.');
+          title: "congratulations".tr, message: 'skillsUpdate'.tr);
 
       //Move to previous screen
       Get.off(() => const ProfileScreen());

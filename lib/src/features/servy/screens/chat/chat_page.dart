@@ -22,8 +22,8 @@ class _ChatPageState extends State<ChatPage> {
   Widget build(BuildContext context) {
     TextEditingController controller = TextEditingController();
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('Chat Page'),
+      appBar: TAppBar(
+        title: Text('chatPage'.tr),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -35,8 +35,8 @@ class _ChatPageState extends State<ChatPage> {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      const Row(
-                        children: [Text('Enter Person Name')],
+                      Row(
+                        children: [Text('enterPersonName'.tr)],
                       ),
                       const SizedBox(height: TSizes.inputFieldRadius),
                       CustomField(
@@ -58,7 +58,7 @@ class _ChatPageState extends State<ChatPage> {
                                 });
                               }
                             },
-                            child: const Text('Create Chat')),
+                            child: Text('createChat'.tr)),
                       )
                     ],
                   ),
