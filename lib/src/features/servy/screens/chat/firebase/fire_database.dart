@@ -29,10 +29,7 @@ class FireData {
           .collection('rooms')
           .where('members', isEqualTo: members)
           .get();
-      TLoaders.successSnackBar(
-          title: 'Done',
-          message:
-              'A chat room has been created between you and the broker on the chat page');
+
       if (roomExist.docs.isEmpty) {
         ChatRoomModel chatRoom = ChatRoomModel(
           id: members.join('_'),

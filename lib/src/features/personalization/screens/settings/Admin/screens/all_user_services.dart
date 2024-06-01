@@ -18,8 +18,8 @@ class AllUserServices extends StatelessWidget {
     ServiceController controller = Get.put(ServiceController());
 
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('All User Services'),
+      appBar: TAppBar(
+        title: Text('allUserServices'.tr),
         showBackArrow: true,
       ),
       body: StreamBuilder<QuerySnapshot>(

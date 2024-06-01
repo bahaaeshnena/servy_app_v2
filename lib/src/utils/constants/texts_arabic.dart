@@ -324,4 +324,43 @@ class TTextAr {
   static const String fullName = 'الاسم الكامل';
   static const String mmyy = 'MM/YY';
   static const String cvv = 'CVV';
+
+  // Admin option
+  static const String adminOptionTitle =
+      'في هذه الصفحة يمكنك إدارة وقبول ورفض خدمات المستخدم وإدارة الوسطاء وحذف مستخدمي التطبيق';
+  static const String servicesDepartment = 'قسم الخدمات';
+  static const String servicesDepartmentTitle = 'قسم إدارة خدمات التطبيق';
+  static const String brokersDepartment = 'قسم الوسطاء';
+  static const String brokersDepartmentTitle = 'قسم إدارة الوسطاء';
+  static const String usersDepartment = 'قسم المستخدمين';
+  static const String noUserFound = 'لم يتم العثور على المستخدم.';
+  static const String usersDepartmentTitle = 'قسم إدارة مستخدمي التطبيق';
+
+  // Services Department
+  static const String pendingServices = 'الخدمات المعلقة';
+  static const String pendingServicesTitle =
+      'قائمة بجميع الخدمات التي حالتها معلقة';
+  static const String allUserServices = 'جميع خدمات المستخدمين';
+  static const String allUserServicesTitle =
+      'قائمة بجميع خدمات المستخدمين في التطبيق';
+
+  // Brokers Department
+  static const String addingBrokers = 'إضافة وسطاء';
+  static const String addingBrokersTitle = 'قائمة إضافة وسطاء';
+  static const String managementOfBrokers = 'إدارة الوسطاء';
+  static const String managementOfBrokersTitle = 'قائمة إدارة وسطاء التطبيق';
+
+  // adding broker
+  static const String addingBrokersSubTitle = 'أدخل معلومات الوسيط';
+  static const String age = 'عمر';
+  static const String function = 'وظيفة';
+  static const String addBrokerImage = 'إضافة صورة الوسيط';
+
+  // management Of Brokers
+  static const String managementOfBrokersError =
+      'لا يوجد وسطاء حاليين في التطبيق';
+  static const String managementOfBrokersSubTitle =
+      'اسحب لتحرير الوسيط أو حذفه';
+  static const String managementOfBrokersDoneChat =
+      'تم إنشاء غرفة دردشة بينك وبين الوسيط على صفحة الدردشة';
 }

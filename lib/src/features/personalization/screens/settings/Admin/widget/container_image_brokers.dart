@@ -40,7 +40,7 @@ class ContainerImageBroker extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        'Add Broker Image',
+                        'addBrokerImage'.tr,
                         style: Theme.of(context).textTheme.titleMedium,
                       ),
                     ],

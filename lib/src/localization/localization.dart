@@ -259,6 +259,39 @@ class MyLocal implements Translations {
           'fullName': TTextAr.fullName,
           'mmyy': TTextAr.mmyy,
           'cvv': TTextAr.cvv,
+
+          //? Admin option
+          'adminOptionTitle': TTextAr.adminOptionTitle,
+          'servicesDepartment': TTextAr.servicesDepartment,
+          'servicesDepartmentTitle': TTextAr.servicesDepartmentTitle,
+          'brokersDepartment': TTextAr.brokersDepartment,
+          'brokersDepartmentTitle': TTextAr.brokersDepartmentTitle,
+          'usersDepartment': TTextAr.usersDepartment,
+          'noUserFound': TTextAr.noUserFound,
+          'usersDepartmentTitle': TTextAr.usersDepartmentTitle,
+
+          //? Services Department
+          'pendingServices': TTextAr.pendingServices,
+          'pendingServicesTitle': TTextAr.pendingServicesTitle,
+          'allUserServices': TTextAr.allUserServices,
+          'allUserServicesTitle': TTextAr.allUserServicesTitle,
+
+          //? Brokers Department
+          'addingBrokers': TTextAr.addingBrokers,
+          'addingBrokersTitle': TTextAr.addingBrokersTitle,
+          'managementOfBrokers': TTextAr.managementOfBrokers,
+          'managementOfBrokersTitle': TTextAr.managementOfBrokersTitle,
+
+          //? adding broker
+          'addingBrokersSubTitle': TTextAr.addingBrokersSubTitle,
+          'age': TTextAr.age,
+          'function': TTextAr.function,
+          'addBrokerImage': TTextAr.addBrokerImage,
+
+          //? management Of Brokers
+          'managementOfBrokersError': TTextAr.managementOfBrokersError,
+          'managementOfBrokersSubTitle': TTextAr.managementOfBrokersSubTitle,
+          'managementOfBrokersDoneChat': TTextAr.managementOfBrokersDoneChat,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -517,6 +550,39 @@ class MyLocal implements Translations {
           'fullName': TText.fullName,
           'mmyy': TText.mmyy,
           'cvv': TText.cvv,
+
+          //? Admin option
+          'adminOptionTitle': TText.adminOptionTitle,
+          'servicesDepartment': TText.servicesDepartment,
+          'servicesDepartmentTitle': TText.servicesDepartmentTitle,
+          'brokersDepartment': TText.brokersDepartment,
+          'brokersDepartmentTitle': TText.brokersDepartmentTitle,
+          'usersDepartment': TText.usersDepartment,
+          'noUserFound': TText.noUserFound,
+          'usersDepartmentTitle': TText.usersDepartmentTitle,
+
+          //? Services Department
+          'pendingServices': TText.pendingServices,
+          'pendingServicesTitle': TText.pendingServicesTitle,
+          'allUserServices': TText.allUserServices,
+          'allUserServicesTitle': TText.allUserServicesTitle,
+
+          //? Brokers Department
+          'addingBrokers': TText.addingBrokers,
+          'addingBrokersTitle': TText.addingBrokersTitle,
+          'managementOfBrokers': TText.managementOfBrokers,
+          'managementOfBrokersTitle': TText.managementOfBrokersTitle,
+
+          //? adding broker
+          'addingBrokersSubTitle': TText.addingBrokersSubTitle,
+          'age': TText.age,
+          'function': TText.function,
+          'addBrokerImage': TText.addBrokerImage,
+
+          //? management Of Brokers
+          'managementOfBrokersError': TText.managementOfBrokersError,
+          'managementOfBrokersSubTitle': TText.managementOfBrokersSubTitle,
+          'managementOfBrokersDoneChat': TText.managementOfBrokersDoneChat,
         },
       };
 }

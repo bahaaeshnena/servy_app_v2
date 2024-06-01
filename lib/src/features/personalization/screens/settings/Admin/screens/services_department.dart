@@ -14,8 +14,8 @@ class ServicesDepartment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('Services Department'),
+      appBar: TAppBar(
+        title: Text('servicesDepartment'.tr),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
@@ -23,10 +23,6 @@ class ServicesDepartment extends StatelessWidget {
           padding: const EdgeInsets.all(TSizes.defaultSpace),
           child: Column(
             children: [
-              // ContainerServicesDepartment(
-              //   title: 'Pending services',
-              //   onTap: () {},
-              // ),
               LottieBuilder.asset(
                 TImages.servicesDepartment,
                 height: 300,
@@ -34,14 +30,14 @@ class ServicesDepartment extends StatelessWidget {
               ),
               TSettingsMenuTile(
                 icon: Icons.pending_outlined,
-                title: 'Pending services',
-                subTitle: "List of all services whose status is pending",
+                title: 'pendingServices'.tr,
+                subTitle: "pendingServicesTitle".tr,
                 onTap: () => Get.to(() => const PendingServices()),
               ),
               TSettingsMenuTile(
                 icon: Icons.storage_rounded,
-                title: 'All user services',
-                subTitle: "List of all user services in the application",
+                title: 'allUserServices'.tr,
+                subTitle: "allUserServicesTitle".tr,
                 onTap: () => Get.to(() => const AllUserServices()),
               ),
             ],

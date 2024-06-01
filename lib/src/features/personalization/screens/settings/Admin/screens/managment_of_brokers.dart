@@ -21,17 +21,17 @@ class ManagmentOfBrokers extends StatelessWidget {
     controller.fetchAllBrokers();
 
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('Managment of brokers'),
+      appBar: TAppBar(
+        title: Text('managementOfBrokers'.tr),
         showBackArrow: true,
       ),
       body: Obx(
         () {
           if (controller.broker.isEmpty) {
-            return const Center(
+            return Center(
               child: Column(
                 children: [
-                  Text('There are no current brokers in the application'),
+                  Text('managementOfBrokersError'.tr),
                 ],
               ),
             );
@@ -48,7 +48,7 @@ class ManagmentOfBrokers extends StatelessWidget {
                         children: [
                           Expanded(
                             child: Text(
-                              'Drag to edit or delete the broker',
+                              'managementOfBrokersSubTitle'.tr,
                               style: Theme.of(context).textTheme.headlineSmall,
                             ),
                           ),
@@ -125,9 +125,8 @@ class ManagmentOfBrokers extends StatelessWidget {
                           onPressedEmail: () async {
                             await FireData().createRoom(broker.email);
                             TLoaders.successSnackBar(
-                                title: 'Done',
-                                message:
-                                    'A chat room has been created between you and the broker on the chat page');
+                                title: 'done'.tr,
+                                message: 'managementOfBrokersDoneChat'.tr);
                           },
                           color: TColors.primaryColor,
                         ),

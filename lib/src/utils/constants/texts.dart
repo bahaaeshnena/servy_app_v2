@@ -334,4 +334,46 @@ class TText {
   static const String fullName = 'Full Name';
   static const String mmyy = 'MM/YY';
   static const String cvv = 'CVV';
+
+  // Admin option
+  static const String adminOptionTitle =
+      'On this page you can manage, accept and reject user services and manage brokers and delete applications users ';
+  static const String servicesDepartment = 'Services Department';
+  static const String servicesDepartmentTitle =
+      'Application Services Management Department';
+  static const String brokersDepartment = 'Brokers Department';
+  static const String brokersDepartmentTitle = 'Brokers Management Department';
+  static const String usersDepartment = 'Users Department';
+  static const String noUserFound = 'No users found.';
+  static const String usersDepartmentTitle =
+      'Application users management section';
+
+  // Services Department
+  static const String pendingServices = 'Pending services';
+  static const String pendingServicesTitle =
+      'List of all services whose status is pending';
+  static const String allUserServices = 'All users services';
+  static const String allUserServicesTitle =
+      'List of all users services in the application';
+
+  // Brokers Department
+  static const String addingBrokers = 'Adding brokers';
+  static const String addingBrokersTitle = 'List Add brokers ';
+  static const String managementOfBrokers = 'Management of brokers';
+  static const String managementOfBrokersTitle =
+      'List of managing application brokers';
+
+  // adding broker
+  static const String addingBrokersSubTitle = 'Enter Broker information';
+  static const String age = 'Age';
+  static const String function = 'Function';
+  static const String addBrokerImage = 'Add Broker Image';
+
+  // management Of Brokers
+  static const String managementOfBrokersError =
+      'There are no current brokers in the application';
+  static const String managementOfBrokersSubTitle =
+      'Drag to edit or delete the broker';
+  static const String managementOfBrokersDoneChat =
+      'A chat room has been created between you and the broker on the chat page';
 }

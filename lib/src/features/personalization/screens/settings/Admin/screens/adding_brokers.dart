@@ -15,8 +15,8 @@ class AddingBrokers extends StatelessWidget {
   Widget build(BuildContext context) {
     BrokersController controller = Get.put(BrokersController());
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('Adding brokers'),
+      appBar: TAppBar(
+        title: Text('addingBrokers'.tr),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
@@ -28,10 +28,10 @@ class AddingBrokers extends StatelessWidget {
               children: [
                 const ContainerImageBroker(),
                 const SizedBox(height: TSizes.spaceBtwSections),
-                const Row(
+                Row(
                   children: [
-                    Text('Enter Broker information'),
-                    SizedBox(height: 8),
+                    Text('addingBrokersSubTitle'.tr),
+                    const SizedBox(height: 8),
                   ],
                 ),
                 const SizedBox(height: 8),
@@ -39,11 +39,11 @@ class AddingBrokers extends StatelessWidget {
                   minLines: 1,
                   maxLines: 20,
                   validator: (value) =>
-                      TValidator.volidateEmptyText('User name', value),
+                      TValidator.volidateEmptyText('userName'.tr, value),
                   controller: controller.username,
-                  decoration: const InputDecoration(
-                    labelText: 'User name',
-                    prefixIcon: Icon(Iconsax.text_block),
+                  decoration: InputDecoration(
+                    labelText: 'userName'.tr,
+                    prefixIcon: const Icon(Iconsax.text_block),
                     prefixIconColor: TColors.primaryColor,
                   ),
                 ),
@@ -51,22 +51,22 @@ class AddingBrokers extends StatelessWidget {
                 TextFormField(
                   keyboardType: TextInputType.number,
                   validator: (value) =>
-                      TValidator.volidateEmptyText('Age', value),
+                      TValidator.volidateEmptyText('age'.tr, value),
                   controller: controller.age,
-                  decoration: const InputDecoration(
-                    labelText: 'Age',
-                    prefixIcon: Icon(Iconsax.text_block),
+                  decoration: InputDecoration(
+                    labelText: 'age'.tr,
+                    prefixIcon: const Icon(Iconsax.text_block),
                     prefixIconColor: TColors.primaryColor,
                   ),
                 ),
                 const SizedBox(height: TSizes.spaceBtwInputField),
                 TextFormField(
                   validator: (value) =>
-                      TValidator.volidateEmptyText('Country', value),
+                      TValidator.volidateEmptyText('country'.tr, value),
                   controller: controller.country,
-                  decoration: const InputDecoration(
-                    labelText: 'Country',
-                    prefixIcon: Icon(Iconsax.text_block),
+                  decoration: InputDecoration(
+                    labelText: 'country'.tr,
+                    prefixIcon: const Icon(Iconsax.text_block),
                     prefixIconColor: TColors.primaryColor,
                   ),
                 ),
@@ -75,11 +75,11 @@ class AddingBrokers extends StatelessWidget {
                   minLines: 1,
                   maxLines: 20,
                   validator: (value) =>
-                      TValidator.volidateEmptyText('Function', value),
+                      TValidator.volidateEmptyText('function'.tr, value),
                   controller: controller.function,
-                  decoration: const InputDecoration(
-                    labelText: 'Function',
-                    prefixIcon: Icon(Iconsax.text_block),
+                  decoration: InputDecoration(
+                    labelText: 'function'.tr,
+                    prefixIcon: const Icon(Iconsax.text_block),
                     prefixIconColor: TColors.primaryColor,
                   ),
                 ),
@@ -88,11 +88,11 @@ class AddingBrokers extends StatelessWidget {
                   minLines: 1,
                   maxLines: 20,
                   validator: (value) =>
-                      TValidator.volidateEmptyText('Description', value),
+                      TValidator.volidateEmptyText('description'.tr, value),
                   controller: controller.desc,
-                  decoration: const InputDecoration(
-                    labelText: 'Description',
-                    prefixIcon: Icon(Iconsax.text_block),
+                  decoration: InputDecoration(
+                    labelText: 'description'.tr,
+                    prefixIcon: const Icon(Iconsax.text_block),
                     prefixIconColor: TColors.primaryColor,
                   ),
                 ),
@@ -100,9 +100,9 @@ class AddingBrokers extends StatelessWidget {
                 TextFormField(
                   validator: (value) => TValidator.validateEmail(value),
                   controller: controller.email,
-                  decoration: const InputDecoration(
-                    labelText: 'Email',
-                    prefixIcon: Icon(Iconsax.text_block),
+                  decoration: InputDecoration(
+                    labelText: 'email'.tr,
+                    prefixIcon: const Icon(Icons.email_outlined),
                     prefixIconColor: TColors.primaryColor,
                   ),
                 ),
@@ -113,7 +113,7 @@ class AddingBrokers extends StatelessWidget {
                     onPressed: () {
                       controller.addBroker();
                     },
-                    child: const Text('Add broker'),
+                    child: Text('add'.tr),
                   ),
                 ),
               ],

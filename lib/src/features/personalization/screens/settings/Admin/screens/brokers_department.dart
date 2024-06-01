@@ -14,8 +14,8 @@ class BrokersDepartment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('Brokers Department'),
+      appBar: TAppBar(
+        title: Text('brokersDepartment'.tr),
         showBackArrow: true,
       ),
       body: SingleChildScrollView(
@@ -30,14 +30,14 @@ class BrokersDepartment extends StatelessWidget {
               ),
               TSettingsMenuTile(
                 icon: Icons.person_add_alt,
-                title: 'Adding brokers',
-                subTitle: "Add brokers list",
+                title: 'addingBrokers'.tr,
+                subTitle: "addingBrokersTitle".tr,
                 onTap: () => Get.to(() => const AddingBrokers()),
               ),
               TSettingsMenuTile(
                 icon: Icons.manage_accounts_outlined,
-                title: 'Management of brokers',
-                subTitle: "List of managing application brokers",
+                title: 'managementOfBrokers'.tr,
+                subTitle: "managementOfBrokersTitle".tr,
                 onTap: () => Get.to(() => const ManagmentOfBrokers()),
               ),
             ],

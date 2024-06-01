@@ -26,26 +26,26 @@ class AdminOptionsPage extends StatelessWidget {
             children: [
               LottieBuilder.asset(TImages.adminOptions),
               Text(
-                'On this page you can manage, accept and reject user services and manage brokers and delete users applications',
+                'adminOptionTitle'.tr,
                 style: Theme.of(context).textTheme.bodyLarge,
               ),
               const SizedBox(height: 20),
               TSettingsMenuTile(
                 icon: Icons.storage_rounded,
-                title: 'Services Department',
-                subTitle: "Application Services Management Department",
+                title: 'servicesDepartment'.tr,
+                subTitle: "servicesDepartmentTitle".tr,
                 onTap: () => Get.to(() => const ServicesDepartment()),
               ),
               TSettingsMenuTile(
                 icon: Iconsax.personalcard,
-                title: 'Brokers Department',
-                subTitle: "Brokers Management Department",
+                title: 'brokersDepartment'.tr,
+                subTitle: "brokersDepartmentTitle".tr,
                 onTap: () => Get.to(() => const BrokersDepartment()),
               ),
               TSettingsMenuTile(
                 icon: Iconsax.user_search,
-                title: 'Users Department',
-                subTitle: "Application users management section",
+                title: 'usersDepartment'.tr,
+                subTitle: "usersDepartmentTitle".tr,
                 onTap: () => Get.to(() => const UsersDepartment()),
               ),
             ],

@@ -16,9 +16,11 @@ class PendingServices extends StatelessWidget {
     ServiceController controller = Get.put(ServiceController());
 
     return Scaffold(
-      appBar: const TAppBar(
+      appBar: TAppBar(
         showBackArrow: true,
-        title: Text('Pending Services'),
+        title: Text(
+          'pendingServices'.tr,
+        ),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance.collection('Services').snapshots(),

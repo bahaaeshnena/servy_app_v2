@@ -15,8 +15,8 @@ class UsersDepartment extends StatelessWidget {
     final userController = Get.put(UserController());
 
     return Scaffold(
-      appBar: const TAppBar(
-        title: Text('Users Department'),
+      appBar: TAppBar(
+        title: Text('usersDepartment'.tr),
         showBackArrow: true,
       ),
       body: StreamBuilder<List<UserModel>>(
@@ -27,7 +27,7 @@ class UsersDepartment extends StatelessWidget {
           } else if (snapshot.hasError) {
             return Center(child: Text('Error: ${snapshot.error}'));
           } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return const Center(child: Text('No users found.'));
+            return Center(child: Text('noUserFound'.tr));
           } else {
             final users = snapshot.data!;
             return ListView.builder(
