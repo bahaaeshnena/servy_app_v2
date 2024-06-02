@@ -9,6 +9,7 @@ import 'package:servy_app/src/features/servy/screens/chat/model/message_model.da
 import 'package:servy_app/src/features/servy/screens/chat/model/room_model.dart';
 import 'package:servy_app/src/features/servy/screens/chat/screens/chat_room.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/date_time/date_time.dart';
 import 'package:servy_app/src/utils/shimmer/shimmer_effect.dart'; // import TImages
 
 class ChatCard extends StatelessWidget {
@@ -112,7 +113,8 @@ class ChatCard extends StatelessWidget {
                             largeSize: 30,
                             backgroundColor: TColors.primaryColor,
                           )
-                        : const SizedBox.shrink();
+                        : Text(MyDateTime.dateAndTime(item.lastMessageTime!)
+                            .toString());
                   } else {
                     return const SizedBox.shrink();
                   }
@@ -120,9 +122,7 @@ class ChatCard extends StatelessWidget {
               ),
             ));
           } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
+            return const Center();
           }
         });
   }

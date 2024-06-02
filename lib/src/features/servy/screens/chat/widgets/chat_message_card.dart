@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:servy_app/src/features/servy/screens/chat/firebase/fire_database.dart';
 import 'package:servy_app/src/features/servy/screens/chat/model/message_model.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/date_time/date_time.dart';
 import 'package:servy_app/src/utils/photo/photo_view.dart';
 
 class ChatMessageCard extends StatefulWidget {
@@ -104,7 +105,7 @@ class _ChatMessageCardState extends State<ChatMessageCard> {
                             ),
                           const SizedBox(width: 6),
                           Text(
-                            _formatTimestamp(widget.messageItem.createdAt),
+                            MyDateTime.timeDate(widget.messageItem.createdAt!),
                             style: Theme.of(context)
                                 .textTheme
                                 .labelSmall
@@ -123,7 +124,7 @@ class _ChatMessageCardState extends State<ChatMessageCard> {
     );
   }
 
-  String _formatTimestamp(String? timestamp) {
+  String formatTimestamp(String? timestamp) {
     if (timestamp == null || timestamp.isEmpty) {
       return 'Invalid date';
     }

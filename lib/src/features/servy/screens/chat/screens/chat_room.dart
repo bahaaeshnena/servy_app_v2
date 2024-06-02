@@ -13,6 +13,7 @@ import 'package:servy_app/src/features/servy/screens/chat/firebase/fire_database
 import 'package:servy_app/src/features/servy/screens/chat/firebase/fire_storage.dart';
 import 'package:servy_app/src/features/servy/screens/chat/model/message_model.dart';
 import 'package:servy_app/src/features/servy/screens/chat/widgets/chat_message_card.dart';
+import 'package:servy_app/src/utils/date_time/date_time.dart';
 
 class ChatRoom extends StatefulWidget {
   final String roomId;
@@ -36,7 +37,8 @@ class _ChatRoomState extends State<ChatRoom> {
           children: [
             Text(widget.userChat.username),
             Text(
-              widget.userChat.lastActivated!,
+              'Last Seen ${MyDateTime.dateAndTime(widget.userChat.lastActivated!)} at ${MyDateTime.timeDate(widget.userChat.lastActivated!)}',
+              // widget.userChat.lastActivated!,
               style: Theme.of(context).textTheme.labelMedium,
             ),
           ],
@@ -90,11 +92,38 @@ class _ChatRoomState extends State<ChatRoom> {
                               reverse: true,
                               itemCount: messageItems.length,
                               itemBuilder: (context, index) {
+                                String newDate = '';
+                                bool isSameDate = false;
+
+                                if (index == 0) {
+                                  newDate = MyDateTime.dateAndTime(
+                                      messageItems[index].createdAt.toString());
+                                }
+
+                                final DateTime date = MyDateTime.dateFormat(
+                                    messageItems[index].createdAt.toString());
+
+                                // Check if index + 1 is within bounds
+                                if (index + 1 < messageItems.length) {
+                                  final DateTime prDate = MyDateTime.dateFormat(
+                                      messageItems[index + 1]
+                                          .createdAt
+                                          .toString());
+
+                                  isSameDate = date.isAtSameMomentAs(prDate);
+                                }
+
+                                newDate = isSameDate
+                                    ? ""
+                                    : MyDateTime.dateAndTime(messageItems[index]
+                                        .createdAt
+                                        .toString());
+                                // ignore: avoid_print
+                                print(isSameDate);
                                 return GestureDetector(
                                   onTap: () {
                                     setState(() {
-                                      // ignore: prefer_is_empty
-                                      selectedMsg.length > 0
+                                      selectedMsg.isNotEmpty
                                           ? selectedMsg.contains(
                                                   messageItems[index].id)
                                               ? selectedMsg.remove(
@@ -132,12 +161,18 @@ class _ChatRoomState extends State<ChatRoom> {
                                           : null;
                                     });
                                   },
-                                  child: ChatMessageCard(
-                                    messageItem: messageItems[index],
-                                    index: index,
-                                    roomId: widget.roomId,
-                                    selected: selectedMsg
-                                        .contains(messageItems[index].id),
+                                  child: Column(
+                                    children: [
+                                      if (newDate != "")
+                                        Center(child: Text(newDate)),
+                                      ChatMessageCard(
+                                        messageItem: messageItems[index],
+                                        index: index,
+                                        roomId: widget.roomId,
+                                        selected: selectedMsg
+                                            .contains(messageItems[index].id),
+                                      ),
+                                    ],
                                   ),
                                 );
                               },

@@ -34,8 +34,6 @@ class UserController extends GetxController {
   final userRepository = Get.put(UserRepository());
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
   final _db = FirebaseFirestore.instance;
-  static FirebaseAuth auth = FirebaseAuth.instance;
-  static User userOnline = auth.currentUser!;
 
   @override
   void onInit() {
