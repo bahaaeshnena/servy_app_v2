@@ -6,6 +6,7 @@ import 'package:intl/intl.dart';
 import 'package:servy_app/src/features/servy/screens/chat/firebase/fire_database.dart';
 import 'package:servy_app/src/features/servy/screens/chat/model/message_model.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
+import 'package:servy_app/src/utils/photo/photo_view.dart';
 
 class ChatMessageCard extends StatefulWidget {
   final int index;
@@ -67,11 +68,23 @@ class _ChatMessageCardState extends State<ChatMessageCard> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       widget.messageItem.type == 'image'
-                          ? CachedNetworkImage(
-                              imageUrl: widget.messageItem.msg!,
-                              placeholder: (context, url) {
-                                return const CircularProgressIndicator();
+                          ? GestureDetector(
+                              onTap: () {
+                                Navigator.push(context,
+                                    MaterialPageRoute(builder: (context) {
+                                  return PhotoViewScreen(
+                                      image: widget.messageItem.msg!);
+                                }));
                               },
+                              // ignore: avoid_unnecessary_containers
+                              child: Container(
+                                child: CachedNetworkImage(
+                                  imageUrl: widget.messageItem.msg!,
+                                  placeholder: (context, url) {
+                                    return const CircularProgressIndicator();
+                                  },
+                                ),
+                              ),
                             )
                           : Text(
                               widget.messageItem.msg!,

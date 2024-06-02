@@ -1,5 +1,8 @@
+// ignore_for_file: avoid_print
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -31,14 +34,38 @@ class UserController extends GetxController {
   final userRepository = Get.put(UserRepository());
   GlobalKey<FormState> reAuthFormKey = GlobalKey<FormState>();
   final _db = FirebaseFirestore.instance;
+  static FirebaseAuth auth = FirebaseAuth.instance;
+  static User userOnline = auth.currentUser!;
 
   @override
   void onInit() {
     super.onInit();
     fetchUserRecord();
     subscribeToUserDocument();
+    updatePushToken();
   }
-//!---------------------delete  Users with admin information----------------------------
+
+//!---------------------Get token----------------------------
+
+  Future<void> updatePushToken() async {
+    try {
+      final token = await FirebaseMessaging.instance.getToken();
+      if (token != null) {
+        print('Push Token: $token'); // Debugging line
+        await userRepository.updateSingleField({'pushToken': token});
+        user.value.pushToken = token;
+        user.refresh();
+      } else {
+        // print('Failed to get push token'); // Debugging line
+      }
+    } catch (e) {
+      // print('Error updating push token: $e'); // Debugging line
+      TLoaders.errorSnackBar(
+          title: 'Error', message: 'Failed to update push token: $e');
+    }
+  }
+
+//!---------------------delete  Users  information----------------------------
 
   Future<void> deleteUser(String userId) async {
     try {
@@ -52,7 +79,7 @@ class UserController extends GetxController {
     }
   }
 
-//!--------------------------------------------
+//!-----------------------delete  Users with admin information---------------------
   Future<void> deleteUserWithAdmin(String userId) async {
     try {
       await userRepository.deleteUserWithAdmin(userId);

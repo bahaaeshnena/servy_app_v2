@@ -109,14 +109,19 @@ class UserRepository extends GetxController {
           .collection("Users")
           .doc(AuthenticationRepository.instance.authUser?.uid)
           .update(json);
+      // print('Field updated successfully'); // Debugging line
     } on FirebaseException catch (e) {
+      // print('FirebaseException: ${e.message}'); // Debugging line
       throw TFirebaseAuthExecption(e.code).message;
     } on FormatException catch (_) {
+      // print('FormatException'); // Debugging line
       throw const TFormatException();
     } on PlatformException catch (e) {
+      // print('PlatformException: ${e.message}'); // Debugging line
       throw TPlatformException(e.code).message;
     } catch (e) {
-      throw 'Something went wrong, PLease try again';
+      // print('Exception: $e'); // Debugging line
+      throw 'Something went wrong, Please try again';
     }
   }
 
