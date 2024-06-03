@@ -352,6 +352,18 @@ class MyLocal implements Translations {
           'skillsUpdate': TTextAr.skillsUpdate,
           'countryUpdate': TTextAr.countryUpdate,
           'decUpdate': TTextAr.decUpdate,
+
+          //? Validation
+          'isRequired': TTextAr.isRequired,
+          'emailIsRequired': TTextAr.emailIsRequired,
+          'invalidEmailAddress': TTextAr.invalidEmailAddress,
+          'passwordIsRequired': TTextAr.passwordIsRequired,
+          'errorPassword': TTextAr.errorPassword,
+          'errorPassword2': TTextAr.errorPassword2,
+          'errorPassword3': TTextAr.errorPassword3,
+          'errorPassword4': TTextAr.errorPassword4,
+          'phoneIsRequired': TTextAr.phoneIsRequired,
+          'errorPhone': TTextAr.errorPhone,
         },
 
         //? ///////////////////////////////////////////////////////////
@@ -703,6 +715,18 @@ class MyLocal implements Translations {
           'skillsUpdate': TText.skillsUpdate,
           'countryUpdate': TText.countryUpdate,
           'decUpdate': TText.decUpdate,
+
+          //? Validation
+          'isRequired': TText.isRequired,
+          'emailIsRequired': TText.emailIsRequired,
+          'invalidEmailAddress': TText.invalidEmailAddress,
+          'passwordIsRequired': TText.passwordIsRequired,
+          'errorPassword': TText.errorPassword,
+          'errorPassword2': TText.errorPassword2,
+          'errorPassword3': TText.errorPassword3,
+          'errorPassword4': TText.errorPassword4,
+          'phoneIsRequired': TText.phoneIsRequired,
+          'errorPhone': TText.errorPhone,
         },
       };
 }

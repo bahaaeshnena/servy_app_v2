@@ -1,54 +1,57 @@
+import 'package:get/get.dart';
+
 class TValidator {
   static String? volidateEmptyText(String? fieldName, String? value) {
     if (value == null || value.isEmpty) {
-      return '$fieldName is required';
+      // ignore: prefer_adjacent_string_concatenation, unnecessary_brace_in_string_interps
+      return '${fieldName}' + ' ' + 'isRequired'.tr;
     }
     return null;
   }
 
   static String? validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Email is requird.';
+      return 'emailIsRequired'.tr;
     }
 
     final emailRegExp = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
 
     if (!emailRegExp.hasMatch(value)) {
-      return 'Invalid email address.';
+      return 'invalidEmailAddress'.tr;
     }
     return null;
   }
 
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Password is requird.';
+      return 'passwordIsRequired'.tr;
     }
 
     if (value.length < 6) {
-      return 'Password must be at least 6 characters long.';
+      return 'errorPassword'.tr;
     }
 
     if (!value.contains(RegExp(r'[A-Z]'))) {
-      return 'Password must contain at least one uppercase letter.';
+      return 'errorPassword2'.tr;
     }
 
     if (!value.contains(RegExp(r'[0-9]'))) {
-      return 'Password must contain at least one number.';
+      return 'errorPassword3'.tr;
     }
 
     if (!value.contains(RegExp(r'[!@#$%^&*(),.?":{}|<>]'))) {
-      return 'Password must contain at least one special character.';
+      return 'errorPassword4'.tr;
     }
     return null;
   }
 
   static String? validatPhoneNumber(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Phone number is requird.';
+      return 'phoneIsRequired'.tr;
     }
     final phoneRegExp = RegExp(r'^\d{10}$');
     if (!phoneRegExp.hasMatch(value)) {
-      return 'Invalid phone number format (10 digits required.)';
+      return 'errorPhone'.tr;
     }
     return null;
   }

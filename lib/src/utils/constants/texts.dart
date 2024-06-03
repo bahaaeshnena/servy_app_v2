@@ -463,4 +463,21 @@ class TText {
   static const String skillsUpdate = 'Your Skills has been updated.';
   static const String countryUpdate = 'Your Country has been updated.';
   static const String decUpdate = 'Your description has been updated.';
+
+  //? Validation
+  static const String isRequired = 'is required';
+  static const String emailIsRequired = 'Email is required.';
+  static const String invalidEmailAddress = 'Invalid email address.';
+  static const String passwordIsRequired = 'Password is required.';
+  static const String errorPassword =
+      'Password must be at least 6 characters long.';
+  static const String errorPassword2 =
+      'Password must contain at least one uppercase letter.';
+  static const String errorPassword3 =
+      'Password must contain at least one number.';
+  static const String errorPassword4 =
+      'Password must contain at least one special character.';
+  static const String phoneIsRequired = 'Phone number is required.';
+  static const String errorPhone =
+      'Invalid phone number format (10 digits required.)';
 }

@@ -15,7 +15,7 @@ class CategoryOther extends StatelessWidget {
       ),
       body: const SingleChildScrollView(
         child: DisplayServiceCategories(
-          filter: 'other',
+          filter: 'others',
         ),
       ),
     );

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:servy_app/src/common/widgets/appbar/appbar.dart';
 import 'package:servy_app/src/features/personalization/screens/settings/Admin/controllers/brokers_controller.dart';
+import 'package:servy_app/src/features/servy/screens/brokers/details_brokers_page.dart';
 import 'package:servy_app/src/features/servy/screens/brokers/widgets/card_brokers.dart';
 import 'package:servy_app/src/features/servy/screens/chat/firebase/fire_database.dart';
 import 'package:servy_app/src/utils/constants/colors.dart';
@@ -37,18 +38,34 @@ class BrokersPage extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Padding(
-                      padding: const EdgeInsets.all(TSizes.defaultSpace),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: Text(
-                              'Drag to edit or delete the broker',
-                              style: Theme.of(context).textTheme.headlineSmall,
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(height: 20),
+                        Text(
+                          'brokersTitle'.tr,
+                          style: Theme.of(context).textTheme.bodyLarge,
+                        ),
+                        const SizedBox(height: 5),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'forMoreDetails'.tr,
+                              style: Theme.of(context).textTheme.bodyMedium,
                             ),
-                          ),
-                        ],
-                      ),
+                            TextButton(
+                              onPressed: () =>
+                                  Get.to(() => const DetailsBrokersPage()),
+                              child: Text(
+                                'clickHere'.tr,
+                                style: const TextStyle(fontSize: 15),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 20),
+                      ],
                     ),
                     for (var broker in controller.broker)
                       CardBrokers(

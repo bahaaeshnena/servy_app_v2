@@ -36,7 +36,7 @@ class _ChatPageState extends State<ChatPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       Row(
-                        children: [Text('enterPersonName'.tr)],
+                        children: [Text('enterPersonEmail'.tr)],
                       ),
                       const SizedBox(height: TSizes.inputFieldRadius),
                       CustomField(

@@ -445,4 +445,21 @@ class TTextAr {
   static const String skillsUpdate = 'تم تحديث مهاراتك.';
   static const String countryUpdate = 'تم تحديث بلدك.';
   static const String decUpdate = 'تم تحديث الوصف الخاص بك.';
+
+  //? Validation
+  static const String isRequired = 'مطلوب';
+  static const String emailIsRequired = 'البريد الالكتروني مطلوب.';
+  static const String invalidEmailAddress = 'عنوان البريد الإلكتروني غير صالح.';
+  static const String passwordIsRequired = 'كلمة المرور مطلوبة.';
+  static const String errorPassword =
+      'الرقم السري يجب الا يقل عن 6 احرف على الاقل.';
+  static const String errorPassword2 =
+      'يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل.';
+  static const String errorPassword3 =
+      'يجب ان تحتوي كلمة المرور على الاقل رقما واحدا.';
+  static const String errorPassword4 =
+      'يجب أن تحتوي كلمة المرور على حرف خاص واحد على الأقل.';
+  static const String phoneIsRequired = 'رقم الهاتف مطلوب.';
+  static const String errorPhone =
+      'تنسيق رقم الهاتف غير صالح (مطلوب 10 أرقام).';
 }
