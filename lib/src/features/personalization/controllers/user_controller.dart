@@ -54,12 +54,12 @@ class UserController extends GetxController {
         user.value.pushToken = token;
         user.refresh();
       } else {
-        // print('Failed to get push token'); // Debugging line
+        print('Failed to get push token'); // Debugging line
       }
     } catch (e) {
-      // print('Error updating push token: $e'); // Debugging line
-      TLoaders.errorSnackBar(
-          title: 'Error', message: 'Failed to update push token: $e');
+      print('Error updating push token: $e'); // Debugging line
+      // TLoaders.errorSnackBar(
+      //     title: 'Error', message: 'Failed to update push token: $e');
     }
   }
 
