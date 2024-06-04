@@ -51,7 +51,7 @@ class DisplayServiceCategories extends StatelessWidget {
                         crossAxisSpacing: 15.0,
                         mainAxisSpacing: 15.0,
                         childAspectRatio: MediaQuery.of(context).size.width /
-                            (MediaQuery.of(context).size.height / 1.1),
+                            (MediaQuery.of(context).size.height / 1),
                       ),
                       itemCount: services.length,
                       itemBuilder: (context, index) {
