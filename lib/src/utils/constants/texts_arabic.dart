@@ -84,7 +84,7 @@ class TTextAr {
   static const String other = 'اخرى';
 
   //Navigation menu
-  static const String home = 'الصفحة الرئيسية';
+  static const String home = ' الرئيسية';
   static const String chat = 'محادثة';
   static const String add = 'إضافة';
   static const String brokers = 'وسطاء';
@@ -341,6 +341,9 @@ class TTextAr {
   static const String pendingServices = 'الخدمات المعلقة';
   static const String pendingServicesTitle =
       'قائمة بجميع الخدمات التي حالتها معلقة';
+  static const String dragServices = 'اسحب لقبول الخدمة أو رفضها';
+  static const String accepted = 'قبول';
+  static const String reject = 'رفض';
   static const String allUserServices = 'جميع خدمات المستخدمين';
   static const String allUserServicesTitle =
       'قائمة بجميع خدمات المستخدمين في التطبيق';

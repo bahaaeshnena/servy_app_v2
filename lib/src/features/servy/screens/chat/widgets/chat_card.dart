@@ -23,7 +23,7 @@ class ChatCard extends StatelessWidget {
   Widget build(BuildContext context) {
     if (item.members == null || item.members!.isEmpty) {
       return const Center(
-        child: Text('No members found in this chat room.'),
+        child: Text(''),
       );
     }
 
@@ -32,9 +32,7 @@ class ChatCard extends StatelessWidget {
         .toList();
 
     if (filteredMembers.isEmpty) {
-      return const Center(
-        child: Text('No other members found in this chat room.'),
-      );
+      return const Center();
     }
 
     String userId = filteredMembers.first;
@@ -89,35 +87,30 @@ class ChatCard extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 style: Theme.of(context).textTheme.labelMedium,
               ),
-              trailing: StreamBuilder<QuerySnapshot>(
+              trailing: StreamBuilder(
                 stream: FirebaseFirestore.instance
                     .collection('rooms')
                     .doc(item.id)
                     .collection('messages')
                     .snapshots(),
                 builder: (context, messageSnapshot) {
-                  if (messageSnapshot.hasData && messageSnapshot.data != null) {
-                    final unReadList = messageSnapshot.data!.docs
-                        .map((e) =>
-                            Message.fromJson(e.data() as Map<String, dynamic>))
-                        .where((element) => element.read == "")
-                        .where((element) =>
-                            element.fromId !=
-                            FirebaseAuth.instance.currentUser!.uid)
-                        .toList();
+                  final unReadList = messageSnapshot.data?.docs
+                          .map((e) => Message.fromJson(e.data()))
+                          .where((element) => element.read == "")
+                          .where((element) =>
+                              element.fromId !=
+                              FirebaseAuth.instance.currentUser!.uid) ??
+                      [];
 
-                    return unReadList.isNotEmpty
-                        ? Badge(
-                            padding: const EdgeInsets.symmetric(horizontal: 12),
-                            label: Text(unReadList.length.toString()),
-                            largeSize: 30,
-                            backgroundColor: TColors.primaryColor,
-                          )
-                        : Text(MyDateTime.dateAndTime(item.lastMessageTime!)
-                            .toString());
-                  } else {
-                    return const SizedBox.shrink();
-                  }
+                  return unReadList.isNotEmpty
+                      ? Badge(
+                          padding: const EdgeInsets.symmetric(horizontal: 12),
+                          label: Text(unReadList.length.toString()),
+                          largeSize: 30,
+                          backgroundColor: TColors.primaryColor,
+                        )
+                      : Text(MyDateTime.dateAndTime(item.lastMessageTime!)
+                          .toString());
                 },
               ),
             ));

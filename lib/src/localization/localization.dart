@@ -274,6 +274,9 @@ class MyLocal implements Translations {
           //? Services Department
           'pendingServices': TTextAr.pendingServices,
           'pendingServicesTitle': TTextAr.pendingServicesTitle,
+          'dragServices': TTextAr.dragServices,
+          'accepted': TTextAr.accepted,
+          'reject': TTextAr.reject,
           'allUserServices': TTextAr.allUserServices,
           'allUserServicesTitle': TTextAr.allUserServicesTitle,
 
@@ -637,6 +640,9 @@ class MyLocal implements Translations {
           //? Services Department
           'pendingServices': TText.pendingServices,
           'pendingServicesTitle': TText.pendingServicesTitle,
+          'dragServices': TText.dragServices,
+          'accepted': TText.accepted,
+          'reject': TText.reject,
           'allUserServices': TText.allUserServices,
           'allUserServicesTitle': TText.allUserServicesTitle,
 

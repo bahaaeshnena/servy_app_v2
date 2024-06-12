@@ -353,6 +353,9 @@ class TText {
   static const String pendingServices = 'Pending services';
   static const String pendingServicesTitle =
       'List of all services whose status is pending';
+  static const String dragServices = 'Drag to accept or reject the service';
+  static const String accepted = 'accepted';
+  static const String reject = 'reject';
   static const String allUserServices = 'All users services';
   static const String allUserServicesTitle =
       'List of all users services in the application';

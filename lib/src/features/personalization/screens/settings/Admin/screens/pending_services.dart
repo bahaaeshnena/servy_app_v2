@@ -69,7 +69,7 @@ class PendingServices extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  'titleMyServiceScreen'.tr,
+                                  'dragServices'.tr,
                                   style:
                                       Theme.of(context).textTheme.headlineSmall,
                                 ),
@@ -89,7 +89,7 @@ class PendingServices extends StatelessWidget {
                                         : Colors.white,
                                     foregroundColor: Colors.greenAccent,
                                     autoClose: false,
-                                    label: 'accepted',
+                                    label: 'accepted'.tr,
                                     onPressed: ((context) {
                                       controller
                                           .acceptServices(service.serviceID);
@@ -103,7 +103,7 @@ class PendingServices extends StatelessWidget {
                                         : Colors.white,
                                     foregroundColor: Colors.red,
                                     autoClose: false,
-                                    label: 'reject',
+                                    label: 'reject'.tr,
                                     onPressed: (context) async {
                                       controller
                                           .deleteService(service.serviceID);
