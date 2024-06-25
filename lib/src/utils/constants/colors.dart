@@ -4,9 +4,10 @@ class TColors {
   TColors._();
 
 //--App Basic Colors
-  static const Color primaryColor = Color(0xFF4868FF);
+  static const Color primaryColor = Color(0xff8B93FF);
   static const Color secondry = Color(0xFFFFE24B);
-  static const Color accent = Color(0xFFb0c7ff);
+  static const Color accent = Color.fromARGB(255, 127, 208, 230);
+  static const Color chatColor = Color(0xff635985);
 
 //--Gradient Colors
   static const Gradient linerGradient = LinearGradient(
@@ -52,4 +53,5 @@ class TColors {
   static const Color darkerGrey = Color(0xFF4F4F4F);
   static const Color darkGrey = Color(0xFF939393);
   static const Color grey = Color(0xFFE0E0E0);
+  static const Color white = Color(0xFFFFFFFF);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:servy_app/src/utils/theme/custom_themes/appbar_theme.dart';
 import 'package:servy_app/src/utils/theme/custom_themes/buttom_sheet.dart';
 import 'package:servy_app/src/utils/theme/custom_themes/checkbox_theme.dart';
@@ -15,7 +16,7 @@ class TAppTheme {
     useMaterial3: true,
     fontFamily: 'Poppins',
     brightness: Brightness.light,
-    primaryColor: Colors.blue,
+    primaryColor: const Color(0xff8B93FF),
     textTheme: TTextTheme.lightTextTheme,
     chipTheme: TChipTheme.lightChipTheme,
     scaffoldBackgroundColor: Colors.white,
@@ -29,8 +30,8 @@ class TAppTheme {
   static ThemeData darkTheme = ThemeData(
     useMaterial3: true,
     fontFamily: 'Poppins',
-    brightness: Brightness.light,
-    primaryColor: Colors.blue,
+    brightness: Brightness.dark,
+    primaryColor: const Color(0xff8B93FF),
     textTheme: TTextTheme.darkTextTheme,
     chipTheme: TChipTheme.darkChipTheme,
     scaffoldBackgroundColor: Colors.black,

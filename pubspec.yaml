@@ -27,6 +27,11 @@ environment:
 # dependencies can be manually updated by changing the version numbers below to
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icons/icons_applcation_servy_app/servy_app_logo_splash.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
 dependencies:
   flutter:
     sdk: flutter
@@ -36,8 +41,40 @@ dependencies:
   cupertino_icons: ^1.0.2
   iconsax: ^0.0.8
   get: ^4.6.6
-  flutter_native_splash: ^2.3.2
+  flutter_native_splash: ^2.4.0
   smooth_page_indicator: ^1.1.0
+  firebase_core: ^2.27.1
+  font_awesome_flutter: ^10.7.0
+  get_storage: ^2.1.1
+  lottie: ^3.1.0
+  # connectivity_plus: ^6.0.1
+  connectivity_plus: ^5.0.1
+  firebase_auth: ^4.17.9
+  cloud_firestore: ^4.15.9
+  intl: ^0.19.0
+  google_sign_in: ^6.2.1
+  shimmer: ^3.0.0
+  image_picker: ^1.0.7
+  firebase_storage: ^11.6.11
+  cached_network_image: ^3.3.1
+  url_launcher: ^6.2.6
+  shared_preferences: ^2.2.3
+  fluttertoast: ^8.2.5
+  flutter_rating_bar: ^4.0.1
+  readmore: ^2.2.0
+  carousel_slider: ^4.2.1
+  uuid: ^4.4.0
+  drop_down_list: ^0.0.6
+  random_avatar: ^0.0.8
+  like_button: ^2.0.2
+  flutter_slidable: ^3.1.0
+  flip_card: ^0.6.0
+  patterns_canvas: ^0.4.0
+  sliding_up_panel: ^2.0.0+1
+  auto_size_text: ^3.0.0
+  flutter_launcher_icons: ^0.13.1
+  firebase_messaging: ^14.9.4
+  photo_view: ^0.15.0
 
 dev_dependencies:
   flutter_test:
@@ -48,7 +85,7 @@ dev_dependencies:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -61,11 +98,26 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
+
   assets:
     - assets/icons/
     - assets/images/
     - assets/logos/
     - assets/images/on_boarding_images/
+    - assets/images/login_images/
+    - assets/images/verify-images/
+    - assets/images/banners/
+    - assets/images/user/
+    - assets/images/cards_images/
+    - assets/images/Animation/
+    - assets/icons/categoty/
+    - assets/images/our_become_brokers/
+    - assets/images/brokers_images/
+    - assets/icons/language/
+    - assets/images/users_images/
+    - assets/images/payment/
+    - assets/images/profile/
+    - assets/icons/icons_applcation_servy_app/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
@@ -114,6 +166,13 @@ flutter:
     - family: Arvo-Regular
       fonts:
         - asset: assets/fonts/Arvo_font/Arvo-Regular.ttf
+
+    # - family: NimbusSanL
+    #   fonts:
+    #     - asset: fonts/NimbusSanL-Bol.ttf
+    #       weight: 700
+    #     - asset: fonts/NimbusSanL-RegIta.ttf
+    #       style: italic
 
   #
   # For details regarding fonts from package dependencies,
